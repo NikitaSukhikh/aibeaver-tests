@@ -1,6 +1,6 @@
 {
   "id": "auto-manufacturer-tech-spec-pilot",
-  "description": "100-question read-once pilot suite for Orion Apex Motors technical specification tables.",
+  "description": "100-question read-once pilot suite for cross-file Orion Apex Motors technical specification reasoning.",
   "context_paths": [
     "unpacked/content/main.md",
     "unpacked/tables/vehicle_variant_configuration_specs.csv",

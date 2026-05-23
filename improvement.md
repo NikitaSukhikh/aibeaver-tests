@@ -1,0 +1,3 @@
+Check datasets\auto-manufacturer-tech-spec\qa_pilot_questions.jsonl and compare these questions with the source of truth: datasets\auto-manufacturer-tech-spec\unpacked
+
+Your task is adjust/change/replace/keep as-is the existing questions, so that they (not nesessarily all of them) would reflect interconnections between provided ground truth files, so that LLM agent would need to inspect at least two provided files, not one, for generating best responce. 

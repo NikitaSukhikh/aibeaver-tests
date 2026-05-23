@@ -31,6 +31,8 @@ Useful smoke test:
 python tests\llm_plain_eval\run_plain_eval.py --dry-run --limit 2
 ```
 
+Each run gives each provider the shared unpacked dataset context plus the full question set. It does not write per-question prompt files.
+
 Each run writes:
 
 - `run_config.json`
@@ -40,5 +42,4 @@ Each run writes:
 - `summary.md`
 - `comparison.svg`
 - `comparison.html`
-- `prompts\*.txt`
-
+- `raw_responses\{provider}.txt`

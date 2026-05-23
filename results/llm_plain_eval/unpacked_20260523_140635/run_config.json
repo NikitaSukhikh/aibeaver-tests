@@ -1,0 +1,34 @@
+{
+  "dataset_dir": "D:\\aibeaver-tests\\datasets\\auto-manufacturer-tech-spec\\unpacked",
+  "questions_path": "D:\\aibeaver-tests\\datasets\\auto-manufacturer-tech-spec\\qa_pilot_questions.jsonl",
+  "included_context_paths": [
+    "content/main.md",
+    "tables/vehicle_variant_configuration_specs.csv",
+    "tables/powertrain_calibration_specs.csv",
+    "tables/battery_pack_module_specs.csv",
+    "tables/chassis_brake_validation_specs.csv",
+    "tables/production_quality_measurements.csv"
+  ],
+  "question_count": 100,
+  "providers": [
+    {
+      "name": "openai",
+      "model": "gpt-4.1-mini",
+      "api_key_env": "OPENAI_API_KEY"
+    },
+    {
+      "name": "anthropic",
+      "model": "claude-sonnet-4-5",
+      "api_key_env": "ANTHROPIC_API_KEY"
+    },
+    {
+      "name": "xai",
+      "model": "grok-4.3",
+      "api_key_env": "XAI_API_KEY"
+    }
+  ],
+  "max_output_tokens": 12000,
+  "timeout_seconds": 120,
+  "retries": 2,
+  "dry_run": false
+}

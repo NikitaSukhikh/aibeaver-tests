@@ -24,6 +24,7 @@ DEFAULT_RESULTS_ROOT = Path("results/llm_plain_eval")
 DEFAULT_OPENAI_MODEL = "gpt-4.1-mini"
 DEFAULT_ANTHROPIC_MODEL = "claude-sonnet-4-5"
 DEFAULT_XAI_MODEL = "grok-4.3"
+DEFAULT_MAX_OUTPUT_TOKENS = 12000
 
 
 @dataclass(frozen=True)
@@ -35,7 +36,7 @@ class ProviderConfig:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Evaluate OpenAI and Anthropic answers against expected_contains checks."
+        description="Evaluate provider answers against expected_contains checks."
     )
     parser.add_argument("--dataset-dir", type=Path, default=DEFAULT_DATASET_DIR)
     parser.add_argument("--questions", type=Path, default=DEFAULT_QUESTIONS_PATH)
@@ -52,13 +53,13 @@ def parse_args() -> argparse.Namespace:
         default=["openai", "anthropic", "xai"],
     )
     parser.add_argument("--limit", type=int, default=None, help="Run only the first N questions.")
-    parser.add_argument("--max-output-tokens", type=int, default=700)
+    parser.add_argument("--max-output-tokens", type=int, default=DEFAULT_MAX_OUTPUT_TOKENS)
     parser.add_argument("--timeout-seconds", type=int, default=120)
     parser.add_argument("--retries", type=int, default=2)
     parser.add_argument(
         "--dry-run",
         action="store_true",
-        help="Build the result directory and prompts without calling provider APIs.",
+        help="Build the result directory and reports without calling provider APIs.",
     )
     return parser.parse_args()
 
@@ -120,15 +121,26 @@ def build_context(dataset_dir: Path) -> tuple[str, list[str]]:
     return "\n\n---\n\n".join(parts), included_paths
 
 
-def make_prompt(context: str, question: str) -> str:
+def make_eval_prompt(context: str, questions: list[dict[str, Any]]) -> str:
+    question_payload = [
+        {
+            "id": question["id"],
+            "question": question["prompt"],
+        }
+        for question in questions
+    ]
     return (
-        "Use only the dataset context below to answer the question. "
+        "Use only the dataset context below to answer every question in the question set. "
         "Prefer exact IDs, field names, and numeric values from the tables. "
-        "Keep the answer concise and include enough detail for a substring-based evaluator.\n\n"
+        "Keep each answer concise and include enough detail for a substring-based evaluator.\n"
+        "Return JSON only, with this exact shape:\n"
+        '{"answers":[{"id":"question id","answer":"concise answer"}]}\n\n'
         "<dataset_context>\n"
         f"{context}\n"
         "</dataset_context>\n\n"
-        f"Question: {question}"
+        "<question_set>\n"
+        f"{json.dumps(question_payload, ensure_ascii=False, indent=2)}\n"
+        "</question_set>"
     )
 
 
@@ -303,6 +315,44 @@ def score_answer(answer: str, expected_contains: list[Any]) -> dict[str, Any]:
         "expected_count": len(checks),
         "checks": checks,
     }
+
+
+def extract_json_object(text: str) -> dict[str, Any]:
+    stripped = text.strip()
+    if stripped.startswith("```"):
+        stripped = re.sub(r"^```(?:json)?\s*", "", stripped, flags=re.IGNORECASE)
+        stripped = re.sub(r"\s*```$", "", stripped)
+
+    try:
+        value = json.loads(stripped)
+    except json.JSONDecodeError:
+        start = stripped.find("{")
+        end = stripped.rfind("}")
+        if start == -1 or end == -1 or end <= start:
+            raise
+        value = json.loads(stripped[start : end + 1])
+
+    if not isinstance(value, dict):
+        raise ValueError("Provider response JSON must be an object.")
+    return value
+
+
+def parse_answer_map(text: str) -> dict[str, str]:
+    data = extract_json_object(text)
+    answers = data.get("answers")
+    if not isinstance(answers, list):
+        raise ValueError("Provider response JSON must contain an 'answers' array.")
+
+    answer_map: dict[str, str] = {}
+    for item in answers:
+        if not isinstance(item, dict):
+            continue
+        question_id = item.get("id")
+        answer = item.get("answer")
+        if question_id is None or answer is None:
+            continue
+        answer_map[str(question_id)] = str(answer).strip()
+    return answer_map
 
 
 def call_with_retries(
@@ -727,8 +777,8 @@ def main() -> int:
 
     all_rows: list[dict[str, Any]] = []
     summary_providers: list[dict[str, Any]] = []
-    prompts_dir = output_dir / "prompts"
-    prompts_dir.mkdir()
+    raw_responses_dir = output_dir / "raw_responses"
+    raw_responses_dir.mkdir()
 
     run_config = {
         "dataset_dir": str(dataset_dir),
@@ -745,32 +795,49 @@ def main() -> int:
 
     for config in configs:
         provider_rows: list[dict[str, Any]] = []
-        for index, question in enumerate(questions, start=1):
-            prompt = make_prompt(context, question["prompt"])
-            (prompts_dir / f"{question['id']}.txt").write_text(prompt, encoding="utf-8")
-            started = time.perf_counter()
+        eval_prompt = make_eval_prompt(context, questions)
+        started = time.perf_counter()
+        raw_response_path = raw_responses_dir / f"{config.name}.txt"
 
-            if args.dry_run:
-                answer = ""
-                metadata: dict[str, Any] = {"dry_run": True}
-                error = None
+        if args.dry_run:
+            raw_answer = json.dumps({"answers": []}, ensure_ascii=False)
+            metadata: dict[str, Any] = {"dry_run": True}
+            provider_error = None
+            answer_map: dict[str, str] = {}
+        else:
+            try:
+                raw_answer, metadata = call_with_retries(
+                    config.name,
+                    eval_prompt,
+                    config.model,
+                    args.max_output_tokens,
+                    args.timeout_seconds,
+                    args.retries,
+                )
+                provider_error = None
+            except Exception as exc:  # noqa: BLE001 - write failed question and continue.
+                raw_answer = ""
+                metadata = {}
+                provider_error = str(exc)
+
+            if provider_error:
+                answer_map = {}
             else:
                 try:
-                    answer, metadata = call_with_retries(
-                        config.name,
-                        prompt,
-                        config.model,
-                        args.max_output_tokens,
-                        args.timeout_seconds,
-                        args.retries,
-                    )
-                    error = None
-                except Exception as exc:  # noqa: BLE001 - write failed question and continue.
-                    answer = ""
-                    metadata = {}
-                    error = str(exc)
+                    answer_map = parse_answer_map(raw_answer)
+                except Exception as exc:  # noqa: BLE001 - keep parse failure in result rows.
+                    answer_map = {}
+                    provider_error = f"Could not parse provider JSON response: {exc}"
 
-            elapsed_seconds = round(time.perf_counter() - started, 3)
+        raw_response_path.write_text(raw_answer, encoding="utf-8")
+        elapsed_seconds = round(time.perf_counter() - started, 3)
+
+        for index, question in enumerate(questions, start=1):
+            answer = answer_map.get(question["id"], "")
+            error = provider_error
+            if not error and not answer and not args.dry_run:
+                error = "Provider response did not include an answer for this question."
+
             score = (
                 score_answer(answer, question["expected_contains"])
                 if not error and not args.dry_run
@@ -782,12 +849,15 @@ def main() -> int:
                 "question_index": index,
                 "question_id": question["id"],
                 "family_id": question.get("family_id"),
-                "prompt": question["prompt"],
+                "question": question["prompt"],
                 "expected_contains": question["expected_contains"],
                 "answer": answer,
                 "score": score,
                 "error": error,
-                "metadata": metadata,
+                "metadata": {
+                    **metadata,
+                    "raw_response_path": raw_response_path.relative_to(output_dir).as_posix(),
+                },
                 "elapsed_seconds": elapsed_seconds,
             }
             provider_rows.append(row)

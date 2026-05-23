@@ -24,6 +24,7 @@ Defaults:
 - OpenAI model: `gpt-4.1-mini`, override with `--openai-model` or `OPENAI_MODEL`
 - Anthropic model: `claude-sonnet-4-5`, override with `--anthropic-model` or `ANTHROPIC_MODEL`
 - xAI model: `grok-4.3`, override with `--xai-model` or `XAI_MODEL`
+- Temperature: `0.0`, override with `--temperature`
 
 Useful smoke test:
 
@@ -31,7 +32,7 @@ Useful smoke test:
 python tests\llm_plain_eval\run_plain_eval.py --dry-run --limit 2
 ```
 
-Each run gives each provider the shared unpacked dataset context plus the full question set. It does not write per-question prompt files.
+Each provider call receives the shared unpacked dataset context plus a small batch of questions. The default `--batch-size 1` avoids asking a model to solve all 100 table-reasoning questions in one response. It does not write per-question prompt files.
 
 Each run writes:
 
@@ -42,4 +43,4 @@ Each run writes:
 - `summary.md`
 - `comparison.svg`
 - `comparison.html`
-- `raw_responses\{provider}.txt`
+- `raw_responses\{provider}_raw.jsonl`

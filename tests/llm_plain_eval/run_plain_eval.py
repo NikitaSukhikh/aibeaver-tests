@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import html
 import json
 import os
@@ -53,7 +54,21 @@ def parse_args() -> argparse.Namespace:
         default=["openai", "anthropic", "xai"],
     )
     parser.add_argument("--limit", type=int, default=None, help="Run only the first N questions.")
+    parser.add_argument(
+        "--eval-mode",
+        choices=["kb_agent", "plain_context"],
+        default="kb_agent",
+        help="kb_agent lets the model navigate/query files; plain_context pastes dataset text.",
+    )
+    parser.add_argument("--max-tool-steps", type=int, default=8)
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=1,
+        help="Number of questions to ask in each provider call.",
+    )
     parser.add_argument("--max-output-tokens", type=int, default=DEFAULT_MAX_OUTPUT_TOKENS)
+    parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--timeout-seconds", type=int, default=120)
     parser.add_argument("--retries", type=int, default=2)
     parser.add_argument(
@@ -121,6 +136,230 @@ def build_context(dataset_dir: Path) -> tuple[str, list[str]]:
     return "\n\n---\n\n".join(parts), included_paths
 
 
+def dataset_file_index(dataset_dir: Path) -> list[str]:
+    return [
+        path.relative_to(dataset_dir).as_posix()
+        for path in sorted(dataset_dir.rglob("*"))
+        if path.is_file()
+    ]
+
+
+def load_manifest(dataset_dir: Path) -> dict[str, Any]:
+    manifest_path = dataset_dir / "manifest.json"
+    if not manifest_path.exists():
+        raise FileNotFoundError(f"Dataset manifest not found: {manifest_path}")
+    return json.loads(manifest_path.read_text(encoding="utf-8"))
+
+
+def table_paths(dataset_dir: Path) -> dict[str, Path]:
+    manifest = load_manifest(dataset_dir)
+    return {
+        str(table["id"]): dataset_dir / str(table["data"])
+        for table in manifest.get("tables", [])
+    }
+
+
+def load_table_rows(dataset_dir: Path, table_id: str) -> list[dict[str, str]]:
+    paths = table_paths(dataset_dir)
+    if table_id not in paths:
+        raise ValueError(f"Unknown table: {table_id}")
+    with paths[table_id].open("r", encoding="utf-8", newline="") as handle:
+        return list(csv.DictReader(handle))
+
+
+def table_summary(dataset_dir: Path) -> list[dict[str, Any]]:
+    summaries: list[dict[str, Any]] = []
+    for table_id, path in table_paths(dataset_dir).items():
+        with path.open("r", encoding="utf-8", newline="") as handle:
+            reader = csv.DictReader(handle)
+            rows = list(reader)
+        summaries.append(
+            {
+                "table": table_id,
+                "path": path.relative_to(dataset_dir).as_posix(),
+                "row_count": len(rows),
+                "columns": reader.fieldnames or [],
+            }
+        )
+    return summaries
+
+
+def kb_dataset_summary(dataset_dir: Path) -> str:
+    manifest = load_manifest(dataset_dir)
+    summary = {
+        "title": manifest.get("title"),
+        "entrypoint": manifest.get("entrypoint"),
+        "files": dataset_file_index(dataset_dir),
+        "tables": table_summary(dataset_dir),
+    }
+    return json.dumps(summary, ensure_ascii=False, indent=2)
+
+
+def safe_dataset_path(dataset_dir: Path, relative_path: str) -> Path:
+    path = (dataset_dir / relative_path).resolve()
+    root = dataset_dir.resolve()
+    if root != path and root not in path.parents:
+        raise ValueError(f"Path escapes dataset directory: {relative_path}")
+    if not path.exists() or not path.is_file():
+        raise FileNotFoundError(f"Dataset file not found: {relative_path}")
+    return path
+
+
+def to_number(value: Any) -> float | None:
+    try:
+        if value is None or value == "":
+            return None
+        return float(str(value).replace(",", ""))
+    except ValueError:
+        return None
+
+
+def compare_values(actual: Any, op: str, expected: Any) -> bool:
+    actual_number = to_number(actual)
+    expected_number = to_number(expected)
+    if actual_number is not None and expected_number is not None:
+        if op == "eq":
+            return actual_number == expected_number
+        if op == "ne":
+            return actual_number != expected_number
+        if op == "gt":
+            return actual_number > expected_number
+        if op == "gte":
+            return actual_number >= expected_number
+        if op == "lt":
+            return actual_number < expected_number
+        if op == "lte":
+            return actual_number <= expected_number
+
+    actual_text = str(actual).casefold()
+    expected_text = str(expected).casefold()
+    if op == "eq":
+        return actual_text == expected_text
+    if op == "ne":
+        return actual_text != expected_text
+    if op == "contains":
+        return expected_text in actual_text
+    if op == "startswith":
+        return actual_text.startswith(expected_text)
+    if op == "endswith":
+        return actual_text.endswith(expected_text)
+    raise ValueError(f"Unsupported filter op: {op}")
+
+
+def row_value(row: dict[str, Any], column: str) -> Any:
+    if column in row:
+        return row[column]
+    matches = [value for key, value in row.items() if key.endswith(f".{column}")]
+    if len(matches) == 1:
+        return matches[0]
+    raise ValueError(f"Unknown or ambiguous column: {column}")
+
+
+def apply_filters(rows: list[dict[str, Any]], filters: list[dict[str, Any]] | None) -> list[dict[str, Any]]:
+    if not filters:
+        return rows
+    filtered = rows
+    for item in filters:
+        column = str(item["column"])
+        op = str(item.get("op", "eq"))
+        value = item.get("value")
+        filtered = [row for row in filtered if compare_values(row_value(row, column), op, value)]
+    return filtered
+
+
+def sort_rows(rows: list[dict[str, Any]], sort_by: str | None, sort_desc: bool) -> list[dict[str, Any]]:
+    if not sort_by:
+        return rows
+
+    def key(row: dict[str, Any]) -> tuple[int, Any]:
+        value = row_value(row, sort_by)
+        number = to_number(value)
+        if number is not None:
+            return (0, number)
+        return (1, str(value).casefold())
+
+    return sorted(rows, key=key, reverse=sort_desc)
+
+
+def project_rows(rows: list[dict[str, Any]], columns: list[str] | None) -> list[dict[str, Any]]:
+    if not columns:
+        return rows
+    return [{column: row_value(row, column) for column in columns} for row in rows]
+
+
+def execute_kb_tool(dataset_dir: Path, tool: str, args: dict[str, Any]) -> dict[str, Any]:
+    if tool == "list_files":
+        return {"files": dataset_file_index(dataset_dir)}
+
+    if tool == "read_text":
+        path = safe_dataset_path(dataset_dir, str(args["path"]))
+        max_chars = min(int(args.get("max_chars", 12000)), 40000)
+        return {
+            "path": path.relative_to(dataset_dir).as_posix(),
+            "text": path.read_text(encoding="utf-8")[:max_chars],
+        }
+
+    if tool == "search_text":
+        query = str(args["query"]).casefold()
+        paths = [str(args["path"])] if args.get("path") else dataset_file_index(dataset_dir)
+        limit = min(int(args.get("limit", 20)), 100)
+        matches: list[dict[str, Any]] = []
+        for relative in paths:
+            path = safe_dataset_path(dataset_dir, relative)
+            for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+                if query in line.casefold():
+                    matches.append({"path": relative, "line": line_number, "text": line[:1000]})
+                    if len(matches) >= limit:
+                        return {"matches": matches}
+        return {"matches": matches}
+
+    if tool == "table_info":
+        table_id = str(args["table"])
+        for item in table_summary(dataset_dir):
+            if item["table"] == table_id:
+                sample_rows = load_table_rows(dataset_dir, table_id)[: min(int(args.get("sample", 3)), 10)]
+                return {**item, "sample_rows": sample_rows}
+        raise ValueError(f"Unknown table: {table_id}")
+
+    if tool == "table_select":
+        rows = load_table_rows(dataset_dir, str(args["table"]))
+        rows = apply_filters(rows, args.get("filters"))
+        rows = sort_rows(rows, args.get("sort_by"), bool(args.get("sort_desc", False)))
+        limit = min(int(args.get("limit", 20)), 200)
+        return {
+            "total_matches": len(rows),
+            "rows": project_rows(rows[:limit], args.get("columns")),
+        }
+
+    if tool == "table_join":
+        left_table = str(args["left_table"])
+        right_table = str(args["right_table"])
+        left_key = str(args["left_key"])
+        right_key = str(args["right_key"])
+        left_rows = load_table_rows(dataset_dir, left_table)
+        right_rows = load_table_rows(dataset_dir, right_table)
+        right_index: dict[str, list[dict[str, str]]] = {}
+        for right in right_rows:
+            right_index.setdefault(right[right_key], []).append(right)
+
+        joined: list[dict[str, Any]] = []
+        for left in left_rows:
+            for right in right_index.get(left[left_key], []):
+                row = {f"left.{key}": value for key, value in left.items()}
+                row.update({f"right.{key}": value for key, value in right.items()})
+                joined.append(row)
+
+        joined = apply_filters(joined, args.get("filters"))
+        joined = sort_rows(joined, args.get("sort_by"), bool(args.get("sort_desc", False)))
+        limit = min(int(args.get("limit", 20)), 200)
+        return {
+            "total_matches": len(joined),
+            "rows": project_rows(joined[:limit], args.get("columns")),
+        }
+
+    raise ValueError(f"Unknown tool: {tool}")
+
+
 def make_eval_prompt(context: str, questions: list[dict[str, Any]]) -> str:
     question_payload = [
         {
@@ -182,6 +421,7 @@ def call_openai(
     prompt: str,
     model: str,
     max_output_tokens: int,
+    temperature: float,
     timeout_seconds: int,
 ) -> tuple[str, dict[str, Any]]:
     api_key = require_env("OPENAI_API_KEY")
@@ -189,6 +429,7 @@ def call_openai(
         "model": model,
         "input": prompt,
         "max_output_tokens": max_output_tokens,
+        "temperature": temperature,
     }
     response, headers = http_json(
         "https://api.openai.com/v1/responses",
@@ -211,12 +452,14 @@ def call_anthropic(
     prompt: str,
     model: str,
     max_output_tokens: int,
+    temperature: float,
     timeout_seconds: int,
 ) -> tuple[str, dict[str, Any]]:
     api_key = require_env("ANTHROPIC_API_KEY")
     payload = {
         "model": model,
         "max_tokens": max_output_tokens,
+        "temperature": temperature,
         "messages": [{"role": "user", "content": prompt}],
     }
     response, headers = http_json(
@@ -246,6 +489,7 @@ def call_xai(
     prompt: str,
     model: str,
     max_output_tokens: int,
+    temperature: float,
     timeout_seconds: int,
 ) -> tuple[str, dict[str, Any]]:
     api_key = require_env("XAI_API_KEY")
@@ -253,6 +497,7 @@ def call_xai(
         "model": model,
         "messages": [{"role": "user", "content": prompt}],
         "max_tokens": max_output_tokens,
+        "temperature": temperature,
         "stream": False,
     }
     response, headers = http_json(
@@ -355,11 +600,139 @@ def parse_answer_map(text: str) -> dict[str, str]:
     return answer_map
 
 
+def make_kb_agent_prompt(
+    dataset_summary: str,
+    question: dict[str, Any],
+    observations: list[dict[str, Any]],
+) -> str:
+    tool_docs = {
+        "list_files": {},
+        "read_text": {"path": "content/main.md", "max_chars": 12000},
+        "search_text": {"query": "CHS-00982", "path": "tables/chassis_brake_validation_specs.csv", "limit": 10},
+        "table_info": {"table": "chassis_brake_validation_specs", "sample": 3},
+        "table_select": {
+            "table": "chassis_brake_validation_specs",
+            "columns": ["test_id", "vehicle_variant", "stop_distance_100_0_m"],
+            "filters": [{"column": "stop_distance_100_0_m", "op": "lt", "value": 35}],
+            "sort_by": "stop_distance_100_0_m",
+            "sort_desc": False,
+            "limit": 5,
+        },
+        "table_join": {
+            "left_table": "chassis_brake_validation_specs",
+            "right_table": "vehicle_variant_configuration_specs",
+            "left_key": "vehicle_variant",
+            "right_key": "variant_id",
+            "columns": ["left.test_id", "left.vehicle_variant", "left.stop_distance_100_0_m", "right.body_style"],
+            "filters": [{"column": "right.trim_level", "op": "eq", "value": "Sport"}],
+            "sort_by": "left.stop_distance_100_0_m",
+            "sort_desc": False,
+            "limit": 5,
+        },
+    }
+    return (
+        "You are a knowledge-base assistant with access to the unpacked dataset through tools. "
+        "Use the tools to inspect files and query CSV tables. Do not guess from memory. "
+        "Return exactly one JSON object and no prose.\n\n"
+        "If you need data, return: "
+        '{"tool":"tool_name","args":{...}}\n'
+        "When you know the answer, return: "
+        '{"answer":"concise answer containing exact IDs, field values, and numbers"}\n\n'
+        "Available tools and argument examples:\n"
+        f"{json.dumps(tool_docs, ensure_ascii=False, indent=2)}\n\n"
+        "Dataset index:\n"
+        f"{dataset_summary}\n\n"
+        "Question:\n"
+        f"{json.dumps({'id': question['id'], 'question': question['prompt']}, ensure_ascii=False, indent=2)}\n\n"
+        "Previous tool observations:\n"
+        f"{json.dumps(observations, ensure_ascii=False, indent=2)}"
+    )
+
+
+def parse_agent_action(text: str) -> dict[str, Any]:
+    action = extract_json_object(text)
+    if "answer" in action:
+        return {"answer": str(action["answer"])}
+    if "tool" in action:
+        args = action.get("args", {})
+        if not isinstance(args, dict):
+            raise ValueError("Tool action 'args' must be an object.")
+        return {"tool": str(action["tool"]), "args": args}
+    raise ValueError("Agent response must contain either 'tool' or 'answer'.")
+
+
+def run_kb_agent_question(
+    *,
+    dataset_dir: Path,
+    dataset_summary: str,
+    provider: str,
+    model: str,
+    question: dict[str, Any],
+    max_output_tokens: int,
+    temperature: float,
+    timeout_seconds: int,
+    retries: int,
+    max_tool_steps: int,
+    dry_run: bool,
+) -> tuple[str, dict[str, Any], list[dict[str, Any]], str | None]:
+    if dry_run:
+        return "", {"dry_run": True}, [], None
+
+    observations: list[dict[str, Any]] = []
+    trace: list[dict[str, Any]] = []
+    metadata: dict[str, Any] = {}
+    for step in range(1, max_tool_steps + 1):
+        prompt = make_kb_agent_prompt(dataset_summary, question, observations)
+        raw, metadata = call_with_retries(
+            provider,
+            prompt,
+            model,
+            max_output_tokens,
+            temperature,
+            timeout_seconds,
+            retries,
+        )
+        try:
+            action = parse_agent_action(raw)
+        except Exception as exc:  # noqa: BLE001
+            trace.append({"step": step, "raw": raw, "error": str(exc)})
+            return "", metadata, trace, f"Could not parse agent action: {exc}"
+
+        trace_item: dict[str, Any] = {"step": step, "raw": raw, "action": action}
+        if "answer" in action:
+            trace.append(trace_item)
+            return action["answer"], metadata, trace, None
+
+        try:
+            observation = execute_kb_tool(dataset_dir, action["tool"], action["args"])
+        except Exception as exc:  # noqa: BLE001
+            observation = {"error": str(exc)}
+        trace_item["observation"] = observation
+        trace.append(trace_item)
+        observations.append(
+            {
+                "step": step,
+                "tool": action["tool"],
+                "args": action["args"],
+                "observation": observation,
+            }
+        )
+
+    return "", metadata, trace, f"Agent did not answer within {max_tool_steps} tool steps."
+
+
+def batches(items: list[dict[str, Any]], size: int) -> list[list[dict[str, Any]]]:
+    if size < 1:
+        raise ValueError("--batch-size must be >= 1.")
+    return [items[index : index + size] for index in range(0, len(items), size)]
+
+
 def call_with_retries(
     provider: str,
     prompt: str,
     model: str,
     max_output_tokens: int,
+    temperature: float,
     timeout_seconds: int,
     retries: int,
 ) -> tuple[str, dict[str, Any]]:
@@ -372,7 +745,7 @@ def call_with_retries(
     last_error: Exception | None = None
     for attempt in range(retries + 1):
         try:
-            return call(prompt, model, max_output_tokens, timeout_seconds)
+            return call(prompt, model, max_output_tokens, temperature, timeout_seconds)
         except Exception as exc:  # noqa: BLE001 - preserve provider errors in result files.
             last_error = exc
             if attempt < retries:
@@ -772,11 +1145,18 @@ def main() -> int:
     questions = read_jsonl(questions_path)
     if args.limit is not None:
         questions = questions[: args.limit]
-    context, included_context_paths = build_context(dataset_dir)
+    if args.eval_mode == "plain_context":
+        context, included_context_paths = build_context(dataset_dir)
+        dataset_summary = ""
+    else:
+        context = ""
+        included_context_paths = dataset_file_index(dataset_dir)
+        dataset_summary = kb_dataset_summary(dataset_dir)
     output_dir = make_output_dir(args.results_root, dataset_dir)
 
     all_rows: list[dict[str, Any]] = []
     summary_providers: list[dict[str, Any]] = []
+    question_positions = {question["id"]: index for index, question in enumerate(questions, start=1)}
     raw_responses_dir = output_dir / "raw_responses"
     raw_responses_dir.mkdir()
 
@@ -785,8 +1165,12 @@ def main() -> int:
         "questions_path": str(questions_path),
         "included_context_paths": included_context_paths,
         "question_count": len(questions),
+        "eval_mode": args.eval_mode,
         "providers": [config.__dict__ for config in configs],
         "max_output_tokens": args.max_output_tokens,
+        "temperature": args.temperature,
+        "batch_size": args.batch_size,
+        "max_tool_steps": args.max_tool_steps,
         "timeout_seconds": args.timeout_seconds,
         "retries": args.retries,
         "dry_run": args.dry_run,
@@ -795,81 +1179,102 @@ def main() -> int:
 
     for config in configs:
         provider_rows: list[dict[str, Any]] = []
-        eval_prompt = make_eval_prompt(context, questions)
-        started = time.perf_counter()
-        raw_response_path = raw_responses_dir / f"{config.name}.txt"
+        raw_response_rows: list[dict[str, Any]] = []
+        raw_response_path = raw_responses_dir / f"{config.name}_raw.jsonl"
 
-        if args.dry_run:
-            raw_answer = json.dumps({"answers": []}, ensure_ascii=False)
-            metadata: dict[str, Any] = {"dry_run": True}
-            provider_error = None
-            answer_map: dict[str, str] = {}
-        else:
-            try:
-                raw_answer, metadata = call_with_retries(
-                    config.name,
-                    eval_prompt,
-                    config.model,
-                    args.max_output_tokens,
-                    args.timeout_seconds,
-                    args.retries,
-                )
-                provider_error = None
-            except Exception as exc:  # noqa: BLE001 - write failed question and continue.
-                raw_answer = ""
-                metadata = {}
-                provider_error = str(exc)
-
-            if provider_error:
-                answer_map = {}
-            else:
-                try:
-                    answer_map = parse_answer_map(raw_answer)
-                except Exception as exc:  # noqa: BLE001 - keep parse failure in result rows.
-                    answer_map = {}
-                    provider_error = f"Could not parse provider JSON response: {exc}"
-
-        raw_response_path.write_text(raw_answer, encoding="utf-8")
-        elapsed_seconds = round(time.perf_counter() - started, 3)
-
-        for index, question in enumerate(questions, start=1):
-            answer = answer_map.get(question["id"], "")
-            error = provider_error
-            if not error and not answer and not args.dry_run:
-                error = "Provider response did not include an answer for this question."
-
-            score = (
-                score_answer(answer, question["expected_contains"])
-                if not error and not args.dry_run
-                else None
-            )
-            row = {
-                "provider": config.name,
-                "model": config.model,
-                "question_index": index,
-                "question_id": question["id"],
-                "family_id": question.get("family_id"),
-                "question": question["prompt"],
-                "expected_contains": question["expected_contains"],
-                "answer": answer,
-                "score": score,
-                "error": error,
-                "metadata": {
-                    **metadata,
-                    "raw_response_path": raw_response_path.relative_to(output_dir).as_posix(),
-                },
-                "elapsed_seconds": elapsed_seconds,
-            }
-            provider_rows.append(row)
-            all_rows.append(row)
+        for batch_index, question_batch in enumerate(batches(questions, args.batch_size), start=1):
+            eval_prompt = make_eval_prompt(context, question_batch)
+            started = time.perf_counter()
+            question_ids = [question["id"] for question in question_batch]
 
             if args.dry_run:
-                status = "DRY"
-            elif error:
-                status = "ERROR"
+                raw_answer = json.dumps({"answers": []}, ensure_ascii=False)
+                metadata: dict[str, Any] = {"dry_run": True}
+                provider_error = None
+                answer_map: dict[str, str] = {}
             else:
-                status = "PASS" if score and score["passed"] else "FAIL"
-            print(f"{config.name} {index}/{len(questions)} {question['id']}: {status}", flush=True)
+                try:
+                    raw_answer, metadata = call_with_retries(
+                        config.name,
+                        eval_prompt,
+                        config.model,
+                        args.max_output_tokens,
+                        args.temperature,
+                        args.timeout_seconds,
+                        args.retries,
+                    )
+                    provider_error = None
+                except Exception as exc:  # noqa: BLE001 - write failed batch and continue.
+                    raw_answer = ""
+                    metadata = {}
+                    provider_error = str(exc)
+
+                if provider_error:
+                    answer_map = {}
+                else:
+                    try:
+                        answer_map = parse_answer_map(raw_answer)
+                    except Exception as exc:  # noqa: BLE001 - keep parse failure in result rows.
+                        answer_map = {}
+                        provider_error = f"Could not parse provider JSON response: {exc}"
+
+            elapsed_seconds = round(time.perf_counter() - started, 3)
+            raw_response_rows.append(
+                {
+                    "provider": config.name,
+                    "model": config.model,
+                    "batch_index": batch_index,
+                    "question_ids": question_ids,
+                    "raw_answer": raw_answer,
+                    "error": provider_error,
+                    "metadata": metadata,
+                    "elapsed_seconds": elapsed_seconds,
+                }
+            )
+
+            for question in question_batch:
+                index = question_positions[question["id"]]
+                answer = answer_map.get(question["id"], "")
+                error = provider_error
+                if not error and not answer and not args.dry_run:
+                    error = "Provider response did not include an answer for this question."
+
+                score = (
+                    score_answer(answer, question["expected_contains"])
+                    if not error and not args.dry_run
+                    else None
+                )
+                row = {
+                    "provider": config.name,
+                    "model": config.model,
+                    "question_index": index,
+                    "question_id": question["id"],
+                    "family_id": question.get("family_id"),
+                    "question": question["prompt"],
+                    "expected_contains": question["expected_contains"],
+                    "answer": answer,
+                    "score": score,
+                    "error": error,
+                    "metadata": {
+                        **metadata,
+                        "batch_index": batch_index,
+                        "raw_response_path": raw_response_path.relative_to(output_dir).as_posix(),
+                    },
+                    "elapsed_seconds": elapsed_seconds,
+                }
+                provider_rows.append(row)
+                all_rows.append(row)
+
+                if args.dry_run:
+                    status = "DRY"
+                elif error:
+                    status = "ERROR"
+                else:
+                    status = "PASS" if score and score["passed"] else "FAIL"
+                print(
+                    f"{config.name} {index}/{len(questions)} {question['id']}: {status}",
+                    flush=True,
+                )
 
         passed = sum(1 for row in provider_rows if row["score"] and row["score"]["passed"])
         scored = sum(1 for row in provider_rows if row["score"] is not None)
@@ -888,6 +1293,7 @@ def main() -> int:
             }
         )
         write_jsonl(output_dir / f"{config.name}_results.jsonl", provider_rows)
+        write_jsonl(raw_response_path, raw_response_rows)
 
     summary = {
         "created_at": datetime.now().isoformat(timespec="seconds"),

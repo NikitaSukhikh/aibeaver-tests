@@ -1,0 +1,1 @@
+All tests are provider-agnostic, and shall include at least two providers: OpanAI and Anthropic

@@ -1,0 +1,13 @@
+{
+  "id": "auto-manufacturer-tech-spec",
+  "description": "Read-once evaluation suite for Orion Apex Motors technical specification tables.",
+  "context_paths": [
+    "unpacked/content/main.md",
+    "unpacked/tables/vehicle_variant_configuration_specs.csv",
+    "unpacked/tables/powertrain_calibration_specs.csv",
+    "unpacked/tables/battery_pack_module_specs.csv",
+    "unpacked/tables/chassis_brake_validation_specs.csv",
+    "unpacked/tables/production_quality_measurements.csv"
+  ],
+  "questions_path": "qa_questions.jsonl"
+}

@@ -1,0 +1,18 @@
+{
+  "created_at": "2026-05-23T14:22:50",
+  "dataset_dir": "D:\\aibeaver-tests\\datasets\\auto-manufacturer-tech-spec\\unpacked",
+  "questions_path": "D:\\aibeaver-tests\\datasets\\auto-manufacturer-tech-spec\\qa_pilot_questions.jsonl",
+  "question_count": 1,
+  "providers": [
+    {
+      "name": "openai",
+      "model": "gpt-4.1-mini",
+      "passed": 1,
+      "failed": 0,
+      "scored": 1,
+      "total": 1,
+      "pass_rate": 1.0,
+      "errors": 0
+    }
+  ]
+}

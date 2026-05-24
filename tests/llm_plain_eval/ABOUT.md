@@ -4,7 +4,7 @@
 - LLM api call with provided tools
 - LangGraph wrapper
 
-## Plain provider eval
+## Knowledge-base assistant eval
 
 Run OpenAI, Anthropic, and xAI against the auto-manufacturer pilot questions:
 
@@ -21,6 +21,7 @@ Defaults:
 - Questions: `datasets\auto-manufacturer-tech-spec\qa_pilot_questions.jsonl`
 - Results root: `results\llm_plain_eval`
 - Output folder: `unpacked_YYYYMMDD_HHMMSS`
+- Eval mode: `kb_agent`
 - OpenAI model: `gpt-4.1-mini`, override with `--openai-model` or `OPENAI_MODEL`
 - Anthropic model: `claude-sonnet-4-5`, override with `--anthropic-model` or `ANTHROPIC_MODEL`
 - xAI model: `grok-4.3`, override with `--xai-model` or `XAI_MODEL`
@@ -32,7 +33,15 @@ Useful smoke test:
 python tests\llm_plain_eval\run_plain_eval.py --dry-run --limit 2
 ```
 
-Each provider call receives the shared unpacked dataset context plus a small batch of questions. The default `--batch-size 1` avoids asking a model to solve all 100 table-reasoning questions in one response. It does not write per-question prompt files.
+By default, each model works as a knowledge-base assistant. It receives a dataset index and can call JSON tools to inspect text files, search files, query CSV tables, and join CSV tables. This evaluates whether the model can navigate the unpacked dataset and use tools to answer the questions, instead of whether it can scan a huge raw prompt.
+
+The old raw-context behavior is still available for comparison:
+
+```powershell
+python tests\llm_plain_eval\run_plain_eval.py --eval-mode plain_context --limit 2
+```
+
+It does not write per-question prompt files.
 
 Each run writes:
 
@@ -43,4 +52,4 @@ Each run writes:
 - `summary.md`
 - `comparison.svg`
 - `comparison.html`
-- `raw_responses\{provider}_raw.jsonl`
+- `raw_responses\{provider}_raw.jsonl` with tool traces or raw provider responses

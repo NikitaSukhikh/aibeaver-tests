@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LLM Plain Eval Comparison</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+    body { margin: 0; }
+    main { max-width: 1180px; margin: 0 auto; padding: 40px 24px 56px; }
+    header { margin-bottom: 28px; }
+    h1 { margin: 0 0 8px; font-size: 34px; letter-spacing: 0; }
+    p { margin: 0; color: #475569; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+    .card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-top: 6px solid var(--accent);
+      border-radius: 8px;
+      padding: 18px;
+    }
+    .card-top { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+    h2 { margin: 0 0 4px; font-size: 22px; }
+    .card strong { font-size: 30px; color: var(--accent); }
+    .bar {
+      display: flex;
+      width: 100%;
+      height: 24px;
+      overflow: hidden;
+      background: #e2e8f0;
+      border-radius: 6px;
+      margin: 22px 0 16px;
+    }
+    .passed { background: #22c55e; }
+    .failed { background: #ef4444; }
+    .error { background: #f59e0b; }
+    .unscored { background: #94a3b8; }
+    dl { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 0; }
+    dt { color: #64748b; font-size: 12px; }
+    dd { margin: 3px 0 0; font-weight: 700; }
+    .visual, .table-wrap {
+      margin-top: 22px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px;
+    }
+    .visual img { display: block; width: 100%; height: auto; }
+    h3 { margin: 0 0 14px; font-size: 20px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border-top: 1px solid #e2e8f0; padding: 12px; text-align: left; vertical-align: middle; }
+    thead th { border-top: 0; color: #475569; font-size: 13px; }
+    tbody th { width: 42%; font-weight: 600; color: #334155; }
+    td strong { display: inline-block; min-width: 44px; }
+    td small { color: #64748b; }
+    .mini-bar {
+      display: inline-block;
+      width: 120px;
+      height: 10px;
+      margin-right: 10px;
+      border-radius: 999px;
+      background: #e2e8f0;
+      overflow: hidden;
+      vertical-align: middle;
+    }
+    .mini-bar span { display: block; height: 100%; background: #22c55e; }
+    .empty { color: #94a3b8; }
+    .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; color: #475569; font-size: 13px; }
+    .legend span::before {
+      content: "";
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      margin-right: 6px;
+      vertical-align: -1px;
+      background: var(--legend-color);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>LLM Plain Eval Comparison</h1>
+      <p>2026-05-23T14:22:50 | 1 questions | D:\aibeaver-tests\datasets\auto-manufacturer-tech-spec\unpacked</p>
+    </header>
+    <section class="cards">
+      
+            <section class="card" style="--accent:#2563eb; --accent-soft:#dbeafe">
+              <div class="card-top">
+                <div>
+                  <h2>openai</h2>
+                  <p>gpt-4.1-mini</p>
+                </div>
+                <strong>100.0%</strong>
+              </div>
+              <div class="bar" aria-label="Result split">
+                <span class="passed" style="width:100.00%"></span>
+                <span class="failed" style="width:0.00%"></span>
+                <span class="error" style="width:0.00%"></span>
+                <span class="unscored" style="width:0.00%"></span>
+              </div>
+              <dl>
+                <div><dt>Passed</dt><dd>1</dd></div>
+                <div><dt>Failed</dt><dd>0</dd></div>
+                <div><dt>Errors</dt><dd>0</dd></div>
+                <div><dt>Scored</dt><dd>1</dd></div>
+              </dl>
+            </section>
+            
+    </section>
+    <section class="visual">
+      <h3>Provider Result Split</h3>
+      <img src="comparison.svg" alt="LLM provider comparison infographic">
+      <div class="legend">
+        <span style="--legend-color:#22c55e">Passed</span>
+        <span style="--legend-color:#ef4444">Failed</span>
+        <span style="--legend-color:#f59e0b">Error</span>
+        <span style="--legend-color:#94a3b8">Unscored</span>
+      </div>
+    </section>
+    <section class="table-wrap">
+      <h3>Family Pass Rates</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Question family</th>
+            <th>openai</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>shortest stop variant context</th>
+                <td>
+                  <div class="mini-bar"><span style="width:100.00%"></span></div>
+                  <strong>100%</strong>
+                  <small>1/1</small>
+                </td>
+                </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

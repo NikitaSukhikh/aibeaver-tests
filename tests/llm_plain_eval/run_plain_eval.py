@@ -1182,63 +1182,35 @@ def main() -> int:
         raw_response_rows: list[dict[str, Any]] = []
         raw_response_path = raw_responses_dir / f"{config.name}_raw.jsonl"
 
-        for batch_index, question_batch in enumerate(batches(questions, args.batch_size), start=1):
-            eval_prompt = make_eval_prompt(context, question_batch)
-            started = time.perf_counter()
-            question_ids = [question["id"] for question in question_batch]
-
-            if args.dry_run:
-                raw_answer = json.dumps({"answers": []}, ensure_ascii=False)
-                metadata: dict[str, Any] = {"dry_run": True}
-                provider_error = None
-                answer_map: dict[str, str] = {}
-            else:
-                try:
-                    raw_answer, metadata = call_with_retries(
-                        config.name,
-                        eval_prompt,
-                        config.model,
-                        args.max_output_tokens,
-                        args.temperature,
-                        args.timeout_seconds,
-                        args.retries,
-                    )
-                    provider_error = None
-                except Exception as exc:  # noqa: BLE001 - write failed batch and continue.
-                    raw_answer = ""
-                    metadata = {}
-                    provider_error = str(exc)
-
-                if provider_error:
-                    answer_map = {}
-                else:
-                    try:
-                        answer_map = parse_answer_map(raw_answer)
-                    except Exception as exc:  # noqa: BLE001 - keep parse failure in result rows.
-                        answer_map = {}
-                        provider_error = f"Could not parse provider JSON response: {exc}"
-
-            elapsed_seconds = round(time.perf_counter() - started, 3)
-            raw_response_rows.append(
-                {
-                    "provider": config.name,
-                    "model": config.model,
-                    "batch_index": batch_index,
-                    "question_ids": question_ids,
-                    "raw_answer": raw_answer,
-                    "error": provider_error,
-                    "metadata": metadata,
-                    "elapsed_seconds": elapsed_seconds,
-                }
-            )
-
-            for question in question_batch:
+        if args.eval_mode == "kb_agent":
+            for question in questions:
                 index = question_positions[question["id"]]
-                answer = answer_map.get(question["id"], "")
-                error = provider_error
-                if not error and not answer and not args.dry_run:
-                    error = "Provider response did not include an answer for this question."
-
+                started = time.perf_counter()
+                answer, metadata, trace, error = run_kb_agent_question(
+                    dataset_dir=dataset_dir,
+                    dataset_summary=dataset_summary,
+                    provider=config.name,
+                    model=config.model,
+                    question=question,
+                    max_output_tokens=args.max_output_tokens,
+                    temperature=args.temperature,
+                    timeout_seconds=args.timeout_seconds,
+                    retries=args.retries,
+                    max_tool_steps=args.max_tool_steps,
+                    dry_run=args.dry_run,
+                )
+                elapsed_seconds = round(time.perf_counter() - started, 3)
+                raw_response_rows.append(
+                    {
+                        "provider": config.name,
+                        "model": config.model,
+                        "question_id": question["id"],
+                        "trace": trace,
+                        "error": error,
+                        "metadata": metadata,
+                        "elapsed_seconds": elapsed_seconds,
+                    }
+                )
                 score = (
                     score_answer(answer, question["expected_contains"])
                     if not error and not args.dry_run
@@ -1257,7 +1229,6 @@ def main() -> int:
                     "error": error,
                     "metadata": {
                         **metadata,
-                        "batch_index": batch_index,
                         "raw_response_path": raw_response_path.relative_to(output_dir).as_posix(),
                     },
                     "elapsed_seconds": elapsed_seconds,
@@ -1271,10 +1242,101 @@ def main() -> int:
                     status = "ERROR"
                 else:
                     status = "PASS" if score and score["passed"] else "FAIL"
-                print(
-                    f"{config.name} {index}/{len(questions)} {question['id']}: {status}",
-                    flush=True,
+                print(f"{config.name} {index}/{len(questions)} {question['id']}: {status}", flush=True)
+        else:
+            for batch_index, question_batch in enumerate(batches(questions, args.batch_size), start=1):
+                eval_prompt = make_eval_prompt(context, question_batch)
+                started = time.perf_counter()
+                question_ids = [question["id"] for question in question_batch]
+
+                if args.dry_run:
+                    raw_answer = json.dumps({"answers": []}, ensure_ascii=False)
+                    metadata = {"dry_run": True}
+                    provider_error = None
+                    answer_map: dict[str, str] = {}
+                else:
+                    try:
+                        raw_answer, metadata = call_with_retries(
+                            config.name,
+                            eval_prompt,
+                            config.model,
+                            args.max_output_tokens,
+                            args.temperature,
+                            args.timeout_seconds,
+                            args.retries,
+                        )
+                        provider_error = None
+                    except Exception as exc:  # noqa: BLE001 - write failed batch and continue.
+                        raw_answer = ""
+                        metadata = {}
+                        provider_error = str(exc)
+
+                    if provider_error:
+                        answer_map = {}
+                    else:
+                        try:
+                            answer_map = parse_answer_map(raw_answer)
+                        except Exception as exc:  # noqa: BLE001 - keep parse failure in result rows.
+                            answer_map = {}
+                            provider_error = f"Could not parse provider JSON response: {exc}"
+
+                elapsed_seconds = round(time.perf_counter() - started, 3)
+                raw_response_rows.append(
+                    {
+                        "provider": config.name,
+                        "model": config.model,
+                        "batch_index": batch_index,
+                        "question_ids": question_ids,
+                        "raw_answer": raw_answer,
+                        "error": provider_error,
+                        "metadata": metadata,
+                        "elapsed_seconds": elapsed_seconds,
+                    }
                 )
+
+                for question in question_batch:
+                    index = question_positions[question["id"]]
+                    answer = answer_map.get(question["id"], "")
+                    error = provider_error
+                    if not error and not answer and not args.dry_run:
+                        error = "Provider response did not include an answer for this question."
+
+                    score = (
+                        score_answer(answer, question["expected_contains"])
+                        if not error and not args.dry_run
+                        else None
+                    )
+                    row = {
+                        "provider": config.name,
+                        "model": config.model,
+                        "question_index": index,
+                        "question_id": question["id"],
+                        "family_id": question.get("family_id"),
+                        "question": question["prompt"],
+                        "expected_contains": question["expected_contains"],
+                        "answer": answer,
+                        "score": score,
+                        "error": error,
+                        "metadata": {
+                            **metadata,
+                            "batch_index": batch_index,
+                            "raw_response_path": raw_response_path.relative_to(output_dir).as_posix(),
+                        },
+                        "elapsed_seconds": elapsed_seconds,
+                    }
+                    provider_rows.append(row)
+                    all_rows.append(row)
+
+                    if args.dry_run:
+                        status = "DRY"
+                    elif error:
+                        status = "ERROR"
+                    else:
+                        status = "PASS" if score and score["passed"] else "FAIL"
+                    print(
+                        f"{config.name} {index}/{len(questions)} {question['id']}: {status}",
+                        flush=True,
+                    )
 
         passed = sum(1 for row in provider_rows if row["score"] and row["score"]["passed"])
         scored = sum(1 for row in provider_rows if row["score"] is not None)

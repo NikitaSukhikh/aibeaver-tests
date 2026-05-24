@@ -1,0 +1,41 @@
+{
+  "dataset_dir": "D:\\aibeaver-tests\\datasets\\auto-manufacturer-tech-spec\\unpacked",
+  "questions_path": "D:\\aibeaver-tests\\datasets\\auto-manufacturer-tech-spec\\qa_pilot_questions.jsonl",
+  "included_context_paths": [
+    "content/Content_improvement.md",
+    "content/main.md",
+    "manifest.json",
+    "mimetype",
+    "tables/battery_pack_module_specs.csv",
+    "tables/battery_pack_module_specs.schema.json",
+    "tables/battery_pack_module_specs.view.json",
+    "tables/chassis_brake_validation_specs.csv",
+    "tables/chassis_brake_validation_specs.schema.json",
+    "tables/chassis_brake_validation_specs.view.json",
+    "tables/powertrain_calibration_specs.csv",
+    "tables/powertrain_calibration_specs.schema.json",
+    "tables/powertrain_calibration_specs.view.json",
+    "tables/production_quality_measurements.csv",
+    "tables/production_quality_measurements.schema.json",
+    "tables/production_quality_measurements.view.json",
+    "tables/vehicle_variant_configuration_specs.csv",
+    "tables/vehicle_variant_configuration_specs.schema.json",
+    "tables/vehicle_variant_configuration_specs.view.json"
+  ],
+  "question_count": 1,
+  "eval_mode": "kb_agent",
+  "providers": [
+    {
+      "name": "openai",
+      "model": "gpt-4.1-mini",
+      "api_key_env": "OPENAI_API_KEY"
+    }
+  ],
+  "max_output_tokens": 1000,
+  "temperature": 0.0,
+  "batch_size": 1,
+  "max_tool_steps": 8,
+  "timeout_seconds": 180,
+  "retries": 2,
+  "dry_run": false
+}

@@ -231,56 +231,6 @@ def quote_identifier(value: str) -> str:
     return '"' + value.replace('"', '""') + '"'
 
 
-def parse_int(value: str) -> int | None:
-    stripped = value.strip()
-    if not stripped:
-        return None
-    try:
-        if stripped.startswith("+"):
-            stripped = stripped[1:]
-        if stripped.startswith("-"):
-            sign = "-"
-            stripped = stripped[1:]
-        else:
-            sign = ""
-        if stripped.isdigit():
-            return int(f"{sign}{stripped}")
-    except ValueError:
-        return None
-    return None
-
-
-def parse_float(value: str) -> float | None:
-    stripped = value.strip()
-    if not stripped:
-        return None
-    try:
-        return float(stripped)
-    except ValueError:
-        return None
-
-
-def infer_sqlite_type(values: list[str]) -> str:
-    non_empty = [value for value in values if value.strip()]
-    if not non_empty:
-        return "TEXT"
-    if all(parse_int(value) is not None for value in non_empty):
-        return "INTEGER"
-    if all(parse_float(value) is not None for value in non_empty):
-        return "REAL"
-    return "TEXT"
-
-
-def coerce_sqlite_value(value: str, sqlite_type: str) -> Any:
-    if value == "":
-        return None
-    if sqlite_type == "INTEGER":
-        return parse_int(value)
-    if sqlite_type == "REAL":
-        return parse_float(value)
-    return value
-
-
 def create_sqlite_connection(target: DatasetTarget) -> sqlite3.Connection:
     connection = sqlite3.connect(":memory:")
     connection.row_factory = sqlite3.Row
@@ -292,12 +242,8 @@ def create_sqlite_connection(target: DatasetTarget) -> sqlite3.Connection:
         if not fieldnames:
             continue
 
-        column_types = {
-            column: infer_sqlite_type([str(row.get(column, "")) for row in rows])
-            for column in fieldnames
-        }
         columns_sql = ", ".join(
-            f"{quote_identifier(column)} {column_types[column]}" for column in fieldnames
+            f"{quote_identifier(column)} TEXT" for column in fieldnames
         )
         connection.execute(f"CREATE TABLE {quote_identifier(table_id)} ({columns_sql})")
 
@@ -306,7 +252,7 @@ def create_sqlite_connection(target: DatasetTarget) -> sqlite3.Connection:
         for row in rows:
             connection.execute(
                 insert_sql,
-                [coerce_sqlite_value(str(row.get(column, "")), column_types[column]) for column in fieldnames],
+                [str(row.get(column, "")) for column in fieldnames],
             )
     return connection
 
@@ -926,7 +872,10 @@ def make_kb_agent_prompt(
         "Use the tools to inspect files and query CSV tables. Do not guess from memory. "
         "Prefer sql_query for complex relational work, such as joins, aggregate counts, computed expressions, "
         "grouped counts, sorting, and top-k queries. sql_query accepts read-only SQLite SELECT statements over the "
-        "CSV table names. "
+        "CSV table names. SQLite columns are loaded as TEXT to preserve source formatting; use CAST(column AS REAL) "
+        "or CAST(column AS INTEGER) for numeric comparisons, calculations, and ordering. For categorical string "
+        "comparisons in SQL, use lower(column) = lower('value') or lower(column) IN (...), unless exact case is "
+        "explicitly required. "
         "Prefer table_query when one question needs several table operations at once, such as joins plus filters, "
         "derived values, grouping, sorting, counts, or projection, and you do not want to write SQL. "
         "For counts, use table_count or table_group_count instead of requesting all rows. "

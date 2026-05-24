@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-05-24T22:00:21",
+  "provider": {
+    "name": "openai",
+    "model": "gpt-4.1-mini",
+    "api_key_env": "OPENAI_API_KEY"
+  },
+  "connected_dir": "D:\\aibeaver-tests\\datasets\\auto-manufacturer-tech-spec\\unpacked",
+  "disconnected_dir": "D:\\aibeaver-tests\\datasets\\auto-manufacturer-tech-spec\\unpacked_disconnected",
+  "questions": "D:\\aibeaver-tests\\datasets\\auto-manufacturer-tech-spec\\qa_pilot_questions_20.jsonl",
+  "question_count": 20,
+  "eval_mode": "kb_agent",
+  "max_tool_steps": 8,
+  "batch_size": 1,
+  "max_output_tokens": 12000,
+  "temperature": 0.0,
+  "timeout_seconds": 120,
+  "retries": 2,
+  "dry_run": false
+}

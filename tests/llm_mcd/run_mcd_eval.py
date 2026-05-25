@@ -6,13 +6,16 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
 import tempfile
 import time
+import zipfile
 from dataclasses import dataclass
 from datetime import datetime
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any
 
@@ -34,108 +37,6 @@ DEFAULT_ANTHROPIC_MODEL = "claude-sonnet-4-5"
 DEFAULT_XAI_MODEL = "grok-4.3"
 DEFAULT_MAX_OUTPUT_TOKENS = 12000
 PROVIDERS = ["openai", "anthropic", "xai"]
-
-MCD_TOOL_REFERENCE = """Available MCD Python library tools:
-
-Top-level:
-- import mcd
-- mcd.open(path) -> Document
-- mcd.query(path, sql) -> QueryResult, if available in the installed package
-- mcd.convert_pdf(input, output, title=None) -> Document, not needed for this eval
-- mcd.pdf_to_mcd_bytes(pdf, title=None, source_filename=None) -> bytes, not needed for this eval
-
-Document:
-- doc.path
-- doc.validate().as_dict()
-- doc.blocks(); each block supports block.as_dict()
-- doc.markdown(expand_tables=False)
-- doc.to_agent_context(include_tables=True, include_layout=False)
-- doc.table(table_id) -> Table
-- doc.chart(chart_id) -> Chart, if the package has charts
-- doc.image(image_id) -> Image, if the package has images
-- doc.annotations()
-- doc.annotation(annotation_id)
-- doc.query(sql) -> QueryResult, if available in the installed package
-
-Table:
-- table.id
-- table.source
-- table.schema
-- table.schema.id
-- table.schema.columns
-- table.schema.as_dict()
-- table.rows()
-- table.typed_rows()
-- table.as_dict()
-- table.dataframe(), only if optional pandas support is installed
-
-QueryResult, if query support is available:
-- result.columns
-- result.rows
-- result.row_count
-- len(result)
-- result.as_dict()
-- result.to_json()
-- result.to_csv()
-- result.to_table()
-
-Chart and view, if present:
-- chart.table_id
-- chart.view_id
-- chart.placement_ref
-- chart.view
-- chart.rows()
-- chart.layout()
-- chart.as_dict()
-- chart.to_markdown_table()
-- view.id
-- view.table_id
-- view.display
-- view.columns
-- view.layout()
-- view.as_dict()
-
-Image and annotation, if present:
-- image.id
-- image.asset_path
-- image.role
-- image.alt
-- image.caption
-- image.intrinsic_size
-- image.as_dict()
-- annotation.id
-- annotation.kind
-- annotation.status
-- annotation.body
-- annotation.labels
-- annotation.target()
-- annotation.proposed_change()
-- annotation.as_dict()
-
-Recommended use for this eval:
-- Open the package once with doc = mcd.open(os.environ["MCD_PATH"]).
-- Validate with doc.validate().as_dict().
-- Discover table IDs and schemas with doc.to_agent_context(include_tables=False) and doc.table(id).schema.columns.
-- For numeric/table questions, use doc.query(...) or mcd.query(...) only if those methods exist.
-- If query helpers are unavailable, use doc.table(id).rows() and ordinary Python joins, filters, grouping, sorting, and arithmetic.
-- Return final answers with exact IDs, field names, condition values, and numeric values used.
-"""
-
-CLI_TOOL_REFERENCE = """Available MCD CLI usage:
-
-- Prefer the CLI when it is available and can express the operation.
-- Use {MCD_CLI} as a placeholder for the configured MCD CLI executable.
-- Use {MCD_PATH} as a placeholder for the current package path.
-- Start with help/inspection commands if you do not know the CLI syntax, for example:
-  {"cli":"{MCD_CLI} --help"}
-  {"cli":"{MCD_CLI} validate {MCD_PATH}"}
-  {"cli":"{MCD_CLI} context {MCD_PATH}"}
-  {"cli":"{MCD_CLI} markdown {MCD_PATH}"}
-  {"cli":"{MCD_CLI} table {MCD_PATH} vehicle_variant_configuration_specs --help"}
-  {"cli":"{MCD_CLI} query {MCD_PATH} \"select count(*) as rows from production_quality_measurements\""}
-- Exact command names may differ by CLI build. Use --help output to adapt.
-- If the CLI is unavailable, a command is not supported, or the CLI cannot express the needed join/calculation cleanly, use the Python fallback.
-"""
 
 
 @dataclass(frozen=True)
@@ -253,10 +154,58 @@ def format_seconds(value: float) -> str:
     return f"{value:.1f} sec"
 
 
+def parse_decimal_text(value: str) -> Decimal | None:
+    cleaned = value.strip().replace(",", "")
+    if not re.fullmatch(r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)", cleaned):
+        return None
+    try:
+        return Decimal(cleaned)
+    except InvalidOperation:
+        return None
+
+
+def contains_expected_tolerant(answer: str, expected: str) -> tuple[bool, str]:
+    if plain_eval.contains_expected(answer, expected):
+        return True, "substring"
+
+    expected_decimal = parse_decimal_text(expected)
+    if expected_decimal is None:
+        return False, "missing"
+
+    for match in re.finditer(r"(?<![A-Za-z0-9_.-])[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?![A-Za-z0-9_.-])", answer):
+        actual_decimal = parse_decimal_text(match.group(0))
+        if actual_decimal is not None and actual_decimal == expected_decimal:
+            return True, "numeric_equivalent"
+    return False, "missing"
+
+
+def score_answer_tolerant(answer: str, expected_contains: list[Any]) -> dict[str, Any]:
+    checks = []
+    for expected in expected_contains:
+        expected_text = str(expected)
+        found, match_type = contains_expected_tolerant(answer, expected_text)
+        checks.append(
+            {
+                "expected": expected_text,
+                "found": found,
+                "match_type": match_type,
+            }
+        )
+
+    found_count = sum(1 for check in checks if check["found"])
+    return {
+        "passed": found_count == len(checks),
+        "found_count": found_count,
+        "expected_count": len(checks),
+        "checks": checks,
+        "scoring": "substring_or_numeric_equivalent",
+    }
+
+
 def score_or_none(answer: str, question: dict[str, Any], error: str | None, dry_run: bool) -> dict[str, Any] | None:
     if dry_run or error:
         return None
-    return plain_eval.score_answer(answer, question["expected_contains"])
+    return score_answer_tolerant(answer, question["expected_contains"])
 
 
 def passed(row: dict[str, Any]) -> bool:
@@ -290,32 +239,46 @@ def build_mcd_summary(mcd_path: Path) -> str:
     validation = doc.validate().as_dict()
     context = doc.to_agent_context(include_tables=False)
     table_ids = [table["id"] for table in doc.to_agent_context(include_tables=True).get("tables", [])]
+    manifest: dict[str, Any] = {}
+    files: list[str] = []
+    try:
+        with zipfile.ZipFile(mcd_path) as package:
+            files = sorted(name for name in package.namelist() if not name.endswith("/"))
+            if "manifest.json" in files:
+                manifest = json.loads(package.read("manifest.json").decode("utf-8"))
+    except (OSError, zipfile.BadZipFile, json.JSONDecodeError):
+        manifest = {}
+        files = []
+
+    table_paths = {
+        str(table.get("id")): str(table.get("data"))
+        for table in manifest.get("tables", [])
+        if isinstance(table, dict) and table.get("id")
+    }
     tables: list[dict[str, Any]] = []
     for table_id in table_ids:
         table = doc.table(table_id)
         rows = table.rows()
+        columns = [
+            str(column.get("name"))
+            if isinstance(column, dict) and column.get("name") is not None
+            else str(column)
+            for column in table.schema.columns
+        ]
         tables.append(
             {
-                "id": table_id,
+                "table": table_id,
+                "path": table_paths.get(table_id),
                 "row_count": len(rows),
-                "columns": table.schema.columns,
-                "sample_rows": rows[:2],
+                "columns": columns,
             }
         )
     summary = {
-        "path": str(mcd_path),
-        "validation": validation,
-        "title": context.get("title"),
-        "blocks": context.get("blocks", []),
+        "title": manifest.get("title") or context.get("title"),
+        "entrypoint": manifest.get("entrypoint"),
+        "files": files,
         "tables": tables,
-        "available_document_methods": [
-            name for name in ["validate", "blocks", "table", "chart", "image", "annotation", "annotations", "markdown", "to_agent_context"] if hasattr(doc, name)
-        ],
-        "runtime_note": (
-            "This installed mcd package does not expose Document.query() or top-level mcd.query(). "
-            "Use doc.table(...).rows(), doc.table(...).schema.columns, doc.markdown(), and ordinary Python "
-            "calculations over table rows in the python tool."
-        ),
+        "validation_valid": bool(validation.get("valid")),
     }
     return json.dumps(serializable(summary), ensure_ascii=False, indent=2)
 
@@ -372,10 +335,23 @@ def mcd_cli_status(mcd_cli: str) -> dict[str, Any]:
 
 
 def expand_cli_command(command: str, *, mcd_cli: str, mcd_path: Path) -> str:
-    return (
-        command.replace("{MCD_CLI}", quote_cmd_arg(mcd_cli))
-        .replace("{MCD_PATH}", quote_cmd_arg(str(mcd_path)))
-    )
+    replacements = {
+        "{MCD_CLI}": quote_cmd_arg(mcd_cli),
+        "$MCD_CLI": quote_cmd_arg(mcd_cli),
+        "%MCD_CLI%": quote_cmd_arg(mcd_cli),
+        "$env:MCD_CLI": quote_cmd_arg(mcd_cli),
+        "{MCD_PATH}": quote_cmd_arg(str(mcd_path)),
+        "$MCD_PATH": quote_cmd_arg(str(mcd_path)),
+        "%MCD_PATH%": quote_cmd_arg(str(mcd_path)),
+        "$env:MCD_PATH": quote_cmd_arg(str(mcd_path)),
+    }
+    expanded = command
+    for placeholder, replacement in replacements.items():
+        expanded = expanded.replace(f'"{placeholder}"', replacement)
+        expanded = expanded.replace(f"'{placeholder}'", replacement)
+    for placeholder, replacement in replacements.items():
+        expanded = expanded.replace(placeholder, replacement)
+    return expanded
 
 
 def run_cli_tool(
@@ -484,6 +460,15 @@ def run_python_tool(
     return observation
 
 
+def tool_observation_failed(observation: dict[str, Any]) -> bool:
+    if observation.get("timed_out"):
+        return True
+    exit_code = observation.get("exit_code")
+    if exit_code not in (0, None):
+        return True
+    return bool(str(observation.get("stderr") or "").strip())
+
+
 def make_mcd_agent_prompt(
     *,
     mcd_summary_text: str,
@@ -491,30 +476,92 @@ def make_mcd_agent_prompt(
     question: dict[str, Any],
     observations: list[dict[str, Any]],
 ) -> str:
+    tool_docs = {
+        "cli_query": {
+            "cli": (
+                "{MCD_CLI} query --format json {MCD_PATH} "
+                '"select plant_code, count(*) as lot_count '
+                "from production_quality_measurements "
+                "group by plant_code order by lot_count desc limit 3\""
+            )
+        },
+        "cli_join": {
+            "cli": (
+                "{MCD_CLI} query --format json {MCD_PATH} "
+                '"select c.test_id, c.vehicle_variant, c.stop_distance_100_0_m, '
+                "v.body_style, v.trim_level "
+                "from chassis_brake_validation_specs c "
+                "join vehicle_variant_configuration_specs v "
+                "on c.vehicle_variant = v.variant_id "
+                "order by cast(c.stop_distance_100_0_m as real) asc limit 1\""
+            )
+        },
+        "cli_markdown": {"cli": "{MCD_CLI} extract --markdown {MCD_PATH}"},
+        "cli_tools": {"cli": "{MCD_CLI} tools --format json {MCD_PATH}"},
+        "python_fallback": {
+            "python": (
+                "import os, json, mcd\n"
+                "doc = mcd.open(os.environ['MCD_PATH'])\n"
+                "rows = doc.table('table_id').rows()\n"
+                "print(json.dumps(rows[:5], ensure_ascii=False))"
+            )
+        },
+        "prefix_rule_example": {
+            "cli": (
+                "{MCD_CLI} query --format json {MCD_PATH} "
+                '"select count(*) as violation_count '
+                "from vehicle_variant_configuration_specs "
+                "where lower(substr(homologation_code, 1, instr(homologation_code, '-') - 1)) "
+                "!= lower(region)\""
+            )
+        },
+        "fixed_precision_example": {
+            "cli": (
+                "{MCD_CLI} query --format json {MCD_PATH} "
+                '"select test_id, printf(\'%.3f\', lateral_grip_g) as lateral_grip_g '
+                "from chassis_brake_validation_specs "
+                "order by cast(lateral_grip_g as real) desc limit 2\""
+            )
+        },
+    }
     return (
         "You are a document-grounded QA assistant evaluating an MCD package. "
-        "Prefer the MCD CLI when it is available and can express the needed operation. "
-        "Use the Python `mcd` library as a fallback for calculations, joins, or commands the CLI cannot handle. "
+        "Use the MCD CLI to inspect the package and query tables. Do not guess from memory. "
+        "Always use `{MCD_PATH}` for the package path in CLI commands; do not use `.`, `$MCD_PATH`, or `%MCD_PATH%`. "
+        "Prefer cli_query for complex relational work, such as joins, aggregate counts, computed expressions, "
+        "grouped counts, sorting, and top-k queries. cli_query accepts read-only SQL SELECT statements over "
+        "manifest table IDs. Use CAST(column AS REAL) or CAST(column AS INTEGER) for numeric comparisons, "
+        "calculations, and ordering. For categorical string comparisons, use lower(column) = lower('value') "
+        "or lower(column) IN (...), unless exact case is explicitly required. "
+        "For prefix rules, compute the prefix from the field, for example "
+        "substr(homologation_code, 1, instr(homologation_code, '-') - 1), and compare it to the region; "
+        "do not hardcode a list of allowed prefixes. "
+        "For expected fixed-precision decimals, use printf formatting in SQL, such as printf('%.3f', lateral_grip_g). "
+        "Use cli_markdown when the question depends on narrative rules in the dossier. "
+        "Use Python only as a fallback if the CLI cannot express the needed calculation cleanly. "
         "Do not guess from memory. Both tools execute in the repository root and return stdout/stderr. "
-        "Print concise JSON or table-like output from tools so the next step can answer. "
+        "Keep tool output concise. "
+        "If a tool observation has nonzero exit_code, stderr, or timed_out=true, treat it as failed: do not answer "
+        "from that observation. Retry once with `{MCD_PATH}` and a single SQL statement; after repeated CLI errors, "
+        "use Python fallback. "
+        "If a result is capped or limited, do not compute final counts or extremes from capped samples unless "
+        "the query sorted exactly by the required criterion. "
+        "For each question, select and return all fields requested by the prompt, including example row details "
+        "such as IDs, variants, category values, and numeric values, not only counts. "
+        "In the final answer, include the key condition values and field names used to select the result, not only "
+        "the numeric answer. "
         "Return exactly one JSON object and no prose. Do not return a tool call and an answer in the same response.\n\n"
-        "If you need data from the CLI, return:\n"
-        '{"cli":"{MCD_CLI} --help"}\n\n'
-        "If the CLI is unavailable or insufficient and you need Python data access, return:\n"
-        '{"python":"import os, json, mcd\\ndoc = mcd.open(os.environ[\'MCD_PATH\'])\\n# inspect or compute\\nprint(json.dumps(result, ensure_ascii=False))"}\n\n'
+        "If you need data, return: "
+        '{"cli":"{MCD_CLI} query --format json {MCD_PATH} \\"select ...\\""}\n'
+        "If CLI is insufficient, return: "
+        '{"python":"import os, json, mcd\\ndoc = mcd.open(os.environ[\'MCD_PATH\'])\\n..."}\n'
         "When you know the final answer, return:\n"
         '{"answer":"concise answer containing exact IDs, field names, condition values, and numbers"}\n\n'
+        "Available tools and argument examples:\n"
+        f"{json.dumps(tool_docs, ensure_ascii=False, indent=2)}\n\n"
         "CLI status:\n"
-        f"{json.dumps(cli_status, ensure_ascii=False, indent=2)}\n\n"
-        "MCD CLI tool reference:\n"
-        f"{CLI_TOOL_REFERENCE}\n\n"
-        "Python runtime note: the local installed mcd package may not expose every documented method. "
-        "Check with hasattr(...) when using optional query, chart, image, dataframe, or conversion helpers. "
-        "If a method is missing, use `doc.table(table_id).rows()` and ordinary Python joins, filters, "
-        "grouping, sorting, and arithmetic.\n\n"
-        "MCD Python tool reference:\n"
-        f"{MCD_TOOL_REFERENCE}\n\n"
-        "MCD package summary:\n"
+        f"{json.dumps({'available': cli_status.get('available_on_path_or_filesystem'), 'mcd_cli': cli_status.get('configured_executable')}, ensure_ascii=False, indent=2)}\n\n"
+        "Dataset index:\n"
         f"{mcd_summary_text}\n\n"
         "Question:\n"
         f"{json.dumps({'id': question['id'], 'question': question['prompt']}, ensure_ascii=False, indent=2)}\n\n"
@@ -550,6 +597,7 @@ def run_mcd_agent_question(
     total_usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
     metadata: dict[str, Any] = {}
     cli_status = mcd_cli_status(args.mcd_cli)
+    failed_cli_count = 0
 
     for step in range(1, args.max_tool_steps + 1):
         prompt = make_mcd_agent_prompt(
@@ -596,6 +644,16 @@ def run_mcd_agent_question(
                 timeout_seconds=args.cli_timeout_seconds,
                 max_observation_chars=args.max_observation_chars,
             )
+            if tool_observation_failed(observation):
+                failed_cli_count += 1
+                observation["harness_hint"] = (
+                    "This CLI command failed. Do not answer from failed output. Use `{MCD_PATH}` as the package "
+                    "path, avoid `.` as the package path, and submit exactly one SQL statement. "
+                    f"Consecutive CLI failures: {failed_cli_count}. After repeated CLI failures, use the Python "
+                    "fallback with mcd.open(os.environ['MCD_PATH'])."
+                )
+            else:
+                failed_cli_count = 0
             observation_record = {"step": step, "tool_type": "cli", "cli": action["cli"], "observation": observation}
         else:
             observation = run_python_tool(
@@ -604,6 +662,12 @@ def run_mcd_agent_question(
                 timeout_seconds=args.python_timeout_seconds,
                 max_observation_chars=args.max_observation_chars,
             )
+            if tool_observation_failed(observation):
+                observation["harness_hint"] = (
+                    "This Python fallback failed. Do not answer from failed output. Open the MCD package with "
+                    "mcd.open(os.environ['MCD_PATH']) or read package members with zipfile if direct file paths "
+                    "inside the .mcd are needed."
+                )
             observation_record = {
                 "step": step,
                 "tool_type": "python",
@@ -695,7 +759,7 @@ def write_run_config(
             "providers": [config.__dict__ for config in configs],
             "mcd_path": str(args.mcd_path),
             "questions": str(args.questions),
-            "prompt_tool_reference": "embedded MCD_TOOL_REFERENCE",
+            "prompt_tool_reference": "aligned compact MCD CLI tool docs",
             "question_count": question_count,
             "max_tool_steps": args.max_tool_steps,
             "mcd_cli": args.mcd_cli,
@@ -728,7 +792,7 @@ def write_summary_markdown(
         f"- Questions: `{args.questions}`",
         f"- MCD CLI: `{args.mcd_cli}`",
         f"- MCD CLI available: `{mcd_cli_status(args.mcd_cli)['available_on_path_or_filesystem']}`",
-        "- MCD tool references: embedded compact CLI and Python API lists",
+        "- MCD tool reference: aligned compact CLI docs with Python fallback",
         f"- Max tool steps: `{args.max_tool_steps}`",
         "",
         "| Provider | Model | Passed | Failed | Scored | Total | Pass rate | Errors |",

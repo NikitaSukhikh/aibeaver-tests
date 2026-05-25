@@ -8,7 +8,7 @@
 - Connected dataset: `D:\aibeaver-tests\datasets\auto-manufacturer-tech-spec\unpacked`
 - Disconnected dataset: `D:\aibeaver-tests\datasets\auto-manufacturer-tech-spec\unpacked_disconnected`
 
-Pass totals: connected `18/20`, disconnected `18/20`.
+Pass totals: connected `18(UPD:20)/20`, disconnected `18/20`.
 
 | Token usage | Input | Output | Total |
 | --- | ---: | ---: | ---: |

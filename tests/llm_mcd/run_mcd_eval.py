@@ -480,20 +480,18 @@ def make_mcd_agent_prompt(
         "cli_query": {
             "cli": (
                 "{MCD_CLI} query --format json {MCD_PATH} "
-                '"select plant_code, count(*) as lot_count '
-                "from production_quality_measurements "
-                "group by plant_code order by lot_count desc limit 3\""
+                '"select group_column, count(*) as row_count '
+                "from table_id "
+                "group by group_column order by row_count desc limit 3\""
             )
         },
         "cli_join": {
             "cli": (
                 "{MCD_CLI} query --format json {MCD_PATH} "
-                '"select c.test_id, c.vehicle_variant, c.stop_distance_100_0_m, '
-                "v.body_style, v.trim_level "
-                "from chassis_brake_validation_specs c "
-                "join vehicle_variant_configuration_specs v "
-                "on c.vehicle_variant = v.variant_id "
-                "order by cast(c.stop_distance_100_0_m as real) asc limit 1\""
+                '"select a.id, a.foreign_id, a.metric_value, b.category, b.status '
+                "from table_a a "
+                "join table_b b on a.foreign_id = b.id "
+                "order by cast(a.metric_value as real) asc limit 1\""
             )
         },
         "cli_markdown": {"cli": "{MCD_CLI} extract --markdown {MCD_PATH}"},
@@ -510,17 +508,42 @@ def make_mcd_agent_prompt(
             "cli": (
                 "{MCD_CLI} query --format json {MCD_PATH} "
                 '"select count(*) as violation_count '
-                "from vehicle_variant_configuration_specs "
-                "where lower(substr(homologation_code, 1, instr(homologation_code, '-') - 1)) "
-                "!= lower(region)\""
+                "from table_id "
+                "where lower(substr(prefixed_code_column, 1, instr(prefixed_code_column, '-') - 1)) "
+                "!= lower(expected_prefix_column)\""
             )
         },
         "fixed_precision_example": {
             "cli": (
                 "{MCD_CLI} query --format json {MCD_PATH} "
-                '"select test_id, printf(\'%.3f\', lateral_grip_g) as lateral_grip_g '
-                "from chassis_brake_validation_specs "
-                "order by cast(lateral_grip_g as real) desc limit 2\""
+                '"select id, printf(\'%.3f\', decimal_metric_column) as decimal_metric_column '
+                "from table_id "
+                "order by cast(decimal_metric_column as real) desc limit 2\""
+            )
+        },
+        "count_plus_first_row_example": {
+            "cli": (
+                "{MCD_CLI} query --format json {MCD_PATH} "
+                '"with matches as ('
+                "select a.id, a.foreign_id, a.status, b.category, b.metric_value "
+                "from table_a a "
+                "join table_b b on a.foreign_id = b.id "
+                "where lower(b.category)=lower('target_category') and cast(b.metric_value as real)>threshold "
+                "and lower(a.status)<>lower('required_status')"
+                ") "
+                "select (select count(*) from matches) as violation_count, * "
+                "from matches order by id asc limit 1\""
+            )
+        },
+        "grouped_counts_with_total_example": {
+            "cli": (
+                "{MCD_CLI} query --format json {MCD_PATH} "
+                '"select count(*) as total_count, '
+                "sum(case when lower(category_column)=lower('category_a') then 1 else 0 end) as category_a_count, "
+                "sum(case when lower(category_column)=lower('category_b') then 1 else 0 end) as category_b_count "
+                "from table_id "
+                "where lower(category_column) in (lower('category_a'), lower('category_b')) "
+                "and cast(metric_column as real)>threshold\""
             )
         },
     }
@@ -534,9 +557,10 @@ def make_mcd_agent_prompt(
         "calculations, and ordering. For categorical string comparisons, use lower(column) = lower('value') "
         "or lower(column) IN (...), unless exact case is explicitly required. "
         "For prefix rules, compute the prefix from the field, for example "
-        "substr(homologation_code, 1, instr(homologation_code, '-') - 1), and compare it to the region; "
+        "substr(prefixed_code_column, 1, instr(prefixed_code_column, '-') - 1), and compare it to the expected "
+        "prefix column; "
         "do not hardcode a list of allowed prefixes. "
-        "For expected fixed-precision decimals, use printf formatting in SQL, such as printf('%.3f', lateral_grip_g). "
+        "For expected fixed-precision decimals, use printf formatting in SQL, such as printf('%.3f', decimal_metric_column). "
         "Use cli_markdown when the question depends on narrative rules in the dossier. "
         "Use Python only as a fallback if the CLI cannot express the needed calculation cleanly. "
         "Do not guess from memory. Both tools execute in the repository root and return stdout/stderr. "
@@ -548,6 +572,12 @@ def make_mcd_agent_prompt(
         "the query sorted exactly by the required criterion. "
         "For each question, select and return all fields requested by the prompt, including example row details "
         "such as IDs, variants, category values, and numeric values, not only counts. "
+        "When a question asks for a count plus a first/worst/best/top row, use a CTE or subqueries so the same "
+        "successful observation includes both the total count and every field for that row. Do not use aggregate "
+        "functions and ungrouped row fields together unless each row field is selected by an ordered subquery. "
+        "When a question asks for grouped counts, include the overall total count as well as each group count. "
+        "When a question asks for a top source row, include the identifier plus every rule-related source field "
+        "named or implied by the question and narrative, not only the sort metric. "
         "In the final answer, include the key condition values and field names used to select the result, not only "
         "the numeric answer. "
         "Return exactly one JSON object and no prose. Do not return a tool call and an answer in the same response.\n\n"
@@ -558,6 +588,8 @@ def make_mcd_agent_prompt(
         "When you know the final answer, return:\n"
         '{"answer":"concise answer containing exact IDs, field names, condition values, and numbers"}\n\n'
         "Available tools and argument examples:\n"
+        "The examples below are patterns. Replace placeholder table names, column names, threshold, and category "
+        "values with actual names and values from the dataset index, question, and tool observations.\n"
         f"{json.dumps(tool_docs, ensure_ascii=False, indent=2)}\n\n"
         "CLI status:\n"
         f"{json.dumps({'available': cli_status.get('available_on_path_or_filesystem'), 'mcd_cli': cli_status.get('configured_executable')}, ensure_ascii=False, indent=2)}\n\n"

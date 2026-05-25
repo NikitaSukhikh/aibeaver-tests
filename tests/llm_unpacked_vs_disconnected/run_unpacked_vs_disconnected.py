@@ -866,6 +866,48 @@ def make_kb_agent_prompt(
                 "limit": 1,
             },
         },
+        "sql_count_plus_first_row_example": {
+            "query": (
+                "WITH matches AS ("
+                "SELECT c.test_id, c.vehicle_variant, c.axle_config, v.body_style, v.tow_rating_kg "
+                "FROM chassis_brake_validation_specs c "
+                "JOIN vehicle_variant_configuration_specs v ON c.vehicle_variant = v.variant_id "
+                "WHERE lower(v.body_style)=lower('pickup') "
+                "AND CAST(v.tow_rating_kg AS INTEGER)>2000 "
+                "AND lower(c.axle_config)<>lower('leaf-solid')"
+                ") "
+                "SELECT (SELECT count(*) FROM matches) AS violation_count, * "
+                "FROM matches ORDER BY test_id ASC LIMIT 1"
+            ),
+            "limit": 5,
+        },
+        "sql_grouped_counts_with_total_example": {
+            "query": (
+                "SELECT count(*) AS total_count, "
+                "sum(CASE WHEN lower(chemistry)=lower('NMC811') THEN 1 ELSE 0 END) AS nmc811_count, "
+                "sum(CASE WHEN lower(chemistry)=lower('NMC622') THEN 1 ELSE 0 END) AS nmc622_count "
+                "FROM battery_pack_module_specs "
+                "WHERE lower(chemistry) IN (lower('NMC811'), lower('NMC622')) "
+                "AND CAST(peak_discharge_kw AS REAL)>1500"
+            ),
+            "limit": 5,
+        },
+        "sql_top_row_all_columns_example": {
+            "query": (
+                "SELECT * FROM powertrain_calibration_specs "
+                "WHERE lower(engine_family)=lower('V50D') "
+                "ORDER BY CAST(peak_power_kw AS REAL) DESC, calibration_id ASC LIMIT 1"
+            ),
+            "limit": 5,
+        },
+        "sql_fixed_precision_example": {
+            "query": (
+                "SELECT test_id, printf('%.3f', lateral_grip_g) AS lateral_grip_g "
+                "FROM chassis_brake_validation_specs "
+                "ORDER BY CAST(lateral_grip_g AS REAL) DESC LIMIT 2"
+            ),
+            "limit": 5,
+        },
     }
     return (
         "You are a knowledge-base assistant with access to the unpacked dataset through tools. "
@@ -883,11 +925,32 @@ def make_kb_agent_prompt(
         "table_select and table_join support filters with eq, ne, >, >=, <, <=, in, not_in, contains, "
         "startswith, and endswith. Filter left/right values and sort_by may be derived expressions such as "
         "prefix_before or add. "
+        "For prefix rules in SQL, compute the prefix from the field, for example "
+        "substr(prefixed_code_column, 1, instr(prefixed_code_column, '-') - 1), and compare it to the expected "
+        "prefix column; do not hardcode a list of allowed prefixes. "
+        "For expected fixed-precision decimals, use printf formatting in SQL, such as printf('%.3f', decimal_metric_column). "
+        "Use read_text or search_text when the question depends on narrative rules in the dossier. For narrative-rule "
+        "questions, inspect the relevant text or table schemas, then include source columns whose names overlap "
+        "with or are semantically tied to the rule terms. "
+        "If a tool observation contains an error, do not answer from that observation; retry with corrected tool "
+        "arguments or use a simpler sql_query/table_query. "
         "If a tool result says total_matches is greater than the returned row count, treat returned rows as a "
         "capped sample. Do not compute final counts or extremes from capped samples unless the tool sorted exactly "
         "by the required criterion. "
         "For multi-table questions or unfamiliar columns, inspect table_info for the involved tables before using "
         "the columns. "
+        "For each question, select and return all fields requested by the prompt, including example row details "
+        "such as IDs, variants, category values, and numeric values, not only counts. "
+        "When a question asks for a count plus a first/worst/best/top row, use a CTE or subqueries so the same "
+        "successful observation includes both the total count and every field for that row. Do not use aggregate "
+        "functions and ungrouped row fields together unless each row field is selected by an ordered subquery. "
+        "When a question asks for grouped counts, include the overall total count as well as each group count. "
+        "When a question asks for a top source row, include the identifier plus every rule-related source field "
+        "named or implied by the question and narrative, not only the sort metric. If the rule references another "
+        "measurement, limit, threshold, date, status, or requirement column in the same source table, include that "
+        "column in the query and final answer even when it is not the ordering column. For narrative-rule questions, "
+        "prefer selecting all columns for the selected/top source row or first inspect table_info before deciding "
+        "which columns to project; then summarize only the relevant fields in the final answer. "
         "In the final answer, include the key condition values and field names used to select the result, not only "
         "the numeric answer. "
         "Return exactly one JSON object and no prose. "

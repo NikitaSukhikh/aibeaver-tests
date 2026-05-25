@@ -156,6 +156,9 @@ def format_seconds(value: float) -> str:
 
 def parse_decimal_text(value: str) -> Decimal | None:
     cleaned = value.strip().replace(",", "")
+    cleaned = cleaned.strip("()[]{}<>:;")
+    if cleaned.endswith(".") and cleaned.count(".") == 1:
+        cleaned = cleaned[:-1]
     if not re.fullmatch(r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)", cleaned):
         return None
     try:
@@ -172,7 +175,7 @@ def contains_expected_tolerant(answer: str, expected: str) -> tuple[bool, str]:
     if expected_decimal is None:
         return False, "missing"
 
-    for match in re.finditer(r"(?<![A-Za-z0-9_.-])[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?![A-Za-z0-9_.-])", answer):
+    for match in re.finditer(r"(?<![A-Za-z0-9_-])[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?=$|[^A-Za-z0-9_])", answer):
         actual_decimal = parse_decimal_text(match.group(0))
         if actual_decimal is not None and actual_decimal == expected_decimal:
             return True, "numeric_equivalent"
@@ -535,6 +538,14 @@ def make_mcd_agent_prompt(
                 "from matches order by id asc limit 1\""
             )
         },
+        "top_row_all_columns_example": {
+            "cli": (
+                "{MCD_CLI} query --format json {MCD_PATH} "
+                '"select * from source_table '
+                "where lower(category_column)=lower('target_category') "
+                "order by cast(sort_metric_column as real) desc, id asc limit 1\""
+            )
+        },
         "grouped_counts_with_total_example": {
             "cli": (
                 "{MCD_CLI} query --format json {MCD_PATH} "
@@ -561,7 +572,9 @@ def make_mcd_agent_prompt(
         "prefix column; "
         "do not hardcode a list of allowed prefixes. "
         "For expected fixed-precision decimals, use printf formatting in SQL, such as printf('%.3f', decimal_metric_column). "
-        "Use cli_markdown when the question depends on narrative rules in the dossier. "
+        "Use cli_markdown when the question depends on narrative rules in the dossier. For narrative-rule "
+        "questions, inspect the relevant markdown sentence or use table schemas, then include source columns whose "
+        "names overlap with or are semantically tied to the rule terms. "
         "Use Python only as a fallback if the CLI cannot express the needed calculation cleanly. "
         "Do not guess from memory. Both tools execute in the repository root and return stdout/stderr. "
         "Keep tool output concise. "
@@ -577,7 +590,12 @@ def make_mcd_agent_prompt(
         "functions and ungrouped row fields together unless each row field is selected by an ordered subquery. "
         "When a question asks for grouped counts, include the overall total count as well as each group count. "
         "When a question asks for a top source row, include the identifier plus every rule-related source field "
-        "named or implied by the question and narrative, not only the sort metric. "
+        "named or implied by the question and narrative, not only the sort metric. If the rule references another "
+        "measurement, limit, threshold, date, status, or requirement column in the same source table, include that "
+        "column in the query and final answer even when it is not the ordering column. For narrative-rule questions, "
+        "prefer selecting all columns for the selected/top source row (`select * ... limit 1`) or first inspect the "
+        "schema with `mcd tools --format json {MCD_PATH}` before deciding which columns to project; then summarize "
+        "only the relevant fields in the final answer. "
         "In the final answer, include the key condition values and field names used to select the result, not only "
         "the numeric answer. "
         "Return exactly one JSON object and no prose. Do not return a tool call and an answer in the same response.\n\n"

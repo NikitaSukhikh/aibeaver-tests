@@ -1,0 +1,64 @@
+{
+  "modes": [
+    {
+      "provider": "openai",
+      "model": "gpt-5.4",
+      "mode": "mcd",
+      "total": 7,
+      "scored": 7,
+      "passed": 7,
+      "failed": 0,
+      "errors": 0,
+      "pass_rate": 1.0,
+      "elapsed_seconds": 72.388,
+      "avg_elapsed_seconds": 10.341,
+      "tool_calls": 9,
+      "avg_tool_calls": 1.29,
+      "token_usage": {
+        "input_tokens": 94075,
+        "output_tokens": 5824,
+        "total_tokens": 99899
+      }
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4",
+      "mode": "connected",
+      "total": 7,
+      "scored": 7,
+      "passed": 7,
+      "failed": 0,
+      "errors": 0,
+      "pass_rate": 1.0,
+      "elapsed_seconds": 82.339,
+      "avg_elapsed_seconds": 11.763,
+      "tool_calls": 10,
+      "avg_tool_calls": 1.43,
+      "token_usage": {
+        "input_tokens": 93556,
+        "output_tokens": 6433,
+        "total_tokens": 99989
+      }
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4",
+      "mode": "disconnected",
+      "total": 7,
+      "scored": 7,
+      "passed": 6,
+      "failed": 1,
+      "errors": 0,
+      "pass_rate": 0.8571428571428571,
+      "elapsed_seconds": 98.638,
+      "avg_elapsed_seconds": 14.091,
+      "tool_calls": 14,
+      "avg_tool_calls": 2.0,
+      "token_usage": {
+        "input_tokens": 103178,
+        "output_tokens": 7685,
+        "total_tokens": 110863
+      }
+    }
+  ]
+}

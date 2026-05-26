@@ -30,7 +30,7 @@ from benchmark_validation import score_answer_tolerant  # noqa: E402
 DEFAULT_MCD_PATH = Path("datasets/auto-manufacturer-tech-spec/auto-manufacturer-tech-spec.mcd")
 DEFAULT_CONNECTED_DIR = Path("datasets/auto-manufacturer-tech-spec/unpacked")
 DEFAULT_DISCONNECTED_DIR = Path("datasets/auto-manufacturer-tech-spec/disconnected")
-DEFAULT_QUESTIONS_PATH = Path("datasets/auto-manufacturer-tech-spec/qa_reasoning_questions_10.jsonl")
+DEFAULT_QUESTIONS_PATH = Path("datasets/auto-manufacturer-tech-spec/qa_reasoning_questions_20.jsonl")
 DEFAULT_RESULTS_ROOT = Path("results/reasoning_questions")
 DEFAULT_OPENAI_MODEL = "gpt-5.4"
 DEFAULT_ANTHROPIC_MODEL = "claude-opus-4-5"
@@ -48,9 +48,16 @@ REASONING_GUIDANCE = (
     "For scenario questions that change a value, always report both the new value and the absolute change from the "
     "original value, with direction and units, even if the question asks mainly for the new value. "
     "Echo percentage constants in percent form as well as decimal form, for example 93% and 0.93. "
+    "For engineering calculations, use available math helpers when they match the task. In folder modes, after "
+    "retrieving source row values, call the `engineering_math` tool for operations such as `brake_energy_payload_delta_mj`, "
+    "`added_drag_force_n`, `road_load_power_kw`, `cda_m2`, `percent_change_from_delta`, "
+    "`battery_window_range_delta`, `gcwr_reserve_kg`, `max_payload_for_gcwr_reserve`, `threshold_margin`, "
+    "`scaled_pair_by_percent`, `final_drive_tractive_effort_delta`, `rpm_from_power_torque`, and "
+    "`power_delta_at_same_rpm`. In MCD mode, retrieve `content/engineering_math.md` when useful or encode the same "
+    "helper formula explicitly in `mcd_query` SQL. "
     "When arithmetic uses powers, unit conversion, or more than two numeric inputs, compute the derived values in "
-    "SQL/table tools where possible and return the source inputs plus computed outputs in one observation; do not "
-    "rely on mental arithmetic in prose. "
+    "SQL/table tools or the engineering math helper where possible and return the source inputs plus computed outputs "
+    "in one observation; do not rely on mental arithmetic in prose. "
     "For unit-sensitive calculations, inspect `content/engineering_math.md` when available, use the "
     "`engineering_math` tool in folder modes when helpful, or encode the same conversion explicitly in SQL. "
     "Convert km/h to m/s as `speed_kmh / 3.6` before applying kinetic-energy or drag formulas; never treat "

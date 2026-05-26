@@ -6,11 +6,13 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import queue
 import re
 import shutil
 import subprocess
 import sys
 import tempfile
+import threading
 import time
 import zipfile
 from dataclasses import dataclass
@@ -37,6 +39,25 @@ DEFAULT_ANTHROPIC_MODEL = "claude-sonnet-4-5"
 DEFAULT_XAI_MODEL = "grok-4.3"
 DEFAULT_MAX_OUTPUT_TOKENS = 12000
 PROVIDERS = ["openai", "anthropic", "xai"]
+DEFAULT_MCD_MCP = str(Path.home() / ".cargo" / "bin" / ("mcd-mcp.exe" if os.name == "nt" else "mcd-mcp"))
+MCP_PROTOCOL_VERSION = "2025-06-18"
+READ_ONLY_MCP_TOOLS = {
+    "mcd_validate",
+    "mcd_inspect",
+    "mcd_agent_context",
+    "mcd_markdown",
+    "mcd_query",
+    "mcd_queries",
+    "mcd_search",
+    "mcd_table",
+    "mcd_schemas",
+    "mcd_chart",
+    "mcd_images",
+    "mcd_annotations",
+    "mcd_relationships",
+    "mcd_external_data",
+    "mcd_provenance",
+}
 
 
 @dataclass(frozen=True)
@@ -58,8 +79,10 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--xai-model", default=os.getenv("XAI_MODEL", DEFAULT_XAI_MODEL))
     parser.add_argument("--limit", type=int, default=None, help="Run only the first N questions.")
-    parser.add_argument("--max-tool-steps", type=int, default=8)
+    parser.add_argument("--max-tool-steps", type=int, default=20)
+    parser.add_argument("--mcd-mcp", default=os.getenv("MCD_MCP", DEFAULT_MCD_MCP))
     parser.add_argument("--mcd-cli", default=os.getenv("MCD_CLI", "mcd"))
+    parser.add_argument("--mcp-timeout-seconds", type=int, default=30)
     parser.add_argument("--cli-timeout-seconds", type=int, default=30)
     parser.add_argument("--python-timeout-seconds", type=int, default=30)
     parser.add_argument("--max-observation-chars", type=int, default=20000)
@@ -164,7 +187,14 @@ def format_seconds(value: float) -> str:
 
 def tool_calls_from_trace(trace: list[dict[str, Any]]) -> int:
     """Count the number of tool calls in an agent trace."""
-    return sum(1 for item in trace if item.get("action", {}).get("cli") or item.get("action", {}).get("python"))
+    return sum(
+        1
+        for item in trace
+        if item.get("action", {}).get("sql")
+        or item.get("action", {}).get("mcp")
+        or item.get("action", {}).get("cli")
+        or item.get("action", {}).get("python")
+    )
 
 
 def tool_calls_from_rows(rows: list[dict[str, Any]]) -> int:
@@ -359,13 +389,32 @@ def parse_agent_action(text: str) -> dict[str, Any]:
     action = extract_first_json_object(text)
     if "answer" in action:
         return {"answer": str(action["answer"])}
+    if isinstance(action.get("mcp"), dict):
+        mcp_action = action["mcp"]
+        tool_name = mcp_action.get("tool") or mcp_action.get("name")
+        arguments = mcp_action.get("arguments", mcp_action.get("args", {}))
+        if not tool_name:
+            raise ValueError("MCP action must include a tool name.")
+        if not isinstance(arguments, dict):
+            raise ValueError("MCP action arguments must be an object.")
+        return {"mcp": {"tool": str(tool_name), "arguments": arguments}}
+    if action.get("mcp_tool") or str(action.get("tool") or "").startswith("mcd_"):
+        tool_name = action.get("mcp_tool") or action.get("tool")
+        arguments = action.get("arguments", action.get("args", {}))
+        if not isinstance(arguments, dict):
+            raise ValueError("MCP action arguments must be an object.")
+        return {"mcp": {"tool": str(tool_name), "arguments": arguments}}
+    if "sql" in action:
+        return {"mcp": {"tool": "mcd_query", "arguments": {"sql": str(action["sql"]), "format": "json"}}}
+    if "query" in action:
+        return {"mcp": {"tool": "mcd_query", "arguments": {"sql": str(action["query"]), "format": "json"}}}
     if "cli" in action:
         return {"cli": str(action["cli"])}
     if "python" in action:
         return {"python": str(action["python"])}
     if "code" in action:
         return {"python": str(action["code"])}
-    raise ValueError("Agent response must contain 'cli', 'python', or 'answer'.")
+    raise ValueError("Agent response must contain an MCP action or 'answer'.")
 
 
 def quote_cmd_arg(value: str) -> str:
@@ -388,6 +437,23 @@ def mcd_cli_status(mcd_cli: str) -> dict[str, Any]:
     }
 
 
+def mcd_mcp_status(mcd_mcp: str) -> dict[str, Any]:
+    expanded_mcp = os.path.expanduser(os.path.expandvars(mcd_mcp))
+    if any(separator in expanded_mcp for separator in ("/", "\\")):
+        path = Path(expanded_mcp)
+        resolved = str(path.resolve()) if path.exists() else None
+    else:
+        resolved = shutil.which(expanded_mcp)
+    return {
+        "configured_executable": mcd_mcp,
+        "resolved_executable": resolved,
+        "available_on_path_or_filesystem": bool(resolved),
+        "protocol_version": MCP_PROTOCOL_VERSION,
+        "read_only_tools": sorted(READ_ONLY_MCP_TOOLS),
+        "placeholder_package": "{MCD_PATH}",
+    }
+
+
 def expand_cli_command(command: str, *, mcd_cli: str, mcd_path: Path) -> str:
     replacements = {
         "{MCD_CLI}": quote_cmd_arg(mcd_cli),
@@ -406,6 +472,292 @@ def expand_cli_command(command: str, *, mcd_cli: str, mcd_path: Path) -> str:
     for placeholder, replacement in replacements.items():
         expanded = expanded.replace(placeholder, replacement)
     return expanded
+
+
+def validate_select_sql(query: str) -> str:
+    stripped = query.strip()
+    if not stripped:
+        raise ValueError("SQL query is empty.")
+    lowered = stripped.casefold()
+    if not (lowered.startswith("select ") or lowered.startswith("with ")):
+        raise ValueError("Only read-only SELECT queries are supported.")
+    if ";" in stripped.rstrip(";"):
+        raise ValueError("Only one SQL statement is supported.")
+    return stripped.rstrip(";")
+
+
+def mcp_stdio_reader(stream: Any, output: queue.Queue[tuple[str, str]], label: str) -> None:
+    for line in stream:
+        output.put((label, line.rstrip("\n")))
+
+
+def mcp_wait_for_response(
+    output: queue.Queue[tuple[str, str]],
+    response_id: int,
+    *,
+    timeout_seconds: int,
+) -> tuple[dict[str, Any] | None, list[str]]:
+    deadline = time.perf_counter() + timeout_seconds
+    stderr_lines: list[str] = []
+    while time.perf_counter() < deadline:
+        try:
+            label, line = output.get(timeout=0.1)
+        except queue.Empty:
+            continue
+        if label == "stderr":
+            stderr_lines.append(line)
+            continue
+        try:
+            payload = json.loads(line)
+        except json.JSONDecodeError:
+            stderr_lines.append(f"non-json MCP stdout: {line}")
+            continue
+        if payload.get("id") == response_id:
+            return payload, stderr_lines
+    return None, stderr_lines
+
+
+def normalize_mcp_arguments(tool_name: str, arguments: dict[str, Any], mcd_path: Path) -> dict[str, Any]:
+    normalized = dict(arguments)
+    if tool_name in READ_ONLY_MCP_TOOLS:
+        package_path = normalized.get("path")
+        if not package_path or str(package_path) in {"{MCD_PATH}", "$MCD_PATH", "%MCD_PATH%", "$env:MCD_PATH"}:
+            normalized["path"] = str(mcd_path)
+    if tool_name == "mcd_query":
+        if "query" in normalized and "sql" not in normalized:
+            normalized["sql"] = normalized.pop("query")
+        normalized["sql"] = validate_select_sql(str(normalized.get("sql", "")))
+        normalized["format"] = "json"
+    elif tool_name == "mcd_queries":
+        queries = normalized.get("queries")
+        if not isinstance(queries, list):
+            raise ValueError("mcd_queries requires a queries array.")
+        normalized["queries"] = [validate_select_sql(str(query)) for query in queries]
+    return normalized
+
+
+def mcp_content_text(result: dict[str, Any]) -> str:
+    structured = result.get("structuredContent")
+    if structured is not None:
+        return json.dumps(structured, ensure_ascii=False, indent=2)
+    parts = []
+    for item in result.get("content", []):
+        if isinstance(item, dict) and item.get("type") == "text":
+            parts.append(str(item.get("text") or ""))
+    return "\n".join(parts)
+
+
+def run_mcp_tool(
+    *,
+    tool_name: str,
+    arguments: dict[str, Any],
+    mcd_mcp: str,
+    mcd_path: Path,
+    timeout_seconds: int,
+    max_observation_chars: int,
+) -> dict[str, Any]:
+    started = time.perf_counter()
+    try:
+        if tool_name not in READ_ONLY_MCP_TOOLS:
+            raise ValueError(f"MCP tool is not allowed in this read-only eval harness: {tool_name}")
+        normalized_arguments = normalize_mcp_arguments(tool_name, arguments, mcd_path)
+    except ValueError as exc:
+        return {
+            "tool_type": f"mcp:{tool_name}",
+            "tool_name": tool_name,
+            "arguments": arguments,
+            "exit_code": 2,
+            "timed_out": False,
+            "elapsed_seconds": round(time.perf_counter() - started, 3),
+            "stdout": "",
+            "stderr": str(exc),
+            "stdout_truncated": False,
+            "stderr_truncated": False,
+        }
+
+    env = {
+        **os.environ,
+        "MCD_PATH": str(mcd_path),
+        "MCD_MCP": mcd_mcp,
+        "PYTHONIOENCODING": "utf-8",
+    }
+    executable = os.path.expanduser(os.path.expandvars(mcd_mcp))
+    process: subprocess.Popen[str] | None = None
+    stdout = ""
+    stderr = ""
+    timed_out = False
+    exit_code: int | None = 0
+    try:
+        process = subprocess.Popen(
+            [executable, "--transport", "stdio"],
+            cwd=str(REPO_ROOT),
+            env=env,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            bufsize=1,
+        )
+        if process.stdin is None or process.stdout is None or process.stderr is None:
+            raise OSError("MCP process did not expose stdio pipes.")
+
+        output: queue.Queue[tuple[str, str]] = queue.Queue()
+        threading.Thread(target=mcp_stdio_reader, args=(process.stdout, output, "stdout"), daemon=True).start()
+        threading.Thread(target=mcp_stdio_reader, args=(process.stderr, output, "stderr"), daemon=True).start()
+
+        def send(payload: dict[str, Any]) -> None:
+            process.stdin.write(json.dumps(payload, ensure_ascii=False) + "\n")
+            process.stdin.flush()
+
+        send(
+            {
+                "jsonrpc": "2.0",
+                "id": 1,
+                "method": "initialize",
+                "params": {
+                    "protocolVersion": MCP_PROTOCOL_VERSION,
+                    "capabilities": {},
+                    "clientInfo": {"name": "llm-mcd-eval", "version": "0.1"},
+                },
+            }
+        )
+        init_response, init_stderr = mcp_wait_for_response(output, 1, timeout_seconds=timeout_seconds)
+        if init_response is None:
+            timed_out = True
+            stderr = "\n".join(init_stderr) or "Timed out waiting for MCP initialize response."
+            exit_code = None
+        elif init_response.get("error"):
+            stderr = json.dumps(init_response["error"], ensure_ascii=False)
+            exit_code = 1
+        else:
+            send({"jsonrpc": "2.0", "method": "notifications/initialized", "params": {}})
+            send(
+                {
+                    "jsonrpc": "2.0",
+                    "id": 2,
+                    "method": "tools/call",
+                    "params": {"name": tool_name, "arguments": normalized_arguments},
+                }
+            )
+            call_response, call_stderr = mcp_wait_for_response(output, 2, timeout_seconds=timeout_seconds)
+            stderr = "\n".join([*init_stderr, *call_stderr])
+            if call_response is None:
+                timed_out = True
+                stderr = stderr or "Timed out waiting for MCP tool response."
+                exit_code = None
+            elif call_response.get("error"):
+                stderr = "\n".join(
+                    part for part in [stderr, json.dumps(call_response["error"], ensure_ascii=False)] if part
+                )
+                exit_code = 1
+            else:
+                result = call_response.get("result", {})
+                stdout = mcp_content_text(result if isinstance(result, dict) else {})
+                if isinstance(result, dict) and result.get("isError"):
+                    exit_code = 1
+    except subprocess.TimeoutExpired as exc:
+        timed_out = True
+        exit_code = None
+        stdout = (exc.stdout or "") if isinstance(exc.stdout, str) else ""
+        stderr = (exc.stderr or "") if isinstance(exc.stderr, str) else ""
+    except OSError as exc:
+        exit_code = 127
+        stderr = str(exc)
+    finally:
+        if process is not None and process.poll() is None:
+            process.terminate()
+            try:
+                process.wait(timeout=2)
+            except subprocess.TimeoutExpired:
+                process.kill()
+
+    return {
+        "tool_type": f"mcp:{tool_name}",
+        "tool_name": tool_name,
+        "arguments": normalized_arguments,
+        "exit_code": exit_code,
+        "timed_out": timed_out,
+        "elapsed_seconds": round(time.perf_counter() - started, 3),
+        "stdout": stdout[:max_observation_chars],
+        "stderr": stderr[:max_observation_chars],
+        "stdout_truncated": len(stdout) > max_observation_chars,
+        "stderr_truncated": len(stderr) > max_observation_chars,
+    }
+
+
+def run_sql_tool(
+    *,
+    query: str,
+    mcd_cli: str,
+    mcd_path: Path,
+    timeout_seconds: int,
+    max_observation_chars: int,
+) -> dict[str, Any]:
+    started = time.perf_counter()
+    try:
+        safe_query = validate_select_sql(query)
+    except ValueError as exc:
+        return {
+            "tool_type": "sql",
+            "query": query,
+            "exit_code": 2,
+            "timed_out": False,
+            "elapsed_seconds": round(time.perf_counter() - started, 3),
+            "stdout": "",
+            "stderr": str(exc),
+            "stdout_truncated": False,
+            "stderr_truncated": False,
+        }
+
+    command = [mcd_cli, "query", "--format", "json", str(mcd_path), safe_query]
+    env = {
+        **os.environ,
+        "MCD_PATH": str(mcd_path),
+        "MCD_CLI": mcd_cli,
+        "PYTHONIOENCODING": "utf-8",
+    }
+    try:
+        completed = subprocess.run(
+            command,
+            cwd=str(REPO_ROOT),
+            env=env,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            timeout=timeout_seconds,
+            check=False,
+        )
+        timed_out = False
+        exit_code = completed.returncode
+        stdout = completed.stdout
+        stderr = completed.stderr
+    except subprocess.TimeoutExpired as exc:
+        timed_out = True
+        exit_code = None
+        stdout = (exc.stdout or "") if isinstance(exc.stdout, str) else ""
+        stderr = (exc.stderr or "") if isinstance(exc.stderr, str) else ""
+    except OSError as exc:
+        timed_out = False
+        exit_code = 127
+        stdout = ""
+        stderr = str(exc)
+
+    return {
+        "tool_type": "sql",
+        "query": safe_query,
+        "command": command,
+        "exit_code": exit_code,
+        "timed_out": timed_out,
+        "elapsed_seconds": round(time.perf_counter() - started, 3),
+        "stdout": stdout[:max_observation_chars],
+        "stderr": stderr[:max_observation_chars],
+        "stdout_truncated": len(stdout) > max_observation_chars,
+        "stderr_truncated": len(stderr) > max_observation_chars,
+    }
 
 
 def run_cli_tool(
@@ -526,104 +878,95 @@ def tool_observation_failed(observation: dict[str, Any]) -> bool:
 def make_mcd_agent_prompt(
     *,
     mcd_summary_text: str,
-    cli_status: dict[str, Any],
+    mcp_status: dict[str, Any],
     question: dict[str, Any],
     observations: list[dict[str, Any]],
 ) -> str:
     tool_docs = {
-        "cli_query": {
-            "cli": (
-                "{MCD_CLI} query --format json {MCD_PATH} "
-                '"select group_column, count(*) as row_count '
+        "sql_query": {
+            "sql": (
+                "select group_column, count(*) as row_count "
                 "from table_id "
-                "group by group_column order by row_count desc limit 3\""
+                "group by group_column order by row_count desc limit 3"
             )
         },
-        "cli_join": {
-            "cli": (
-                "{MCD_CLI} query --format json {MCD_PATH} "
-                '"select a.id, a.foreign_id, a.metric_value, b.category, b.status '
+        "sql_join": {
+            "sql": (
+                "select a.id, a.foreign_id, a.metric_value, b.category, b.status "
                 "from table_a a "
                 "join table_b b on a.foreign_id = b.id "
-                "order by cast(a.metric_value as real) asc limit 1\""
+                "order by cast(a.metric_value as real) asc limit 1"
             )
         },
-        "cli_schema_metadata": {
-            "cli": (
-                "{MCD_CLI} query --format json {MCD_PATH} "
-                '"select table_id, column_name, type, label, nullable, unit_code, unit_label '
+        "sql_schema_metadata": {
+            "sql": (
+                "select table_id, column_name, type, label, nullable, unit_code, unit_label "
                 "from mcd_columns "
-                "order by table_id, ordinal\""
+                "order by table_id, ordinal"
             )
         },
-        "cli_primary_keys": {
-            "cli": (
-                "{MCD_CLI} query --format json {MCD_PATH} "
-                '"select table_id, column_name, ordinal '
+        "sql_primary_keys": {
+            "sql": (
+                "select table_id, column_name, ordinal "
                 "from mcd_primary_keys "
-                "order by table_id, ordinal\""
+                "order by table_id, ordinal"
             )
         },
-        "cli_foreign_keys": {
-            "cli": (
-                "{MCD_CLI} query --format json {MCD_PATH} "
-                '"select table_id, column_name, ordinal, ref_table_id, ref_column_name '
+        "sql_foreign_keys": {
+            "sql": (
+                "select table_id, column_name, ordinal, ref_table_id, ref_column_name "
                 "from mcd_foreign_keys "
-                "order by table_id, ordinal\""
+                "order by table_id, ordinal"
             )
         },
-        "cli_units": {
-            "cli": (
-                "{MCD_CLI} query --format json {MCD_PATH} "
-                '"select table_id, column_name, unit_code, unit_label, unit_custom '
+        "sql_units": {
+            "sql": (
+                "select table_id, column_name, unit_code, unit_label, unit_custom "
                 "from mcd_units "
-                "order by table_id, column_name\""
+                "order by table_id, column_name"
             )
         },
-        "cli_pragma_foreign_keys": {
-            "cli": (
-                "{MCD_CLI} query --format json {MCD_PATH} "
-                '"select [table], [from], [to] from pragma_foreign_key_list(\'table_id\')"'
-            )
+        "sql_pragma_foreign_keys": {
+            "sql": "select [table], [from], [to] from pragma_foreign_key_list('table_id')"
         },
-        "cli_pragma_table_keys": {
-            "cli": (
-                "{MCD_CLI} query --format json {MCD_PATH} "
-                '"select name, type, pk from pragma_table_info(\'table_id\') where pk > 0"'
-            )
+        "sql_pragma_table_keys": {
+            "sql": "select name, type, pk from pragma_table_info('table_id') where pk > 0"
         },
-        "cli_markdown": {"cli": "{MCD_CLI} extract --markdown {MCD_PATH}"},
-        "cli_schemas": {"cli": "{MCD_CLI} extract --schemas {MCD_PATH}"},
-        "cli_tools": {"cli": "{MCD_CLI} tools --format json {MCD_PATH}"},
-        "python_fallback": {
-            "python": (
-                "import os, json, mcd\n"
-                "doc = mcd.open(os.environ['MCD_PATH'])\n"
-                "rows = doc.table('table_id').rows()\n"
-                "print(json.dumps(rows[:5], ensure_ascii=False))"
-            )
-        },
+        "mcp_markdown": {"mcp_tool": "mcd_markdown", "arguments": {"expandTables": False}},
+        "mcp_schemas": {"mcp_tool": "mcd_schemas", "arguments": {}},
+        "mcp_table_sample": {"mcp_tool": "mcd_table", "arguments": {"tableId": "table_id", "maxRows": 5}},
+        "mcp_search": {"mcp_tool": "mcd_search", "arguments": {"query": "rule terms", "kind": "markdown", "limit": 5}},
         "prefix_rule_example": {
-            "cli": (
-                "{MCD_CLI} query --format json {MCD_PATH} "
-                '"select count(*) as violation_count '
+            "sql": (
+                "select count(*) as violation_count "
                 "from table_id "
                 "where lower(substr(prefixed_code_column, 1, instr(prefixed_code_column, '-') - 1)) "
-                "!= lower(expected_prefix_column)\""
+                "<> lower(expected_prefix_column)"
+            )
+        },
+        "prefix_rule_count_plus_first_example": {
+            "sql": (
+                "with mismatches as ("
+                "select id_column, expected_prefix_column, prefixed_code_column, "
+                "substr(prefixed_code_column, 1, instr(prefixed_code_column, '-') - 1) as actual_prefix "
+                "from table_id "
+                "where lower(substr(prefixed_code_column, 1, instr(prefixed_code_column, '-') - 1)) "
+                "<> lower(expected_prefix_column)"
+                ") "
+                "select (select count(*) from mismatches) as violation_count, * "
+                "from mismatches order by id_column asc limit 1"
             )
         },
         "fixed_precision_example": {
-            "cli": (
-                "{MCD_CLI} query --format json {MCD_PATH} "
-                '"select id, printf(\'%.3f\', decimal_metric_column) as decimal_metric_column '
+            "sql": (
+                "select id, printf('%.3f', decimal_metric_column) as decimal_metric_column "
                 "from table_id "
-                "order by cast(decimal_metric_column as real) desc limit 2\""
+                "order by cast(decimal_metric_column as real) desc limit 2"
             )
         },
         "count_plus_first_row_example": {
-            "cli": (
-                "{MCD_CLI} query --format json {MCD_PATH} "
-                '"with matches as ('
+            "sql": (
+                "with matches as ("
                 "select a.id, a.foreign_id, a.status, b.category, b.metric_value "
                 "from table_a a "
                 "join table_b b on a.foreign_id = b.id "
@@ -631,38 +974,61 @@ def make_mcd_agent_prompt(
                 "and lower(a.status)<>lower('required_status')"
                 ") "
                 "select (select count(*) from matches) as violation_count, * "
-                "from matches order by id asc limit 1\""
+                "from matches order by id asc limit 1"
             )
         },
         "top_row_all_columns_example": {
-            "cli": (
-                "{MCD_CLI} query --format json {MCD_PATH} "
-                '"select * from source_table '
+            "sql": (
+                "select * from source_table "
                 "where lower(category_column)=lower('target_category') "
-                "order by cast(sort_metric_column as real) desc, id asc limit 1\""
+                "order by cast(sort_metric_column as real) desc, id asc limit 1"
             )
         },
         "grouped_counts_with_total_example": {
-            "cli": (
-                "{MCD_CLI} query --format json {MCD_PATH} "
-                '"select count(*) as total_count, '
+            "sql": (
+                "select count(*) as total_count, "
                 "sum(case when lower(category_column)=lower('category_a') then 1 else 0 end) as category_a_count, "
                 "sum(case when lower(category_column)=lower('category_b') then 1 else 0 end) as category_b_count "
                 "from table_id "
                 "where lower(category_column) in (lower('category_a'), lower('category_b')) "
-                "and cast(metric_column as real)>threshold\""
+                "and cast(metric_column as real)>threshold"
+            )
+        },
+        "grouped_rows_with_total_example": {
+            "sql": (
+                "with grouped as ("
+                "select category_column, count(*) as category_count "
+                "from table_id "
+                "where lower(category_column) in (lower('category_a'), lower('category_b')) "
+                "and cast(metric_column as real)>threshold "
+                "group by category_column"
+                ") "
+                "select (select sum(category_count) from grouped) as total_count, "
+                "category_column, category_count "
+                "from grouped order by category_column"
             )
         },
     }
+    for example in tool_docs.values():
+        if "sql" in example:
+            example["mcp_tool"] = "mcd_query"
+            example["arguments"] = {"sql": example.pop("sql")}
     return (
         "You are a document-grounded QA assistant evaluating an MCD package. "
-        "Use the MCD CLI to inspect the package and query tables. Do not guess from memory. "
-        "Always use `{MCD_PATH}` for the package path in CLI commands; do not use `.`, `$MCD_PATH`, or `%MCD_PATH%`. "
-        "Prefer cli_query for complex relational work, such as joins, aggregate counts, computed expressions, "
-        "grouped counts, sorting, and top-k queries. cli_query accepts read-only SQL SELECT statements over "
+        "Use the MCD MCP server to inspect the package and query tables. Do not guess from memory. "
+        "Prefer the `mcd_query` MCP tool for table and metadata queries. The harness injects the package path, "
+        "so omit `path` or set it to `{MCD_PATH}`; do not use `.`, `$MCD_PATH`, or `%MCD_PATH%`. "
+        "Return MCP calls as `{\"mcp_tool\":\"mcd_query\",\"arguments\":{\"sql\":\"select ...\"}}`. "
+        "Use `mcd_markdown`, `mcd_schemas`, `mcd_table`, and `mcd_search` for non-query MCD inspection. "
+        "`mcd_search` is BM25 retrieval over package Markdown, schemas, manifest metadata, annotations, and "
+        "provenance; it does not search CSV table rows, so use `mcd_query` for exact row-level counts, joins, "
+        "filters, and extrema. Use `kind` filters such as `markdown`, `schema`, `manifest`, `annotation`, or "
+        "`provenance` when the needed evidence type is clear. "
+        "Prefer SQL for complex relational work, such as joins, aggregate counts, computed expressions, "
+        "grouped counts, sorting, and top-k queries. `mcd_query` accepts read-only SELECT statements over "
         "manifest table IDs. The MCD SQL runtime is SQLite-backed and also exposes reserved metadata tables: "
         "`mcd_tables`, `mcd_columns`, `mcd_primary_keys`, `mcd_foreign_keys`, and `mcd_units`. Use these tables "
-        "through `mcd query` to discover exact table IDs, column names, data types, semantic units, primary keys, "
+        "through `mcd_query` to discover exact table IDs, column names, data types, semantic units, primary keys, "
         "and foreign-key relationships before writing uncertain SQL. "
         "When a question requires a join and the relationship is not already certain from the dataset index, first "
         "query `mcd_foreign_keys` and join on the returned `table_id.column_name = ref_table_id.ref_column_name`; "
@@ -673,54 +1039,82 @@ def make_mcd_agent_prompt(
         "Use CAST(column AS REAL) or CAST(column AS INTEGER) for numeric comparisons, "
         "calculations, and ordering. For categorical string comparisons, use lower(column) = lower('value') "
         "or lower(column) IN (...), unless exact case is explicitly required. "
+        "For text inequality, use lower(left) <> lower(right) or lower(left) != lower(right); reserve IS and IS NOT "
+        "for NULL checks only. "
         "For prefix rules, compute the prefix from the field, for example "
         "substr(prefixed_code_column, 1, instr(prefixed_code_column, '-') - 1), and compare it to the expected "
         "prefix column; "
         "do not hardcode a list of allowed prefixes. "
         "For expected fixed-precision decimals, use printf formatting in SQL, such as printf('%.3f', decimal_metric_column). "
-        "Use cli_markdown when the question depends on narrative rules in the dossier. Use cli_schemas or "
-        "cli_schema_metadata when the question depends on declared schema information, primary keys, foreign keys, "
+        "Use `mcd_search` before broad Markdown reads when the question names a rule, formula, domain phrase, "
+        "source line, schema term, annotation, or provenance detail but the relevant section is uncertain. Use "
+        "`mcd_markdown` when you already need nearby prose from a known page or section. Use "
+        "`mcd_schemas` or metadata queries when the question depends on declared schema information, primary keys, foreign keys, "
         "units, or nullable/enum/type metadata. For narrative-rule "
         "questions, inspect the relevant markdown sentence or use table schemas, then include source columns whose "
         "names overlap with or are semantically tied to the rule terms. "
-        "Use Python only as a fallback if the CLI cannot express the needed calculation cleanly or if a metadata "
-        "query is unavailable in the installed CLI; Python `doc.query(...)` exposes the same SQL metadata tables "
-        "in updated `mcdee` builds. "
-        "Do not guess from memory. Both tools execute in the repository root and return stdout/stderr. "
+        "Do not use CLI or Python actions; MCP observations are the "
+        "primary source of truth. "
+        "Do not guess from memory. MCP tools execute in the repository root and return stdout/stderr-style observations. "
         "Keep tool output concise. "
+        "Return one tool action at a time. Do not submit "
+        "semicolon-separated multiple SQL statements; `mcd_query` SQL must contain exactly one read-only SELECT or WITH "
+        "statement. Use CTEs or scalar subqueries to combine multiple counts, examples, and grouped rows into one "
+        "result. "
         "If a tool observation has nonzero exit_code, stderr, or timed_out=true, treat it as failed: do not answer "
-        "from that observation. Retry once with `{MCD_PATH}` and a single SQL statement; after repeated CLI errors, "
-        "use Python fallback. "
+        "from that observation. Retry once with a single SQL statement through `mcd_query`; after repeated MCP "
+        "errors, try `mcd_schemas`, `mcd_table`, or `mcd_search` to inspect the package. "
         "If a result is capped or limited, do not compute final counts or extremes from capped samples unless "
         "the query sorted exactly by the required criterion. "
+        "Before writing a query, form an answer contract from the question: every requested output field, every "
+        "source field used in a derived expression, and every source field used in a rule/filter must be selected "
+        "or otherwise returned in the same successful observation. If a question names a formula or expression "
+        "such as X plus Y, select X, Y, and the computed value; do not return only the computed value. "
         "For each question, select and return all fields requested by the prompt, including example row details "
         "such as IDs, variants, category values, and numeric values, not only counts. "
+        "For joined-row questions, include the stable row identifier from the row-producing/source table as well "
+        "as any referenced entity ID from joined tables. If the question asks for a validation row, test, lot, "
+        "calibration, pack, or variant row, include that table's primary or prefixed ID in the query result. "
         "When a question asks for a count plus a first/worst/best/top row, use a CTE or subqueries so the same "
         "successful observation includes both the total count and every field for that row. Do not use aggregate "
         "functions and ungrouped row fields together unless each row field is selected by an ordered subquery. "
-        "When a question asks for grouped counts, include the overall total count as well as each group count. "
+        "When a question asks for the first listed row and gives no explicit sorting metric, preserve the listing "
+        "order of the row-producing table. If the source order is represented by a monotonic prefixed ID, order by "
+        "that source-row ID; do not order by a joined lookup/entity ID unless the question asks for that entity's "
+        "first row. "
+        "When a question asks for grouped counts, include the overall total count in both the SQL result and final "
+        "answer as well as each group count. A question phrased as `how many ... by category/chemistry/status` "
+        "requires both the total number of matching rows across all groups and the per-group counts; do not answer "
+        "with only the breakdown. If the SQL groups rows, add a total column with a CTE, scalar subquery, or window "
+        "aggregate so the same observation contains the total and the grouped rows. "
+        "When a question asks for first examples by named category or status, filter the named source category/status "
+        "column directly after discovering its exact values; do not look for those labels in unrelated columns. "
         "When a question asks for a top source row, include the identifier plus every rule-related source field "
         "named or implied by the question and narrative, not only the sort metric. If the rule references another "
         "measurement, limit, threshold, date, status, or requirement column in the same source table, include that "
         "column in the query and final answer even when it is not the ordering column. For narrative-rule questions, "
         "prefer selecting all columns for the selected/top source row (`select * ... limit 1`) or first inspect the "
-        "schema with `mcd tools --format json {MCD_PATH}` before deciding which columns to project; then summarize "
+        "schema with `mcd_schemas` before deciding which columns to project; then summarize "
         "only the relevant fields in the final answer. "
         "In the final answer, include the key condition values and field names used to select the result, not only "
         "the numeric answer. "
-        "Return exactly one JSON object and no prose. Do not return a tool call and an answer in the same response.\n\n"
-        "If you need data, return: "
-        '{"cli":"{MCD_CLI} query --format json {MCD_PATH} \\"select ...\\""}\n'
-        "If CLI is insufficient, return: "
-        '{"python":"import os, json, mcd\\ndoc = mcd.open(os.environ[\'MCD_PATH\'])\\n..."}\n'
+        "Return exactly one JSON object and no prose. Do not return a tool call and an answer in the same response. "
+        "All JSON string values must be valid single-line JSON strings: no literal line breaks inside strings. "
+        "If a string needs a quote or newline, escape it as JSON, or keep the SQL/action text on one line.\n\n"
+        "If you need data, return an MCP tool call, for example:\n"
+        '{"mcp_tool":"mcd_query","arguments":{"sql":"select ..."}}\n'
+        "For non-query MCD inspection, return:\n"
+        '{"mcp_tool":"mcd_markdown","arguments":{"expandTables":false}}\n'
+        "For BM25 retrieval over package text and metadata, return:\n"
+        '{"mcp_tool":"mcd_search","arguments":{"query":"rule or schema terms","kind":"markdown","limit":5}}\n'
         "When you know the final answer, return:\n"
         '{"answer":"concise answer containing exact IDs, field names, condition values, and numbers"}\n\n'
         "Available tools and argument examples:\n"
         "The examples below are patterns. Replace placeholder table names, column names, threshold, and category "
         "values with actual names and values from the dataset index, question, and tool observations.\n"
         f"{json.dumps(tool_docs, ensure_ascii=False, indent=2)}\n\n"
-        "CLI status:\n"
-        f"{json.dumps({'available': cli_status.get('available_on_path_or_filesystem'), 'mcd_cli': cli_status.get('configured_executable')}, ensure_ascii=False, indent=2)}\n\n"
+        "MCP status:\n"
+        f"{json.dumps({'available': mcp_status.get('available_on_path_or_filesystem'), 'mcd_mcp': mcp_status.get('configured_executable'), 'read_only_tools': mcp_status.get('read_only_tools')}, ensure_ascii=False, indent=2)}\n\n"
         "Dataset index:\n"
         f"{mcd_summary_text}\n\n"
         "Question:\n"
@@ -735,8 +1129,9 @@ def make_mcd_agent_followup_prompt(observation_record: dict[str, Any]) -> str:
         "Tool observation for the previous action:\n"
         f"{json.dumps(observation_record, ensure_ascii=False, indent=2)}\n\n"
         "Continue answering the same question using the original instructions and dataset index. "
-        "Return exactly one JSON object and no prose: either another `cli`/`python` action or the final `answer`. "
-        "Do not repeat a successful tool call unless a different query is needed."
+        "Return exactly one JSON object and no prose: either another MCP action or the final "
+        "`answer`. Prefer `mcd_query` for MCD queries. JSON string values must be single-line valid JSON strings with no "
+        "literal line breaks. Do not repeat a successful tool call unless a different query is needed."
     )
 
 
@@ -752,29 +1147,225 @@ def observation_has_json_rows(observation_record: dict[str, Any]) -> bool:
     return int_token(payload.get("rowCount")) > 0
 
 
+def extract_json_objects(text: str) -> list[dict[str, Any]]:
+    decoder = json.JSONDecoder()
+    objects: list[dict[str, Any]] = []
+    index = 0
+    while index < len(text):
+        start = text.find("{", index)
+        if start == -1:
+            break
+        try:
+            value, end = decoder.raw_decode(text[start:])
+        except json.JSONDecodeError:
+            index = start + 1
+            continue
+        if isinstance(value, dict):
+            objects.append(value)
+        index = start + max(end, 1)
+    return objects
+
+
+def parsed_mcd_stdout(observation: dict[str, Any]) -> dict[str, Any] | None:
+    stdout = str(observation.get("stdout") or "").strip()
+    if not stdout:
+        return None
+    try:
+        payload = json.loads(stdout)
+    except json.JSONDecodeError:
+        return None
+    if isinstance(payload, dict):
+        return payload
+    return None
+
+
+def summarize_mcd_observation(step: Any, action: dict[str, Any], observation: dict[str, Any]) -> dict[str, Any]:
+    summary: dict[str, Any] = {
+        "step": step,
+        "action": action,
+        "tool_type": observation.get("tool_type"),
+        "exit_code": observation.get("exit_code"),
+        "timed_out": observation.get("timed_out"),
+        "stderr": observation.get("stderr"),
+        "stdout_truncated": observation.get("stdout_truncated"),
+    }
+    payload = parsed_mcd_stdout(observation)
+    if payload:
+        rows = payload.get("rows")
+        if isinstance(rows, list):
+            summary.update(
+                {
+                    "columns": payload.get("columns"),
+                    "row_count": payload.get("rowCount"),
+                    "rows": rows[:5],
+                }
+            )
+        else:
+            summary["stdout_json"] = payload
+    else:
+        stdout = str(observation.get("stdout") or "")
+        if stdout:
+            summary["stdout_preview"] = stdout[:2000]
+    return summary
+
+
+def build_mcd_agent_state(trace: list[dict[str, Any]]) -> dict[str, Any]:
+    steps: list[dict[str, Any]] = []
+    successful_result_summaries: list[dict[str, Any]] = []
+    failed_attempts: list[dict[str, Any]] = []
+    ignored_response_objects: list[dict[str, Any]] = []
+    provisional_answers: list[dict[str, Any]] = []
+    observed_columns_by_query: list[dict[str, Any]] = []
+
+    for item in trace:
+        action = item.get("action", {})
+        raw = str(item.get("raw") or "")
+        response_objects = extract_json_objects(raw)
+        if len(response_objects) > 1:
+            ignored_response_objects.extend(
+                {"step": item.get("step"), "object": value}
+                for value in response_objects[1:]
+            )
+        for value in response_objects:
+            if "answer" in value:
+                provisional_answers.append(
+                    {"step": item.get("step"), "answer": str(value.get("answer"))}
+                )
+
+        step_record: dict[str, Any] = {
+            "step": item.get("step"),
+            "model_response": raw,
+            "parsed_action": action,
+        }
+        if "error" in item:
+            step_record["parse_error"] = item["error"]
+        observation = item.get("observation")
+        if isinstance(observation, dict):
+            observation_summary = summarize_mcd_observation(item.get("step"), action, observation)
+            step_record["tool_observation_summary"] = observation_summary
+            if tool_observation_failed(observation):
+                failed_attempts.append(
+                    {
+                        "step": item.get("step"),
+                        "action": action,
+                        "error": observation.get("stderr") or observation.get("harness_hint") or "tool failed",
+                    }
+                )
+            else:
+                successful_result_summaries.append(observation_summary)
+                if observation_summary.get("columns"):
+                    observed_columns_by_query.append(
+                        {
+                            "step": item.get("step"),
+                            "action": action,
+                            "columns": observation_summary.get("columns"),
+                            "row_count": observation_summary.get("row_count"),
+                        }
+                    )
+        steps.append(step_record)
+
+    return {
+        "steps": steps,
+        "successful_result_summaries": successful_result_summaries,
+        "observed_columns_by_query": observed_columns_by_query,
+        "failed_attempts": failed_attempts,
+        "ignored_response_objects": ignored_response_objects,
+        "provisional_answers": provisional_answers,
+    }
+
+
+def compact_mcd_tool_registry() -> dict[str, Any]:
+    return {
+        "response_shape": (
+            'Return exactly one JSON object: {"mcp_tool":"mcd_query","arguments":{"sql":"single SELECT or WITH statement"}}, '
+            '{"mcp_tool":"mcd_search","arguments":{"query":"...","kind":"markdown","limit":5}}, '
+            '{"mcp_tool":"mcd_markdown","arguments":{"expandTables":false}}, or {"answer":"..."}. '
+            "Do not emit multiple JSON objects. Keep JSON string values single-line and valid."
+        ),
+        "tools": {
+            "mcd_query": {
+                "notes": (
+                    "Preferred for MCD table and metadata queries. The harness executes the call through "
+                    "the MCD MCP server; do not include a CLI command, shell quotes, "
+                    "semicolons, or multiple statements. Query manifest table IDs plus mcd_tables, mcd_columns, "
+                    "mcd_primary_keys, mcd_foreign_keys, and mcd_units."
+                ),
+            },
+            "mcd_markdown": {"notes": "Use for narrative rules and package markdown."},
+            "mcd_schemas": {"notes": "Use for table schemas, keys, relationships, and units."},
+            "mcd_table": {"notes": "Use for small table samples when schema or exact values are uncertain."},
+            "mcd_search": {
+                "notes": (
+                    "Use for BM25 search over Markdown, schemas, manifest, annotations, and provenance. "
+                    "It does not search CSV table rows; use mcd_query for exact row-level answers."
+                ),
+            },
+        },
+    }
+
+
 def make_mcd_agent_compact_prompt(
     question: dict[str, Any],
-    observation_record: dict[str, Any],
+    trace: list[dict[str, Any]],
     mcd_summary_text: str,
 ) -> str:
+    observation_record = {"observation": trace[-1].get("observation", {})} if trace else {}
     has_rows = observation_has_json_rows(observation_record)
     dataset_index = "" if has_rows else f"\n\nCompact dataset index:\n{mcd_summary_text}"
+    agent_state = build_mcd_agent_state(trace)
     return (
-        "You are continuing an MCD package QA task. Use the latest tool observation below and answer the same "
-        "question, or request one more concise tool call if more data is required.\n\n"
+        "You are continuing an MCD package QA task. Use the current state below as persistent working memory for "
+        "the same question. The state includes prior model responses, executed actions, tool observations, "
+        "successful result summaries, failed attempts, ignored extra response objects, and provisional answer text.\n\n"
         "Rules: return exactly one JSON object and no prose. Use "
-        '`{"answer":"..."}` for the final answer, '
-        '`{"cli":"{MCD_CLI} query --format json {MCD_PATH} \\"select ...\\""}` for SQL, '
-        "or `python` only if SQL is insufficient. Use `{MCD_PATH}` literally in CLI commands. "
-        "Use read-only SQLite SELECT over manifest table IDs. Use CAST(... AS REAL/INTEGER) for numeric "
-        "filtering, sorting, and calculations. For counts plus first/worst/best rows, use CTEs or ordered "
-        "subqueries so the same successful observation contains the count and row details. Final answers must "
-        "include exact IDs, requested fields, key condition values, and rule-related source fields present in "
-        "the observation.\n\n"
+        '{"answer":"..."} for the final answer or '
+        '{"mcp_tool":"mcd_query","arguments":{"sql":"select ..."}} for MCD queries. Use '
+        '{"mcp_tool":"mcd_markdown","arguments":{"expandTables":false}}, '
+        '{"mcp_tool":"mcd_schemas","arguments":{}}, {"mcp_tool":"mcd_table","arguments":{"tableId":"...","maxRows":5}}, '
+        'or {"mcp_tool":"mcd_search","arguments":{"query":"...","limit":5}} for non-query MCD inspection. '
+        "Only the first JSON object is executed, so never include a tool call and an "
+        "answer in the same response. JSON string values must be single-line valid JSON strings with no literal "
+        "line breaks. Prefer `mcd_query` for joins, aggregate counts, computed expressions, grouped counts, sorting, "
+        "and top-k queries. Use read-only SQLite SELECT over manifest table IDs and MCD metadata tables. Submit "
+        "exactly one SELECT or WITH statement; use CTEs or scalar subqueries instead of semicolon-separated "
+        "statements. Use `mcd_search` for BM25 retrieval when the relevant rule, formula, schema term, annotation, "
+        "or provenance detail is uncertain; do not use search results as a substitute for SQL row-level counts or "
+        "extrema. Use `kind` filters such as `markdown`, `schema`, `manifest`, `annotation`, or `provenance` when useful. "
+        "Use CAST(... AS REAL/INTEGER) for numeric filtering, sorting, and calculations. Use lower(...) "
+        "for categorical comparisons unless exact case is required. Use <> or != for text inequality; reserve "
+        "IS/IS NOT for NULL checks. For counts plus first/worst/best rows, use CTEs or ordered subqueries so the "
+        "same successful observation contains the count and row details. "
+        "Tool observations are source of truth; provisional answer text and ignored response objects are clues only "
+        "and must be checked against observations. Carry forward every observed table name, column name, row value, "
+        "count, and failure. Use only exact column names already observed for a table, or inspect metadata before "
+        "using uncertain columns. Before writing a query, form an answer contract from the question: requested "
+        "output fields, source fields used in derived expressions, and source fields used in rules/filters must all "
+        "be present in the same successful observation. If a question names a formula or expression such as X plus "
+        "Y, select X, Y, and the computed value; do not return only the computed value. For joined-row questions, "
+        "include the stable row identifier from the row-producing/source table as well as referenced joined entity "
+        "IDs. If a question asks for the first listed row and gives no explicit sorting metric, preserve the listing "
+        "order of the row-producing table; if represented by a monotonic prefixed ID, order by that source-row ID, "
+        "not a joined lookup/entity ID. If a prior action failed, do not retry the same invalid table name, column "
+        "name, argument shape, JSON shape, or SQL pattern. If the current state already contains all fields "
+        "requested by the question, answer now rather than calling another tool; otherwise call one more tool to "
+        "retrieve missing answer-contract fields instead of omitting them. For grouped counts, include any overall "
+        "total present in the observation; if grouped rows are exhaustive and untruncated, include the sum of group "
+        "counts as an overall total. A question phrased as `how many ... by category/chemistry/status` requires both "
+        "the total number of matching rows across all groups and the per-group counts; do not answer with only the "
+        "breakdown. If the current grouped observation lacks an explicit total but is exhaustive and untruncated, "
+        "sum the returned group counts in the final answer or call one more SQL query that adds the total. For "
+        "prefix-style rules, derive the prefix from the data value and compare it "
+        "directly to the expected field; do not enumerate possible categories. If two independent "
+        "earliest/top/count facts are requested and no observed schema provides a join key, compute them "
+        "independently rather than inventing a relationship. Final answers must include exact IDs, requested "
+        "fields, key condition values, source fields used to compute derived values, and "
+        "rule-related source fields present in observations.\n\n"
+        "Tool registry:\n"
+        f"{json.dumps(compact_mcd_tool_registry(), ensure_ascii=False, indent=2)}\n\n"
         "Question:\n"
         f"{json.dumps({'id': question['id'], 'question': question['prompt']}, ensure_ascii=False, indent=2)}\n\n"
-        "Latest tool observation:\n"
-        f"{json.dumps(observation_record, ensure_ascii=False, indent=2)}"
+        "Current state:\n"
+        f"{json.dumps(agent_state, ensure_ascii=False, indent=2)}"
         f"{dataset_index}"
     )
 
@@ -864,7 +1455,7 @@ def run_mcd_agent_question(
             "",
             {
                 "dry_run": True,
-                "cli_status": mcd_cli_status(args.mcd_cli),
+                "mcp_status": mcd_mcp_status(args.mcd_mcp),
                 "token_usage": {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0},
             },
             [],
@@ -877,7 +1468,9 @@ def run_mcd_agent_question(
     total_usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
     metadata: dict[str, Any] = {}
     cli_status = mcd_cli_status(args.mcd_cli)
+    mcp_status = mcd_mcp_status(args.mcd_mcp)
     failed_cli_count = 0
+    failed_mcp_count = 0
     use_stateful_openai = openai_stateful_enabled(provider, args)
     previous_response_id: str | None = None
 
@@ -885,14 +1478,14 @@ def run_mcd_agent_question(
         if step == 1:
             prompt = make_mcd_agent_prompt(
                 mcd_summary_text=mcd_summary_text,
-                cli_status=cli_status,
+                mcp_status=mcp_status,
                 question=question,
                 observations=[],
             )
         elif use_stateful_openai:
             prompt = make_mcd_agent_followup_prompt(observations[-1])
         else:
-            prompt = make_mcd_agent_compact_prompt(question, observations[-1], mcd_summary_text)
+            prompt = make_mcd_agent_compact_prompt(question, trace, mcd_summary_text)
 
         if use_stateful_openai:
             raw, metadata = call_openai_stateful_with_retries(
@@ -922,6 +1515,7 @@ def run_mcd_agent_question(
         metadata = {
             **metadata,
             "cli_status": cli_status,
+            "mcp_status": mcp_status,
             "token_usage": total_usage,
             "call_token_usage": call_usages,
             "stateful_openai_responses": use_stateful_openai,
@@ -938,7 +1532,51 @@ def run_mcd_agent_question(
             trace.append(trace_item)
             return action["answer"], metadata, trace, None
 
-        if "cli" in action:
+        if "mcp" in action:
+            mcp_action = action["mcp"]
+            observation = run_mcp_tool(
+                tool_name=mcp_action["tool"],
+                arguments=mcp_action["arguments"],
+                mcd_mcp=args.mcd_mcp,
+                mcd_path=mcd_path,
+                timeout_seconds=args.mcp_timeout_seconds,
+                max_observation_chars=args.max_observation_chars,
+            )
+            if tool_observation_failed(observation):
+                failed_mcp_count += 1
+                observation["harness_hint"] = (
+                    "This MCP tool call failed. Do not answer from failed output. For mcd_query, submit exactly "
+                    "one read-only SELECT or WITH statement over manifest table IDs or MCD metadata tables. Do "
+                    "not include CLI commands, package paths, shell quotes, semicolon-separated statements, or "
+                    f"CSV paths. Consecutive MCP failures: {failed_mcp_count}. After repeated query failures, "
+                    "inspect with mcd_schemas, mcd_table, mcd_markdown, or mcd_search."
+                )
+            else:
+                failed_mcp_count = 0
+            observation_record = {
+                "step": step,
+                "tool_type": observation.get("tool_type"),
+                "mcp": mcp_action,
+                "observation": observation,
+            }
+        elif "sql" in action:
+            observation = run_sql_tool(
+                query=action["sql"],
+                mcd_cli=args.mcd_cli,
+                mcd_path=mcd_path,
+                timeout_seconds=args.cli_timeout_seconds,
+                max_observation_chars=args.max_observation_chars,
+            )
+            if tool_observation_failed(observation):
+                failed_cli_count += 1
+                observation["harness_hint"] = (
+                    "This legacy SQL query failed. Do not answer from failed output. Prefer an MCP mcd_query "
+                    "action for the retry."
+                )
+            else:
+                failed_cli_count = 0
+            observation_record = {"step": step, "tool_type": "sql", "sql": action["sql"], "observation": observation}
+        elif "cli" in action:
             observation = run_cli_tool(
                 command=action["cli"],
                 mcd_cli=args.mcd_cli,
@@ -1066,9 +1704,12 @@ def write_run_config(
             "providers": [config.__dict__ for config in configs],
             "mcd_path": str(args.mcd_path),
             "questions": str(args.questions),
-            "prompt_tool_reference": "aligned compact MCD CLI tool docs",
+            "prompt_tool_reference": "MCD MCP tool docs with persistent state",
             "question_count": question_count,
             "max_tool_steps": args.max_tool_steps,
+            "mcd_mcp": args.mcd_mcp,
+            "mcd_mcp_status": mcd_mcp_status(args.mcd_mcp),
+            "mcp_timeout_seconds": args.mcp_timeout_seconds,
             "mcd_cli": args.mcd_cli,
             "mcd_cli_status": mcd_cli_status(args.mcd_cli),
             "cli_timeout_seconds": args.cli_timeout_seconds,
@@ -1098,9 +1739,11 @@ def write_summary_markdown(
         f"- Created at: `{created_at}`",
         f"- MCD package: `{args.mcd_path}`",
         f"- Questions: `{args.questions}`",
+        f"- MCD MCP: `{args.mcd_mcp}`",
+        f"- MCD MCP available: `{mcd_mcp_status(args.mcd_mcp)['available_on_path_or_filesystem']}`",
         f"- MCD CLI: `{args.mcd_cli}`",
         f"- MCD CLI available: `{mcd_cli_status(args.mcd_cli)['available_on_path_or_filesystem']}`",
-        "- MCD tool reference: aligned compact CLI docs with Python fallback",
+        "- MCD tool reference: MCP-first read-only MCD tools with persistent state",
         f"- Max tool steps: `{args.max_tool_steps}`",
         f"- OpenAI stateful responses: `{args.openai_stateful_responses}`",
         "",

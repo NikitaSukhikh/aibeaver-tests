@@ -1,0 +1,23 @@
+{
+  "providers": [
+    {
+      "name": "openai",
+      "model": "gpt-5.4",
+      "total": 20,
+      "passed": 20,
+      "failed": 0,
+      "scored": 20,
+      "errors": 0,
+      "pass_rate": 1.0,
+      "elapsed_seconds": 178.336,
+      "avg_elapsed_seconds": 8.917,
+      "token_usage": {
+        "input_tokens": 256523,
+        "output_tokens": 6649,
+        "total_tokens": 263172
+      },
+      "tool_calls": 37,
+      "avg_tool_calls": 1.85
+    }
+  ]
+}

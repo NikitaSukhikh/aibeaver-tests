@@ -71,7 +71,7 @@ def parse_args() -> argparse.Namespace:
         default="kb_agent",
         help="Use the same modes as llm_plain_eval; kb_agent is the default.",
     )
-    parser.add_argument("--max-tool-steps", type=int, default=8)
+    parser.add_argument("--max-tool-steps", type=int, default=20)
     parser.add_argument("--batch-size", type=int, default=1)
     parser.add_argument("--max-output-tokens", type=int, default=DEFAULT_MAX_OUTPUT_TOKENS)
     parser.add_argument("--temperature", type=float, default=0.0)
@@ -944,6 +944,13 @@ def make_kb_agent_prompt(
         "with or are semantically tied to the rule terms. "
         "If a tool observation contains an error, do not answer from that observation; retry with corrected tool "
         "arguments or use a simpler sql_query/table_query. "
+        "Across tool steps, treat previous successful observations as the current state. Carry forward observed "
+        "table names, column names, row values, counts, and earlier failed attempts; do not rediscover or forget "
+        "schema that a tool already returned. "
+        "If a previous SQL/tool call failed, do not repeat the same invalid table name, column name, argument shape, "
+        "or query pattern. "
+        "When the latest successful observation contains every field needed by the question, answer immediately "
+        "instead of calling another tool for confirmation. "
         "If a tool result says total_matches is greater than the returned row count, treat returned rows as a "
         "capped sample. Do not compute final counts or extremes from capped samples unless the tool sorted exactly "
         "by the required criterion. "
@@ -955,6 +962,10 @@ def make_kb_agent_prompt(
         "successful observation includes both the total count and every field for that row. Do not use aggregate "
         "functions and ungrouped row fields together unless each row field is selected by an ordered subquery. "
         "When a question asks for grouped counts, include the overall total count as well as each group count. "
+        "If grouped rows are exhaustive and untruncated, include the sum of group counts as the overall total even "
+        "when the SQL result did not return a total column. "
+        "For prefix-style rules, derive the prefix from the value and compare it directly to the expected field; "
+        "do not enumerate possible categories or region codes. "
         "When a question asks for a top source row, include the identifier plus every rule-related source field "
         "named or implied by the question and narrative, not only the sort metric. If the rule references another "
         "measurement, limit, threshold, date, status, or requirement column in the same source table, include that "
@@ -964,7 +975,7 @@ def make_kb_agent_prompt(
         "In the final answer, include the key condition values and field names used to select the result, not only "
         "the numeric answer. "
         "Return exactly one JSON object and no prose. "
-        "Do not return a tool call and an answer in the same response.\n\n"
+        "Do not return a tool call and an answer in the same response; only the first JSON object is executed.\n\n"
         "If you need data, return: "
         '{"tool":"tool_name","args":{...}}\n'
         "When you know the answer, return: "
@@ -980,50 +991,227 @@ def make_kb_agent_prompt(
     )
 
 
-def observation_has_answer_payload(observation_record: dict[str, Any]) -> bool:
-    observation = observation_record.get("observation")
-    if not isinstance(observation, dict) or observation.get("error"):
-        return False
-    return any(
-        key in observation
-        for key in (
-            "rows",
-            "groups",
-            "count",
-            "valid_count",
-            "invalid_count",
-            "total_matches",
-            "total_rows",
-        )
-    )
+def compact_kb_tool_registry() -> dict[str, Any]:
+    return {
+        "response_shape": (
+            'Return exactly one JSON object: {"tool":"tool_name","args":{...}} '
+            'or {"answer":"..."}. Do not emit multiple JSON objects.'
+        ),
+        "tools": {
+            "read_text": {
+                "args": {"path": "content/main.md", "max_chars": "optional integer"},
+                "notes": "Read an isolated dataset file by relative path.",
+            },
+            "search_text": {
+                "args": {"query": "text", "path": "optional relative path", "limit": "optional integer"},
+                "notes": "Search text files or CSV lines for an exact term.",
+            },
+            "table_info": {
+                "args": {"table": "CSV stem table id, without tables/ or .csv", "sample": "optional integer"},
+                "notes": "Use this to discover columns before uncertain SQL.",
+            },
+            "sql_query": {
+                "args": {"query": "single read-only SELECT or WITH statement", "limit": "optional integer"},
+                "notes": (
+                    "Query preloaded SQLite tables by table id, e.g. chassis_brake_validation_specs. "
+                    "Do not use CSV file paths, .csv suffixes, read_csv_auto, PRAGMA, or multiple statements. "
+                    "Use CAST(... AS REAL/INTEGER) for numeric comparisons and lower(...) for categories."
+                ),
+            },
+            "table_query": {
+                "args": {
+                    "from": "table id",
+                    "alias": "optional alias",
+                    "joins": "optional joins",
+                    "filters": "optional filters",
+                    "derive": "optional derived columns",
+                    "group_by": "optional grouping",
+                    "sort_by": "optional column/expression",
+                    "columns": "optional projection",
+                    "limit": "optional integer",
+                },
+                "notes": "Structured alternative for joins, filters, derived values, grouping, sorting, and projection.",
+            },
+            "table_select": {
+                "args": {
+                    "table": "table id",
+                    "columns": "optional projection",
+                    "filters": "optional filters",
+                    "sort_by": "optional column/expression",
+                    "limit": "optional integer",
+                }
+            },
+            "table_join": {
+                "args": {
+                    "left_table": "table id",
+                    "right_table": "table id",
+                    "left_key": "column name",
+                    "right_key": "column name",
+                    "columns": "optional projection",
+                    "filters": "optional filters",
+                    "sort_by": "optional column/expression",
+                    "limit": "optional integer",
+                }
+            },
+            "table_count": {"args": {"table": "table id", "filters": "optional filters"}},
+            "table_group_count": {
+                "args": {
+                    "table": "table id",
+                    "group_by": "column name",
+                    "filters": "optional filters",
+                    "limit": "optional integer",
+                }
+            },
+            "table_validate_rule": {
+                "args": {
+                    "table": "table id",
+                    "pass_filter": "filter object describing valid rows",
+                    "columns": "optional first-invalid projection",
+                }
+            },
+        },
+    }
+
+
+def extract_json_objects(text: str) -> list[dict[str, Any]]:
+    decoder = json.JSONDecoder()
+    objects: list[dict[str, Any]] = []
+    index = 0
+    while index < len(text):
+        start = text.find("{", index)
+        if start == -1:
+            break
+        try:
+            value, end = decoder.raw_decode(text[start:])
+        except json.JSONDecodeError:
+            index = start + 1
+            continue
+        if isinstance(value, dict):
+            objects.append(value)
+        index = start + max(end, 1)
+    return objects
+
+
+def build_agent_state(trace: list[dict[str, Any]]) -> dict[str, Any]:
+    steps: list[dict[str, Any]] = []
+    known_tables: dict[str, dict[str, Any]] = {}
+    failed_attempts: list[dict[str, Any]] = []
+    result_summaries: list[dict[str, Any]] = []
+    ignored_response_objects: list[dict[str, Any]] = []
+    provisional_answers: list[dict[str, Any]] = []
+
+    for item in trace:
+        action = item.get("action", {})
+        observation = item.get("observation")
+        raw = str(item.get("raw") or "")
+        response_objects = extract_json_objects(raw)
+        if len(response_objects) > 1:
+            ignored_response_objects.extend(
+                {"step": item.get("step"), "object": value}
+                for value in response_objects[1:]
+            )
+        for value in response_objects:
+            if "answer" in value:
+                provisional_answers.append(
+                    {"step": item.get("step"), "answer": str(value.get("answer"))}
+                )
+
+        step_record: dict[str, Any] = {
+            "step": item.get("step"),
+            "model_response": raw,
+            "parsed_action": action,
+        }
+        if "error" in item:
+            step_record["parse_error"] = item["error"]
+        if observation is not None:
+            step_record["tool_observation"] = observation
+        steps.append(step_record)
+
+        if not isinstance(observation, dict):
+            continue
+
+        if observation.get("error"):
+            failed_attempts.append(
+                {
+                    "step": item.get("step"),
+                    "action": action,
+                    "error": observation.get("error"),
+                }
+            )
+            continue
+
+        table_id = observation.get("table")
+        columns = observation.get("columns")
+        if isinstance(table_id, str) and isinstance(columns, list):
+            known_tables[table_id] = {
+                "row_count": observation.get("row_count"),
+                "columns": columns,
+                "sample_rows": observation.get("sample_rows", [])[:3],
+            }
+
+        rows = observation.get("rows")
+        if isinstance(columns, list) and isinstance(rows, list):
+            result_summaries.append(
+                {
+                    "step": item.get("step"),
+                    "action": action,
+                    "columns": columns,
+                    "row_count": observation.get("row_count"),
+                    "total_matches": observation.get("total_matches"),
+                    "returned": observation.get("returned", len(rows)),
+                    "truncated": observation.get("truncated"),
+                    "rows": rows[:5],
+                }
+            )
+
+    return {
+        "steps": steps,
+        "known_tables": known_tables,
+        "successful_result_summaries": result_summaries,
+        "failed_attempts": failed_attempts,
+        "ignored_response_objects": ignored_response_objects,
+        "provisional_answers": provisional_answers,
+    }
 
 
 def make_kb_agent_compact_prompt(
     dataset_summary_text: str,
     question: dict[str, Any],
-    observation_record: dict[str, Any],
+    trace: list[dict[str, Any]],
 ) -> str:
-    dataset_index = (
-        ""
-        if observation_has_answer_payload(observation_record)
-        else f"\n\nCompact dataset index:\n{dataset_summary_text}"
-    )
+    agent_state = build_agent_state(trace)
     return (
-        "You are continuing an unpacked dataset QA task. Use the latest tool observation below and answer the "
-        "same question, or request one more concise tool call if more data is required.\n\n"
+        "You are continuing an unpacked dataset QA task. Use the current state below as persistent working memory "
+        "for the same question. The state includes prior model responses, executed actions, tool observations, "
+        "known schemas, successful result summaries, failed attempts, and any provisional answer text that appeared "
+        "in prior responses.\n\n"
         "Rules: return exactly one JSON object and no prose. Use "
         '{"answer":"..."} for the final answer or {"tool":"tool_name","args":{...}} for another tool call. '
+        "Only the first JSON object is executed, so never include a tool call and an answer in the same response. "
         "Prefer sql_query for joins, aggregate counts, computed expressions, grouped counts, sorting, and top-k "
         "queries. CSV columns are loaded as TEXT, so use CAST(... AS REAL/INTEGER) for numeric filtering, sorting, "
         "and calculations. Use lower(...) for categorical comparisons unless exact case is required. For counts "
         "plus first/worst/best/top rows, use CTEs or ordered subqueries so one observation contains both the count "
         "and row details. Final answers must include exact IDs, requested fields, key condition values, and "
-        "rule-related source fields present in the observation.\n\n"
+        "rule-related source fields present in observations. "
+        "Tool observations are source of truth; provisional answer text and ignored response objects are clues only "
+        "and must be checked against observations. Carry forward every observed table name, column name, row value, "
+        "count, and failure. Use only exact column names already observed for a table, or inspect the table before "
+        "using uncertain columns. If a prior action failed, do not retry the same invalid table name, column name, "
+        "argument shape, or SQL pattern. If the current state already contains all fields requested by the question, "
+        "answer now rather than calling another tool. If grouped rows are exhaustive and untruncated, include the "
+        "sum of group counts as an overall total when no explicit total column is present. For prefix-style rules, "
+        "derive the prefix from the data value and compare it directly to the expected field; do not enumerate "
+        "possible categories. If two independent earliest/top/count facts are requested and no observed schema "
+        "provides a join key, compute them independently rather than inventing a relationship.\n\n"
+        "Tool registry:\n"
+        f"{json.dumps(compact_kb_tool_registry(), ensure_ascii=False, indent=2)}\n\n"
+        "Dataset index:\n"
+        f"{dataset_summary_text}\n\n"
         "Question:\n"
         f"{json.dumps({'id': question['id'], 'question': question['prompt']}, ensure_ascii=False, indent=2)}\n\n"
-        "Latest tool observation:\n"
-        f"{json.dumps(observation_record, ensure_ascii=False, indent=2)}"
-        f"{dataset_index}"
+        "Current state:\n"
+        f"{json.dumps(agent_state, ensure_ascii=False, indent=2)}"
     )
 
 
@@ -1061,7 +1249,7 @@ def run_kb_agent_question(
         if step == 1:
             prompt = make_kb_agent_prompt(dataset_summary_text, question, observations)
         else:
-            prompt = make_kb_agent_compact_prompt(dataset_summary_text, question, observations[-1])
+            prompt = make_kb_agent_compact_prompt(dataset_summary_text, question, trace)
         raw, metadata = plain_eval.call_with_retries(
             provider,
             prompt,

@@ -24,9 +24,11 @@ For agents, prefer this order:
 
 1. Validate the package.
 2. Inspect document context and available tables.
-3. Use SQL queries for table questions.
-4. Use direct table/chart/image/annotation APIs when exact object access is needed.
-5. Return concise answers with the field names, table names, and condition values used.
+3. Use SQL metadata tables to discover columns, keys, relationships, and units.
+4. Use SQL queries for table questions.
+5. Use schema keys, relationships, external data, and provenance shortcuts when lineage or joins matter.
+6. Use direct table/chart/image/annotation APIs when exact object access is needed.
+7. Return concise answers with the field names, table names, and condition values used.
 
 ## Validate a Package
 
@@ -124,7 +126,7 @@ Then query only the tables needed for the task.
 
 ## Query Tables with SQL
 
-For table-heavy questions, use SQL. Manifest table IDs are available as SQL table names.
+For table-heavy questions, use SQL. Manifest table IDs are available as SQL table names, and the query runtime also exposes MCD metadata tables for discovering schemas, keys, relationships, and units.
 
 ```python
 result = doc.query("""
@@ -198,6 +200,20 @@ Use SQL for:
 - `order by`
 - `limit`
 - derived expressions
+- schema discovery through `mcd_tables`, `mcd_columns`, `mcd_primary_keys`, `mcd_foreign_keys`, and `mcd_units`
+- SQLite table-valued PRAGMA queries such as `pragma_table_info('table_id')` and `pragma_foreign_key_list('table_id')`
+
+MCD metadata tables available in every query:
+
+| Table | Important fields | Use |
+| --- | --- | --- |
+| `mcd_tables` | `table_id`, `data_path`, `schema_path` | List package tables and source paths. |
+| `mcd_columns` | `table_id`, `column_name`, `ordinal`, `type`, `label`, `nullable`, `enum_values`, `unit_code`, `unit_label`, `unit_custom` | Discover exact column names, types, and unit metadata. |
+| `mcd_primary_keys` | `table_id`, `column_name`, `ordinal` | Discover stable row identity columns in key order. |
+| `mcd_foreign_keys` | `table_id`, `column_name`, `ordinal`, `ref_table_id`, `ref_column_name` | Discover reliable joins between package tables. |
+| `mcd_units` | `table_id`, `column_name`, `unit_code`, `unit_label`, `unit_custom` | Inspect semantic units for measured numeric values. |
+
+SQLite constraints are also created for package tables where MCD schemas declare keys, so SQLite PRAGMA introspection can be used from read-only `select` queries.
 
 Examples:
 
@@ -232,6 +248,28 @@ doc.query("""
     order by c.stop_distance_100_0_m asc
     limit 5
 """).rows
+
+# Discover reliable joins from MCD foreign-key metadata before joining.
+doc.query("""
+    select table_id, column_name, ref_table_id, ref_column_name
+    from mcd_foreign_keys
+""").rows
+
+# Inspect primary keys and semantic units.
+doc.query("""
+    select table_id, column_name, ordinal
+    from mcd_primary_keys
+    order by table_id, ordinal
+""").rows
+
+doc.query("""
+    select table_id, column_name, unit_code, unit_label
+    from mcd_units
+""").rows
+
+# SQLite table-valued PRAGMA introspection also works.
+doc.query("select name, pk from pragma_table_info('revenue') where pk > 0").rows
+doc.query("select [table], [from], [to] from pragma_foreign_key_list('orders')").rows
 ```
 
 Queries are read-only. Non-`select` statements are rejected:
@@ -318,6 +356,8 @@ Commands:
 
 ```python
 schema.id
+schema.primary_key
+schema.foreign_keys
 schema.columns
 schema.as_dict()
 ```
@@ -326,8 +366,44 @@ Use schema columns to discover exact column names before writing SQL.
 
 ```python
 for column in schema.columns:
-    print(column["name"], column["type"], column.get("label"))
+    print(column["name"], column["type"], column.get("label"), column.get("unit"))
 ```
+
+Use keys and foreign keys to build joins without guessing:
+
+```python
+print(schema.primary_key)
+print(schema.foreign_keys)
+```
+
+For all package relationships:
+
+```python
+for relationship in doc.relationships():
+    print(relationship["tableId"], relationship["columns"], relationship["references"])
+```
+
+For SQL-first agents, prefer `mcd_primary_keys` and `mcd_foreign_keys` because relationship discovery and analysis can stay in one query runtime. Use `schema.primary_key`, `schema.foreign_keys`, and `doc.relationships()` when you are already working with Python objects instead of SQL.
+
+## External Data and Provenance
+
+Read manifest-declared external resources:
+
+```python
+for item in doc.external_data():
+    print(item["id"], item["uri"], item["mediaType"])
+```
+
+Read package-level provenance metadata:
+
+```python
+provenance = doc.provenance()
+if provenance:
+    print(provenance.get("sources", []))
+    print(provenance.get("activities", []))
+```
+
+Use provenance when answering source, lineage, generation, or audit questions. Use external data metadata to identify large source datasets that are intentionally not embedded in the package.
 
 ## Chart Access
 
@@ -522,6 +598,16 @@ Return both the ID and the metric value.
 
 ### Inspect Unknown Tables
 
+For SQL-first discovery:
+
+```python
+doc.query("""
+    select table_id, column_name, type, label, nullable, unit_code, unit_label
+    from mcd_columns
+    order by table_id, ordinal
+""").rows
+```
+
 ```python
 context = doc.to_agent_context(include_tables=False)
 
@@ -538,6 +624,18 @@ for column in table.schema.columns:
 ```
 
 ### Join Related Tables
+
+First discover relationships:
+
+```python
+doc.query("""
+    select table_id, column_name, ref_table_id, ref_column_name
+    from mcd_foreign_keys
+    where table_id = 'table_a'
+""").rows
+```
+
+Then join using the discovered columns:
 
 ```python
 result = doc.query("""
@@ -580,6 +678,9 @@ doc.chart(id)
 doc.image(id)
 doc.annotation(id)
 doc.annotations()
+doc.external_data()
+doc.provenance()
+doc.relationships()
 doc.markdown(expand_tables=False)
 doc.query(sql)
 doc.to_agent_context(include_tables=True, include_layout=False)
@@ -615,6 +716,8 @@ TableSchema:
 
 ```python
 schema.id
+schema.primary_key
+schema.foreign_keys
 schema.columns
 schema.as_dict()
 ```
@@ -669,4 +772,3 @@ annotation.target()
 annotation.proposed_change()
 annotation.as_dict()
 ```
-

@@ -68,6 +68,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--timeout-seconds", type=int, default=120)
     parser.add_argument("--retries", type=int, default=2)
     parser.add_argument(
+        "--openai-stateful-responses",
+        action="store_true",
+        help=(
+            "Use OpenAI previous_response_id chaining for follow-up tool steps. By default, follow-ups are "
+            "compact stateless prompts because previous_response_id still counts prior context as input tokens."
+        ),
+    )
+    parser.add_argument(
         "--dry-run",
         action="store_true",
         help="Write output structure without calling provider APIs or running tools.",
@@ -247,6 +255,13 @@ def serializable(value: Any) -> Any:
         return str(value)
 
 
+def query_rows_or_empty(doc: Any, sql: str) -> list[dict[str, Any]]:
+    try:
+        return list(doc.query(sql).rows)
+    except Exception:  # noqa: BLE001 - older mcd builds may not expose every metadata table.
+        return []
+
+
 def build_mcd_summary(mcd_path: Path) -> str:
     doc = mcd.open(mcd_path)
     validation = doc.validate().as_dict()
@@ -272,12 +287,13 @@ def build_mcd_summary(mcd_path: Path) -> str:
     for table_id in table_ids:
         table = doc.table(table_id)
         rows = table.rows()
-        columns = [
-            str(column.get("name"))
-            if isinstance(column, dict) and column.get("name") is not None
-            else str(column)
-            for column in table.schema.columns
-        ]
+        columns: list[str] = []
+        for column in table.schema.columns:
+            if isinstance(column, dict):
+                column_name = str(column.get("name")) if column.get("name") is not None else str(column)
+                columns.append(column_name)
+            else:
+                columns.append(str(column))
         tables.append(
             {
                 "table": table_id,
@@ -286,11 +302,36 @@ def build_mcd_summary(mcd_path: Path) -> str:
                 "columns": columns,
             }
         )
+    primary_key_rows = query_rows_or_empty(
+        doc,
+        "select table_id, column_name, ordinal from mcd_primary_keys order by table_id, ordinal",
+    )
+    primary_keys: dict[str, list[str]] = {}
+    for row in primary_key_rows:
+        table_id = row.get("table_id")
+        column_name = row.get("column_name")
+        if table_id and column_name:
+            primary_keys.setdefault(str(table_id), []).append(str(column_name))
+    foreign_key_rows = query_rows_or_empty(
+        doc,
+        (
+            "select table_id, column_name, ordinal, ref_table_id, ref_column_name "
+            "from mcd_foreign_keys order by table_id, ordinal"
+        ),
+    )
+    foreign_keys = [
+        f"{row.get('table_id')}.{row.get('column_name')} -> {row.get('ref_table_id')}.{row.get('ref_column_name')}"
+        for row in foreign_key_rows
+        if row.get("table_id") and row.get("column_name") and row.get("ref_table_id") and row.get("ref_column_name")
+    ]
     summary = {
         "title": manifest.get("title") or context.get("title"),
         "entrypoint": manifest.get("entrypoint"),
         "files": files,
         "tables": tables,
+        "metadata_tables": ["mcd_tables", "mcd_columns", "mcd_primary_keys", "mcd_foreign_keys", "mcd_units"],
+        "primary_keys": primary_keys,
+        "foreign_keys": foreign_keys,
         "validation_valid": bool(validation.get("valid")),
     }
     return json.dumps(serializable(summary), ensure_ascii=False, indent=2)
@@ -507,7 +548,52 @@ def make_mcd_agent_prompt(
                 "order by cast(a.metric_value as real) asc limit 1\""
             )
         },
+        "cli_schema_metadata": {
+            "cli": (
+                "{MCD_CLI} query --format json {MCD_PATH} "
+                '"select table_id, column_name, type, label, nullable, unit_code, unit_label '
+                "from mcd_columns "
+                "order by table_id, ordinal\""
+            )
+        },
+        "cli_primary_keys": {
+            "cli": (
+                "{MCD_CLI} query --format json {MCD_PATH} "
+                '"select table_id, column_name, ordinal '
+                "from mcd_primary_keys "
+                "order by table_id, ordinal\""
+            )
+        },
+        "cli_foreign_keys": {
+            "cli": (
+                "{MCD_CLI} query --format json {MCD_PATH} "
+                '"select table_id, column_name, ordinal, ref_table_id, ref_column_name '
+                "from mcd_foreign_keys "
+                "order by table_id, ordinal\""
+            )
+        },
+        "cli_units": {
+            "cli": (
+                "{MCD_CLI} query --format json {MCD_PATH} "
+                '"select table_id, column_name, unit_code, unit_label, unit_custom '
+                "from mcd_units "
+                "order by table_id, column_name\""
+            )
+        },
+        "cli_pragma_foreign_keys": {
+            "cli": (
+                "{MCD_CLI} query --format json {MCD_PATH} "
+                '"select [table], [from], [to] from pragma_foreign_key_list(\'table_id\')"'
+            )
+        },
+        "cli_pragma_table_keys": {
+            "cli": (
+                "{MCD_CLI} query --format json {MCD_PATH} "
+                '"select name, type, pk from pragma_table_info(\'table_id\') where pk > 0"'
+            )
+        },
         "cli_markdown": {"cli": "{MCD_CLI} extract --markdown {MCD_PATH}"},
+        "cli_schemas": {"cli": "{MCD_CLI} extract --schemas {MCD_PATH}"},
         "cli_tools": {"cli": "{MCD_CLI} tools --format json {MCD_PATH}"},
         "python_fallback": {
             "python": (
@@ -574,7 +660,17 @@ def make_mcd_agent_prompt(
         "Always use `{MCD_PATH}` for the package path in CLI commands; do not use `.`, `$MCD_PATH`, or `%MCD_PATH%`. "
         "Prefer cli_query for complex relational work, such as joins, aggregate counts, computed expressions, "
         "grouped counts, sorting, and top-k queries. cli_query accepts read-only SQL SELECT statements over "
-        "manifest table IDs. Use CAST(column AS REAL) or CAST(column AS INTEGER) for numeric comparisons, "
+        "manifest table IDs. The MCD SQL runtime is SQLite-backed and also exposes reserved metadata tables: "
+        "`mcd_tables`, `mcd_columns`, `mcd_primary_keys`, `mcd_foreign_keys`, and `mcd_units`. Use these tables "
+        "through `mcd query` to discover exact table IDs, column names, data types, semantic units, primary keys, "
+        "and foreign-key relationships before writing uncertain SQL. "
+        "When a question requires a join and the relationship is not already certain from the dataset index, first "
+        "query `mcd_foreign_keys` and join on the returned `table_id.column_name = ref_table_id.ref_column_name`; "
+        "do not infer joins only from similar column names. Use `mcd_primary_keys` to identify stable row IDs to "
+        "return in final answers. SQLite table constraints are created for declared keys where possible, so "
+        "`pragma_table_info('table_id')` and `pragma_foreign_key_list('table_id')` are also valid read-only "
+        "introspection queries. "
+        "Use CAST(column AS REAL) or CAST(column AS INTEGER) for numeric comparisons, "
         "calculations, and ordering. For categorical string comparisons, use lower(column) = lower('value') "
         "or lower(column) IN (...), unless exact case is explicitly required. "
         "For prefix rules, compute the prefix from the field, for example "
@@ -582,10 +678,14 @@ def make_mcd_agent_prompt(
         "prefix column; "
         "do not hardcode a list of allowed prefixes. "
         "For expected fixed-precision decimals, use printf formatting in SQL, such as printf('%.3f', decimal_metric_column). "
-        "Use cli_markdown when the question depends on narrative rules in the dossier. For narrative-rule "
+        "Use cli_markdown when the question depends on narrative rules in the dossier. Use cli_schemas or "
+        "cli_schema_metadata when the question depends on declared schema information, primary keys, foreign keys, "
+        "units, or nullable/enum/type metadata. For narrative-rule "
         "questions, inspect the relevant markdown sentence or use table schemas, then include source columns whose "
         "names overlap with or are semantically tied to the rule terms. "
-        "Use Python only as a fallback if the CLI cannot express the needed calculation cleanly. "
+        "Use Python only as a fallback if the CLI cannot express the needed calculation cleanly or if a metadata "
+        "query is unavailable in the installed CLI; Python `doc.query(...)` exposes the same SQL metadata tables "
+        "in updated `mcdee` builds. "
         "Do not guess from memory. Both tools execute in the repository root and return stdout/stderr. "
         "Keep tool output concise. "
         "If a tool observation has nonzero exit_code, stderr, or timed_out=true, treat it as failed: do not answer "
@@ -630,6 +730,126 @@ def make_mcd_agent_prompt(
     )
 
 
+def make_mcd_agent_followup_prompt(observation_record: dict[str, Any]) -> str:
+    return (
+        "Tool observation for the previous action:\n"
+        f"{json.dumps(observation_record, ensure_ascii=False, indent=2)}\n\n"
+        "Continue answering the same question using the original instructions and dataset index. "
+        "Return exactly one JSON object and no prose: either another `cli`/`python` action or the final `answer`. "
+        "Do not repeat a successful tool call unless a different query is needed."
+    )
+
+
+def observation_has_json_rows(observation_record: dict[str, Any]) -> bool:
+    observation = observation_record.get("observation", {})
+    if not isinstance(observation, dict) or tool_observation_failed(observation):
+        return False
+    stdout = str(observation.get("stdout") or "").strip()
+    try:
+        payload = json.loads(stdout)
+    except json.JSONDecodeError:
+        return False
+    return int_token(payload.get("rowCount")) > 0
+
+
+def make_mcd_agent_compact_prompt(
+    question: dict[str, Any],
+    observation_record: dict[str, Any],
+    mcd_summary_text: str,
+) -> str:
+    has_rows = observation_has_json_rows(observation_record)
+    dataset_index = "" if has_rows else f"\n\nCompact dataset index:\n{mcd_summary_text}"
+    return (
+        "You are continuing an MCD package QA task. Use the latest tool observation below and answer the same "
+        "question, or request one more concise tool call if more data is required.\n\n"
+        "Rules: return exactly one JSON object and no prose. Use "
+        '`{"answer":"..."}` for the final answer, '
+        '`{"cli":"{MCD_CLI} query --format json {MCD_PATH} \\"select ...\\""}` for SQL, '
+        "or `python` only if SQL is insufficient. Use `{MCD_PATH}` literally in CLI commands. "
+        "Use read-only SQLite SELECT over manifest table IDs. Use CAST(... AS REAL/INTEGER) for numeric "
+        "filtering, sorting, and calculations. For counts plus first/worst/best rows, use CTEs or ordered "
+        "subqueries so the same successful observation contains the count and row details. Final answers must "
+        "include exact IDs, requested fields, key condition values, and rule-related source fields present in "
+        "the observation.\n\n"
+        "Question:\n"
+        f"{json.dumps({'id': question['id'], 'question': question['prompt']}, ensure_ascii=False, indent=2)}\n\n"
+        "Latest tool observation:\n"
+        f"{json.dumps(observation_record, ensure_ascii=False, indent=2)}"
+        f"{dataset_index}"
+    )
+
+
+def openai_stateful_enabled(provider: str, args: argparse.Namespace) -> bool:
+    return provider == "openai" and args.openai_stateful_responses
+
+
+def call_openai_stateful(
+    *,
+    prompt: str,
+    previous_response_id: str | None,
+    model: str,
+    max_output_tokens: int,
+    temperature: float,
+    timeout_seconds: int,
+) -> tuple[str, dict[str, Any]]:
+    api_key = plain_eval.require_env("OPENAI_API_KEY")
+    payload: dict[str, Any] = {
+        "model": model,
+        "input": prompt,
+        "max_output_tokens": max_output_tokens,
+        "temperature": temperature,
+    }
+    if previous_response_id:
+        payload["previous_response_id"] = previous_response_id
+
+    response, headers = plain_eval.http_json(
+        "https://api.openai.com/v1/responses",
+        {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+        payload,
+        timeout_seconds,
+    )
+    metadata = {
+        "id": response.get("id"),
+        "usage": response.get("usage"),
+        "request_id": headers.get("x-request-id"),
+        "previous_response_id": previous_response_id,
+        "stateful_response": True,
+    }
+    return plain_eval.extract_openai_text(response), metadata
+
+
+def call_openai_stateful_with_retries(
+    *,
+    prompt: str,
+    previous_response_id: str | None,
+    model: str,
+    max_output_tokens: int,
+    temperature: float,
+    timeout_seconds: int,
+    retries: int,
+) -> tuple[str, dict[str, Any]]:
+    last_error: Exception | None = None
+    for attempt in range(retries + 1):
+        try:
+            return call_openai_stateful(
+                prompt=prompt,
+                previous_response_id=previous_response_id,
+                model=model,
+                max_output_tokens=max_output_tokens,
+                temperature=temperature,
+                timeout_seconds=timeout_seconds,
+            )
+        except Exception as exc:  # noqa: BLE001 - preserve provider errors in result files.
+            last_error = exc
+            if attempt < retries:
+                time.sleep(2**attempt)
+    assert last_error is not None
+    raise last_error
+
+
 def run_mcd_agent_question(
     *,
     mcd_path: Path,
@@ -658,23 +878,44 @@ def run_mcd_agent_question(
     metadata: dict[str, Any] = {}
     cli_status = mcd_cli_status(args.mcd_cli)
     failed_cli_count = 0
+    use_stateful_openai = openai_stateful_enabled(provider, args)
+    previous_response_id: str | None = None
 
     for step in range(1, args.max_tool_steps + 1):
-        prompt = make_mcd_agent_prompt(
-            mcd_summary_text=mcd_summary_text,
-            cli_status=cli_status,
-            question=question,
-            observations=observations,
-        )
-        raw, metadata = plain_eval.call_with_retries(
-            provider,
-            prompt,
-            model,
-            args.max_output_tokens,
-            args.temperature,
-            args.timeout_seconds,
-            args.retries,
-        )
+        if step == 1:
+            prompt = make_mcd_agent_prompt(
+                mcd_summary_text=mcd_summary_text,
+                cli_status=cli_status,
+                question=question,
+                observations=[],
+            )
+        elif use_stateful_openai:
+            prompt = make_mcd_agent_followup_prompt(observations[-1])
+        else:
+            prompt = make_mcd_agent_compact_prompt(question, observations[-1], mcd_summary_text)
+
+        if use_stateful_openai:
+            raw, metadata = call_openai_stateful_with_retries(
+                prompt=prompt,
+                previous_response_id=previous_response_id,
+                model=model,
+                max_output_tokens=args.max_output_tokens,
+                temperature=args.temperature,
+                timeout_seconds=args.timeout_seconds,
+                retries=args.retries,
+            )
+            if metadata.get("id"):
+                previous_response_id = str(metadata["id"])
+        else:
+            raw, metadata = plain_eval.call_with_retries(
+                provider,
+                prompt,
+                model,
+                args.max_output_tokens,
+                args.temperature,
+                args.timeout_seconds,
+                args.retries,
+            )
         token_usage = token_usage_from_metadata(metadata)
         call_usages.append(token_usage)
         total_usage = add_token_usage(total_usage, token_usage)
@@ -683,6 +924,7 @@ def run_mcd_agent_question(
             "cli_status": cli_status,
             "token_usage": total_usage,
             "call_token_usage": call_usages,
+            "stateful_openai_responses": use_stateful_openai,
         }
 
         try:
@@ -836,6 +1078,7 @@ def write_run_config(
             "temperature": args.temperature,
             "timeout_seconds": args.timeout_seconds,
             "retries": args.retries,
+            "openai_stateful_responses": args.openai_stateful_responses,
             "dry_run": args.dry_run,
         },
     )
@@ -859,6 +1102,7 @@ def write_summary_markdown(
         f"- MCD CLI available: `{mcd_cli_status(args.mcd_cli)['available_on_path_or_filesystem']}`",
         "- MCD tool reference: aligned compact CLI docs with Python fallback",
         f"- Max tool steps: `{args.max_tool_steps}`",
+        f"- OpenAI stateful responses: `{args.openai_stateful_responses}`",
         "",
         "| Provider | Model | Passed | Failed | Scored | Total | Pass rate | Errors |",
         "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |",

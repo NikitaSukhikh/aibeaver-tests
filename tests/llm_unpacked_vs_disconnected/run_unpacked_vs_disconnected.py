@@ -980,6 +980,53 @@ def make_kb_agent_prompt(
     )
 
 
+def observation_has_answer_payload(observation_record: dict[str, Any]) -> bool:
+    observation = observation_record.get("observation")
+    if not isinstance(observation, dict) or observation.get("error"):
+        return False
+    return any(
+        key in observation
+        for key in (
+            "rows",
+            "groups",
+            "count",
+            "valid_count",
+            "invalid_count",
+            "total_matches",
+            "total_rows",
+        )
+    )
+
+
+def make_kb_agent_compact_prompt(
+    dataset_summary_text: str,
+    question: dict[str, Any],
+    observation_record: dict[str, Any],
+) -> str:
+    dataset_index = (
+        ""
+        if observation_has_answer_payload(observation_record)
+        else f"\n\nCompact dataset index:\n{dataset_summary_text}"
+    )
+    return (
+        "You are continuing an unpacked dataset QA task. Use the latest tool observation below and answer the "
+        "same question, or request one more concise tool call if more data is required.\n\n"
+        "Rules: return exactly one JSON object and no prose. Use "
+        '{"answer":"..."} for the final answer or {"tool":"tool_name","args":{...}} for another tool call. '
+        "Prefer sql_query for joins, aggregate counts, computed expressions, grouped counts, sorting, and top-k "
+        "queries. CSV columns are loaded as TEXT, so use CAST(... AS REAL/INTEGER) for numeric filtering, sorting, "
+        "and calculations. Use lower(...) for categorical comparisons unless exact case is required. For counts "
+        "plus first/worst/best/top rows, use CTEs or ordered subqueries so one observation contains both the count "
+        "and row details. Final answers must include exact IDs, requested fields, key condition values, and "
+        "rule-related source fields present in the observation.\n\n"
+        "Question:\n"
+        f"{json.dumps({'id': question['id'], 'question': question['prompt']}, ensure_ascii=False, indent=2)}\n\n"
+        "Latest tool observation:\n"
+        f"{json.dumps(observation_record, ensure_ascii=False, indent=2)}"
+        f"{dataset_index}"
+    )
+
+
 def run_kb_agent_question(
     *,
     target: DatasetTarget,
@@ -1011,7 +1058,10 @@ def run_kb_agent_question(
     call_usages: list[dict[str, int]] = []
     total_usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
     for step in range(1, max_tool_steps + 1):
-        prompt = make_kb_agent_prompt(dataset_summary_text, question, observations)
+        if step == 1:
+            prompt = make_kb_agent_prompt(dataset_summary_text, question, observations)
+        else:
+            prompt = make_kb_agent_compact_prompt(dataset_summary_text, question, observations[-1])
         raw, metadata = plain_eval.call_with_retries(
             provider,
             prompt,

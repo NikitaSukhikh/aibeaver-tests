@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import importlib.util
 import json
 import os
 import sqlite3
@@ -772,7 +773,37 @@ def execute_sql_query(target: DatasetTarget, args: dict[str, Any]) -> dict[str, 
     }
 
 
+def execute_engineering_math(target: DatasetTarget, args: dict[str, Any]) -> dict[str, Any]:
+    helper_candidates = [
+        target.dir.parent / "tools" / "engineering_math.py",
+        target.dir / "tools" / "engineering_math.py",
+    ]
+    helper_path = next((path for path in helper_candidates if path.exists()), None)
+    if helper_path is None:
+        searched = ", ".join(str(path) for path in helper_candidates)
+        raise FileNotFoundError(f"Engineering math helper not found. Searched: {searched}")
+
+    spec = importlib.util.spec_from_file_location("dataset_engineering_math", helper_path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Could not load engineering math helper: {helper_path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    op = str(args["op"])
+    inputs = args.get("inputs", {})
+    if not isinstance(inputs, dict):
+        raise ValueError("engineering_math inputs must be an object.")
+    result = module.calculate(op, inputs)
+
+    decimals = args.get("round")
+    if decimals is not None and isinstance(result.get("result"), (int, float)):
+        result["rounded"] = round(float(result["result"]), int(decimals))
+    return result
+
+
 def execute_dataset_tool(target: DatasetTarget, tool: str, args: dict[str, Any]) -> dict[str, Any]:
+    if tool == "engineering_math":
+        return execute_engineering_math(target, args)
     if tool == "sql_query":
         return execute_sql_query(target, args)
     if tool == "table_query":
@@ -825,6 +856,8 @@ def parse_agent_action(text: str) -> dict[str, Any]:
         if not isinstance(args, dict):
             raise ValueError("Tool action 'args' must be an object.")
         return {"tool": str(action["tool"]), "args": args}
+    if isinstance(action.get("query"), str):
+        return {"tool": "sql_query", "args": action, "normalized_from": "bare_sql_query_args"}
     raise ValueError("Agent response must contain either 'tool' or 'answer'.")
 
 
@@ -837,6 +870,11 @@ def make_kb_agent_prompt(
         "list_files": {},
         "read_text": {"path": "content/main.md", "max_chars": 12000},
         "search_text": {"query": "CHS-00982", "path": "tables/chassis_brake_validation_specs.csv", "limit": 10},
+        "engineering_math": {
+            "op": "brake_energy_mj",
+            "inputs": {"mass_kg": 3647, "speed_kmh": 100},
+            "round": 3,
+        },
         "table_info": {"table": "chassis_brake_validation_specs", "sample": 3},
         "table_select": {
             "table": "chassis_brake_validation_specs",
@@ -1038,6 +1076,10 @@ def make_kb_agent_prompt(
         "Use read_text or search_text when the question depends on narrative rules in the dossier. For narrative-rule "
         "questions, inspect the relevant text or table schemas, then include source columns whose names overlap "
         "with or are semantically tied to the rule terms. "
+        "For unit-sensitive engineering calculations, read content/engineering_math.md or use the engineering_math "
+        "tool after retrieving the source row values. In SQL, encode the same conversions explicitly. For example, "
+        "brake energy at 100 km/h is 0.5 * mass_kg * (100.0 / 3.6) * (100.0 / 3.6) / 1000000.0 MJ; never treat "
+        "100 km/h as 100 m/s. "
         "When the question states explicit thresholds, formulas, or gate criteria, those question-stated values take "
         "precedence over narrative examples; copy the exact thresholds into the SQL predicate and final answer. For "
         "production-quality release gates in this dataset, unless the question states different gates, treat the gate "
@@ -1116,6 +1158,14 @@ def compact_kb_tool_registry() -> dict[str, Any]:
             "search_text": {
                 "args": {"query": "text", "path": "optional relative path", "limit": "optional integer"},
                 "notes": "Search text files or CSV lines for an exact term.",
+            },
+            "engineering_math": {
+                "args": {
+                    "op": "brake_energy_mj | added_drag_force_n | road_load_power_kw | gross_battery_energy_kwh | usable_capacity_kwh | range_at_unchanged_consumption_km | gcwr_reserve_kg | rpm_from_power_torque | power_from_torque_rpm_kw | scale_by_percent",
+                    "inputs": "operation-specific numeric inputs",
+                    "round": "optional integer decimals",
+                },
+                "notes": "Use for unit-sensitive formulas after retrieving source row values. Returns converted units such as speed_m_s where relevant.",
             },
             "table_info": {
                 "args": {"table": "CSV stem table id, without tables/ or .csv", "sample": "optional integer"},
@@ -1309,7 +1359,9 @@ def make_kb_agent_compact_prompt(
         "values rather than substituting narrative examples. For production-quality release gates in this dataset, "
         "unless the question states different gates, use ppap_status=approved, containment_status=closed, "
         "supplier_lot_traceability=complete, cpk_min>=1.33, ppk_min>=1.20, msa_grr_pct<=10, and "
-        "battery_health_score_pct>=96.5; do not add unrelated quality metrics. If a question asks for a containment "
+        "battery_health_score_pct>=96.5; do not add unrelated quality metrics. For unit-sensitive calculations, "
+        "read content/engineering_math.md or use engineering_math after retrieving source row values. In SQL, "
+        "explicitly convert 100 km/h to 100.0/3.6 m/s; never use 100 as m/s. If a question asks for a containment "
         "example, treat containment as release_status='containment' and also include containment_status, ppap_status, "
         "and supplier_lot_traceability. When a question is phrased as `among ... which row/pack/lot/test has the "
         "highest/lowest/worst/best`, include the candidate-set count plus the selected row's stable ID, "
@@ -1458,7 +1510,6 @@ def run_agent_dataset(
             max_tool_steps=args.max_tool_steps,
             dry_run=args.dry_run,
         )
-        score = score_or_none(answer, question, error, args.dry_run, args, config)
         tool_calls = tool_calls_from_trace(trace)
         row = {
             "dataset": target.label,
@@ -1472,13 +1523,14 @@ def run_agent_dataset(
             "expected_contains": question["expected_contains"],
             "reference_answer": question.get("reference_answer"),
             "answer": answer,
-            "score": score,
+            "score": None,
             "error": error,
             "metadata": metadata,
             "trace": trace,
             "tool_calls": tool_calls,
             "elapsed_seconds": round(time.perf_counter() - started, 3),
         }
+        row["score"] = score_or_none(answer, question, error, args.dry_run, args, config)
         rows.append(row)
         print(f"{target.label} {index}/{len(questions)} {question['id']}: {status_label(row)}", flush=True)
     return rows
@@ -1538,7 +1590,6 @@ def run_plain_context_dataset(
             error = provider_error
             if not error and not answer and not args.dry_run:
                 error = "Provider response did not include an answer for this question."
-            score = score_or_none(answer, question, error, args.dry_run, args, config)
             row = {
                 "dataset": target.label,
                 "dataset_dir": str(target.dir),
@@ -1551,7 +1602,7 @@ def run_plain_context_dataset(
                 "expected_contains": question["expected_contains"],
                 "reference_answer": question.get("reference_answer"),
                 "answer": answer,
-                "score": score,
+                "score": None,
                 "error": error,
                 "metadata": {
                     **metadata,
@@ -1567,6 +1618,7 @@ def run_plain_context_dataset(
                 "tool_calls": 0,
                 "elapsed_seconds": elapsed_seconds,
             }
+            row["score"] = score_or_none(answer, question, error, args.dry_run, args, config)
             rows.append(row)
             print(f"{target.label} {index}/{len(questions)} {question['id']}: {status_label(row)}", flush=True)
     return rows
@@ -1580,8 +1632,18 @@ def run_dataset(
     args: argparse.Namespace,
 ) -> list[dict[str, Any]]:
     if args.eval_mode == "plain_context":
-        return run_plain_context_dataset(target=target, questions=questions, config=config, args=args)
-    return run_agent_dataset(target=target, questions=questions, config=config, args=args)
+        return run_plain_context_dataset(
+            target=target,
+            questions=questions,
+            config=config,
+            args=args,
+        )
+    return run_agent_dataset(
+        target=target,
+        questions=questions,
+        config=config,
+        args=args,
+    )
 
 
 def passed(row: dict[str, Any] | None) -> bool:
@@ -1653,6 +1715,7 @@ def write_comparison_markdown(
         f"- Judge provider: `{judge_provider_config(args, config).name if args.scoring_mode == 'llm_judge' else 'n/a'}`",
         f"- Judge model: `{judge_provider_config(args, config).model if args.scoring_mode == 'llm_judge' else 'n/a'}`",
         f"- Token usage includes judge calls: `{args.scoring_mode == 'llm_judge'}`",
+        "- Timing rows exclude judge latency; judge latency is stored in `score.judge_elapsed_seconds`.",
         f"- Questions: `{args.questions}`",
         f"- Connected dataset: `{args.connected_dir}`",
         f"- Disconnected dataset: `{args.disconnected_dir}`",
@@ -1787,8 +1850,18 @@ def main() -> int:
 
     connected_target = DatasetTarget("connected", args.connected_dir, use_manifest=True)
     disconnected_target = DatasetTarget("disconnected", args.disconnected_dir, use_manifest=False)
-    connected_rows = run_dataset(target=connected_target, questions=questions, config=config, args=args)
-    disconnected_rows = run_dataset(target=disconnected_target, questions=questions, config=config, args=args)
+    connected_rows = run_dataset(
+        target=connected_target,
+        questions=questions,
+        config=config,
+        args=args,
+    )
+    disconnected_rows = run_dataset(
+        target=disconnected_target,
+        questions=questions,
+        config=config,
+        args=args,
+    )
 
     plain_eval.write_jsonl(output_dir / "connected_results.jsonl", connected_rows)
     plain_eval.write_jsonl(output_dir / "disconnected_results.jsonl", disconnected_rows)

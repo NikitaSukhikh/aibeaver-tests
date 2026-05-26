@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+import time
 from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
 from pathlib import Path
 from typing import Any
@@ -72,11 +73,10 @@ def numeric_match_type(actual: Decimal, expected: Decimal, expected_text: str) -
 
 
 def contains_expected_tolerant(answer: str, expected: str) -> tuple[bool, str]:
-    if plain_eval.contains_expected(answer, expected):
-        return True, "substring"
-
     expected_decimal = parse_decimal_text(expected)
     if expected_decimal is None:
+        if plain_eval.contains_expected(answer, expected):
+            return True, "substring"
         return False, "missing"
 
     for match in NUMERIC_TOKEN_RE.finditer(answer):
@@ -217,6 +217,7 @@ def score_answer_llm_judge(
     retries: int,
 ) -> dict[str, Any]:
     prompt = make_llm_judge_prompt(question, answer)
+    started = time.perf_counter()
     try:
         raw, metadata = plain_eval.call_with_retries(
             provider,
@@ -235,8 +236,11 @@ def score_answer_llm_judge(
             "checks": [],
             "scoring": "llm_judge",
             "judge_error": str(exc),
+            "judge_elapsed_seconds": round(time.perf_counter() - started, 3),
         }
-    return normalize_llm_judge_result(raw, metadata)
+    score = normalize_llm_judge_result(raw, metadata)
+    score["judge_elapsed_seconds"] = round(time.perf_counter() - started, 3)
+    return score
 
 
 def single_task_prompt_errors(prompt: str) -> list[str]:

@@ -305,11 +305,22 @@ def query_rows_or_empty(doc: Any, sql: str) -> list[dict[str, Any]]:
         return []
 
 
+def table_ids_from_agent_context(context: dict[str, Any]) -> list[str]:
+    table_ids: list[str] = []
+    for table in context.get("tables", []):
+        if isinstance(table, str):
+            table_ids.append(table)
+        elif isinstance(table, dict):
+            table_id = table.get("id") or table.get("table_id") or table.get("table")
+            if table_id:
+                table_ids.append(str(table_id))
+    return table_ids
+
+
 def build_mcd_summary(mcd_path: Path) -> str:
     doc = mcd.open(mcd_path)
     validation = doc.validate().as_dict()
     context = doc.to_agent_context(include_tables=False)
-    table_ids = [table["id"] for table in doc.to_agent_context(include_tables=True).get("tables", [])]
     manifest: dict[str, Any] = {}
     files: list[str] = []
     try:
@@ -326,6 +337,15 @@ def build_mcd_summary(mcd_path: Path) -> str:
         for table in manifest.get("tables", [])
         if isinstance(table, dict) and table.get("id")
     }
+    table_id_rows = query_rows_or_empty(doc, "select table_id from mcd_tables order by table_id")
+    table_ids = [str(row["table_id"]) for row in table_id_rows if row.get("table_id")]
+    if not table_ids:
+        table_ids = list(table_paths)
+    if not table_ids:
+        table_ids = table_ids_from_agent_context(context)
+    if not table_ids:
+        table_ids = table_ids_from_agent_context(doc.to_agent_context(include_tables=True))
+
     tables: list[dict[str, Any]] = []
     for table_id in table_ids:
         table = doc.table(table_id)
@@ -1096,6 +1116,9 @@ def make_mcd_agent_prompt(
         "units, or nullable/enum/type metadata. For narrative-rule "
         "questions, inspect the relevant markdown sentence or use table schemas, then include source columns whose "
         "names overlap with or are semantically tied to the rule terms. "
+        "For unit-sensitive engineering formulas, retrieve `content/engineering_math.md` or the relevant formula "
+        "prose, then encode unit conversions explicitly in SQL. For brake energy at 100 km/h, use "
+        "`0.5 * mass_kg * (100.0 / 3.6) * (100.0 / 3.6) / 1000000.0` MJ; never treat 100 km/h as 100 m/s. "
         "When the question states explicit thresholds, formulas, or gate criteria, those question-stated values take "
         "precedence over narrative examples; copy the exact thresholds into the SQL predicate and final answer. For "
         "production-quality release gates in this dataset, unless the question states different gates, treat the gate "
@@ -1405,7 +1428,9 @@ def make_mcd_agent_compact_prompt(
         "Y, select X, Y, and the computed value; do not return only the computed value. For joined-row questions, "
         "include the stable row identifier from the row-producing/source table as well as referenced joined entity "
         "IDs. When a question states explicit thresholds, formulas, or gate criteria, use those exact values rather "
-        "than substituting narrative examples. For production-quality release gates in this dataset, unless the "
+        "than substituting narrative examples. For unit-sensitive formulas, retrieve `content/engineering_math.md` "
+        "or encode the documented conversion directly in SQL. For 100 km/h brake energy, use 100.0/3.6 m/s; never "
+        "use 100 as m/s. For production-quality release gates in this dataset, unless the "
         "question states different gates, use ppap_status=approved, containment_status=closed, "
         "supplier_lot_traceability=complete, cpk_min>=1.33, ppk_min>=1.20, msa_grr_pct<=10, and "
         "battery_health_score_pct>=96.5; do not add unrelated quality metrics. If a question asks for a containment "
@@ -1711,7 +1736,6 @@ def run_provider(
             question=question,
             args=args,
         )
-        score = score_or_none(answer, question, error, args.dry_run, args, config)
         tool_calls = tool_calls_from_trace(trace)
         row = {
             "dataset": "mcd",
@@ -1725,13 +1749,14 @@ def run_provider(
             "expected_contains": question["expected_contains"],
             "reference_answer": question.get("reference_answer"),
             "answer": answer,
-            "score": score,
+            "score": None,
             "error": error,
             "metadata": metadata,
             "trace": trace,
             "tool_calls": tool_calls,
             "elapsed_seconds": round(time.perf_counter() - started, 3),
         }
+        row["score"] = score_or_none(answer, question, error, args.dry_run, args, config)
         rows.append(row)
         print(f"{config.name} {index}/{len(questions)} {question['id']}: {status_label(row)}", flush=True)
     return rows
@@ -1832,6 +1857,7 @@ def write_summary_markdown(
         f"- Judge provider: `{args.judge_provider if args.scoring_mode == 'llm_judge' else 'n/a'}`",
         f"- Judge model override: `{args.judge_model or 'n/a'}`",
         f"- Token usage includes judge calls: `{args.scoring_mode == 'llm_judge'}`",
+        "- Timing rows exclude judge latency; judge latency is stored in `score.judge_elapsed_seconds`.",
         f"- Max tool steps: `{args.max_tool_steps}`",
         f"- OpenAI stateful responses: `{args.openai_stateful_responses}`",
         "",
@@ -1953,6 +1979,7 @@ def main() -> int:
         )
         rows_by_provider[config.name] = provider_rows
         all_rows.extend(provider_rows)
+        provider_rows = rows_by_provider[config.name]
         provider_summaries.append(provider_summary(provider_rows, config))
         plain_eval.write_jsonl(output_dir / f"{config.name}_results.jsonl", provider_rows)
 

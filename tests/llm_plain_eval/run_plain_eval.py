@@ -26,6 +26,26 @@ DEFAULT_OPENAI_MODEL = "gpt-4.1-mini"
 DEFAULT_ANTHROPIC_MODEL = "claude-sonnet-4-5"
 DEFAULT_XAI_MODEL = "grok-4.3"
 DEFAULT_MAX_OUTPUT_TOKENS = 12000
+TOKENIZER_INFO = {
+    "source": "provider_api_usage",
+    "description": (
+        "Token counts are read from each provider response's usage fields. No local tokenizer "
+        "or tiktoken estimate is used; counts therefore reflect the provider/model native tokenizer."
+    ),
+    "fields": {
+        "openai": ["input_tokens", "output_tokens", "total_tokens"],
+        "anthropic": [
+            "input_tokens",
+            "output_tokens",
+            "cache_creation_input_tokens",
+            "cache_read_input_tokens",
+        ],
+        "xai": ["prompt_tokens", "completion_tokens", "total_tokens"],
+    },
+}
+TOKENIZER_SUMMARY = (
+    "provider API usage fields; provider/model native tokenizer; no local tokenizer or tiktoken estimate"
+)
 
 
 @dataclass(frozen=True)
@@ -785,6 +805,7 @@ def write_summary_markdown(path: Path, summary: dict[str, Any]) -> None:
         f"- Questions: `{summary['questions_path']}`",
         f"- Question count: {summary['question_count']}",
         f"- Created at: {summary['created_at']}",
+        f"- Token accounting: `{summary.get('tokenizer', {}).get('summary', TOKENIZER_SUMMARY)}`",
         "",
         "| Provider | Model | Passed | Failed | Scored | Total | Pass rate | Errors |",
         "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |",
@@ -1167,6 +1188,7 @@ def main() -> int:
         "question_count": len(questions),
         "eval_mode": args.eval_mode,
         "providers": [config.__dict__ for config in configs],
+        "tokenizer": {"summary": TOKENIZER_SUMMARY, **TOKENIZER_INFO},
         "max_output_tokens": args.max_output_tokens,
         "temperature": args.temperature,
         "batch_size": args.batch_size,
@@ -1362,6 +1384,7 @@ def main() -> int:
         "dataset_dir": str(dataset_dir),
         "questions_path": str(questions_path),
         "question_count": len(questions),
+        "tokenizer": {"summary": TOKENIZER_SUMMARY, **TOKENIZER_INFO},
         "providers": summary_providers,
     }
     write_jsonl(output_dir / "all_results.jsonl", all_rows)

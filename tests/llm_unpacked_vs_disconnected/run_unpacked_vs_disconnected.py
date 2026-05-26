@@ -27,7 +27,7 @@ DEFAULT_CONNECTED_DIR = Path("datasets/auto-manufacturer-tech-spec/unpacked")
 DEFAULT_DISCONNECTED_DIR = Path("datasets/auto-manufacturer-tech-spec/unpacked_disconnected")
 DEFAULT_QUESTIONS_PATH = Path("datasets/auto-manufacturer-tech-spec/qa_pilot_questions_20.jsonl")
 DEFAULT_RESULTS_ROOT = Path("results/llm_unpacked_vs_disconnected")
-DEFAULT_OPENAI_MODEL = "gpt-5.4"
+DEFAULT_OPENAI_MODEL = "gpt-5.4-mini"
 DEFAULT_ANTHROPIC_MODEL = "claude-sonnet-4-5"
 DEFAULT_XAI_MODEL = "grok-4.3"
 DEFAULT_MAX_OUTPUT_TOKENS = 12000
@@ -1527,6 +1527,7 @@ def write_comparison_markdown(
         f"- Questions: `{args.questions}`",
         f"- Connected dataset: `{args.connected_dir}`",
         f"- Disconnected dataset: `{args.disconnected_dir}`",
+        f"- Token accounting: `{plain_eval.TOKENIZER_SUMMARY}`",
         "",
         f"Pass totals: connected `{connected_passed}/{len(questions)}`, disconnected `{disconnected_passed}/{len(questions)}`.",
         "",
@@ -1590,6 +1591,7 @@ def write_run_config(
             "connected_dir": str(args.connected_dir),
             "disconnected_dir": str(args.disconnected_dir),
             "questions": str(args.questions),
+            "tokenizer": {"summary": plain_eval.TOKENIZER_SUMMARY, **plain_eval.TOKENIZER_INFO},
             "question_count": question_count,
             "eval_mode": args.eval_mode,
             "max_tool_steps": args.max_tool_steps,

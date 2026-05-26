@@ -1,0 +1,23 @@
+{
+  "providers": [
+    {
+      "name": "openai",
+      "model": "gpt-4.1-mini",
+      "total": 20,
+      "passed": 13,
+      "failed": 7,
+      "scored": 20,
+      "errors": 0,
+      "pass_rate": 0.65,
+      "elapsed_seconds": 237.895,
+      "avg_elapsed_seconds": 11.895,
+      "token_usage": {
+        "input_tokens": 376752,
+        "output_tokens": 6524,
+        "total_tokens": 383276
+      },
+      "tool_calls": 51,
+      "avg_tool_calls": 2.55
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "providers": [
+    {
+      "name": "anthropic",
+      "model": "claude-opus-4-5",
+      "total": 20,
+      "passed": 19,
+      "failed": 1,
+      "scored": 20,
+      "errors": 0,
+      "pass_rate": 0.95,
+      "elapsed_seconds": 244.082,
+      "avg_elapsed_seconds": 12.204,
+      "token_usage": {
+        "input_tokens": 403402,
+        "output_tokens": 6970,
+        "total_tokens": 410372
+      },
+      "tool_calls": 47,
+      "avg_tool_calls": 2.35
+    }
+  ]
+}

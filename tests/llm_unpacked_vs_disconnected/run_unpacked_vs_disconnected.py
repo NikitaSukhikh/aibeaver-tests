@@ -173,6 +173,16 @@ def elapsed_seconds_from_rows(rows: list[dict[str, Any]]) -> float:
     return sum(float(row.get("elapsed_seconds") or 0.0) for row in rows)
 
 
+def tool_calls_from_trace(trace: list[dict[str, Any]]) -> int:
+    """Count the number of tool calls in an agent trace."""
+    return sum(1 for item in trace if item.get("action", {}).get("tool"))
+
+
+def tool_calls_from_rows(rows: list[dict[str, Any]]) -> int:
+    """Sum tool calls across all rows."""
+    return sum(int(row.get("tool_calls") or 0) for row in rows)
+
+
 def format_seconds(value: float) -> str:
     return f"{value:.1f} sec"
 
@@ -1088,6 +1098,7 @@ def run_agent_dataset(
             dry_run=args.dry_run,
         )
         score = score_or_none(answer, question, error, args.dry_run)
+        tool_calls = tool_calls_from_trace(trace)
         row = {
             "dataset": target.label,
             "dataset_dir": str(target.dir),
@@ -1103,6 +1114,7 @@ def run_agent_dataset(
             "error": error,
             "metadata": metadata,
             "trace": trace,
+            "tool_calls": tool_calls,
             "elapsed_seconds": round(time.perf_counter() - started, 3),
         }
         rows.append(row)
@@ -1189,6 +1201,7 @@ def run_plain_context_dataset(
                     "batch_token_usage_counted": offset == 0,
                 },
                 "raw_answer": raw_answer,
+                "tool_calls": 0,
                 "elapsed_seconds": elapsed_seconds,
             }
             rows.append(row)
@@ -1230,6 +1243,12 @@ def row_seconds(row: dict[str, Any] | None) -> str:
     return format_seconds(float(row.get("elapsed_seconds") or 0.0))
 
 
+def row_tool_calls(row: dict[str, Any] | None) -> str:
+    if not row:
+        return "n/a"
+    return str(row.get("tool_calls") or 0)
+
+
 def write_comparison_markdown(
     *,
     path: Path,
@@ -1253,6 +1272,12 @@ def write_comparison_markdown(
     connected_avg = connected_elapsed / len(connected_rows) if connected_rows else 0.0
     disconnected_avg = disconnected_elapsed / len(disconnected_rows) if disconnected_rows else 0.0
     combined_avg = combined_elapsed / (len(connected_rows) + len(disconnected_rows)) if connected_rows or disconnected_rows else 0.0
+    connected_tool_calls = tool_calls_from_rows(connected_rows)
+    disconnected_tool_calls = tool_calls_from_rows(disconnected_rows)
+    combined_tool_calls = connected_tool_calls + disconnected_tool_calls
+    connected_tool_avg = connected_tool_calls / len(connected_rows) if connected_rows else 0.0
+    disconnected_tool_avg = disconnected_tool_calls / len(disconnected_rows) if disconnected_rows else 0.0
+    combined_tool_avg = combined_tool_calls / (len(connected_rows) + len(disconnected_rows)) if connected_rows or disconnected_rows else 0.0
 
     lines = [
         "# LLM Unpacked vs Disconnected Comparison",
@@ -1291,15 +1316,21 @@ def write_comparison_markdown(
         f"| Disconnected data | {format_seconds(disconnected_elapsed)} | {format_seconds(disconnected_avg)} |",
         f"| Combined | {format_seconds(combined_elapsed)} | {format_seconds(combined_avg)} |",
         "",
-        "| # | Connected data | Connected time | Disconnected data | Disconnected time |",
-        "| ---: | :---: | ---: | :---: | ---: |",
+        "| Tool calls | Total | Avg per question |",
+        "| --- | ---: | ---: |",
+        f"| Connected data | {connected_tool_calls} | {connected_tool_avg:.2f} |",
+        f"| Disconnected data | {disconnected_tool_calls} | {disconnected_tool_avg:.2f} |",
+        f"| Combined | {combined_tool_calls} | {combined_tool_avg:.2f} |",
+        "",
+        "| # | Connected data | Connected time | Connected calls | Disconnected data | Disconnected time | Disconnected calls |",
+        "| ---: | :---: | ---: | ---: | :---: | ---: | ---: |",
     ]
     for index, question in enumerate(questions, start=1):
         connected_row = connected_by_id.get(question["id"])
         disconnected_row = disconnected_by_id.get(question["id"])
         lines.append(
-            f"| {index} | {symbol(connected_row)} | {row_seconds(connected_row)} | "
-            f"{symbol(disconnected_row)} | {row_seconds(disconnected_row)} |"
+            f"| {index} | {symbol(connected_row)} | {row_seconds(connected_row)} | {row_tool_calls(connected_row)} | "
+            f"{symbol(disconnected_row)} | {row_seconds(disconnected_row)} | {row_tool_calls(disconnected_row)} |"
         )
     lines.append("")
     path.write_text("\n".join(lines), encoding="utf-8")

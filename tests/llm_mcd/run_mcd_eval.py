@@ -154,6 +154,16 @@ def format_seconds(value: float) -> str:
     return f"{value:.1f} sec"
 
 
+def tool_calls_from_trace(trace: list[dict[str, Any]]) -> int:
+    """Count the number of tool calls in an agent trace."""
+    return sum(1 for item in trace if item.get("action", {}).get("cli") or item.get("action", {}).get("python"))
+
+
+def tool_calls_from_rows(rows: list[dict[str, Any]]) -> int:
+    """Sum tool calls across all rows."""
+    return sum(int(row.get("tool_calls") or 0) for row in rows)
+
+
 def parse_decimal_text(value: str) -> Decimal | None:
     cleaned = value.strip().replace(",", "")
     cleaned = cleaned.strip("()[]{}<>:;")
@@ -751,6 +761,7 @@ def run_provider(
             args=args,
         )
         score = score_or_none(answer, question, error, args.dry_run)
+        tool_calls = tool_calls_from_trace(trace)
         row = {
             "dataset": "mcd",
             "mcd_path": str(mcd_path),
@@ -766,6 +777,7 @@ def run_provider(
             "error": error,
             "metadata": metadata,
             "trace": trace,
+            "tool_calls": tool_calls,
             "elapsed_seconds": round(time.perf_counter() - started, 3),
         }
         rows.append(row)
@@ -779,6 +791,7 @@ def provider_summary(rows: list[dict[str, Any]], config: ProviderConfig) -> dict
     scored = sum(1 for row in rows if row.get("score") is not None)
     elapsed = sum(float(row.get("elapsed_seconds") or 0.0) for row in rows)
     tokens = token_usage_from_rows(rows)
+    total_tool_calls = tool_calls_from_rows(rows)
     return {
         "name": config.name,
         "model": config.model,
@@ -791,6 +804,8 @@ def provider_summary(rows: list[dict[str, Any]], config: ProviderConfig) -> dict
         "elapsed_seconds": round(elapsed, 3),
         "avg_elapsed_seconds": round(elapsed / len(rows), 3) if rows else 0.0,
         "token_usage": tokens,
+        "tool_calls": total_tool_calls,
+        "avg_tool_calls": round(total_tool_calls / len(rows), 2) if rows else 0.0,
     }
 
 
@@ -869,14 +884,26 @@ def write_summary_markdown(
             f"{format_seconds(item['elapsed_seconds'])} | {format_seconds(item['avg_elapsed_seconds'])} |"
         )
 
+    lines.extend(
+        [
+            "",
+            "| Provider | Total tool calls | Avg per question |",
+            "| --- | ---: | ---: |",
+        ]
+    )
+    for item in provider_summaries:
+        lines.append(
+            f"| {item['name']} | {item['tool_calls']} | {item['avg_tool_calls']:.2f} |"
+        )
+
     for provider, rows in rows_by_provider.items():
         lines.extend(
             [
                 "",
                 f"## {provider} Answers",
                 "",
-                "| # | Status | Seconds | Question | Answer |",
-                "| ---: | --- | ---: | --- | --- |",
+                "| # | Status | Seconds | Calls | Question | Answer |",
+                "| ---: | --- | ---: | ---: | --- | --- |",
             ]
         )
         for row in rows:
@@ -886,7 +913,7 @@ def write_summary_markdown(
                 answer = answer[:297] + "..."
             lines.append(
                 f"| {row['question_index']} | {status_label(row)} | "
-                f"{format_seconds(float(row.get('elapsed_seconds') or 0.0))} | {question} | {answer} |"
+                f"{format_seconds(float(row.get('elapsed_seconds') or 0.0))} | {row.get('tool_calls') or 0} | {question} | {answer} |"
             )
 
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")

@@ -25,13 +25,13 @@
       "name": "nominal_voltage_v",
       "label": "Nominal Voltage",
       "format": "number",
-      "unit": "V"
+      "unitLabel": "V"
     },
     {
       "name": "capacity_kwh",
       "label": "Capacity",
       "format": "number",
-      "unit": "kWh"
+      "unitLabel": "kWh"
     },
     {
       "name": "module_count",
@@ -42,41 +42,65 @@
       "name": "cell_capacity_ah",
       "label": "Cell Capacity",
       "format": "number",
-      "unit": "Ah"
+      "unitLabel": "Ah"
     },
     {
       "name": "peak_discharge_kw",
       "label": "Peak Discharge",
       "format": "number",
-      "unit": "kW"
+      "unitLabel": "kW"
     },
     {
       "name": "continuous_charge_kw",
       "label": "Continuous Charge",
       "format": "number",
-      "unit": "kW"
+      "unitLabel": "kW"
     },
     {
       "name": "coolant_flow_l_min",
       "label": "Coolant Flow",
       "format": "number",
-      "unit": "L/min"
+      "unitLabel": "L/min"
     },
     {
       "name": "mass_kg",
       "label": "Mass",
       "format": "number",
-      "unit": "kg"
+      "unitLabel": "kg"
     },
     {
       "name": "estimated_range_km",
       "label": "Estimated Range",
       "format": "number",
-      "unit": "km"
+      "unitLabel": "km"
     },
     {
       "name": "bms_firmware_version",
       "label": "BMS Firmware Version"
+    },
+    {
+      "name": "usable_capacity_kwh",
+      "label": "Usable Capacity",
+      "format": "number",
+      "unitLabel": "kWh"
+    },
+    {
+      "name": "cell_nominal_voltage_v",
+      "label": "Cell Nominal Voltage",
+      "format": "number",
+      "unitLabel": "V"
+    },
+    {
+      "name": "battery_heat_rejection_kw",
+      "label": "Battery Heat Rejection",
+      "format": "number",
+      "unitLabel": "kW"
+    },
+    {
+      "name": "thermal_derate_start_c",
+      "label": "Thermal Derate Start",
+      "format": "number",
+      "unitLabel": "deg C"
     }
   ]
 }

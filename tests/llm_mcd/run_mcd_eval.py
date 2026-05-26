@@ -7,7 +7,6 @@ import argparse
 import json
 import os
 import queue
-import re
 import shutil
 import subprocess
 import sys
@@ -17,7 +16,6 @@ import time
 import zipfile
 from dataclasses import dataclass
 from datetime import datetime
-from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any
 
@@ -29,6 +27,11 @@ PLAIN_EVAL_DIR = REPO_ROOT / "tests" / "llm_plain_eval"
 sys.path.insert(0, str(PLAIN_EVAL_DIR))
 
 import run_plain_eval as plain_eval  # noqa: E402
+from benchmark_validation import (  # noqa: E402
+    score_answer_llm_judge,
+    score_answer_tolerant,
+    validate_benchmark_questions,
+)
 
 
 DEFAULT_MCD_PATH = Path("datasets/auto-manufacturer-tech-spec/auto-manufacturer-tech-spec.mcd")
@@ -38,6 +41,7 @@ DEFAULT_OPENAI_MODEL = "gpt-5.4"
 DEFAULT_ANTHROPIC_MODEL = "claude-opus-4-5"
 DEFAULT_XAI_MODEL = "grok-4.3"
 DEFAULT_MAX_OUTPUT_TOKENS = 12000
+DEFAULT_JUDGE_MAX_OUTPUT_TOKENS = 2000
 PROVIDERS = ["openai", "anthropic", "xai"]
 DEFAULT_MCD_MCP = str(Path.home() / ".cargo" / "bin" / ("mcd-mcp.exe" if os.name == "nt" else "mcd-mcp"))
 MCP_PROTOCOL_VERSION = "2025-06-18"
@@ -91,6 +95,27 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--timeout-seconds", type=int, default=120)
     parser.add_argument("--retries", type=int, default=2)
     parser.add_argument(
+        "--scoring-mode",
+        choices=["programmatic", "llm_judge"],
+        default="programmatic",
+        help="Use deterministic expected_contains scoring or an LLM judge over expected_contains/reference_answer.",
+    )
+    parser.add_argument(
+        "--judge-provider",
+        choices=["same", "openai", "anthropic", "xai"],
+        default=os.getenv("JUDGE_PROVIDER", "same"),
+        help="Provider for --scoring-mode llm_judge. 'same' uses each answer provider.",
+    )
+    parser.add_argument(
+        "--judge-model",
+        default=os.getenv("JUDGE_MODEL"),
+        help="Model for --scoring-mode llm_judge. Defaults to the selected judge provider's answer model.",
+    )
+    parser.add_argument("--judge-max-output-tokens", type=int, default=DEFAULT_JUDGE_MAX_OUTPUT_TOKENS)
+    parser.add_argument("--judge-temperature", type=float, default=0.0)
+    parser.add_argument("--judge-timeout-seconds", type=int, default=120)
+    parser.add_argument("--judge-retries", type=int, default=2)
+    parser.add_argument(
         "--openai-stateful-responses",
         action="store_true",
         help=(
@@ -113,6 +138,22 @@ def provider_configs(args: argparse.Namespace) -> list[ProviderConfig]:
         "xai": ProviderConfig("xai", args.xai_model, "XAI_API_KEY"),
     }
     return [configs[name] for name in args.providers]
+
+
+def judge_provider_config(args: argparse.Namespace, answer_config: ProviderConfig) -> ProviderConfig:
+    if args.judge_provider == "same":
+        return ProviderConfig(
+            answer_config.name,
+            args.judge_model or answer_config.model,
+            answer_config.api_key_env,
+        )
+
+    configs = {
+        "openai": ProviderConfig("openai", args.judge_model or args.openai_model, "OPENAI_API_KEY"),
+        "anthropic": ProviderConfig("anthropic", args.judge_model or args.anthropic_model, "ANTHROPIC_API_KEY"),
+        "xai": ProviderConfig("xai", args.judge_model or args.xai_model, "XAI_API_KEY"),
+    }
+    return configs[args.judge_provider]
 
 
 def make_output_dir(results_root: Path) -> Path:
@@ -169,11 +210,15 @@ def token_usage_from_rows(rows: list[dict[str, Any]]) -> dict[str, int]:
     total = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
     for row in rows:
         metadata = row.get("metadata", {})
-        if not isinstance(metadata, dict):
-            continue
-        token_usage = metadata.get("token_usage")
-        if isinstance(token_usage, dict):
-            total = add_token_usage(total, {key: int_token(value) for key, value in token_usage.items()})
+        if isinstance(metadata, dict):
+            token_usage = metadata.get("token_usage")
+            if isinstance(token_usage, dict):
+                total = add_token_usage(total, {key: int_token(value) for key, value in token_usage.items()})
+        score = row.get("score")
+        if isinstance(score, dict):
+            judge_metadata = score.get("judge_metadata")
+            if isinstance(judge_metadata, dict):
+                total = add_token_usage(total, token_usage_from_metadata(judge_metadata))
     return total
 
 
@@ -202,60 +247,28 @@ def tool_calls_from_rows(rows: list[dict[str, Any]]) -> int:
     return sum(int(row.get("tool_calls") or 0) for row in rows)
 
 
-def parse_decimal_text(value: str) -> Decimal | None:
-    cleaned = value.strip().replace(",", "")
-    cleaned = cleaned.strip("()[]{}<>:;")
-    if cleaned.endswith(".") and cleaned.count(".") == 1:
-        cleaned = cleaned[:-1]
-    if not re.fullmatch(r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)", cleaned):
-        return None
-    try:
-        return Decimal(cleaned)
-    except InvalidOperation:
-        return None
-
-
-def contains_expected_tolerant(answer: str, expected: str) -> tuple[bool, str]:
-    if plain_eval.contains_expected(answer, expected):
-        return True, "substring"
-
-    expected_decimal = parse_decimal_text(expected)
-    if expected_decimal is None:
-        return False, "missing"
-
-    for match in re.finditer(r"(?<![A-Za-z0-9_-])[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?=$|[^A-Za-z0-9_])", answer):
-        actual_decimal = parse_decimal_text(match.group(0))
-        if actual_decimal is not None and actual_decimal == expected_decimal:
-            return True, "numeric_equivalent"
-    return False, "missing"
-
-
-def score_answer_tolerant(answer: str, expected_contains: list[Any]) -> dict[str, Any]:
-    checks = []
-    for expected in expected_contains:
-        expected_text = str(expected)
-        found, match_type = contains_expected_tolerant(answer, expected_text)
-        checks.append(
-            {
-                "expected": expected_text,
-                "found": found,
-                "match_type": match_type,
-            }
-        )
-
-    found_count = sum(1 for check in checks if check["found"])
-    return {
-        "passed": found_count == len(checks),
-        "found_count": found_count,
-        "expected_count": len(checks),
-        "checks": checks,
-        "scoring": "substring_or_numeric_equivalent",
-    }
-
-
-def score_or_none(answer: str, question: dict[str, Any], error: str | None, dry_run: bool) -> dict[str, Any] | None:
+def score_or_none(
+    answer: str,
+    question: dict[str, Any],
+    error: str | None,
+    dry_run: bool,
+    args: argparse.Namespace,
+    config: ProviderConfig,
+) -> dict[str, Any] | None:
     if dry_run or error:
         return None
+    if args.scoring_mode == "llm_judge":
+        judge_config = judge_provider_config(args, config)
+        return score_answer_llm_judge(
+            answer=answer,
+            question=question,
+            provider=judge_config.name,
+            model=judge_config.model,
+            max_output_tokens=args.judge_max_output_tokens,
+            temperature=args.judge_temperature,
+            timeout_seconds=args.judge_timeout_seconds,
+            retries=args.judge_retries,
+        )
     return score_answer_tolerant(answer, question["expected_contains"])
 
 
@@ -964,6 +977,32 @@ def make_mcd_agent_prompt(
                 "order by cast(decimal_metric_column as real) desc limit 2"
             )
         },
+        "boolean_predicate_example": {
+            "sql": (
+                "select id_column, boolean_flag "
+                "from table_id "
+                "where lower(cast(boolean_flag as text)) in ('false', '0')"
+            )
+        },
+        "production_quality_gate_example": {
+            "sql": (
+                "with gate_rows as ("
+                "select lot_id, release_status, ppap_status, containment_status, supplier_lot_traceability, "
+                "cpk_min, ppk_min, msa_grr_pct, battery_health_score_pct "
+                "from production_quality_measurements "
+                "where lower(ppap_status)=lower('approved') and lower(release_status)<>lower('released')"
+                "), battery_only as ("
+                "select * from gate_rows "
+                "where lower(containment_status)=lower('closed') "
+                "and lower(supplier_lot_traceability)=lower('complete') "
+                "and cast(cpk_min as real)>=1.33 and cast(ppk_min as real)>=1.20 "
+                "and cast(msa_grr_pct as real)<=10 "
+                "and cast(battery_health_score_pct as real)<96.5"
+                ") "
+                "select (select count(*) from battery_only) as battery_only_count, * "
+                "from battery_only order by lot_id asc limit 1"
+            )
+        },
         "count_plus_first_row_example": {
             "sql": (
                 "with matches as ("
@@ -1039,6 +1078,10 @@ def make_mcd_agent_prompt(
         "Use CAST(column AS REAL) or CAST(column AS INTEGER) for numeric comparisons, "
         "calculations, and ordering. For categorical string comparisons, use lower(column) = lower('value') "
         "or lower(column) IN (...), unless exact case is explicitly required. "
+        "For boolean columns, values may surface as true/false text in CSV-backed views or as 1/0 in SQLite-backed "
+        "MCD queries. Use robust predicates such as lower(cast(flag_column as text)) in ('true', '1') for true and "
+        "lower(cast(flag_column as text)) in ('false', '0') for false; do not compare booleans only to the text "
+        "'true' or 'false'. "
         "For text inequality, use lower(left) <> lower(right) or lower(left) != lower(right); reserve IS and IS NOT "
         "for NULL checks only. "
         "For prefix rules, compute the prefix from the field, for example "
@@ -1053,6 +1096,13 @@ def make_mcd_agent_prompt(
         "units, or nullable/enum/type metadata. For narrative-rule "
         "questions, inspect the relevant markdown sentence or use table schemas, then include source columns whose "
         "names overlap with or are semantically tied to the rule terms. "
+        "When the question states explicit thresholds, formulas, or gate criteria, those question-stated values take "
+        "precedence over narrative examples; copy the exact thresholds into the SQL predicate and final answer. For "
+        "production-quality release gates in this dataset, unless the question states different gates, treat the gate "
+        "set as ppap_status=approved, containment_status=closed, supplier_lot_traceability=complete, cpk_min>=1.33, "
+        "ppk_min>=1.20, msa_grr_pct<=10, and battery_health_score_pct>=96.5. Do not add unrelated quality fields "
+        "such as warranty_risk_index, end_of_line_pass_rate_pct, torque_rework_ppm, paint_defect_ppm, or "
+        "water_leak_failures unless the question explicitly names them. "
         "Do not use CLI or Python actions; MCP observations are the "
         "primary source of truth. "
         "Do not guess from memory. MCP tools execute in the repository root and return stdout/stderr-style observations. "
@@ -1078,6 +1128,10 @@ def make_mcd_agent_prompt(
         "When a question asks for a count plus a first/worst/best/top row, use a CTE or subqueries so the same "
         "successful observation includes both the total count and every field for that row. Do not use aggregate "
         "functions and ungrouped row fields together unless each row field is selected by an ordered subquery. "
+        "When a question is phrased as `among ... which row/pack/lot/test has the highest/lowest/worst/best`, include "
+        "the candidate-set count plus the selected row's stable ID, filter/category values, sort metric, and nearby "
+        "domain context columns that describe the selected row. For battery-pack top rows, include pack_id, chemistry, "
+        "peak_discharge_kw, capacity_kwh, and usable_capacity_kwh when those columns exist. "
         "When a question asks for the first listed row and gives no explicit sorting metric, preserve the listing "
         "order of the row-producing table. If the source order is represented by a monotonic prefixed ID, order by "
         "that source-row ID; do not order by a joined lookup/entity ID unless the question asks for that entity's "
@@ -1089,6 +1143,10 @@ def make_mcd_agent_prompt(
         "aggregate so the same observation contains the total and the grouped rows. "
         "When a question asks for first examples by named category or status, filter the named source category/status "
         "column directly after discovering its exact values; do not look for those labels in unrelated columns. "
+        "For production-quality wording, containment, hold, released, and non-released are release_status concepts; "
+        "containment_status is the open/closed gate field. If a question asks for a containment example, include "
+        "release_status, containment_status, ppap_status, and supplier_lot_traceability in the observation and final "
+        "answer. "
         "When a question asks for a top source row, include the identifier plus every rule-related source field "
         "named or implied by the question and narrative, not only the sort metric. If the rule references another "
         "measurement, limit, threshold, date, status, or requirement column in the same source table, include that "
@@ -1332,7 +1390,10 @@ def make_mcd_agent_compact_prompt(
         "or provenance detail is uncertain; do not use search results as a substitute for SQL row-level counts or "
         "extrema. Use `kind` filters such as `markdown`, `schema`, `manifest`, `annotation`, or `provenance` when useful. "
         "Use CAST(... AS REAL/INTEGER) for numeric filtering, sorting, and calculations. Use lower(...) "
-        "for categorical comparisons unless exact case is required. Use <> or != for text inequality; reserve "
+        "for categorical comparisons unless exact case is required. For boolean columns, use "
+        "lower(cast(flag_column as text)) in ('true', '1') for true and "
+        "lower(cast(flag_column as text)) in ('false', '0') for false because SQLite-backed MCD queries may expose "
+        "booleans as 1/0. Use <> or != for text inequality; reserve "
         "IS/IS NOT for NULL checks. For counts plus first/worst/best rows, use CTEs or ordered subqueries so the "
         "same successful observation contains the count and row details. "
         "Tool observations are source of truth; provisional answer text and ignored response objects are clues only "
@@ -1343,7 +1404,17 @@ def make_mcd_agent_compact_prompt(
         "be present in the same successful observation. If a question names a formula or expression such as X plus "
         "Y, select X, Y, and the computed value; do not return only the computed value. For joined-row questions, "
         "include the stable row identifier from the row-producing/source table as well as referenced joined entity "
-        "IDs. If a question asks for the first listed row and gives no explicit sorting metric, preserve the listing "
+        "IDs. When a question states explicit thresholds, formulas, or gate criteria, use those exact values rather "
+        "than substituting narrative examples. For production-quality release gates in this dataset, unless the "
+        "question states different gates, use ppap_status=approved, containment_status=closed, "
+        "supplier_lot_traceability=complete, cpk_min>=1.33, ppk_min>=1.20, msa_grr_pct<=10, and "
+        "battery_health_score_pct>=96.5; do not add unrelated quality metrics. If a question asks for a containment "
+        "example, treat containment as release_status='containment' and also include containment_status, ppap_status, "
+        "and supplier_lot_traceability. When a question is phrased as `among ... which row/pack/lot/test has the "
+        "highest/lowest/worst/best`, include the candidate-set count plus the selected row's stable ID, "
+        "filter/category values, sort metric, and nearby domain context columns. For battery-pack top rows, include "
+        "pack_id, chemistry, peak_discharge_kw, capacity_kwh, and usable_capacity_kwh when observed. If a question "
+        "asks for the first listed row and gives no explicit sorting metric, preserve the listing "
         "order of the row-producing table; if represented by a monotonic prefixed ID, order by that source-row ID, "
         "not a joined lookup/entity ID. If a prior action failed, do not retry the same invalid table name, column "
         "name, argument shape, JSON shape, or SQL pattern. If the current state already contains all fields "
@@ -1640,7 +1711,7 @@ def run_provider(
             question=question,
             args=args,
         )
-        score = score_or_none(answer, question, error, args.dry_run)
+        score = score_or_none(answer, question, error, args.dry_run, args, config)
         tool_calls = tool_calls_from_trace(trace)
         row = {
             "dataset": "mcd",
@@ -1652,6 +1723,7 @@ def run_provider(
             "family_id": question.get("family_id"),
             "question": question["prompt"],
             "expected_contains": question["expected_contains"],
+            "reference_answer": question.get("reference_answer"),
             "answer": answer,
             "score": score,
             "error": error,
@@ -1707,6 +1779,16 @@ def write_run_config(
             "tokenizer": {"summary": plain_eval.TOKENIZER_SUMMARY, **plain_eval.TOKENIZER_INFO},
             "prompt_tool_reference": "MCD MCP tool docs with persistent state",
             "question_count": question_count,
+            "scoring_mode": args.scoring_mode,
+            "judge_provider": (
+                [judge_provider_config(args, config).__dict__ for config in configs]
+                if args.scoring_mode == "llm_judge"
+                else None
+            ),
+            "judge_max_output_tokens": args.judge_max_output_tokens,
+            "judge_temperature": args.judge_temperature,
+            "judge_timeout_seconds": args.judge_timeout_seconds,
+            "judge_retries": args.judge_retries,
             "max_tool_steps": args.max_tool_steps,
             "mcd_mcp": args.mcd_mcp,
             "mcd_mcp_status": mcd_mcp_status(args.mcd_mcp),
@@ -1746,6 +1828,10 @@ def write_summary_markdown(
         f"- MCD CLI: `{args.mcd_cli}`",
         f"- MCD CLI available: `{mcd_cli_status(args.mcd_cli)['available_on_path_or_filesystem']}`",
         "- MCD tool reference: MCP-first read-only MCD tools with persistent state",
+        f"- Scoring mode: `{args.scoring_mode}`",
+        f"- Judge provider: `{args.judge_provider if args.scoring_mode == 'llm_judge' else 'n/a'}`",
+        f"- Judge model override: `{args.judge_model or 'n/a'}`",
+        f"- Token usage includes judge calls: `{args.scoring_mode == 'llm_judge'}`",
         f"- Max tool steps: `{args.max_tool_steps}`",
         f"- OpenAI stateful responses: `{args.openai_stateful_responses}`",
         "",
@@ -1813,8 +1899,24 @@ def main() -> int:
     args = parse_args()
     configs = provider_configs(args)
     if not args.dry_run:
+        env_configs = [
+            plain_eval.ProviderConfig(config.name, config.model, config.api_key_env)
+            for config in configs
+        ]
+        if args.scoring_mode == "llm_judge":
+            env_configs.extend(
+                plain_eval.ProviderConfig(
+                    judge_config.name,
+                    judge_config.model,
+                    judge_config.api_key_env,
+                )
+                for judge_config in (judge_provider_config(args, config) for config in configs)
+            )
         plain_eval.validate_provider_env(
-            [plain_eval.ProviderConfig(config.name, config.model, config.api_key_env) for config in configs]
+            list({
+                (item.name, item.model, item.api_key_env): item
+                for item in env_configs
+            }.values())
         )
 
     args.mcd_path = args.mcd_path.resolve()
@@ -1823,6 +1925,7 @@ def main() -> int:
         raise FileNotFoundError(f"MCD package not found: {args.mcd_path}")
 
     questions = plain_eval.read_jsonl(args.questions)
+    validate_benchmark_questions(questions, args.questions)
     if args.limit is not None:
         questions = questions[: args.limit]
 

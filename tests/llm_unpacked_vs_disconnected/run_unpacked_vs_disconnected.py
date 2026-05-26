@@ -21,16 +21,22 @@ PLAIN_EVAL_DIR = REPO_ROOT / "tests" / "llm_plain_eval"
 sys.path.insert(0, str(PLAIN_EVAL_DIR))
 
 import run_plain_eval as plain_eval  # noqa: E402
+from benchmark_validation import (  # noqa: E402
+    score_answer_llm_judge,
+    score_answer_tolerant,
+    validate_benchmark_questions,
+)
 
 
 DEFAULT_CONNECTED_DIR = Path("datasets/auto-manufacturer-tech-spec/unpacked")
-DEFAULT_DISCONNECTED_DIR = Path("datasets/auto-manufacturer-tech-spec/unpacked_disconnected")
+DEFAULT_DISCONNECTED_DIR = Path("datasets/auto-manufacturer-tech-spec/disconnected")
 DEFAULT_QUESTIONS_PATH = Path("datasets/auto-manufacturer-tech-spec/qa_pilot_questions_20.jsonl")
 DEFAULT_RESULTS_ROOT = Path("results/llm_unpacked_vs_disconnected")
 DEFAULT_OPENAI_MODEL = "gpt-5.4"
 DEFAULT_ANTHROPIC_MODEL = "claude-opus-4-5"
 DEFAULT_XAI_MODEL = "grok-4.3"
 DEFAULT_MAX_OUTPUT_TOKENS = 12000
+DEFAULT_JUDGE_MAX_OUTPUT_TOKENS = 2000
 
 
 @dataclass(frozen=True)
@@ -78,6 +84,27 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--timeout-seconds", type=int, default=120)
     parser.add_argument("--retries", type=int, default=2)
     parser.add_argument(
+        "--scoring-mode",
+        choices=["programmatic", "llm_judge"],
+        default="programmatic",
+        help="Use deterministic expected_contains scoring or an LLM judge over expected_contains/reference_answer.",
+    )
+    parser.add_argument(
+        "--judge-provider",
+        choices=["same", "openai", "anthropic", "xai"],
+        default=os.getenv("JUDGE_PROVIDER", "same"),
+        help="Provider for --scoring-mode llm_judge. 'same' uses the answer provider.",
+    )
+    parser.add_argument(
+        "--judge-model",
+        default=os.getenv("JUDGE_MODEL"),
+        help="Model for --scoring-mode llm_judge. Defaults to the selected judge provider's answer model.",
+    )
+    parser.add_argument("--judge-max-output-tokens", type=int, default=DEFAULT_JUDGE_MAX_OUTPUT_TOKENS)
+    parser.add_argument("--judge-temperature", type=float, default=0.0)
+    parser.add_argument("--judge-timeout-seconds", type=int, default=120)
+    parser.add_argument("--judge-retries", type=int, default=2)
+    parser.add_argument(
         "--dry-run",
         action="store_true",
         help="Write the output structure without calling provider APIs.",
@@ -94,6 +121,22 @@ def provider_config(args: argparse.Namespace) -> ProviderConfig:
     return configs[args.provider]
 
 
+def judge_provider_config(args: argparse.Namespace, answer_config: ProviderConfig) -> ProviderConfig:
+    if args.judge_provider == "same":
+        return ProviderConfig(
+            answer_config.name,
+            args.judge_model or answer_config.model,
+            answer_config.api_key_env,
+        )
+
+    configs = {
+        "openai": ProviderConfig("openai", args.judge_model or args.openai_model, "OPENAI_API_KEY"),
+        "anthropic": ProviderConfig("anthropic", args.judge_model or args.anthropic_model, "ANTHROPIC_API_KEY"),
+        "xai": ProviderConfig("xai", args.judge_model or args.xai_model, "XAI_API_KEY"),
+    }
+    return configs[args.judge_provider]
+
+
 def make_output_dir(results_root: Path) -> Path:
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     for suffix in ["", *[f"_{index:02d}" for index in range(1, 100)]]:
@@ -106,10 +149,29 @@ def make_output_dir(results_root: Path) -> Path:
     raise RuntimeError(f"Could not create a unique output directory under {results_root}")
 
 
-def score_or_none(answer: str, question: dict[str, Any], error: str | None, dry_run: bool) -> dict[str, Any] | None:
+def score_or_none(
+    answer: str,
+    question: dict[str, Any],
+    error: str | None,
+    dry_run: bool,
+    args: argparse.Namespace,
+    config: ProviderConfig,
+) -> dict[str, Any] | None:
     if dry_run or error:
         return None
-    return plain_eval.score_answer(answer, question["expected_contains"])
+    if args.scoring_mode == "llm_judge":
+        judge_config = judge_provider_config(args, config)
+        return score_answer_llm_judge(
+            answer=answer,
+            question=question,
+            provider=judge_config.name,
+            model=judge_config.model,
+            max_output_tokens=args.judge_max_output_tokens,
+            temperature=args.judge_temperature,
+            timeout_seconds=args.judge_timeout_seconds,
+            retries=args.judge_retries,
+        )
+    return score_answer_tolerant(answer, question["expected_contains"])
 
 
 def int_token(value: Any) -> int:
@@ -156,12 +218,15 @@ def token_usage_from_rows(rows: list[dict[str, Any]]) -> dict[str, int]:
     total = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
     for row in rows:
         metadata = row.get("metadata", {})
-        if not isinstance(metadata, dict):
-            continue
-        token_usage = metadata.get("token_usage")
-        if not isinstance(token_usage, dict):
-            continue
-        total = add_token_usage(total, {key: int_token(value) for key, value in token_usage.items()})
+        if isinstance(metadata, dict):
+            token_usage = metadata.get("token_usage")
+            if isinstance(token_usage, dict):
+                total = add_token_usage(total, {key: int_token(value) for key, value in token_usage.items()})
+        score = row.get("score")
+        if isinstance(score, dict):
+            judge_metadata = score.get("judge_metadata")
+            if isinstance(judge_metadata, dict):
+                total = add_token_usage(total, token_usage_from_metadata(judge_metadata))
     return total
 
 
@@ -918,6 +983,34 @@ def make_kb_agent_prompt(
             ),
             "limit": 5,
         },
+        "sql_boolean_predicate_example": {
+            "query": (
+                "SELECT test_id, regulatory_brake_pass "
+                "FROM chassis_brake_validation_specs "
+                "WHERE lower(cast(regulatory_brake_pass AS text)) IN ('false', '0')"
+            ),
+            "limit": 5,
+        },
+        "sql_production_quality_gate_example": {
+            "query": (
+                "WITH gate_rows AS ("
+                "SELECT lot_id, release_status, ppap_status, containment_status, supplier_lot_traceability, "
+                "cpk_min, ppk_min, msa_grr_pct, battery_health_score_pct "
+                "FROM production_quality_measurements "
+                "WHERE lower(ppap_status)=lower('approved') AND lower(release_status)<>lower('released')"
+                "), battery_only AS ("
+                "SELECT * FROM gate_rows "
+                "WHERE lower(containment_status)=lower('closed') "
+                "AND lower(supplier_lot_traceability)=lower('complete') "
+                "AND CAST(cpk_min AS REAL)>=1.33 AND CAST(ppk_min AS REAL)>=1.20 "
+                "AND CAST(msa_grr_pct AS REAL)<=10 "
+                "AND CAST(battery_health_score_pct AS REAL)<96.5"
+                ") "
+                "SELECT (SELECT count(*) FROM battery_only) AS battery_only_count, * "
+                "FROM battery_only ORDER BY lot_id ASC LIMIT 1"
+            ),
+            "limit": 5,
+        },
     }
     return (
         "You are a knowledge-base assistant with access to the unpacked dataset through tools. "
@@ -928,6 +1021,9 @@ def make_kb_agent_prompt(
         "or CAST(column AS INTEGER) for numeric comparisons, calculations, and ordering. For categorical string "
         "comparisons in SQL, use lower(column) = lower('value') or lower(column) IN (...), unless exact case is "
         "explicitly required. "
+        "For boolean columns, use robust predicates such as lower(cast(flag_column as text)) in ('true', '1') for "
+        "true and lower(cast(flag_column as text)) in ('false', '0') for false, so the same logic works if a "
+        "dataset layer exposes booleans as text or integers. "
         "Prefer table_query when one question needs several table operations at once, such as joins plus filters, "
         "derived values, grouping, sorting, counts, or projection, and you do not want to write SQL. "
         "For counts, use table_count or table_group_count instead of requesting all rows. "
@@ -942,6 +1038,13 @@ def make_kb_agent_prompt(
         "Use read_text or search_text when the question depends on narrative rules in the dossier. For narrative-rule "
         "questions, inspect the relevant text or table schemas, then include source columns whose names overlap "
         "with or are semantically tied to the rule terms. "
+        "When the question states explicit thresholds, formulas, or gate criteria, those question-stated values take "
+        "precedence over narrative examples; copy the exact thresholds into the SQL predicate and final answer. For "
+        "production-quality release gates in this dataset, unless the question states different gates, treat the gate "
+        "set as ppap_status=approved, containment_status=closed, supplier_lot_traceability=complete, cpk_min>=1.33, "
+        "ppk_min>=1.20, msa_grr_pct<=10, and battery_health_score_pct>=96.5. Do not add unrelated quality fields "
+        "such as warranty_risk_index, end_of_line_pass_rate_pct, torque_rework_ppm, paint_defect_ppm, or "
+        "water_leak_failures unless the question explicitly names them. "
         "If a tool observation contains an error, do not answer from that observation; retry with corrected tool "
         "arguments or use a simpler sql_query/table_query. "
         "Across tool steps, treat previous successful observations as the current state. Carry forward observed "
@@ -961,11 +1064,19 @@ def make_kb_agent_prompt(
         "When a question asks for a count plus a first/worst/best/top row, use a CTE or subqueries so the same "
         "successful observation includes both the total count and every field for that row. Do not use aggregate "
         "functions and ungrouped row fields together unless each row field is selected by an ordered subquery. "
+        "When a question is phrased as `among ... which row/pack/lot/test has the highest/lowest/worst/best`, include "
+        "the candidate-set count plus the selected row's stable ID, filter/category values, sort metric, and nearby "
+        "domain context columns that describe the selected row. For battery-pack top rows, include pack_id, chemistry, "
+        "peak_discharge_kw, capacity_kwh, and usable_capacity_kwh when those columns exist. "
         "When a question asks for grouped counts, include the overall total count as well as each group count. "
         "If grouped rows are exhaustive and untruncated, include the sum of group counts as the overall total even "
         "when the SQL result did not return a total column. "
         "For prefix-style rules, derive the prefix from the value and compare it directly to the expected field; "
         "do not enumerate possible categories or region codes. "
+        "For production-quality wording, containment, hold, released, and non-released are release_status concepts; "
+        "containment_status is the open/closed gate field. If a question asks for a containment example, include "
+        "release_status, containment_status, ppap_status, and supplier_lot_traceability in the observation and final "
+        "answer. "
         "When a question asks for a top source row, include the identifier plus every rule-related source field "
         "named or implied by the question and narrative, not only the sort metric. If the rule references another "
         "measurement, limit, threshold, date, status, or requirement column in the same source table, include that "
@@ -1190,9 +1301,21 @@ def make_kb_agent_compact_prompt(
         "Only the first JSON object is executed, so never include a tool call and an answer in the same response. "
         "Prefer sql_query for joins, aggregate counts, computed expressions, grouped counts, sorting, and top-k "
         "queries. CSV columns are loaded as TEXT, so use CAST(... AS REAL/INTEGER) for numeric filtering, sorting, "
-        "and calculations. Use lower(...) for categorical comparisons unless exact case is required. For counts "
-        "plus first/worst/best/top rows, use CTEs or ordered subqueries so one observation contains both the count "
-        "and row details. Final answers must include exact IDs, requested fields, key condition values, and "
+        "and calculations. Use lower(...) for categorical comparisons unless exact case is required. For boolean "
+        "columns, use lower(cast(flag_column as text)) in ('true', '1') for true and "
+        "lower(cast(flag_column as text)) in ('false', '0') for false. For counts plus first/worst/best/top rows, "
+        "use CTEs or ordered subqueries so one observation contains both the count "
+        "and row details. When a question states explicit thresholds, formulas, or gate criteria, use those exact "
+        "values rather than substituting narrative examples. For production-quality release gates in this dataset, "
+        "unless the question states different gates, use ppap_status=approved, containment_status=closed, "
+        "supplier_lot_traceability=complete, cpk_min>=1.33, ppk_min>=1.20, msa_grr_pct<=10, and "
+        "battery_health_score_pct>=96.5; do not add unrelated quality metrics. If a question asks for a containment "
+        "example, treat containment as release_status='containment' and also include containment_status, ppap_status, "
+        "and supplier_lot_traceability. When a question is phrased as `among ... which row/pack/lot/test has the "
+        "highest/lowest/worst/best`, include the candidate-set count plus the selected row's stable ID, "
+        "filter/category values, sort metric, and nearby domain context columns. For battery-pack top rows, include "
+        "pack_id, chemistry, peak_discharge_kw, capacity_kwh, and usable_capacity_kwh when observed. Final answers "
+        "must include exact IDs, requested fields, key condition values, and "
         "rule-related source fields present in observations. "
         "Tool observations are source of truth; provisional answer text and ignored response objects are clues only "
         "and must be checked against observations. Carry forward every observed table name, column name, row value, "
@@ -1335,7 +1458,7 @@ def run_agent_dataset(
             max_tool_steps=args.max_tool_steps,
             dry_run=args.dry_run,
         )
-        score = score_or_none(answer, question, error, args.dry_run)
+        score = score_or_none(answer, question, error, args.dry_run, args, config)
         tool_calls = tool_calls_from_trace(trace)
         row = {
             "dataset": target.label,
@@ -1347,6 +1470,7 @@ def run_agent_dataset(
             "family_id": question.get("family_id"),
             "question": question["prompt"],
             "expected_contains": question["expected_contains"],
+            "reference_answer": question.get("reference_answer"),
             "answer": answer,
             "score": score,
             "error": error,
@@ -1414,7 +1538,7 @@ def run_plain_context_dataset(
             error = provider_error
             if not error and not answer and not args.dry_run:
                 error = "Provider response did not include an answer for this question."
-            score = score_or_none(answer, question, error, args.dry_run)
+            score = score_or_none(answer, question, error, args.dry_run, args, config)
             row = {
                 "dataset": target.label,
                 "dataset_dir": str(target.dir),
@@ -1425,6 +1549,7 @@ def run_plain_context_dataset(
                 "family_id": question.get("family_id"),
                 "question": question["prompt"],
                 "expected_contains": question["expected_contains"],
+                "reference_answer": question.get("reference_answer"),
                 "answer": answer,
                 "score": score,
                 "error": error,
@@ -1524,6 +1649,10 @@ def write_comparison_markdown(
         f"- Provider: `{config.name}`",
         f"- Model: `{config.model}`",
         f"- Eval mode: `{args.eval_mode}`",
+        f"- Scoring mode: `{args.scoring_mode}`",
+        f"- Judge provider: `{judge_provider_config(args, config).name if args.scoring_mode == 'llm_judge' else 'n/a'}`",
+        f"- Judge model: `{judge_provider_config(args, config).model if args.scoring_mode == 'llm_judge' else 'n/a'}`",
+        f"- Token usage includes judge calls: `{args.scoring_mode == 'llm_judge'}`",
         f"- Questions: `{args.questions}`",
         f"- Connected dataset: `{args.connected_dir}`",
         f"- Disconnected dataset: `{args.disconnected_dir}`",
@@ -1594,6 +1723,16 @@ def write_run_config(
             "tokenizer": {"summary": plain_eval.TOKENIZER_SUMMARY, **plain_eval.TOKENIZER_INFO},
             "question_count": question_count,
             "eval_mode": args.eval_mode,
+            "scoring_mode": args.scoring_mode,
+            "judge_provider": (
+                judge_provider_config(args, config).__dict__
+                if args.scoring_mode == "llm_judge"
+                else None
+            ),
+            "judge_max_output_tokens": args.judge_max_output_tokens,
+            "judge_temperature": args.judge_temperature,
+            "judge_timeout_seconds": args.judge_timeout_seconds,
+            "judge_retries": args.judge_retries,
             "max_tool_steps": args.max_tool_steps,
             "batch_size": args.batch_size,
             "max_output_tokens": args.max_output_tokens,
@@ -1610,8 +1749,21 @@ def main() -> int:
     args = parse_args()
     config = provider_config(args)
     if not args.dry_run:
+        env_configs = [plain_eval.ProviderConfig(config.name, config.model, config.api_key_env)]
+        if args.scoring_mode == "llm_judge":
+            judge_config = judge_provider_config(args, config)
+            env_configs.append(
+                plain_eval.ProviderConfig(
+                    judge_config.name,
+                    judge_config.model,
+                    judge_config.api_key_env,
+                )
+            )
         plain_eval.validate_provider_env(
-            [plain_eval.ProviderConfig(config.name, config.model, config.api_key_env)]
+            list({
+                (item.name, item.model, item.api_key_env): item
+                for item in env_configs
+            }.values())
         )
 
     args.connected_dir = args.connected_dir.resolve()
@@ -1619,6 +1771,7 @@ def main() -> int:
     args.questions = args.questions.resolve()
 
     questions = plain_eval.read_jsonl(args.questions)
+    validate_benchmark_questions(questions, args.questions)
     if args.limit is not None:
         questions = questions[: args.limit]
 

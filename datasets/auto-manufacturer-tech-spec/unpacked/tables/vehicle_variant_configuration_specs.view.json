@@ -32,13 +32,13 @@
       "name": "wheelbase_mm",
       "label": "Wheelbase",
       "format": "number",
-      "unit": "mm"
+      "unitLabel": "mm"
     },
     {
       "name": "curb_mass_kg",
       "label": "Curb Mass",
       "format": "number",
-      "unit": "kg"
+      "unitLabel": "kg"
     },
     {
       "name": "drag_coefficient",
@@ -49,19 +49,19 @@
       "name": "frontal_area_m2",
       "label": "Frontal Area",
       "format": "number",
-      "unit": "m2"
+      "unitLabel": "m2"
     },
     {
       "name": "max_payload_kg",
       "label": "Max Payload",
       "format": "number",
-      "unit": "kg"
+      "unitLabel": "kg"
     },
     {
       "name": "tow_rating_kg",
       "label": "Tow Rating",
       "format": "number",
-      "unit": "kg"
+      "unitLabel": "kg"
     },
     {
       "name": "homologation_code",
@@ -70,6 +70,36 @@
     {
       "name": "active_aero",
       "label": "Active Aero"
+    },
+    {
+      "name": "certification_market",
+      "label": "Certification Market"
+    },
+    {
+      "name": "test_cycle",
+      "label": "Test Cycle"
+    },
+    {
+      "name": "procedure_standard",
+      "label": "Procedure Standard"
+    },
+    {
+      "name": "gcwr_kg",
+      "label": "GCWR",
+      "format": "number",
+      "unitLabel": "kg"
+    },
+    {
+      "name": "braked_trailer_rating_kg",
+      "label": "Braked Trailer Rating",
+      "format": "number",
+      "unitLabel": "kg"
+    },
+    {
+      "name": "unbraked_trailer_rating_kg",
+      "label": "Unbraked Trailer Rating",
+      "format": "number",
+      "unitLabel": "kg"
     }
   ]
 }

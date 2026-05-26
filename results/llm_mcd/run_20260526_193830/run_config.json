@@ -1,0 +1,81 @@
+{
+  "created_at": "2026-05-26T19:38:30",
+  "providers": [
+    {
+      "name": "openai",
+      "model": "gpt-5.4",
+      "api_key_env": "OPENAI_API_KEY"
+    }
+  ],
+  "mcd_path": "D:\\aibeaver-tests\\datasets\\auto-manufacturer-tech-spec\\auto-manufacturer-tech-spec.mcd",
+  "questions": "D:\\aibeaver-tests\\datasets\\auto-manufacturer-tech-spec\\qa_pilot_questions_20.jsonl",
+  "tokenizer": {
+    "summary": "provider API usage fields; provider/model native tokenizer; no local tokenizer or tiktoken estimate",
+    "source": "provider_api_usage",
+    "description": "Token counts are read from each provider response's usage fields. No local tokenizer or tiktoken estimate is used; counts therefore reflect the provider/model native tokenizer.",
+    "fields": {
+      "openai": [
+        "input_tokens",
+        "output_tokens",
+        "total_tokens"
+      ],
+      "anthropic": [
+        "input_tokens",
+        "output_tokens",
+        "cache_creation_input_tokens",
+        "cache_read_input_tokens"
+      ],
+      "xai": [
+        "prompt_tokens",
+        "completion_tokens",
+        "total_tokens"
+      ]
+    }
+  },
+  "prompt_tool_reference": "MCD MCP tool docs with persistent state",
+  "question_count": 20,
+  "max_tool_steps": 20,
+  "mcd_mcp": "C:\\Users\\Nikita\\.cargo\\bin\\mcd-mcp.exe",
+  "mcd_mcp_status": {
+    "configured_executable": "C:\\Users\\Nikita\\.cargo\\bin\\mcd-mcp.exe",
+    "resolved_executable": "C:\\Users\\Nikita\\.cargo\\bin\\mcd-mcp.exe",
+    "available_on_path_or_filesystem": true,
+    "protocol_version": "2025-06-18",
+    "read_only_tools": [
+      "mcd_agent_context",
+      "mcd_annotations",
+      "mcd_chart",
+      "mcd_external_data",
+      "mcd_images",
+      "mcd_inspect",
+      "mcd_markdown",
+      "mcd_provenance",
+      "mcd_queries",
+      "mcd_query",
+      "mcd_relationships",
+      "mcd_schemas",
+      "mcd_search",
+      "mcd_table",
+      "mcd_validate"
+    ],
+    "placeholder_package": "{MCD_PATH}"
+  },
+  "mcp_timeout_seconds": 30,
+  "mcd_cli": "mcd",
+  "mcd_cli_status": {
+    "configured_executable": "mcd",
+    "resolved_executable": "C:\\Users\\Nikita\\.cargo\\bin\\mcd.EXE",
+    "available_on_path_or_filesystem": true,
+    "placeholder_executable": "{MCD_CLI}",
+    "placeholder_package": "{MCD_PATH}"
+  },
+  "cli_timeout_seconds": 30,
+  "python_timeout_seconds": 30,
+  "max_observation_chars": 20000,
+  "max_output_tokens": 12000,
+  "temperature": 0.0,
+  "timeout_seconds": 120,
+  "retries": 2,
+  "openai_stateful_responses": false,
+  "dry_run": false
+}

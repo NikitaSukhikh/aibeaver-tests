@@ -1,0 +1,43 @@
+{
+  "created_at": "2026-05-26T19:48:41",
+  "provider": {
+    "name": "openai",
+    "model": "gpt-5.4",
+    "api_key_env": "OPENAI_API_KEY"
+  },
+  "connected_dir": "D:\\aibeaver-tests\\datasets\\auto-manufacturer-tech-spec\\unpacked",
+  "disconnected_dir": "D:\\aibeaver-tests\\datasets\\auto-manufacturer-tech-spec\\disconnected",
+  "questions": "D:\\aibeaver-tests\\datasets\\auto-manufacturer-tech-spec\\qa_pilot_questions_20.jsonl",
+  "tokenizer": {
+    "summary": "provider API usage fields; provider/model native tokenizer; no local tokenizer or tiktoken estimate",
+    "source": "provider_api_usage",
+    "description": "Token counts are read from each provider response's usage fields. No local tokenizer or tiktoken estimate is used; counts therefore reflect the provider/model native tokenizer.",
+    "fields": {
+      "openai": [
+        "input_tokens",
+        "output_tokens",
+        "total_tokens"
+      ],
+      "anthropic": [
+        "input_tokens",
+        "output_tokens",
+        "cache_creation_input_tokens",
+        "cache_read_input_tokens"
+      ],
+      "xai": [
+        "prompt_tokens",
+        "completion_tokens",
+        "total_tokens"
+      ]
+    }
+  },
+  "question_count": 1,
+  "eval_mode": "kb_agent",
+  "max_tool_steps": 20,
+  "batch_size": 1,
+  "max_output_tokens": 12000,
+  "temperature": 0.0,
+  "timeout_seconds": 120,
+  "retries": 2,
+  "dry_run": true
+}

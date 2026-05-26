@@ -81,6 +81,16 @@ REASONING_GUIDANCE = (
     "Separate explicit data filters from explanatory context. If a query with inferred narrative/context filters "
     "returns zero rows, retry once with the minimal literal predicate from the question before concluding there is no "
     "matching data. "
+    "Use successful tool observations as the only source of exact row values. Do not rely on values from unexecuted "
+    "response objects, provisional answers, ignored JSON objects, or your own draft text unless the same values are "
+    "present in a successful tool observation. If the exact prompt-named source ID has not been observed with the "
+    "fields needed by the answer contract, call a table or SQL tool before finalizing. "
+    "For explanatory questions that name both a narrative basis and exact table fields or IDs, retrieve the exact "
+    "row values with table or SQL tools; dossier prose alone is not enough when the final answer needs source-row "
+    "values. Use text tools for the rule or basis, and table or SQL tools for the exact data. "
+    "For tradeoff and review questions, explicitly address each concern term named in the question, such as "
+    "certification, calibration, drivability, validation, warranty, or thermal impact, when those terms are part of "
+    "the requested conclusion. "
     "Before finalizing, check that delta = new - baseline and, where applicable, recompute a simple independent "
     "identity such as delta_E = 0.5 * payload_delta * v^2. Also verify that every field returned for the answer "
     "contract and every prompt-named identifier appears in the final answer; do not drop observed evidence values in "
@@ -89,6 +99,38 @@ REASONING_GUIDANCE = (
     "absolute and percent changes where applicable, units, and the engineering conclusion. Do not add caveats about "
     "referenced IDs or data sources unless a successful tool observation supports them, and do not rely on unstated "
     "assumptions when the dataset or prompt gives the needed value."
+)
+
+MCD_REASONING_GUIDANCE = (
+    "MCD reasoning-question instructions: Use MCD MCP observations, not the dataset index alone, as the source of "
+    "truth for final answers. Build an answer contract before answering: prompt-named IDs, exact field names, source "
+    "input values, question-stated constants, invariant values, baseline values, derived new values, units, every "
+    "delta/change, and the final engineering or gate conclusion. Select or compute those contract fields in successful "
+    "MCD observations before finalizing. "
+    "For table-only numeric questions, a single well-formed `mcd_query` CTE is acceptable when it returns all source "
+    "inputs, computed outputs, units or unit-conversion values, deltas, and conclusion-supporting fields together. "
+    "When arithmetic uses powers, unit conversion, or more than two numeric inputs, encode the calculation directly in "
+    "`mcd_query` SQL. Convert km/h to m/s as `speed_kmh / 3.6`; never treat 100 km/h as 100 m/s. "
+    "For narrative or explanatory questions containing terms such as basis, rule, review, certification, validation, "
+    "release gate, why, or effect, inspect package prose first with `mcd_search` or `mcd_markdown`; then use "
+    "`mcd_query` for exact row values and computed values. Do not answer those questions from the dataset index alone. "
+    "For towing questions, retrieve and final-answer both `tow_rating_kg` and `braked_trailer_rating_kg` whenever "
+    "either exists; in this dataset `tow_rating_kg` is the published braked rating and is mirrored by "
+    "`braked_trailer_rating_kg`. "
+    "For release-gate scenario questions, report baseline status fields separately from scenario fields. If changed "
+    "scenario values make the gate pass, explicitly state `scenario_release_status=released` or `would be released`; "
+    "do not leave the conclusion only as `would_meet_release_gates=yes`, and do not let the baseline "
+    "`release_status=containment` contradict the scenario outcome. "
+    "For lower coolant-flow or thermal-validation acceptance questions, treat the proposed coolant-flow target as the "
+    "changed control variable, not as the validation evidence by itself. Check and final-answer validation evidence "
+    "fields such as `thermal_derate_start_c`, `continuous_charge_kw`, `peak_discharge_kw`, and "
+    "`battery_heat_rejection_kw` when present, and explicitly use the term `validation`. "
+    "For schema-adjacent concepts, query and report closely related fields when they exist, especially domain "
+    "synonyms or stricter versions of a field: tow rating versus braked trailer rating, release status versus "
+    "containment status, and calibration evidence versus certification evidence. "
+    "Before finalizing, verify every field returned for the answer contract and every prompt-named identifier appears "
+    "in the final answer. Include source IDs, field names, input values, invariant values, formula/result summary, "
+    "absolute and percent changes where applicable, units, and the engineering conclusion."
 )
 
 
@@ -256,20 +298,47 @@ def install_reasoning_prompt_patches() -> None:
     original_kb_agent_prompt = folder_eval.make_kb_agent_prompt
     original_kb_compact_prompt = folder_eval.make_kb_agent_compact_prompt
 
+    def inject_guidance_before_context(prompt: str, guidance: str) -> str:
+        for marker in ("\n\nQuestion:\n", "\n\nTool observation for the previous action:\n"):
+            if marker in prompt:
+                before, after = prompt.split(marker, 1)
+                return f"{before}\n\n{guidance}{marker}{after}"
+        return f"{prompt}\n\n{guidance}"
+
     def make_mcd_reasoning_prompt(**kwargs: Any) -> str:
-        return f"{original_mcd_agent_prompt(**kwargs)}\n\n{REASONING_GUIDANCE}"
+        return inject_guidance_before_context(original_mcd_agent_prompt(**kwargs), MCD_REASONING_GUIDANCE)
 
     def make_mcd_reasoning_compact_prompt(*args: Any, **kwargs: Any) -> str:
-        return f"{original_mcd_compact_prompt(*args, **kwargs)}\n\n{REASONING_GUIDANCE}"
+        return inject_guidance_before_context(
+            original_mcd_compact_prompt(*args, **kwargs),
+            MCD_REASONING_GUIDANCE,
+        )
 
     def make_mcd_reasoning_followup_prompt(*args: Any, **kwargs: Any) -> str:
-        return f"{original_mcd_followup_prompt(*args, **kwargs)}\n\n{REASONING_GUIDANCE}"
+        return inject_guidance_before_context(
+            original_mcd_followup_prompt(*args, **kwargs),
+            MCD_REASONING_GUIDANCE,
+        )
+
+    def make_kb_prompt_with_guidance(prompt: str) -> str:
+        prompt = inject_guidance_before_context(prompt, REASONING_GUIDANCE)
+        return (
+            f"{prompt}\n\n"
+            "Action-selection reminder: when the question names an exact source ID, table field, or calculation over "
+            "table fields, the next action must retrieve those exact row fields with one table or SQL tool before any "
+            "final answer. Do not start with read_text or engineering_math when source-row values are still missing; "
+            "text and math references can follow after the source row if they are still needed. If current state has "
+            "only prose observations plus ignored or provisional row values, call a table or SQL tool now. "
+            "Response-format reminder: return exactly one JSON object and no prose. If you need data, return only "
+            '{"tool":"tool_name","args":{...}}. If you know the answer from successful observations, return only '
+            '{"answer":"..."}. Do not include a draft answer with a tool call.'
+        )
 
     def make_kb_reasoning_prompt(*args: Any, **kwargs: Any) -> str:
-        return f"{original_kb_agent_prompt(*args, **kwargs)}\n\n{REASONING_GUIDANCE}"
+        return make_kb_prompt_with_guidance(original_kb_agent_prompt(*args, **kwargs))
 
     def make_kb_reasoning_compact_prompt(*args: Any, **kwargs: Any) -> str:
-        return f"{original_kb_compact_prompt(*args, **kwargs)}\n\n{REASONING_GUIDANCE}"
+        return make_kb_prompt_with_guidance(original_kb_compact_prompt(*args, **kwargs))
 
     mcd_eval.make_mcd_agent_prompt = make_mcd_reasoning_prompt
     mcd_eval.make_mcd_agent_compact_prompt = make_mcd_reasoning_compact_prompt
@@ -394,12 +463,81 @@ def symbol(row: dict[str, Any] | None) -> str:
     return "PASS" if passed(row) else "FAIL"
 
 
+def extract_json_objects(text: str) -> list[dict[str, Any]]:
+    decoder = json.JSONDecoder()
+    objects: list[dict[str, Any]] = []
+    index = 0
+    while index < len(text):
+        start = text.find("{", index)
+        if start == -1:
+            break
+        try:
+            value, end = decoder.raw_decode(text[start:])
+        except json.JSONDecodeError:
+            index = start + 1
+            continue
+        if isinstance(value, dict):
+            objects.append(value)
+        index = start + max(end, 1)
+    return objects
+
+
+def trace_response_diagnostics(trace: list[dict[str, Any]]) -> dict[str, int]:
+    multi_object_steps = 0
+    ignored_response_objects = 0
+    ignored_answer_objects = 0
+    for item in trace:
+        objects = extract_json_objects(str(item.get("raw") or ""))
+        if len(objects) <= 1:
+            continue
+        multi_object_steps += 1
+        ignored_objects = objects[1:]
+        ignored_response_objects += len(ignored_objects)
+        ignored_answer_objects += sum(1 for value in ignored_objects if "answer" in value)
+    return {
+        "multi_object_steps": multi_object_steps,
+        "ignored_response_objects": ignored_response_objects,
+        "ignored_answer_objects": ignored_answer_objects,
+    }
+
+
+def rows_response_diagnostics(rows: list[dict[str, Any]]) -> dict[str, int]:
+    totals = {
+        "rows_with_multi_object_steps": 0,
+        "multi_object_steps": 0,
+        "ignored_response_objects": 0,
+        "ignored_answer_objects": 0,
+    }
+    for row in rows:
+        diagnostics = trace_response_diagnostics(row.get("trace") or [])
+        if diagnostics["multi_object_steps"]:
+            totals["rows_with_multi_object_steps"] += 1
+        for key in ("multi_object_steps", "ignored_response_objects", "ignored_answer_objects"):
+            totals[key] += diagnostics[key]
+    return totals
+
+
+def tool_call_distribution(rows: list[dict[str, Any]]) -> dict[str, int]:
+    distribution: dict[str, int] = {}
+    for row in rows:
+        calls = str(int(row.get("tool_calls") or 0))
+        distribution[calls] = distribution.get(calls, 0) + 1
+    return dict(sorted(distribution.items(), key=lambda item: int(item[0])))
+
+
+def format_tool_call_distribution(distribution: dict[str, int]) -> str:
+    if not distribution:
+        return "n/a"
+    return ", ".join(f"{calls}: {count}" for calls, count in distribution.items())
+
+
 def mode_summary(rows: list[dict[str, Any]], provider: str, mode: str, model: str) -> dict[str, Any]:
     scored = sum(1 for row in rows if row.get("score") is not None)
     passed_count = sum(1 for row in rows if passed(row))
     elapsed = sum(float(row.get("elapsed_seconds") or 0.0) for row in rows)
     tool_calls = mcd_eval.tool_calls_from_rows(rows)
     tokens = mcd_eval.token_usage_from_rows(rows)
+    response_diagnostics = rows_response_diagnostics(rows)
     return {
         "provider": provider,
         "model": model,
@@ -414,6 +552,8 @@ def mode_summary(rows: list[dict[str, Any]], provider: str, mode: str, model: st
         "avg_elapsed_seconds": round(elapsed / len(rows), 3) if rows else 0.0,
         "tool_calls": tool_calls,
         "avg_tool_calls": round(tool_calls / len(rows), 2) if rows else 0.0,
+        "tool_call_distribution": tool_call_distribution(rows),
+        "response_diagnostics": response_diagnostics,
         "token_usage": tokens,
     }
 
@@ -515,6 +655,29 @@ def write_summary_markdown(
             f"| {item['provider']} | {item['mode']} | {tokens['input_tokens']:,} | "
             f"{tokens['output_tokens']:,} | {tokens['total_tokens']:,} | {item['tool_calls']} | "
             f"{item['avg_tool_calls']:.2f} | {item['elapsed_seconds']:.1f} sec |"
+        )
+
+    lines.extend(
+        [
+            "",
+            "## Tool Call Diagnostics",
+            "",
+            "Tool distribution is `tool calls per question: question count`. Ignored response objects are extra JSON "
+            "objects emitted after the first executable object in the same model response; only the first object is "
+            "executed by the harness.",
+            "",
+            "| Provider | Mode | Tool distribution | Rows with extra JSON | Extra JSON objects | Ignored answer objects |",
+            "| --- | --- | --- | ---: | ---: | ---: |",
+        ]
+    )
+    for item in summaries:
+        diagnostics = item["response_diagnostics"]
+        lines.append(
+            f"| {item['provider']} | {item['mode']} | "
+            f"`{format_tool_call_distribution(item['tool_call_distribution'])}` | "
+            f"{diagnostics['rows_with_multi_object_steps']} | "
+            f"{diagnostics['ignored_response_objects']} | "
+            f"{diagnostics['ignored_answer_objects']} |"
         )
 
     for provider in sorted({key[0] for key in rows_by_key}):

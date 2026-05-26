@@ -1,0 +1,24 @@
+{
+  "modes": [
+    {
+      "provider": "openai",
+      "model": "gpt-5.4",
+      "mode": "mcd",
+      "total": 20,
+      "scored": 20,
+      "passed": 17,
+      "failed": 3,
+      "errors": 0,
+      "pass_rate": 0.85,
+      "elapsed_seconds": 223.284,
+      "avg_elapsed_seconds": 11.164,
+      "tool_calls": 24,
+      "avg_tool_calls": 1.2,
+      "token_usage": {
+        "input_tokens": 274995,
+        "output_tokens": 17940,
+        "total_tokens": 292935
+      }
+    }
+  ]
+}

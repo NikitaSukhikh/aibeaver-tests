@@ -1,0 +1,33 @@
+{
+  "modes": [
+    {
+      "provider": "openai",
+      "model": "gpt-5.4",
+      "mode": "connected",
+      "total": 2,
+      "scored": 2,
+      "passed": 1,
+      "failed": 1,
+      "errors": 0,
+      "pass_rate": 0.5,
+      "elapsed_seconds": 23.635,
+      "avg_elapsed_seconds": 11.817,
+      "tool_calls": 2,
+      "avg_tool_calls": 1.0,
+      "tool_call_distribution": {
+        "1": 2
+      },
+      "response_diagnostics": {
+        "rows_with_multi_object_steps": 2,
+        "multi_object_steps": 2,
+        "ignored_response_objects": 3,
+        "ignored_answer_objects": 2
+      },
+      "token_usage": {
+        "input_tokens": 23750,
+        "output_tokens": 1936,
+        "total_tokens": 25686
+      }
+    }
+  ]
+}

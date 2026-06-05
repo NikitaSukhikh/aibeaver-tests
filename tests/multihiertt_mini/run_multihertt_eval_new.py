@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compare one-shot MultiHiertt mini answers with model-visible source-tool packs."""
+"""Compare MultiHiertt mini answers using packed MCD tools and original source tools."""
 
 from __future__ import annotations
 
@@ -20,6 +20,7 @@ from datetime import datetime
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit, urlunsplit
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -45,7 +46,6 @@ DEFAULT_MAX_OUTPUT_TOKENS = 12000
 DEFAULT_JUDGE_MAX_OUTPUT_TOKENS = 2000
 PROVIDERS = ["openai", "anthropic", "xai"]
 MODES = ["mcd_tools", "original_tools"]
-MATRIX_COLUMNS = [f"c{index}" for index in range(12)]
 MULTIHIERTT_PROGRAM_OPS = {"add", "subtract", "multiply", "divide", "exp"}
 
 
@@ -414,7 +414,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--modes",
         default="all",
-        help="Comma-separated modes: all, mcd_tools, original_tools, or any subset.",
+        help=(
+            "Comma-separated modes: all, mcd_tools, original_tools, or any subset. "
+            "mcd_tools uses the packed .mcd file through runtime tools."
+        ),
     )
     parser.add_argument("--providers", nargs="+", choices=PROVIDERS, default=["openai"])
     parser.add_argument("--openai-model", default=os.getenv("OPENAI_MODEL", DEFAULT_OPENAI_MODEL))
@@ -422,6 +425,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--xai-model", default=os.getenv("XAI_MODEL", DEFAULT_XAI_MODEL))
     parser.add_argument("--questions", type=int, default=None, help="Run only the first N questions.")
     parser.add_argument("--max-tool-steps", type=int, default=20)
+    parser.add_argument(
+        "--mcd-remote-mcp-url",
+        default=os.getenv("MCD_REMOTE_MCP_URL"),
+        help="Public HTTPS URL for the fixed-package MCD Streamable HTTP endpoint, usually ending in /mcp.",
+    )
+    parser.add_argument("--mcd-remote-mcp-label", default=os.getenv("MCD_REMOTE_MCP_LABEL", "multihiertt_mcd"))
     parser.add_argument("--mcd-mcp", default=os.getenv("MCD_MCP", mcd_eval.DEFAULT_MCD_MCP))
     parser.add_argument("--mcd-cli", default=os.getenv("MCD_CLI", "mcd"))
     parser.add_argument("--mcp-timeout-seconds", type=int, default=30)
@@ -454,6 +463,18 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--openai-stateful-responses", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     return parser.parse_args()
+
+
+def normalize_remote_mcp_url(url: str | None) -> str | None:
+    if not url:
+        return None
+    parsed = urlsplit(url.strip())
+    path = parsed.path or "/"
+    if path == "/":
+        path = "/mcp"
+    else:
+        path = path.rstrip("/")
+    return urlunsplit((parsed.scheme, parsed.netloc, path, parsed.query, parsed.fragment))
 
 
 def parse_modes(value: str) -> list[str]:
@@ -620,117 +641,6 @@ def load_original_records(original_dir: Path, original_json: Path, questions: li
     return by_example_id
 
 
-def sql_literal(value: str) -> str:
-    return "'" + value.replace("'", "''") + "'"
-
-
-def mcd_query_rows(doc: Any, sql: str) -> list[dict[str, Any]]:
-    return [dict(row) for row in doc.query(sql).rows]
-
-
-def compact_mcd_row_cells(row: dict[str, Any]) -> list[Any]:
-    cells = [row.get(column) for column in MATRIX_COLUMNS]
-    while cells and cells[-1] in (None, ""):
-        cells.pop()
-    return cells
-
-
-def load_mcd_source_records(mcd_path: Path, questions: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
-    doc = mcd_eval.mcd.open(mcd_path)
-    records: dict[str, dict[str, Any]] = {}
-    for question in questions:
-        example_id = question["example_id"]
-        example_literal = sql_literal(example_id)
-        example_rows = mcd_query_rows(
-            doc,
-            (
-                "select example_id, source_uid, source_split, question "
-                "from multihiertt_examples "
-                f"where example_id = {example_literal}"
-            ),
-        )
-        if not example_rows:
-            raise ValueError(f"MCD package is missing example {example_id}.")
-        example = example_rows[0]
-
-        paragraph_rows = mcd_query_rows(
-            doc,
-            (
-                "select paragraph_index, paragraph_text "
-                "from multihiertt_paragraphs "
-                f"where example_id = {example_literal} "
-                "order by paragraph_index"
-            ),
-        )
-        table_rows = mcd_query_rows(
-            doc,
-            (
-                "select source_table_id, table_index, row_count, max_column_count "
-                "from multihiertt_source_tables "
-                f"where example_id = {example_literal} "
-                "order by table_index"
-            ),
-        )
-        matrix_rows = mcd_query_rows(
-            doc,
-            (
-                "select row_id, source_table_id, table_index, row_index, "
-                f"{', '.join(MATRIX_COLUMNS)} "
-                "from multihiertt_table_rows "
-                f"where example_id = {example_literal} "
-                "order by table_index, row_index"
-            ),
-        )
-        cell_description_rows = mcd_query_rows(
-            doc,
-            (
-                "select table_index, row_index, col_index, cell_ref, cell_description "
-                "from multihiertt_cells "
-                f"where example_id = {example_literal} "
-                "and cell_description is not null "
-                "and cell_description <> '' "
-                "order by table_index, row_index, col_index"
-            ),
-        )
-
-        rows_by_table: dict[int, list[dict[str, Any]]] = {}
-        for row in matrix_rows:
-            rows_by_table.setdefault(int(row["table_index"]), []).append(
-                {
-                    "row_id": row["row_id"],
-                    "row_index": row["row_index"],
-                    "cells": compact_mcd_row_cells(row),
-                }
-            )
-
-        tables: list[dict[str, Any]] = []
-        for table in table_rows:
-            table_index = int(table["table_index"])
-            tables.append(
-                {
-                    "source_table_id": table["source_table_id"],
-                    "table_index": table_index,
-                    "row_count": table["row_count"],
-                    "max_column_count": table["max_column_count"],
-                    "rows": rows_by_table.get(table_index, []),
-                }
-            )
-
-        records[example_id] = {
-            "source_format": "mcd_extracted_row_matrix",
-            "uid": example.get("source_uid"),
-            "question": example.get("question"),
-            "paragraphs": [row.get("paragraph_text") for row in paragraph_rows],
-            "tables": tables,
-            "table_description": {
-                row["cell_ref"]: row.get("cell_description")
-                for row in cell_description_rows
-                if row.get("cell_ref") and row.get("cell_description")
-            },
-        }
-    return records
-
-
 def make_source_prompt(question: dict[str, Any], source_payload: dict[str, Any], source_access_note: str) -> str:
     payload = {
         "example_id": question["example_id"],
@@ -770,41 +680,7 @@ def original_source_note() -> str:
     )
 
 
-def mcd_source_note() -> str:
-    return (
-        "MCD source-tool pack. The model-visible tools are conceptual, but their data is already included below:\n"
-        "- mcd_query over `multihiertt_examples`, `multihiertt_paragraphs`, `multihiertt_source_tables`, "
-        "`multihiertt_table_rows`, and `multihiertt_cells`.\n"
-        "- mcd_table for table inventory and row slices.\n"
-        "- mcd_search over paragraph text, cell text, and cell descriptions.\n"
-        "- mcd_schemas for column names and table meanings.\n"
-        "Use only the supplied MCD-extracted source record. Do not assume labels that are not in the source record.\n\n"
-        f"{mcd_format_mode_guide()}"
-    )
-
-
-def mcd_format_mode_guide() -> str:
-    return (
-        "MCD format-mode guide: each table row is a positional matrix row with `cells` corresponding to c0, c1, ...; "
-        "empty trailing cells may be omitted. Use `table_index` and `row_index` to preserve source position, and use "
-        "`table_description` refs like `2-5-1` only as cell-local semantic hints, not as gold evidence. Reconstruct "
-        "headers from nearby rows before selecting a year or measure column. If table cell text and prose disagree, "
-        "prefer the visible source value that answers the question and mention no hidden evaluator fields."
-    )
-
-
-def mcd_agent_mode_guide() -> str:
-    return (
-        "MCD agent guide: always constrain SQL with the provided `example_id`. Start by inventorying "
-        "`multihiertt_source_tables`, then inspect `multihiertt_table_rows` for headers and candidate rows. Use "
-        "`multihiertt_cells` when you need exact `cell_ref`, `cell_text`, or `cell_description`, and "
-        "`multihiertt_paragraphs` for prose-only facts. Do arithmetic after confirming row labels, header columns, "
-        "units, signs, and missing-value conventions. Return `answer` as the requested answer value only; do not put "
-        "the example id or explanation inside the value."
-    )
-
-
-def build_original_agent_record(source_record: dict[str, Any], question: dict[str, Any]) -> dict[str, Any]:
+def build_original_source_record(source_record: dict[str, Any], question: dict[str, Any]) -> dict[str, Any]:
     parsed_tables = []
     for table_index, markup in enumerate(source_record.get("tables", [])):
         parsed = parse_html_table(str(markup))
@@ -829,220 +705,17 @@ def build_original_agent_record(source_record: dict[str, Any], question: dict[st
     }
 
 
-def load_original_agent_records(
+def load_original_source_records(
     records_by_example_id: dict[str, dict[str, Any]],
     questions: list[dict[str, Any]],
 ) -> dict[str, dict[str, Any]]:
     return {
-        question["example_id"]: build_original_agent_record(records_by_example_id[question["example_id"]], question)
+        question["example_id"]: build_original_source_record(records_by_example_id[question["example_id"]], question)
         for question in questions
     }
 
 
-def original_agent_dataset_index(records_by_example_id: dict[str, dict[str, Any]]) -> str:
-    rows = []
-    for example_id, record in records_by_example_id.items():
-        rows.append(
-            {
-                "example_id": example_id,
-                "source_uid": record.get("source_uid"),
-                "paragraph_count": len(record.get("paragraphs", [])),
-                "tables": [
-                    {
-                        "table_index": table["table_index"],
-                        "row_count": table["row_count"],
-                        "max_column_count": table["max_column_count"],
-                    }
-                    for table in record.get("tables", [])
-                ],
-                "table_description_count": len(record.get("table_description", {})),
-            }
-        )
-    return json.dumps({"source": "original_json_tools", "examples": rows}, ensure_ascii=False, indent=2)
-
-
-def normalize_text(value: Any) -> str:
-    return str(value or "").casefold()
-
-
-def original_tool_overview(record: dict[str, Any]) -> dict[str, Any]:
-    return {
-        "example_id": record["example_id"],
-        "source_uid": record["source_uid"],
-        "question": record["question"],
-        "paragraph_count": len(record.get("paragraphs", [])),
-        "tables": [
-            {
-                "table_index": table["table_index"],
-                "row_count": table["row_count"],
-                "max_column_count": table["max_column_count"],
-            }
-            for table in record.get("tables", [])
-        ],
-        "table_description_count": len(record.get("table_description", {})),
-    }
-
-
-def original_tool_paragraphs(record: dict[str, Any], args: dict[str, Any]) -> dict[str, Any]:
-    paragraphs = list(record.get("paragraphs", []))
-    indexes = args.get("indexes")
-    query = normalize_text(args.get("query"))
-    limit = int(args.get("limit") or len(paragraphs) or 1)
-    if isinstance(indexes, list):
-        selected = [
-            {"paragraph_index": int(index), "paragraph_text": paragraphs[int(index)]}
-            for index in indexes
-            if isinstance(index, int) and 0 <= int(index) < len(paragraphs)
-        ]
-    else:
-        selected = []
-        for index, text in enumerate(paragraphs):
-            if not query or query in normalize_text(text):
-                selected.append({"paragraph_index": index, "paragraph_text": text})
-            if len(selected) >= limit:
-                break
-    return {
-        "tool": "paragraphs",
-        "returned": len(selected),
-        "total_paragraphs": len(paragraphs),
-        "rows": selected,
-    }
-
-
-def original_tool_table(record: dict[str, Any], args: dict[str, Any]) -> dict[str, Any]:
-    table_index = int(args.get("table_index"))
-    start_row = int(args.get("start_row") or 0)
-    limit_arg = args.get("limit")
-    table = next((item for item in record.get("tables", []) if int(item["table_index"]) == table_index), None)
-    if table is None:
-        raise ValueError(f"Unknown table_index {table_index}.")
-    rows = table.get("rows", [])
-    limit = int(limit_arg) if limit_arg is not None else len(rows)
-    selected = rows[start_row : start_row + limit]
-    return {
-        "tool": "table",
-        "table_index": table_index,
-        "row_count": table["row_count"],
-        "max_column_count": table["max_column_count"],
-        "returned": len(selected),
-        "truncated": start_row + len(selected) < len(rows),
-        "rows": selected,
-    }
-
-
-def original_tool_search(record: dict[str, Any], args: dict[str, Any]) -> dict[str, Any]:
-    query = normalize_text(args.get("query"))
-    if not query:
-        raise ValueError("search query is required.")
-    scope = str(args.get("scope") or "all")
-    limit = int(args.get("limit") or 20)
-    matches: list[dict[str, Any]] = []
-    if scope in {"all", "paragraphs"}:
-        for paragraph_index, text in enumerate(record.get("paragraphs", [])):
-            if query in normalize_text(text):
-                matches.append(
-                    {
-                        "kind": "paragraph",
-                        "paragraph_index": paragraph_index,
-                        "text": text,
-                    }
-                )
-                if len(matches) >= limit:
-                    return {"tool": "search", "query": args.get("query"), "returned": len(matches), "rows": matches}
-    if scope in {"all", "tables"}:
-        for table in record.get("tables", []):
-            for row in table.get("rows", []):
-                for col_index, cell_text in enumerate(row.get("cells", [])):
-                    if query in normalize_text(cell_text):
-                        matches.append(
-                            {
-                                "kind": "table_cell",
-                                "table_index": table["table_index"],
-                                "row_index": row["row_index"],
-                                "col_index": col_index,
-                                "cell_text": cell_text,
-                                "row_cells": row.get("cells"),
-                            }
-                        )
-                        if len(matches) >= limit:
-                            return {"tool": "search", "query": args.get("query"), "returned": len(matches), "rows": matches}
-    if scope in {"all", "descriptions"}:
-        for cell_ref, description in record.get("table_description", {}).items():
-            if query in normalize_text(description) or query in normalize_text(cell_ref):
-                matches.append(
-                    {
-                        "kind": "cell_description",
-                        "cell_ref": cell_ref,
-                        "description": description,
-                    }
-                )
-                if len(matches) >= limit:
-                    break
-    return {"tool": "search", "query": args.get("query"), "returned": len(matches), "rows": matches}
-
-
-def original_tool_cell_descriptions(record: dict[str, Any], args: dict[str, Any]) -> dict[str, Any]:
-    refs = args.get("cell_refs")
-    query = normalize_text(args.get("query"))
-    limit = int(args.get("limit") or 50)
-    descriptions = record.get("table_description", {})
-    rows = []
-    if isinstance(refs, list):
-        for ref in refs:
-            ref_text = str(ref)
-            if ref_text in descriptions:
-                rows.append({"cell_ref": ref_text, "description": descriptions[ref_text]})
-    else:
-        for ref, description in descriptions.items():
-            if not query or query in normalize_text(ref) or query in normalize_text(description):
-                rows.append({"cell_ref": ref, "description": description})
-            if len(rows) >= limit:
-                break
-    return {"tool": "cell_descriptions", "returned": len(rows), "rows": rows}
-
-
-def execute_original_agent_tool(record: dict[str, Any], tool: str, args: dict[str, Any]) -> dict[str, Any]:
-    if tool == "overview":
-        return original_tool_overview(record)
-    if tool == "paragraphs":
-        return original_tool_paragraphs(record, args)
-    if tool == "table":
-        return original_tool_table(record, args)
-    if tool == "search":
-        return original_tool_search(record, args)
-    if tool == "cell_descriptions":
-        return original_tool_cell_descriptions(record, args)
-    raise ValueError(f"Unknown original source tool: {tool}")
-
-
-def original_agent_tool_docs() -> dict[str, Any]:
-    return {
-        "overview": {"args": {}, "notes": "Return source counts and table inventory for the current example."},
-        "paragraphs": {
-            "args": {"indexes": "optional list of paragraph indexes", "query": "optional text", "limit": "optional integer"},
-            "notes": "Read source paragraphs by index or substring search.",
-        },
-        "table": {
-            "args": {"table_index": "integer", "start_row": "optional integer", "limit": "optional integer"},
-            "notes": "Read parsed rows from an original HTML table. Rows contain row_index and cells.",
-        },
-        "search": {
-            "args": {"query": "text", "scope": "all|paragraphs|tables|descriptions", "limit": "optional integer"},
-            "notes": "Search paragraphs, parsed table cells, and cell descriptions.",
-        },
-        "cell_descriptions": {
-            "args": {"cell_refs": "optional list like ['2-5-1']", "query": "optional text", "limit": "optional integer"},
-            "notes": "Read original table_description entries by ref or search text.",
-        },
-    }
-
-
-def make_original_agent_prompt(
-    *,
-    dataset_index: str,
-    question: dict[str, Any],
-    observations: list[dict[str, Any]],
-) -> str:
+def make_mcd_native_prompt(*, mcd_summary_text: str, question: dict[str, Any]) -> str:
     payload = {
         "id": question["id"],
         "example_id": question["example_id"],
@@ -1050,224 +723,54 @@ def make_original_agent_prompt(
         "question": question["prompt"],
     }
     return (
-        "You are answering one MultiHiertt mini benchmark question using original JSON source tools.\n\n"
+        "You are answering one MultiHiertt mini benchmark question using the provided native MCD MCP tools.\n\n"
         "Shared task rules:\n"
         f"{multihiertt_common_reasoning_rules()}\n\n"
-        "Tool protocol:\n"
-        "Return exactly one JSON object and no prose. If you need source data, return "
-        '{"tool":"tool_name","args":{...}}. When you know the answer, return '
-        '{"answer":"requested answer value only"}. '
-        "Do not return a tool call and an answer in the same response. If multiple JSON objects are returned, only "
-        "the first one is executed.\n\n"
-        "Available original source tools:\n"
-        f"{json.dumps(original_agent_tool_docs(), ensure_ascii=False, indent=2)}\n\n"
-        "Dataset index:\n"
-        f"{dataset_index}\n\n"
-        "Question:\n"
-        f"{json.dumps(payload, ensure_ascii=False, indent=2)}\n\n"
-        "Previous tool observations:\n"
-        f"{json.dumps(observations, ensure_ascii=False, indent=2)}"
-    )
-
-
-def parse_original_agent_action(text: str) -> dict[str, Any]:
-    action = mcd_eval.extract_first_json_object(text)
-    if "predicted_ans" in action:
-        return {"answer": str(action["predicted_ans"])}
-    if "answer" in action:
-        return {"answer": str(action["answer"])}
-    if "tool" in action:
-        args = action.get("args", {})
-        if not isinstance(args, dict):
-            raise ValueError("Tool action 'args' must be an object.")
-        return {"tool": str(action["tool"]), "args": args}
-    raise ValueError("Agent response must contain either 'tool' or 'answer'.")
-
-
-def original_agent_tool_calls_from_trace(trace: list[dict[str, Any]]) -> int:
-    return sum(1 for item in trace if item.get("action", {}).get("tool"))
-
-
-def run_original_agent_question(
-    *,
-    record: dict[str, Any],
-    dataset_index: str,
-    question: dict[str, Any],
-    config: ProviderConfig,
-    args: argparse.Namespace,
-) -> tuple[str, dict[str, Any], list[dict[str, Any]], str | None]:
-    if args.dry_run:
-        return (
-            "",
-            {"dry_run": True, "token_usage": {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}},
-            [],
-            None,
-        )
-
-    observations: list[dict[str, Any]] = []
-    trace: list[dict[str, Any]] = []
-    call_usages: list[dict[str, int]] = []
-    total_usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
-    metadata: dict[str, Any] = {}
-    for step in range(1, args.max_tool_steps + 1):
-        prompt = make_original_agent_prompt(dataset_index=dataset_index, question=question, observations=observations)
-        raw, metadata = plain_eval.call_with_retries(
-            config.name,
-            prompt,
-            config.model,
-            args.max_output_tokens,
-            args.temperature,
-            args.timeout_seconds,
-            args.retries,
-        )
-        token_usage = mcd_eval.token_usage_from_metadata(metadata)
-        call_usages.append(token_usage)
-        total_usage = mcd_eval.add_token_usage(total_usage, token_usage)
-        metadata = {**metadata, "token_usage": total_usage, "call_token_usage": call_usages}
-        try:
-            action = parse_original_agent_action(raw)
-        except Exception as exc:  # noqa: BLE001
-            trace.append({"step": step, "raw": raw, "error": str(exc)})
-            return "", metadata, trace, f"Could not parse original agent action: {exc}"
-        trace_item: dict[str, Any] = {"step": step, "raw": raw, "action": action}
-        response_objects = mcd_eval.extract_json_objects(raw)
-        if len(response_objects) > 1:
-            trace_item["ignored_response_objects"] = [
-                {
-                    "object_keys": sorted(str(key) for key in value),
-                    "ignored_because": "Only the first JSON object in a model response is executed.",
-                }
-                for value in response_objects[1:]
-            ]
-        if "answer" in action:
-            trace.append(trace_item)
-            return action["answer"], metadata, trace, None
-        try:
-            observation = execute_original_agent_tool(record, action["tool"], action["args"])
-        except Exception as exc:  # noqa: BLE001
-            observation = {"tool": action["tool"], "error": str(exc)}
-        trace_item["observation"] = observation
-        trace.append(trace_item)
-        observations.append(
-            {
-                "step": step,
-                "tool": action["tool"],
-                "args": action["args"],
-                "observation": observation,
-            }
-        )
-    return "", metadata, trace, f"Original agent did not answer within {args.max_tool_steps} tool steps."
-
-
-def mcd_agent_table_map() -> str:
-    return (
-        "`multihiertt_examples`: one row per benchmark example. "
-        "`multihiertt_paragraphs`: source prose with paragraph_index and paragraph_text. "
-        "`multihiertt_source_tables`: original table inventory with table_index, row_count, and max_column_count. "
-        "`multihiertt_table_rows`: parsed table row matrix with row_id, table_index, row_index, and c0..c11. "
-        "`multihiertt_cells`: exact cell lookup with cell_ref, cell_text, and cell_description."
-    )
-
-
-def mcd_agent_tool_protocol() -> str:
-    return (
-        "Return exactly one JSON object and no prose. If you need source data, return "
-        '{"mcp_tool":"mcd_query","arguments":{"sql":"single SELECT or WITH statement"}}. '
-        "When you know the answer, return "
-        '{"answer":"requested answer value only"}. '
-        "Do not return a tool call and an answer in the same response. Use read-only SELECT/WITH SQL only."
-    )
-
-
-def make_mcd_agent_prompt(
-    *,
-    mcd_summary_text: str,
-    mcp_status: dict[str, Any],
-    question: dict[str, Any],
-    observations: list[dict[str, Any]],
-) -> str:
-    payload = {
-        "id": question["id"],
-        "example_id": question["example_id"],
-        "source_uid": question.get("source_uid"),
-        "question": question["prompt"],
-    }
-    return (
-        "You are answering one MultiHiertt mini benchmark question using MCD MCP tools.\n\n"
-        "Shared task rules:\n"
-        f"{multihiertt_common_reasoning_rules()}\n\n"
-        "MCD table map:\n"
-        f"{mcd_agent_table_map()}\n\n"
-        "Tool protocol:\n"
-        f"{mcd_agent_tool_protocol()}\n\n"
+        "Native tool usage:\n"
+        "Use the provided MCP tools directly inside this single provider request. Use `mcd_search` for BM25 text "
+        "retrieval and `mcd_query` for exact row-level values, counts, joins, and arithmetic inputs. Use "
+        "`mcd_query_batch` when you need multiple SQL lookups, such as table discovery plus row retrieval plus "
+        "a computed arithmetic check. Prefer `output: \"compact\"` for row-heavy SQL results. Do not emit "
+        "textual tool-call JSON such as `mcp_tool`; call the native tool instead.\n\n"
+        "Remote-call budget:\n"
+        "Plan one broad first tool call before using tools. For most questions, make that first call a single "
+        "`mcd_query_batch` containing table inventory, relevant rows, targeted paragraphs/cells, and any computed "
+        "arithmetic check you can express in SQL. Use one extra targeted call only when the first compact batch "
+        "does not contain enough evidence or exposes an ambiguity.\n\n"
         "MCD source-access rules:\n"
         "Always filter source queries by the provided example_id. Use `multihiertt_source_tables` to identify "
         "candidate tables, `multihiertt_table_rows` to inspect row shape and headers, `multihiertt_cells` for exact "
-        "cell refs/descriptions, and `multihiertt_paragraphs` for prose facts. If a computed SQL result is NULL, "
-        "empty, failed, or contradicted by prior rows, do not answer from an earlier guess; issue a corrected query.\n"
-        f"{mcd_agent_mode_guide()}\n\n"
-        "Useful first queries:\n"
-        "- select source_table_id, table_index, row_count, max_column_count from multihiertt_source_tables where "
-        "example_id='<example_id>' order by table_index\n"
-        "- select row_id, table_index, row_index, c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11 from "
+        "cell refs/descriptions, and `multihiertt_paragraphs` for prose facts. Use `mcd_search` when you need "
+        "direct BM25 retrieval over package text, schema terms, annotations, provenance, or markdown context before "
+        "choosing exact SQL filters. BM25 search is for locating relevant text; use `mcd_query` or "
+        "`mcd_query_batch` for exact row-level values, counts, joins, and arithmetic inputs. If a computed SQL "
+        "result is NULL, empty, failed, or "
+        "contradicted by prior rows, do not answer from an earlier guess; issue a corrected query. Do arithmetic "
+        "only after confirming row labels, header columns, units, signs, and missing-value conventions.\n\n"
+        "Preferred first call:\n"
+        "- `mcd_query_batch` with `output` set to `compact` and SQL shaped like:\n"
+        "  1. select source_table_id, table_index, row_count, max_column_count from multihiertt_source_tables "
+        "where example_id='<example_id>' order by table_index\n"
+        "  2. select row_id, table_index, row_index, c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11 from "
         "multihiertt_table_rows where example_id='<example_id>' order by table_index, row_index\n"
-        "- select paragraph_index, paragraph_text from multihiertt_paragraphs where example_id='<example_id>' "
-        "and lower(paragraph_text) like lower('%term%')\n"
-        "- select cell_ref, table_index, row_index, col_index, cell_text, cell_description from multihiertt_cells "
-        "where example_id='<example_id>' and lower(cell_text) like lower('%term%')\n\n"
-        "MCP status:\n"
-        f"{json.dumps({'available': mcp_status.get('available_on_path_or_filesystem'), 'read_only_tools': mcp_status.get('read_only_tools')}, ensure_ascii=False, indent=2)}\n\n"
+        "  3. select paragraph_index, paragraph_text from multihiertt_paragraphs where example_id='<example_id>' "
+        "and (lower(paragraph_text) like lower('%key term%') or lower(paragraph_text) like lower('%second term%'))\n"
+        "  4. select cell_ref, table_index, row_index, col_index, cell_text, cell_description from multihiertt_cells "
+        "where example_id='<example_id>' and (lower(cell_text) like lower('%key term%') or lower(cell_description) "
+        "like lower('%key term%'))\n"
+        "- Batch SQL call shape: {\"mcp_tool\":\"mcd_query_batch\",\"arguments\":{\"sql\":[\"select ...\", "
+        "\"select ...\"],\"output\":\"compact\"}}\n"
+        "- BM25 text search: {\"mcp_tool\":\"mcd_search\",\"arguments\":{\"query\":\"<example_id> <term>\","
+        "\"kind\":\"markdown\",\"limit\":5}}\n"
+        "The BM25 line shows intended search arguments only; use the native tool, not literal JSON.\n\n"
         "Dataset index:\n"
         f"{mcd_summary_text}\n\n"
         "Question:\n"
         f"{json.dumps(payload, ensure_ascii=False, indent=2)}\n\n"
-        "Previous tool observations:\n"
-        f"{json.dumps(observations, ensure_ascii=False, indent=2)}"
+        "Final answer format:\n"
+        "Return exactly one JSON object and no prose: "
+        '{"example_id":"the provided example id","predicted_ans":"requested answer value only","predicted_program":[]}'
     )
-
-
-def make_mcd_agent_compact_prompt(question: dict[str, Any], trace: list[dict[str, Any]], mcd_summary_text: str) -> str:
-    observation_record = {"observation": trace[-1].get("observation", {})} if trace else {}
-    has_rows = mcd_eval.observation_has_json_rows(observation_record)
-    dataset_index = "" if has_rows else f"\n\nDataset index:\n{mcd_summary_text}"
-    state = mcd_eval.build_mcd_agent_state(trace)
-    payload = {
-        "id": question["id"],
-        "example_id": question["example_id"],
-        "source_uid": question.get("source_uid"),
-        "question": question["prompt"],
-    }
-    return (
-        "Continue the same MultiHiertt mini MCD-agent task.\n\n"
-        "Shared task rules:\n"
-        f"{multihiertt_common_reasoning_rules()}\n\n"
-        "MCD table map:\n"
-        f"{mcd_agent_table_map()}\n\n"
-        "MCD source-access rules:\n"
-        f"{mcd_agent_mode_guide()}\n\n"
-        "Tool protocol:\n"
-        f"{mcd_agent_tool_protocol()}\n\n"
-        "Question:\n"
-        f"{json.dumps(payload, ensure_ascii=False, indent=2)}\n\n"
-        "Current state:\n"
-        f"{json.dumps(state, ensure_ascii=False, indent=2)}"
-        f"{dataset_index}"
-    )
-
-
-def make_mcd_agent_followup_prompt(observation_record: dict[str, Any]) -> str:
-    return (
-        "Tool observation for the previous MultiHiertt MCD-agent action:\n"
-        f"{json.dumps(observation_record, ensure_ascii=False, indent=2)}\n\n"
-        f"{mcd_agent_tool_protocol()} If this observation contains all needed evidence, answer now. "
-        "If not, call one targeted MCD tool."
-    )
-
-
-def install_mcd_agent_prompt_patch() -> None:
-    mcd_eval.make_mcd_agent_prompt = make_mcd_agent_prompt
-    mcd_eval.make_mcd_agent_compact_prompt = make_mcd_agent_compact_prompt
-    mcd_eval.make_mcd_agent_followup_prompt = make_mcd_agent_followup_prompt
 
 
 def model_question(question: dict[str, Any]) -> dict[str, str]:
@@ -1350,6 +853,124 @@ def status_label(row: dict[str, Any]) -> str:
     if row.get("score") is None:
         return "DRY" if row.get("metadata", {}).get("dry_run") else "UNSCORED"
     return "PASS" if row["score"].get("passed") else "FAIL"
+
+
+MCD_REMOTE_ALLOWED_TOOLS = [
+    "mcd_agent_context",
+    "mcd_markdown",
+    "mcd_query",
+    "mcd_query_batch",
+    "mcd_search",
+    "mcd_table",
+    "mcd_relationships",
+    "mcd_annotations",
+    "mcd_provenance",
+    "mcd_validate",
+]
+
+
+def openai_remote_mcp_tool_calls(response: dict[str, Any]) -> int:
+    return sum(1 for item in response.get("output", []) if item.get("type") == "mcp_call")
+
+
+def compact_openai_output_items(response: dict[str, Any]) -> list[dict[str, Any]]:
+    compact: list[dict[str, Any]] = []
+    for item in response.get("output", []):
+        item_type = item.get("type")
+        if item_type == "mcp_call":
+            compact.append(
+                {
+                    "type": item_type,
+                    "name": item.get("name"),
+                    "server_label": item.get("server_label"),
+                    "status": item.get("status"),
+                    "error": item.get("error"),
+                    "arguments": item.get("arguments"),
+                }
+            )
+        elif item_type == "message":
+            compact.append({"type": item_type, "content": item.get("content")})
+        elif item_type:
+            compact.append({"type": item_type, "status": item.get("status")})
+    return compact
+
+
+def call_openai_native_mcd(
+    *,
+    prompt: str,
+    model: str,
+    remote_mcp_url: str,
+    remote_mcp_label: str,
+    max_output_tokens: int,
+    temperature: float,
+    timeout_seconds: int,
+) -> tuple[str, dict[str, Any], dict[str, Any]]:
+    api_key = plain_eval.require_env("OPENAI_API_KEY")
+    payload = {
+        "model": model,
+        "input": prompt,
+        "max_output_tokens": max_output_tokens,
+        "temperature": temperature,
+        "tools": [
+            {
+                "type": "mcp",
+                "server_label": remote_mcp_label,
+                "server_description": "Read-only tools for one fixed MultiHiertt MCD package.",
+                "server_url": remote_mcp_url,
+                "require_approval": "never",
+                "allowed_tools": {"tool_names": MCD_REMOTE_ALLOWED_TOOLS},
+            }
+        ],
+    }
+    response, headers = plain_eval.http_json(
+        "https://api.openai.com/v1/responses",
+        {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+        payload,
+        timeout_seconds,
+    )
+    metadata = {
+        "id": response.get("id"),
+        "usage": response.get("usage"),
+        "request_id": headers.get("x-request-id"),
+        "remote_mcp_url": remote_mcp_url,
+        "remote_mcp_label": remote_mcp_label,
+        "native_remote_mcp": True,
+    }
+    return plain_eval.extract_openai_text(response), metadata, response
+
+
+def call_openai_native_mcd_with_retries(
+    *,
+    prompt: str,
+    model: str,
+    remote_mcp_url: str,
+    remote_mcp_label: str,
+    max_output_tokens: int,
+    temperature: float,
+    timeout_seconds: int,
+    retries: int,
+) -> tuple[str, dict[str, Any], dict[str, Any]]:
+    last_error: Exception | None = None
+    for attempt in range(retries + 1):
+        try:
+            return call_openai_native_mcd(
+                prompt=prompt,
+                model=model,
+                remote_mcp_url=remote_mcp_url,
+                remote_mcp_label=remote_mcp_label,
+                max_output_tokens=max_output_tokens,
+                temperature=temperature,
+                timeout_seconds=timeout_seconds,
+            )
+        except Exception as exc:  # noqa: BLE001
+            last_error = exc
+            if attempt < retries:
+                time.sleep(2**attempt)
+    assert last_error is not None
+    raise last_error
 
 
 def symbol(row: dict[str, Any] | None) -> str:
@@ -1441,27 +1062,69 @@ def run_source_mode(
     return rows
 
 
-def run_mcd_agent_mode(
+def run_mcd_native_mode(
     *,
-    mcd_path: Path,
     mcd_summary_text: str,
     questions: list[dict[str, Any]],
     config: ProviderConfig,
     args: argparse.Namespace,
 ) -> list[dict[str, Any]]:
+    if config.name != "openai":
+        raise ValueError("mcd_tools native remote MCP mode is OpenAI-only. Use --providers openai.")
+    if not args.dry_run and not args.mcd_remote_mcp_url:
+        raise ValueError(
+            "mcd_tools requires --mcd-remote-mcp-url for native one-shot MCP. "
+            "Start tests\\multihiertt_mini\\mcd_fixed_http_server.py and expose its /mcp endpoint via HTTPS."
+        )
     rows = []
     for index, question in enumerate(questions, start=1):
         started = time.perf_counter()
-        answer, metadata, trace, error = mcd_eval.run_mcd_agent_question(
-            mcd_path=mcd_path,
-            mcd_summary_text=mcd_summary_text,
-            provider=config.name,
-            model=config.model,
-            question=model_question(question),
-            args=args,
-        )
+        prompt = make_mcd_native_prompt(mcd_summary_text=mcd_summary_text, question=model_question(question))
+        metadata: dict[str, Any] = {}
+        trace: list[dict[str, Any]] = []
+        answer = ""
+        predicted_program: list[str] = []
+        tool_calls = 0
+        error = None
+        if args.dry_run:
+            metadata = {
+                "dry_run": True,
+                "remote_mcp_url": args.mcd_remote_mcp_url,
+                "remote_mcp_label": args.mcd_remote_mcp_label,
+                "native_remote_mcp": True,
+                "token_usage": {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0},
+            }
+        else:
+            try:
+                raw, metadata, response = call_openai_native_mcd_with_retries(
+                    prompt=prompt,
+                    model=config.model,
+                    remote_mcp_url=args.mcd_remote_mcp_url,
+                    remote_mcp_label=args.mcd_remote_mcp_label,
+                    max_output_tokens=args.max_output_tokens,
+                    temperature=args.temperature,
+                    timeout_seconds=args.timeout_seconds,
+                    retries=args.retries,
+                )
+                metadata = {**metadata, "token_usage": mcd_eval.token_usage_from_metadata(metadata)}
+                parsed = plain_eval.extract_json_object(raw)
+                answer, predicted_program = parse_prediction_payload(parsed)
+                tool_calls = openai_remote_mcp_tool_calls(response)
+                trace = [
+                    {
+                        "step": 1,
+                        "raw": raw,
+                        "parsed": parsed,
+                        "predicted_program": predicted_program,
+                        "openai_output": compact_openai_output_items(response),
+                    }
+                ]
+                if not answer:
+                    error = "Provider response JSON did not include a non-empty predicted_ans/answer."
+            except Exception as exc:  # noqa: BLE001
+                error = str(exc)
         row = {
-            "mode": "mcd_agent",
+            "mode": "mcd_tools",
             "provider": config.name,
             "model": config.model,
             "question_index": index,
@@ -1474,63 +1137,18 @@ def run_mcd_agent_mode(
             "evaluation_question": question["evaluation_question"],
             "evaluation_hash": evaluation_hash(question["evaluation_question"]),
             "answer": answer,
-            "predicted_program": [],
+            "predicted_program": predicted_program,
             "score": None,
             "error": error,
             "metadata": metadata,
             "trace": trace,
-            "tool_calls": mcd_eval.tool_calls_from_trace(trace),
+            "tool_calls": tool_calls,
+            "one_shot_native_mcp": True,
             "elapsed_seconds": round(time.perf_counter() - started, 3),
         }
-        row["score"] = score_or_none(answer, [], question, error, args.dry_run, args, config)
+        row["score"] = score_or_none(answer, predicted_program, question, error, args.dry_run, args, config)
         rows.append(row)
-        print(f"{config.name} mcd_agent {index}/{len(questions)} {question['id']}: {status_label(row)}", flush=True)
-    return rows
-
-
-def run_original_agent_mode(
-    *,
-    records_by_example_id: dict[str, dict[str, Any]],
-    dataset_index: str,
-    questions: list[dict[str, Any]],
-    config: ProviderConfig,
-    args: argparse.Namespace,
-) -> list[dict[str, Any]]:
-    rows = []
-    for index, question in enumerate(questions, start=1):
-        started = time.perf_counter()
-        answer, metadata, trace, error = run_original_agent_question(
-            record=records_by_example_id[question["example_id"]],
-            dataset_index=dataset_index,
-            question=model_question(question),
-            config=config,
-            args=args,
-        )
-        row = {
-            "mode": "original_agent",
-            "provider": config.name,
-            "model": config.model,
-            "question_index": index,
-            "question_id": question["id"],
-            "example_id": question["example_id"],
-            "family_id": question.get("family_id"),
-            "question": question["prompt"],
-            "expected_contains": question["expected_contains"],
-            "reference_answer": question["reference_answer"],
-            "evaluation_question": question["evaluation_question"],
-            "evaluation_hash": evaluation_hash(question["evaluation_question"]),
-            "answer": answer,
-            "predicted_program": [],
-            "score": None,
-            "error": error,
-            "metadata": metadata,
-            "trace": trace,
-            "tool_calls": original_agent_tool_calls_from_trace(trace),
-            "elapsed_seconds": round(time.perf_counter() - started, 3),
-        }
-        row["score"] = score_or_none(answer, [], question, error, args.dry_run, args, config)
-        rows.append(row)
-        print(f"{config.name} original_agent {index}/{len(questions)} {question['id']}: {status_label(row)}", flush=True)
+        print(f"{config.name} mcd_tools {index}/{len(questions)} {question['id']}: {status_label(row)}", flush=True)
     return rows
 
 
@@ -1582,7 +1200,7 @@ def write_summary(
     rows_by_key: dict[tuple[str, str], list[dict[str, Any]]],
 ) -> None:
     lines = [
-        "# MultiHiertt Mini One-Shot Source Tool Packs",
+        "# MultiHiertt Mini MCD Tools vs Original Source Tools",
         "",
         f"- Created at: `{created_at}`",
         f"- MCD package: `{args.mcd_path}`",
@@ -1591,10 +1209,10 @@ def write_summary(
         f"- Questions: `{len(questions)}` from `{args.questions_path}`",
         f"- Evaluator labels: `{args.answers_path}`",
         "- Evaluator: shared per-question payload from `answers.json`; both modes use the same evaluator hash.",
-        "- Both modes use exactly one provider call per question.",
-        "- `mcd_tools` gives the model MCD-specific conceptual tool contracts plus pre-materialized MCD source data.",
+        "- `mcd_tools` uses one OpenAI Responses call with native remote MCP tools against the packed MCD file.",
+        f"- MCD remote MCP URL: `{args.mcd_remote_mcp_url or 'not configured'}`",
         "- `original_tools` gives the model original JSON/table conceptual tool contracts plus pre-materialized parsed source data.",
-        "- No runtime MCP, SQL, or JSON-table tool calls are executed after the model response.",
+        "- `Tool calls` counts native remote MCP calls reported by OpenAI. `original_tools` is one-shot and should remain zero by design.",
         f"- Modes: `{', '.join(modes)}`",
         f"- Scoring mode: `{args.scoring_mode}`",
         "",
@@ -1637,8 +1255,18 @@ def write_summary(
 def main() -> int:
     plain_eval.load_dotenv()
     args = parse_args()
+    args.mcd_remote_mcp_url = normalize_remote_mcp_url(args.mcd_remote_mcp_url)
     modes = parse_modes(args.modes)
     configs = provider_configs(args)
+    if "mcd_tools" in modes:
+        non_openai = [config.name for config in configs if config.name != "openai"]
+        if non_openai:
+            raise ValueError("mcd_tools native remote MCP mode is OpenAI-only. Use --providers openai.")
+        if not args.dry_run and not args.mcd_remote_mcp_url:
+            raise ValueError(
+                "mcd_tools requires --mcd-remote-mcp-url for one-shot native MCP. "
+                "Start tests\\multihiertt_mini\\mcd_fixed_http_server.py and expose its /mcp endpoint via HTTPS."
+            )
 
     if not args.dry_run:
         env_configs = [plain_eval.ProviderConfig(config.name, config.model, config.api_key_env) for config in configs]
@@ -1674,18 +1302,14 @@ def main() -> int:
             raise ValueError("--questions must be a positive integer.")
         questions = questions[: args.questions]
 
+    mcd_summary_text = mcd_eval.build_mcd_summary(args.mcd_path) if "mcd_tools" in modes else ""
     original_records_by_example_id = (
         load_original_records(args.original_dir, args.original_json, questions)
         if "original_tools" in modes
         else {}
     )
-    mcd_records_by_example_id = (
-        load_mcd_source_records(args.mcd_path, questions)
-        if "mcd_tools" in modes
-        else {}
-    )
-    original_tools_records_by_example_id = (
-        load_original_agent_records(original_records_by_example_id, questions)
+    original_source_records_by_example_id = (
+        load_original_source_records(original_records_by_example_id, questions)
         if "original_tools" in modes
         else {}
     )
@@ -1720,10 +1344,10 @@ def main() -> int:
             },
             "judge_provider": args.judge_provider,
             "judge_model": args.judge_model,
-            "one_shot_tool_pack_modes": {
+            "mode_profiles": {
                 "mcd_tools": (
-                    "single model call with MCD-specific conceptual tool contracts and pre-materialized MCD "
-                    "table/paragraph/cell-description payload"
+                    "OpenAI native remote MCP call against a fixed-package MCD HTTP server; source tables and "
+                    "paragraphs are not pre-materialized into the model prompt"
                 ),
                 "original_tools": (
                     "single model call with original JSON conceptual tools and pre-materialized parsed "
@@ -1731,6 +1355,8 @@ def main() -> int:
                 ),
             },
             "max_tool_steps": args.max_tool_steps,
+            "mcd_remote_mcp_url": args.mcd_remote_mcp_url,
+            "mcd_remote_mcp_label": args.mcd_remote_mcp_label,
             "mcd_mcp": args.mcd_mcp,
             "mcd_mcp_status": mcd_eval.mcd_mcp_status(args.mcd_mcp),
             "mcd_cli": args.mcd_cli,
@@ -1739,7 +1365,7 @@ def main() -> int:
             "max_output_tokens": args.max_output_tokens,
             "temperature": args.temperature,
             "dry_run": args.dry_run,
-            "prompt_profile": "multihiertt_one_shot_source_tool_packs",
+            "prompt_profile": "multihiertt_openai_native_mcp_vs_original_source_tools",
         },
     )
 
@@ -1749,10 +1375,8 @@ def main() -> int:
     for config in configs:
         for mode in modes:
             if mode == "mcd_tools":
-                rows = run_source_mode(
-                    mode="mcd_tools",
-                    source_records_by_example_id=mcd_records_by_example_id,
-                    source_access_note=mcd_source_note(),
+                rows = run_mcd_native_mode(
+                    mcd_summary_text=mcd_summary_text,
                     questions=questions,
                     config=config,
                     args=args,
@@ -1760,7 +1384,7 @@ def main() -> int:
             else:
                 rows = run_source_mode(
                     mode="original_tools",
-                    source_records_by_example_id=original_tools_records_by_example_id,
+                    source_records_by_example_id=original_source_records_by_example_id,
                     source_access_note=original_source_note(),
                     questions=questions,
                     config=config,

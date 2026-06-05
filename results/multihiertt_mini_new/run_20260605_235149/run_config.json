@@ -1,0 +1,90 @@
+{
+  "created_at": "2026-06-05T23:51:49",
+  "providers": [
+    {
+      "name": "openai",
+      "model": "gpt-5.4",
+      "api_key_env": "OPENAI_API_KEY"
+    }
+  ],
+  "modes": [
+    "mcd_tools",
+    "original_tools"
+  ],
+  "mcd_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\multihiertt-mini.mcd",
+  "original_dir": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\original_disconnected",
+  "original_json": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\original_disconnected\\dev_50.json",
+  "questions_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\qa_questions_50.jsonl",
+  "answers_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\answers.json",
+  "question_count": 10,
+  "shared_evaluator": {
+    "scoring_mode": "llm_judge",
+    "answers_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\answers.json",
+    "evaluation_hashes": {
+      "multihiertt_mini_0001": "5ef68f16dd99297f50a9c73642e89e4976fd3051824eeeb906419099501137b8",
+      "multihiertt_mini_0002": "be0975ce0298d44231cb40297f8510798d3d773601593233f8146a55908b525c",
+      "multihiertt_mini_0003": "e3556178f5df8e717a47b2983bc9ee407eb0b66b113e81fbad7ef8a299e5e441",
+      "multihiertt_mini_0004": "c5847f2e9c5435eef41da89e7d3ae6420e65d04609569b997ae1389b30082450",
+      "multihiertt_mini_0005": "13100b1c9c25f4ee31ff2fd7f94ad5f9f7f087a9836b38ed780f194a3a6bdca0",
+      "multihiertt_mini_0006": "a09fb7754effcb320ce7fb8318ff17b251d864efa1a905c780465679e7301aea",
+      "multihiertt_mini_0007": "d0935c5b01a781e81e1a89db3272b0d064fd0466b75b6c21d96841daed2c2049",
+      "multihiertt_mini_0008": "5a788472e7e7e1566880353a7af02b6c7281b5b8fb12da0893049e1d7d55a849",
+      "multihiertt_mini_0009": "b2bc13966c68b50a56adf303b29613e02eaa72830f8f32d4f923a02cd3280f87",
+      "multihiertt_mini_0010": "200a3c39232f30988b639522c8db01dcca9274ce4c3c6c939486bb9605dd1b59"
+    },
+    "note": "Both mcd and original modes call the same evaluator with the same per-question payload."
+  },
+  "scoring_mode": "llm_judge",
+  "multihiertt_official_scoring": {
+    "upstream_repo": "https://github.com/psunlpgroup/MultiHiertt",
+    "upstream_commit": "45bd9ccdf3142ea059bd5e69c0afb83437fa539c",
+    "logic": "Compatible with evaluate.py: program execution EM/F1 for predicted_program, DROP-style span EM/F1 for span answers, and span-vs-program numeric bridge."
+  },
+  "judge_provider": "same",
+  "judge_model": null,
+  "mode_profiles": {
+    "mcd_tools": "OpenAI native remote MCP call against a fixed-package MCD HTTP server; source tables and paragraphs are not pre-materialized into the model prompt",
+    "original_tools": "single model call with original JSON conceptual tools and pre-materialized parsed paragraph/table/cell-description payload"
+  },
+  "max_tool_steps": 20,
+  "mcd_remote_mcp_url": "https://taken-shorter-supplement-glow.trycloudflare.com/mcp",
+  "mcd_remote_mcp_label": "multihiertt_mcd",
+  "mcd_mcp": "C:\\Users\\Nikita\\.cargo\\bin\\mcd-mcp.exe",
+  "mcd_mcp_status": {
+    "configured_executable": "C:\\Users\\Nikita\\.cargo\\bin\\mcd-mcp.exe",
+    "resolved_executable": "C:\\Users\\Nikita\\.cargo\\bin\\mcd-mcp.exe",
+    "available_on_path_or_filesystem": true,
+    "protocol_version": "2025-06-18",
+    "read_only_tools": [
+      "mcd_agent_context",
+      "mcd_annotations",
+      "mcd_chart",
+      "mcd_external_data",
+      "mcd_images",
+      "mcd_inspect",
+      "mcd_markdown",
+      "mcd_provenance",
+      "mcd_queries",
+      "mcd_query",
+      "mcd_relationships",
+      "mcd_schemas",
+      "mcd_search",
+      "mcd_table",
+      "mcd_validate"
+    ],
+    "placeholder_package": "{MCD_PATH}"
+  },
+  "mcd_cli": "mcd",
+  "mcd_cli_status": {
+    "configured_executable": "mcd",
+    "resolved_executable": "C:\\Users\\Nikita\\.cargo\\bin\\mcd.EXE",
+    "available_on_path_or_filesystem": true,
+    "placeholder_executable": "{MCD_CLI}",
+    "placeholder_package": "{MCD_PATH}"
+  },
+  "max_observation_chars": 200000,
+  "max_output_tokens": 12000,
+  "temperature": 0.0,
+  "dry_run": false,
+  "prompt_profile": "multihiertt_openai_native_mcp_vs_original_source_tools"
+}

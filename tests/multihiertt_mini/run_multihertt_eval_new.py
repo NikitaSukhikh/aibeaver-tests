@@ -13,6 +13,7 @@ import math
 import os
 import re
 import string
+import subprocess
 import sys
 import time
 from dataclasses import dataclass
@@ -45,7 +46,9 @@ DEFAULT_XAI_MODEL = "grok-4.3"
 DEFAULT_MAX_OUTPUT_TOKENS = 12000
 DEFAULT_JUDGE_MAX_OUTPUT_TOKENS = 2000
 PROVIDERS = ["openai", "anthropic", "xai"]
-MODES = ["mcd_tools", "original_tools"]
+MODES = ["mcd_cli_tools", "original_tools"]
+SKIPPED_MODES = {"mcd_tools": "native remote MCP mode is skipped for now; substituting mcd_cli_tools"}
+MCD_MATRIX_COLUMNS = [f"c{index}" for index in range(12)]
 MULTIHIERTT_PROGRAM_OPS = {"add", "subtract", "multiply", "divide", "exp"}
 
 
@@ -415,8 +418,9 @@ def parse_args() -> argparse.Namespace:
         "--modes",
         default="all",
         help=(
-            "Comma-separated modes: all, mcd_tools, original_tools, or any subset. "
-            "mcd_tools uses the packed .mcd file through runtime tools."
+            "Comma-separated modes: all, mcd_cli_tools, original_tools, or any subset. "
+            "mcd_cli_tools materializes packed .mcd source data with local mcd query-batch. "
+            "mcd_tools/native remote MCP is skipped for now."
         ),
     )
     parser.add_argument("--providers", nargs="+", choices=PROVIDERS, default=["openai"])
@@ -483,10 +487,20 @@ def parse_modes(value: str) -> list[str]:
         return list(MODES)
     if "all" in requested:
         raise ValueError("--modes may be 'all' or a comma-separated subset, not both.")
+    skipped = [item for item in requested if item in SKIPPED_MODES]
+    for item in skipped:
+        print(f"WARNING: skipping mode {item!r}: {SKIPPED_MODES[item]}", file=sys.stderr)
+    replacements = ["mcd_cli_tools" for item in skipped if item == "mcd_tools"]
+    requested = [item for item in requested if item not in SKIPPED_MODES]
+    requested.extend(replacement for replacement in replacements if replacement not in requested)
     invalid = [item for item in requested if item not in MODES]
     if invalid:
-        raise ValueError(f"Unknown mode(s): {', '.join(invalid)}. Valid modes: all, {', '.join(MODES)}.")
-    return [mode for mode in MODES if mode in requested]
+        valid = ", ".join([*MODES, *SKIPPED_MODES])
+        raise ValueError(f"Unknown mode(s): {', '.join(invalid)}. Valid modes: all, {valid}.")
+    modes = [mode for mode in MODES if mode in requested]
+    if not modes:
+        raise ValueError("No active modes remain after skipping native remote MCP mode.")
+    return modes
 
 
 def provider_configs(args: argparse.Namespace) -> list[ProviderConfig]:
@@ -642,10 +656,15 @@ def load_original_records(original_dir: Path, original_json: Path, questions: li
 
 
 def make_source_prompt(question: dict[str, Any], source_payload: dict[str, Any], source_access_note: str) -> str:
+    prompt_source_payload = {
+        key: value
+        for key, value in source_payload.items()
+        if not str(key).startswith("_")
+    }
     payload = {
         "example_id": question["example_id"],
         "question": question["prompt"],
-        "source_record": source_payload,
+        "source_record": prompt_source_payload,
     }
     return (
         "You are answering one MultiHiertt mini benchmark question in a one-shot source-tool-pack setting.\n\n"
@@ -713,6 +732,211 @@ def load_original_source_records(
         question["example_id"]: build_original_source_record(records_by_example_id[question["example_id"]], question)
         for question in questions
     }
+
+
+def sql_literal(value: str) -> str:
+    return "'" + value.replace("'", "''") + "'"
+
+
+def compact_mcd_row_cells(row: dict[str, Any]) -> list[Any]:
+    cells = [row.get(column) for column in MCD_MATRIX_COLUMNS]
+    while cells and cells[-1] in (None, ""):
+        cells.pop()
+    return cells
+
+
+def run_mcd_cli_query_batch(
+    *,
+    mcd_cli: str,
+    mcd_path: Path,
+    queries: list[str],
+    timeout_seconds: int,
+) -> dict[str, Any]:
+    command = [mcd_cli, "query-batch"]
+    for query in queries:
+        command.extend(["--sql", query])
+    command.append(str(mcd_path))
+    started = time.perf_counter()
+    completed = subprocess.run(
+        command,
+        cwd=str(REPO_ROOT),
+        env={**os.environ, "MCD_PATH": str(mcd_path), "MCD_CLI": mcd_cli, "PYTHONIOENCODING": "utf-8"},
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        timeout=timeout_seconds,
+        check=False,
+    )
+    elapsed_seconds = round(time.perf_counter() - started, 3)
+    if completed.returncode != 0:
+        raise RuntimeError(
+            f"mcd query-batch failed with exit code {completed.returncode}: {completed.stderr.strip()}"
+        )
+    try:
+        payload = json.loads(completed.stdout)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(f"mcd query-batch returned non-JSON output: {completed.stdout[:500]}") from exc
+    return {
+        "command": command,
+        "elapsed_seconds": elapsed_seconds,
+        "stdout_bytes": len(completed.stdout),
+        "stderr": completed.stderr,
+        "payload": payload,
+    }
+
+
+def cli_batch_rows(batch_payload: dict[str, Any], index: int) -> list[dict[str, Any]]:
+    queries = batch_payload.get("queries", [])
+    if not isinstance(queries, list) or index >= len(queries):
+        return []
+    result = queries[index].get("result", {}) if isinstance(queries[index], dict) else {}
+    rows = result.get("rows", []) if isinstance(result, dict) else []
+    return [dict(row) for row in rows if isinstance(row, dict)]
+
+
+def build_mcd_cli_source_record(question: dict[str, Any], batch: dict[str, Any]) -> dict[str, Any]:
+    payload = batch["payload"]
+    example_rows = cli_batch_rows(payload, 0)
+    table_inventory_rows = cli_batch_rows(payload, 1)
+    matrix_rows = cli_batch_rows(payload, 2)
+    paragraph_rows = cli_batch_rows(payload, 3)
+    cell_rows = cli_batch_rows(payload, 4)
+    if not example_rows:
+        raise ValueError(f"MCD CLI materialization returned no example row for {question['example_id']}.")
+
+    rows_by_table: dict[int, list[dict[str, Any]]] = {}
+    for row in matrix_rows:
+        table_index = int(row["table_index"])
+        rows_by_table.setdefault(table_index, []).append(
+            {
+                "row_id": row.get("row_id"),
+                "row_index": row.get("row_index"),
+                "cells": compact_mcd_row_cells(row),
+            }
+        )
+
+    tables: list[dict[str, Any]] = []
+    for table in table_inventory_rows:
+        table_index = int(table["table_index"])
+        tables.append(
+            {
+                "source_table_id": table.get("source_table_id"),
+                "table_index": table_index,
+                "row_count": table.get("row_count"),
+                "max_column_count": table.get("max_column_count"),
+                "rows": rows_by_table.get(table_index, []),
+            }
+        )
+
+    cell_descriptions = [
+        {
+            "cell_ref": row.get("cell_ref"),
+            "table_index": row.get("table_index"),
+            "row_index": row.get("row_index"),
+            "col_index": row.get("col_index"),
+            "cell_text": row.get("cell_text"),
+            "cell_description": row.get("cell_description"),
+        }
+        for row in cell_rows
+    ]
+    return {
+        "source_format": "mcd_cli_query_batch",
+        "example_id": question["example_id"],
+        "source_uid": example_rows[0].get("source_uid") or question.get("source_uid"),
+        "question": question["prompt"],
+        "paragraphs": [
+            {
+                "paragraph_index": row.get("paragraph_index"),
+                "paragraph_text": row.get("paragraph_text"),
+            }
+            for row in paragraph_rows
+        ],
+        "tables": tables,
+        "cell_descriptions": cell_descriptions,
+        "table_description": {
+            str(row["cell_ref"]): row.get("cell_description")
+            for row in cell_descriptions
+            if row.get("cell_ref") and row.get("cell_description")
+        },
+        "_source_materialization": {
+            "tool_type": "cli",
+            "tool": "mcd query-batch",
+            "elapsed_seconds": batch["elapsed_seconds"],
+            "stdout_bytes": batch["stdout_bytes"],
+            "query_count": len(batch["payload"].get("queries", [])),
+        },
+        "_tool_calls": 1,
+    }
+
+
+def mcd_cli_source_queries(example_id: str) -> list[str]:
+    example = sql_literal(example_id)
+    columns = ", ".join(MCD_MATRIX_COLUMNS)
+    return [
+        (
+            "select example_id, source_uid, source_split, question "
+            "from multihiertt_examples "
+            f"where example_id = {example}"
+        ),
+        (
+            "select source_table_id, table_index, row_count, max_column_count "
+            "from multihiertt_source_tables "
+            f"where example_id = {example} "
+            "order by table_index"
+        ),
+        (
+            f"select row_id, source_table_id, table_index, row_index, {columns} "
+            "from multihiertt_table_rows "
+            f"where example_id = {example} "
+            "order by table_index, row_index"
+        ),
+        (
+            "select paragraph_index, paragraph_text "
+            "from multihiertt_paragraphs "
+            f"where example_id = {example} "
+            "order by paragraph_index"
+        ),
+        (
+            "select cell_ref, table_index, row_index, col_index, cell_text, cell_description "
+            "from multihiertt_cells "
+            f"where example_id = {example} "
+            "and cell_description is not null "
+            "and cell_description <> '' "
+            "order by table_index, row_index, col_index"
+        ),
+    ]
+
+
+def load_mcd_cli_source_records(
+    *,
+    mcd_path: Path,
+    questions: list[dict[str, Any]],
+    args: argparse.Namespace,
+) -> dict[str, dict[str, Any]]:
+    records: dict[str, dict[str, Any]] = {}
+    for question in questions:
+        batch = run_mcd_cli_query_batch(
+            mcd_cli=args.mcd_cli,
+            mcd_path=mcd_path,
+            queries=mcd_cli_source_queries(question["example_id"]),
+            timeout_seconds=args.cli_timeout_seconds,
+        )
+        records[question["example_id"]] = build_mcd_cli_source_record(question, batch)
+    return records
+
+
+def mcd_cli_source_note() -> str:
+    return (
+        "MCD CLI source-tool pack. The model-visible tools are conceptual, but their data is already included "
+        "below as materialized output from local `mcd query-batch`:\n"
+        "- mcd query-batch: source table inventory, table rows, paragraphs, and cell descriptions for this example.\n"
+        "- mcd query: exact SQL over `multihiertt_examples`, `multihiertt_source_tables`, "
+        "`multihiertt_table_rows`, `multihiertt_paragraphs`, and `multihiertt_cells`.\n"
+        "Use only the supplied MCD CLI source record. Reconstruct table headers from nearby rows before arithmetic; "
+        "cell descriptions are hints, not hidden evaluator labels."
+    )
 
 
 def make_mcd_native_prompt(*, mcd_summary_text: str, question: dict[str, Any]) -> str:
@@ -1042,9 +1266,12 @@ def run_source_mode(
             "predicted_program": trace[0].get("predicted_program", []) if trace else [],
             "score": None,
             "error": error,
-            "metadata": metadata,
+            "metadata": {
+                **metadata,
+                "source_materialization": source_record.get("_source_materialization"),
+            },
             "trace": trace,
-            "tool_calls": 0,
+            "tool_calls": int(source_record.get("_tool_calls") or 0),
             "one_shot_tool_pack": True,
             "elapsed_seconds": round(time.perf_counter() - started, 3),
         }
@@ -1200,7 +1427,7 @@ def write_summary(
     rows_by_key: dict[tuple[str, str], list[dict[str, Any]]],
 ) -> None:
     lines = [
-        "# MultiHiertt Mini MCD Tools vs Original Source Tools",
+        "# MultiHiertt Mini MCD CLI Tools vs Original Source Tools",
         "",
         f"- Created at: `{created_at}`",
         f"- MCD package: `{args.mcd_path}`",
@@ -1209,10 +1436,12 @@ def write_summary(
         f"- Questions: `{len(questions)}` from `{args.questions_path}`",
         f"- Evaluator labels: `{args.answers_path}`",
         "- Evaluator: shared per-question payload from `answers.json`; both modes use the same evaluator hash.",
-        "- `mcd_tools` uses one OpenAI Responses call with native remote MCP tools against the packed MCD file.",
-        f"- MCD remote MCP URL: `{args.mcd_remote_mcp_url or 'not configured'}`",
+        "- `mcd_cli_tools` materializes source data from the packed MCD file with local `mcd query-batch`, then gives the model one source-pack call.",
+        "- Native remote MCP mode (`mcd_tools`) is skipped for now.",
+        f"- MCD CLI: `{args.mcd_cli}`",
+        f"- MCD CLI available: `{mcd_eval.mcd_cli_status(args.mcd_cli)['available_on_path_or_filesystem']}`",
         "- `original_tools` gives the model original JSON/table conceptual tool contracts plus pre-materialized parsed source data.",
-        "- `Tool calls` counts native remote MCP calls reported by OpenAI. `original_tools` is one-shot and should remain zero by design.",
+        "- `Tool calls` counts local MCD CLI query-batch materialization calls for `mcd_cli_tools`; `original_tools` is one-shot and should remain zero by design.",
         f"- Modes: `{', '.join(modes)}`",
         f"- Scoring mode: `{args.scoring_mode}`",
         "",
@@ -1258,15 +1487,6 @@ def main() -> int:
     args.mcd_remote_mcp_url = normalize_remote_mcp_url(args.mcd_remote_mcp_url)
     modes = parse_modes(args.modes)
     configs = provider_configs(args)
-    if "mcd_tools" in modes:
-        non_openai = [config.name for config in configs if config.name != "openai"]
-        if non_openai:
-            raise ValueError("mcd_tools native remote MCP mode is OpenAI-only. Use --providers openai.")
-        if not args.dry_run and not args.mcd_remote_mcp_url:
-            raise ValueError(
-                "mcd_tools requires --mcd-remote-mcp-url for one-shot native MCP. "
-                "Start tests\\multihiertt_mini\\mcd_fixed_http_server.py and expose its /mcp endpoint via HTTPS."
-            )
 
     if not args.dry_run:
         env_configs = [plain_eval.ProviderConfig(config.name, config.model, config.api_key_env) for config in configs]
@@ -1288,8 +1508,10 @@ def main() -> int:
     for path in (args.questions_path, args.answers_path):
         if not path.exists():
             raise FileNotFoundError(path)
-    if "mcd_tools" in modes and not args.mcd_path.exists():
+    if "mcd_cli_tools" in modes and not args.mcd_path.exists():
         raise FileNotFoundError(args.mcd_path)
+    if "mcd_cli_tools" in modes and not mcd_eval.mcd_cli_status(args.mcd_cli)["available_on_path_or_filesystem"]:
+        raise FileNotFoundError(f"MCD CLI not found: {args.mcd_cli}")
     if "original_tools" in modes:
         if not args.original_dir.exists():
             raise FileNotFoundError(args.original_dir)
@@ -1302,7 +1524,11 @@ def main() -> int:
             raise ValueError("--questions must be a positive integer.")
         questions = questions[: args.questions]
 
-    mcd_summary_text = mcd_eval.build_mcd_summary(args.mcd_path) if "mcd_tools" in modes else ""
+    mcd_cli_source_records_by_example_id = (
+        load_mcd_cli_source_records(mcd_path=args.mcd_path, questions=questions, args=args)
+        if "mcd_cli_tools" in modes
+        else {}
+    )
     original_records_by_example_id = (
         load_original_records(args.original_dir, args.original_json, questions)
         if "original_tools" in modes
@@ -1321,6 +1547,7 @@ def main() -> int:
             "created_at": created_at,
             "providers": [config.__dict__ for config in configs],
             "modes": modes,
+            "skipped_modes": SKIPPED_MODES,
             "mcd_path": str(args.mcd_path),
             "original_dir": str(args.original_dir),
             "original_json": str(args.original_json),
@@ -1345,9 +1572,9 @@ def main() -> int:
             "judge_provider": args.judge_provider,
             "judge_model": args.judge_model,
             "mode_profiles": {
-                "mcd_tools": (
-                    "OpenAI native remote MCP call against a fixed-package MCD HTTP server; source tables and "
-                    "paragraphs are not pre-materialized into the model prompt"
+                "mcd_cli_tools": (
+                    "single model call with MCD source data pre-materialized by local `mcd query-batch`; "
+                    "native remote MCP mode is skipped"
                 ),
                 "original_tools": (
                     "single model call with original JSON conceptual tools and pre-materialized parsed "
@@ -1365,7 +1592,7 @@ def main() -> int:
             "max_output_tokens": args.max_output_tokens,
             "temperature": args.temperature,
             "dry_run": args.dry_run,
-            "prompt_profile": "multihiertt_openai_native_mcp_vs_original_source_tools",
+            "prompt_profile": "multihiertt_mcd_cli_source_tools_vs_original_source_tools",
         },
     )
 
@@ -1374,9 +1601,11 @@ def main() -> int:
     rows_by_key: dict[tuple[str, str], list[dict[str, Any]]] = {}
     for config in configs:
         for mode in modes:
-            if mode == "mcd_tools":
-                rows = run_mcd_native_mode(
-                    mcd_summary_text=mcd_summary_text,
+            if mode == "mcd_cli_tools":
+                rows = run_source_mode(
+                    mode="mcd_cli_tools",
+                    source_records_by_example_id=mcd_cli_source_records_by_example_id,
+                    source_access_note=mcd_cli_source_note(),
                     questions=questions,
                     config=config,
                     args=args,

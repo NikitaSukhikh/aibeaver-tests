@@ -1,0 +1,83 @@
+{
+  "created_at": "2026-06-06T00:12:36",
+  "providers": [
+    {
+      "name": "openai",
+      "model": "gpt-5.4",
+      "api_key_env": "OPENAI_API_KEY"
+    }
+  ],
+  "modes": [
+    "mcd_cli_tools"
+  ],
+  "skipped_modes": {
+    "mcd_tools": "native remote MCP mode is skipped for now; substituting mcd_cli_tools"
+  },
+  "mcd_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\multihiertt-mini.mcd",
+  "original_dir": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\original_disconnected",
+  "original_json": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\original_disconnected\\dev_50.json",
+  "questions_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\qa_questions_50.jsonl",
+  "answers_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\answers.json",
+  "question_count": 1,
+  "shared_evaluator": {
+    "scoring_mode": "llm_judge",
+    "answers_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\answers.json",
+    "evaluation_hashes": {
+      "multihiertt_mini_0001": "5ef68f16dd99297f50a9c73642e89e4976fd3051824eeeb906419099501137b8"
+    },
+    "note": "Both mcd and original modes call the same evaluator with the same per-question payload."
+  },
+  "scoring_mode": "llm_judge",
+  "multihiertt_official_scoring": {
+    "upstream_repo": "https://github.com/psunlpgroup/MultiHiertt",
+    "upstream_commit": "45bd9ccdf3142ea059bd5e69c0afb83437fa539c",
+    "logic": "Compatible with evaluate.py: program execution EM/F1 for predicted_program, DROP-style span EM/F1 for span answers, and span-vs-program numeric bridge."
+  },
+  "judge_provider": "same",
+  "judge_model": null,
+  "mode_profiles": {
+    "mcd_cli_tools": "single model call with MCD source data pre-materialized by local `mcd query-batch`; native remote MCP mode is skipped",
+    "original_tools": "single model call with original JSON conceptual tools and pre-materialized parsed paragraph/table/cell-description payload"
+  },
+  "max_tool_steps": 20,
+  "mcd_remote_mcp_url": null,
+  "mcd_remote_mcp_label": "multihiertt_mcd",
+  "mcd_mcp": "C:\\Users\\Nikita\\.cargo\\bin\\mcd-mcp.exe",
+  "mcd_mcp_status": {
+    "configured_executable": "C:\\Users\\Nikita\\.cargo\\bin\\mcd-mcp.exe",
+    "resolved_executable": "C:\\Users\\Nikita\\.cargo\\bin\\mcd-mcp.exe",
+    "available_on_path_or_filesystem": true,
+    "protocol_version": "2025-06-18",
+    "read_only_tools": [
+      "mcd_agent_context",
+      "mcd_annotations",
+      "mcd_chart",
+      "mcd_external_data",
+      "mcd_images",
+      "mcd_inspect",
+      "mcd_markdown",
+      "mcd_provenance",
+      "mcd_queries",
+      "mcd_query",
+      "mcd_relationships",
+      "mcd_schemas",
+      "mcd_search",
+      "mcd_table",
+      "mcd_validate"
+    ],
+    "placeholder_package": "{MCD_PATH}"
+  },
+  "mcd_cli": "mcd",
+  "mcd_cli_status": {
+    "configured_executable": "mcd",
+    "resolved_executable": "C:\\Users\\Nikita\\.cargo\\bin\\mcd.EXE",
+    "available_on_path_or_filesystem": true,
+    "placeholder_executable": "{MCD_CLI}",
+    "placeholder_package": "{MCD_PATH}"
+  },
+  "max_observation_chars": 200000,
+  "max_output_tokens": 12000,
+  "temperature": 0.0,
+  "dry_run": true,
+  "prompt_profile": "multihiertt_mcd_cli_source_tools_vs_original_source_tools"
+}

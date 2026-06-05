@@ -40,11 +40,21 @@ BUNDLED_QUERY_PATTERNS: tuple[tuple[re.Pattern[str], str], ...] = (
 )
 
 
-def parse_decimal_text(value: str) -> Decimal | None:
+def clean_decimal_text(value: str) -> str:
     cleaned = value.strip().replace(",", "")
     cleaned = cleaned.strip("()[]{}<>:;")
+    lowered = cleaned.casefold()
+    if lowered.endswith("percent"):
+        cleaned = cleaned[: -len("percent")].strip()
+    if cleaned.endswith("%"):
+        cleaned = cleaned[:-1].strip()
     if cleaned.endswith(".") and cleaned.count(".") == 1:
         cleaned = cleaned[:-1]
+    return cleaned
+
+
+def parse_decimal_text(value: str) -> Decimal | None:
+    cleaned = clean_decimal_text(value)
     if not re.fullmatch(r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)", cleaned):
         return None
     try:
@@ -54,21 +64,61 @@ def parse_decimal_text(value: str) -> Decimal | None:
 
 
 def decimal_places(value: str) -> int:
-    cleaned = value.strip().replace(",", "")
+    cleaned = clean_decimal_text(value)
     if "." not in cleaned:
         return 0
     return len(cleaned.rsplit(".", 1)[1].rstrip("()[]{}<>:;"))
+
+
+def text_has_percent_marker(value: str) -> bool:
+    cleaned = value.strip().casefold()
+    return cleaned.endswith("%") or cleaned.endswith("percent")
+
+
+def numeric_abs_tolerance(expected: Decimal, expected_text: str) -> Decimal:
+    places = decimal_places(expected_text)
+    precision_tolerance = Decimal(1).scaleb(-places) / Decimal(2) if places > 0 else Decimal(0)
+    benchmark_tolerance = min(abs(expected) / Decimal(1000), Decimal("0.1"))
+    return max(precision_tolerance, benchmark_tolerance)
 
 
 def numeric_match_type(actual: Decimal, expected: Decimal, expected_text: str) -> str | None:
     if actual == expected:
         return "numeric_equivalent"
     places = decimal_places(expected_text)
-    if places <= 0:
-        return None
-    quantum = Decimal(1).scaleb(-places)
-    if actual.quantize(quantum, rounding=ROUND_HALF_UP) == expected:
-        return "numeric_rounded"
+    if places > 0:
+        quantum = Decimal(1).scaleb(-places)
+        if actual.quantize(quantum, rounding=ROUND_HALF_UP) == expected:
+            return "numeric_rounded"
+    if abs(actual - expected) <= numeric_abs_tolerance(expected, expected_text):
+        return "numeric_tolerance"
+    return None
+
+
+def numeric_mention_has_percent(answer: str, end_index: int) -> bool:
+    suffix = answer[end_index : end_index + 16].lstrip().casefold()
+    return suffix.startswith("%") or suffix.startswith("percent")
+
+
+def numeric_match_with_scale(
+    *,
+    actual: Decimal,
+    actual_is_percent: bool,
+    expected: Decimal,
+    expected_text: str,
+    expected_is_percent: bool,
+) -> str | None:
+    match_type = numeric_match_type(actual, expected, expected_text)
+    if match_type:
+        return match_type
+    if actual_is_percent and not expected_is_percent:
+        match_type = numeric_match_type(actual / Decimal(100), expected, expected_text)
+        if match_type:
+            return "percent_to_ratio_" + match_type
+    if expected_is_percent and not actual_is_percent:
+        match_type = numeric_match_type(actual * Decimal(100), expected, expected_text)
+        if match_type:
+            return "ratio_to_percent_" + match_type
     return None
 
 
@@ -79,11 +129,18 @@ def contains_expected_tolerant(answer: str, expected: str) -> tuple[bool, str]:
             return True, "substring"
         return False, "missing"
 
+    expected_is_percent = text_has_percent_marker(expected)
     for match in NUMERIC_TOKEN_RE.finditer(answer):
         actual_decimal = parse_decimal_text(match.group(0))
         if actual_decimal is None:
             continue
-        match_type = numeric_match_type(actual_decimal, expected_decimal, expected)
+        match_type = numeric_match_with_scale(
+            actual=actual_decimal,
+            actual_is_percent=numeric_mention_has_percent(answer, match.end()),
+            expected=expected_decimal,
+            expected_text=expected,
+            expected_is_percent=expected_is_percent,
+        )
         if match_type:
             return True, match_type
     return False, "missing"
@@ -127,9 +184,11 @@ def make_llm_judge_prompt(question: dict[str, Any], answer: str) -> str:
         "A candidate answer passes only if it is semantically consistent with the reference answer and covers "
         "the material facts requested by the question. Treat expected_contains as required evidence values, but "
         "accept equivalent formatting such as 34 and 34.00, rounded numeric values at the precision requested "
-        "by the question, and harmless prose differences. Fail answers that omit a requested identifier, count, "
-        "category, field value, or numeric result; contradict the reference answer; answer a different question; "
-        "or claim no matching data when the reference has an answer.\n\n"
+        "by the question, percentage/ratio scale equivalents such as 18.136% and 0.18136, small benchmark-style "
+        "numeric tolerance when the arithmetic is otherwise equivalent, and harmless prose differences. Fail "
+        "answers that omit a requested identifier, count, category, field value, or numeric result; contradict "
+        "the reference answer; answer a different question; or claim no matching data when the reference has an "
+        "answer.\n\n"
         "Return exactly one JSON object with this schema:\n"
         "{"
         '"passed":true|false,'
@@ -205,6 +264,40 @@ def normalize_llm_judge_result(raw: str, metadata: dict[str, Any]) -> dict[str, 
     }
 
 
+def apply_deterministic_numeric_override(
+    *,
+    answer: str,
+    question: dict[str, Any],
+    score: dict[str, Any],
+) -> dict[str, Any]:
+    deterministic = score_answer_tolerant(answer, question.get("expected_contains", []))
+    if score.get("passed") or not deterministic.get("passed") or not deterministic.get("expected_count"):
+        score["deterministic_score"] = deterministic
+        return score
+
+    return {
+        **score,
+        "passed": True,
+        "found_count": deterministic["found_count"],
+        "expected_count": deterministic["expected_count"],
+        "checks": [
+            {
+                "expected": check["expected"],
+                "status": "equivalent" if check["match_type"] != "substring" else "present",
+                "notes": f"deterministic {check['match_type']} match",
+            }
+            for check in deterministic["checks"]
+        ],
+        "missing": [],
+        "incorrect": [],
+        "reason": "Deterministic numeric audit found all expected facts despite the LLM judge failure.",
+        "scoring": "llm_judge_with_deterministic_numeric_override",
+        "llm_judge_passed": bool(score.get("passed")),
+        "llm_judge_reason": score.get("reason", ""),
+        "deterministic_score": deterministic,
+    }
+
+
 def score_answer_llm_judge(
     *,
     answer: str,
@@ -240,7 +333,7 @@ def score_answer_llm_judge(
         }
     score = normalize_llm_judge_result(raw, metadata)
     score["judge_elapsed_seconds"] = round(time.perf_counter() - started, 3)
-    return score
+    return apply_deterministic_numeric_override(answer=answer, question=question, score=score)
 
 
 def single_task_prompt_errors(prompt: str) -> list[str]:

@@ -1,0 +1,42 @@
+# MultiHiertt Mini MCD CLI Tools vs Original Source Tools
+
+- Created at: `2026-06-06T00:14:26`
+- MCD package: `D:\aibeaver-tests\datasets\multihiertt-mini\multihiertt-mini.mcd`
+- Original package: `D:\aibeaver-tests\datasets\multihiertt-mini\original_disconnected`
+- Original JSON: `D:\aibeaver-tests\datasets\multihiertt-mini\original_disconnected\dev_50.json`
+- Questions: `10` from `D:\aibeaver-tests\datasets\multihiertt-mini\qa_questions_50.jsonl`
+- Evaluator labels: `D:\aibeaver-tests\datasets\multihiertt-mini\answers.json`
+- Evaluator: shared per-question payload from `answers.json`; both modes use the same evaluator hash.
+- `mcd_cli_tools` materializes source data from the packed MCD file with local `mcd query-batch`, then gives the model one source-pack call.
+- Native remote MCP mode (`mcd_tools`) is skipped for now.
+- MCD CLI: `mcd`
+- MCD CLI available: `True`
+- `original_tools` gives the model original JSON/table conceptual tool contracts plus pre-materialized parsed source data.
+- `Tool calls` counts local MCD CLI query-batch materialization calls for `mcd_cli_tools`; `original_tools` is one-shot and should remain zero by design.
+- Modes: `mcd_cli_tools, original_tools`
+- Scoring mode: `llm_judge`
+
+| Provider | Mode | Model | EM | F1 | Passed | Failed | Scored | Total | Pass rate | Errors | Tool calls |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| openai | mcd_cli_tools | `gpt-5.4` | 0.800 | 0.800 | 8 | 2 | 10 | 10 | 80.0% | 0 | 10 |
+| openai | original_tools | `gpt-5.4` | 0.800 | 0.800 | 8 | 2 | 10 | 10 | 80.0% | 0 | 0 |
+
+| Provider | Mode | Input tokens | Output tokens | Total tokens | Total seconds | Avg seconds |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| openai | mcd_cli_tools | 233,944 | 1,188 | 235,132 | 24.4 | 2.4 |
+| openai | original_tools | 109,011 | 1,172 | 110,183 | 15.1 | 1.5 |
+
+## openai Matrix
+
+| # | Question ID | mcd_cli_tools | original_tools |
+| ---: | --- | --- | --- |
+| 1 | `multihiertt_mini_0001` | PASS | PASS |
+| 2 | `multihiertt_mini_0002` | PASS | FAIL |
+| 3 | `multihiertt_mini_0003` | PASS | PASS |
+| 4 | `multihiertt_mini_0004` | FAIL | PASS |
+| 5 | `multihiertt_mini_0005` | PASS | PASS |
+| 6 | `multihiertt_mini_0006` | FAIL | FAIL |
+| 7 | `multihiertt_mini_0007` | PASS | PASS |
+| 8 | `multihiertt_mini_0008` | PASS | PASS |
+| 9 | `multihiertt_mini_0009` | PASS | PASS |
+| 10 | `multihiertt_mini_0010` | PASS | PASS |

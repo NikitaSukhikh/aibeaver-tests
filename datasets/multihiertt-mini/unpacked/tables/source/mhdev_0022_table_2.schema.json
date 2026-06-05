@@ -1,0 +1,56 @@
+{
+  "id": "mhdev_0022_table_2",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "Column 0",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "General Insurance",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "Life Insurance & Retirement Services",
+      "nullable": true
+    },
+    {
+      "name": "c3",
+      "type": "string",
+      "label": "Financial Services",
+      "nullable": true
+    },
+    {
+      "name": "c4",
+      "type": "string",
+      "label": "Asset Management",
+      "nullable": true
+    },
+    {
+      "name": "c5",
+      "type": "string",
+      "label": "Other",
+      "nullable": true
+    },
+    {
+      "name": "c6",
+      "type": "string",
+      "label": "Total",
+      "nullable": true
+    }
+  ]
+}

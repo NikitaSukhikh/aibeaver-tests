@@ -1,0 +1,38 @@
+{
+  "id": "default",
+  "table": "mhdev_0041_table_4",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "Principal Concentrate and/or Syrup Plants"
+    },
+    {
+      "name": "c2",
+      "label": "Principal Beverage Manufacturing/Bottling Plants"
+    },
+    {
+      "name": "c3",
+      "label": "Distribution and Storage Warehouses"
+    },
+    {
+      "name": "c4",
+      "label": "Column 4"
+    },
+    {
+      "name": "c5",
+      "label": "Column 5"
+    },
+    {
+      "name": "c6",
+      "label": "Column 6"
+    }
+  ]
+}

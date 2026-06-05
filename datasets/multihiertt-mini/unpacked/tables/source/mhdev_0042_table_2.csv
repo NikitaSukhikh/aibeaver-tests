@@ -1,0 +1,9 @@
+row_index,c0,c1,c2,c3,c4,c5,c6
+1,"CMS Energy, including Consumers",,,,,,
+2,Consumers,$1.8,$1.8,$1.8,$1.8,$1.8,$9.0
+3,Enterprises,-,0.1,0.1,-,-,0.2
+4,Total CMS Energy,$1.8,$1.9,$1.9,$1.8,$1.8,$9.2
+5,Consumers,,,,,,
+6,Electric utility operations,$1.0,$0.8,$1.1,$1.1,$1.0,$5.0
+7,Gas utility operations,0.8,1.0,0.7,0.7,0.8,4.0
+8,Total Consumers,$1.8,$1.8,$1.8,$1.8,$1.8,$9.0

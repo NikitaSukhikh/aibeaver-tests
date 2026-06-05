@@ -1,0 +1,30 @@
+{
+  "id": "default",
+  "table": "mhdev_0050_table_3",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "December 31, 2009 Carrying Amounts"
+    },
+    {
+      "name": "c2",
+      "label": "Estimated Fair Value"
+    },
+    {
+      "name": "c3",
+      "label": "2008 Carrying Amounts"
+    },
+    {
+      "name": "c4",
+      "label": "Estimated Fair Value"
+    }
+  ]
+}

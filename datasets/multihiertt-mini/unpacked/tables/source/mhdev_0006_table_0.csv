@@ -1,0 +1,14 @@
+row_index,c0,c1,c2,c3
+1,,2008,2007,2006
+2,,(In millions),,
+3,Current:,,,
+4,Federal,$216,$424,$615
+5,State and local,10,15,39
+6,Foreign,372,200,144
+7,Subtotal,598,639,798
+8,Deferred:,,,
+9,Federal,"1,078","1,015",164
+10,State and local,-6,31,2
+11,Foreign,-90,-25,52
+12,Subtotal,982,"1,021",218
+13,Provision for income tax,"$1,580","$1,660","$1,016"

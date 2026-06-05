@@ -1,0 +1,34 @@
+{
+  "id": "default",
+  "table": "mhdev_0013_table_0",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Year"
+    },
+    {
+      "name": "c1",
+      "label": "Gallons Consumed-2 (Millions)"
+    },
+    {
+      "name": "c2",
+      "label": "Cost-2 (3) (Millions)"
+    },
+    {
+      "name": "c3",
+      "label": "Average Price Per Gallon-2 (3)"
+    },
+    {
+      "name": "c4",
+      "label": "Percentage of Total Operating Expense-2"
+    },
+    {
+      "name": "c5",
+      "label": "Column 5"
+    }
+  ]
+}

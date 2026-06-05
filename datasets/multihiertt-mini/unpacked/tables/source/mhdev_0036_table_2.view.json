@@ -1,0 +1,38 @@
+{
+  "id": "default",
+  "table": "mhdev_0036_table_2",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "Crude Oil Wells"
+    },
+    {
+      "name": "c2",
+      "label": "Natural Gas Wells"
+    },
+    {
+      "name": "c3",
+      "label": "Total"
+    },
+    {
+      "name": "c4",
+      "label": "Column 4"
+    },
+    {
+      "name": "c5",
+      "label": "Column 5"
+    },
+    {
+      "name": "c6",
+      "label": "Column 6"
+    }
+  ]
+}

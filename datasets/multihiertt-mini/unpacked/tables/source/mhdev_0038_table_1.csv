@@ -1,0 +1,9 @@
+row_index,c0,c1,c2,c3,c4,c5,c6,c7
+1,(Millions of Dollars),Electric,Gas,2018 Total,Electric,Gas,2017 Total,2018-2017Variation
+2,Operating revenues,$642,$249,$891,$642,$232,$874,$17
+3,Purchased power,208,—,208,191,—,191,17
+4,Gas purchased for resale,—,86,86,—,73,73,13
+5,Other operations and maintenance,233,72,305,232,64,296,9
+6,Depreciation and amortization,56,21,77,51,20,71,6
+7,"Taxes, other than income taxes",52,31,83,53,29,82,1
+8,Operating income,$93,$39,$132,$115,$46,$161,$-29

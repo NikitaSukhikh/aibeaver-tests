@@ -1,0 +1,42 @@
+{
+  "id": "default",
+  "table": "mhdev_0041_table_5",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Dollars in millions, except per share data"
+    },
+    {
+      "name": "c1",
+      "label": "2008"
+    },
+    {
+      "name": "c2",
+      "label": "2007-1"
+    },
+    {
+      "name": "c3",
+      "label": "Latam Transaction -1"
+    },
+    {
+      "name": "c4",
+      "label": "2007ExcludingLatamTransaction"
+    },
+    {
+      "name": "c5",
+      "label": "2006"
+    },
+    {
+      "name": "c6",
+      "label": "2008 Adjusted % Inc"
+    },
+    {
+      "name": "c7",
+      "label": "2007 Adjusted% Inc"
+    }
+  ]
+}

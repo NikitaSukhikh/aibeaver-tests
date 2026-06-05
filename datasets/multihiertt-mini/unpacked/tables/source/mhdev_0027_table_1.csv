@@ -1,0 +1,16 @@
+row_index,c0,c1,c2,c3,c4
+1,,2014,2013,Change,
+2,,(in millions),,,
+3,Revenues,,,,
+4,Distribution fees,$1,$1,$—,—%
+5,Net investment income (loss),-6,8,-14,NM
+6,Other revenues,9,6,3,50
+7,Total revenues,4,15,-11,-73
+8,Banking and deposit interest expense,—,—,—,—
+9,Total net revenues,4,15,-11,-73
+10,Expenses,,,,
+11,Distribution expenses,1,1,—,—
+12,Interest and debt expense,21,33,-12,-36
+13,General and administrative expense,212,210,2,1
+14,Total expenses,234,244,-10,-4
+15,Operating loss,$-230,$-229,$-1,—%

@@ -1,0 +1,38 @@
+{
+  "id": "mhdev_0008_table_1",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "Column 0",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "Capital",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "Operating",
+      "nullable": true
+    },
+    {
+      "name": "c3",
+      "type": "string",
+      "label": "Total FuturePayments",
+      "nullable": true
+    }
+  ]
+}

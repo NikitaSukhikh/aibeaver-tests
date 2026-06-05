@@ -1,0 +1,34 @@
+{
+  "id": "default",
+  "table": "mhdev_0025_table_0",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "In billions of dollars"
+    },
+    {
+      "name": "c1",
+      "label": "Citigroup parent company"
+    },
+    {
+      "name": "c2",
+      "label": "CGMHI-2"
+    },
+    {
+      "name": "c3",
+      "label": "Citigroup Funding Inc.-2"
+    },
+    {
+      "name": "c4",
+      "label": "Other Citigroup subsidiaries"
+    },
+    {
+      "name": "c5",
+      "label": "Column 5"
+    }
+  ]
+}

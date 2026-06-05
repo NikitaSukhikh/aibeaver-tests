@@ -1,0 +1,26 @@
+{
+  "id": "default",
+  "table": "mhdev_0049_table_0",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "Year Ended December"
+    },
+    {
+      "name": "c2",
+      "label": "Column 2"
+    },
+    {
+      "name": "c3",
+      "label": "Column 3"
+    }
+  ]
+}

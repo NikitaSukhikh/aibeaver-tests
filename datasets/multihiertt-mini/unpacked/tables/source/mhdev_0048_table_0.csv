@@ -1,0 +1,13 @@
+row_index,c0,c1,c2,c3,c4,c5
+1,(in millions),2015,2014,2013,2015 vs. 2014,2014 vs. 2013
+2,Revenues:,,,,,
+3,Premiums,"$14,085","$14,936","$15,302",-6%,-2%
+4,Policy fees,"2,557","2,453","2,252",4,9
+5,Net investment income,"8,322","9,082","9,352",-8,-3
+6,Other income,"2,105","1,998","1,754",5,14
+7,Benefits and expenses:,,,,,
+8,Policyholder benefits and losses incurred,"10,475","10,796","10,957",-3,-1
+9,Interest credited to policyholder account balances,"3,316","3,353","3,477",-1,-4
+10,Amortization of deferred policy acquisition costs,"2,887","2,759","2,836",5,-3
+11,General operating and other expenses*,"7,013","7,087","6,826",-1,4
+12,Pre-tax operating income,"$3,378","$4,474","$4,564",-24%,-2%

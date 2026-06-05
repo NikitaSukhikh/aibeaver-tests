@@ -1,0 +1,10 @@
+row_index,c0,c1,c2,c3,c4
+1,Capitalization Structure,Actual,Adjusted,Actual,Adjusted
+2,,(Millions of Dollars),,,
+3,Common Equity,"$3,963.3","$4,213.3","$3,802.1","$4,052.1"
+4,Preferred Stock of Subsidiary,30.4,30.4,30.4,30.4
+5,Long-Term Debt (including current maturities),"4,646.9","4,396.9","4,405.4","4,155.4"
+6,Short-Term Debt,669.9,669.9,657.9,657.9
+7,Total Capitalization,"$9,310.5","$9,310.5","$8,895.8","$8,895.8"
+8,Total Debt,"$5,316.8","$5,066.8","$5,063.3","$4,813.3"
+9,Ratio of Debt to Total Capitalization,57.1%,54.4%,56.9%,54.1%

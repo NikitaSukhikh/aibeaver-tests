@@ -1,0 +1,50 @@
+{
+  "id": "mhdev_0025_table_0",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "In billions of dollars",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "Citigroup parent company",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "CGMHI-2",
+      "nullable": true
+    },
+    {
+      "name": "c3",
+      "type": "string",
+      "label": "Citigroup Funding Inc.-2",
+      "nullable": true
+    },
+    {
+      "name": "c4",
+      "type": "string",
+      "label": "Other Citigroup subsidiaries",
+      "nullable": true
+    },
+    {
+      "name": "c5",
+      "type": "string",
+      "label": "Column 5",
+      "nullable": true
+    }
+  ]
+}

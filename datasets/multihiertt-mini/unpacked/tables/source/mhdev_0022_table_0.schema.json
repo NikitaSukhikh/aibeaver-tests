@@ -1,0 +1,38 @@
+{
+  "id": "mhdev_0022_table_0",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "(in millions)",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "2006",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "2005",
+      "nullable": true
+    },
+    {
+      "name": "c3",
+      "type": "string",
+      "label": "2004",
+      "nullable": true
+    }
+  ]
+}

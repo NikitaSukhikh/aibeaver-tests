@@ -1,0 +1,26 @@
+row_index,c0,c1,c2,c3,c4
+1,,2008,2007,Change,
+2,,"(in millions, except percentages)",,,
+3,Revenues,,,,
+4,Management and financial advice fees,"$2,899","$3,238",$-339,-10%
+5,Distribution fees,"1,565","1,762",-197,-11
+6,Net investment income,817,"2,014","-1,197",-59
+7,Premiums,"1,048","1,017",31,3
+8,Other revenues,766,724,42,6
+9,Total revenues,"7,095","8,755","-1,660",-19
+10,Banking and deposit interest expense,179,249,-70,-28
+11,Total net revenues,"6,916","8,506","-1,590",-19
+12,Expenses,,,,
+13,Distribution expenses,"1,912","2,011",-99,-5
+14,Interest credited to fixed accounts,790,847,-57,-7
+15,"Benefits, claims, losses and settlement expenses","1,125","1,179",-54,-5
+16,Amortization of deferred acquisition costs,933,551,382,69
+17,Interest and debt expense,109,112,-3,-3
+18,Separation costs,—,236,-236,-100
+19,General and administrative expense,"2,472","2,562",-90,-4
+20,Total expenses,"7,341","7,498",-157,-2
+21,Pretax income (loss),-425,"1,008","-1,433",NM
+22,Income tax provision (benefit),-333,202,-535,NM
+23,Net income (loss),-92,806,-898,NM
+24,Less: Net loss attributable to noncontrolling interests,-54,-8,-46,NM
+25,Net income (loss) attributable to Ameriprise Financial,$-38,$814,$-852,NM

@@ -1,0 +1,34 @@
+{
+  "id": "default",
+  "table": "mhdev_0050_table_0",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "2014"
+    },
+    {
+      "name": "c2",
+      "label": "Change"
+    },
+    {
+      "name": "c3",
+      "label": "2013"
+    },
+    {
+      "name": "c4",
+      "label": "Change"
+    },
+    {
+      "name": "c5",
+      "label": "2012"
+    }
+  ]
+}

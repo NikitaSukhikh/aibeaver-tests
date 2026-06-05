@@ -1,0 +1,26 @@
+{
+  "id": "default",
+  "table": "mhdev_0043_table_0",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "Total cost of shares purchased"
+    },
+    {
+      "name": "c2",
+      "label": "Total number of shares purchased"
+    },
+    {
+      "name": "c3",
+      "label": "Average price paid per share"
+    }
+  ]
+}

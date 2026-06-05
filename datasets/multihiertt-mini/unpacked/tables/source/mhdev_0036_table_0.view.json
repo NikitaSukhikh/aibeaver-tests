@@ -1,0 +1,18 @@
+{
+  "id": "default",
+  "table": "mhdev_0036_table_0",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Balance as of January 1, 2008"
+    },
+    {
+      "name": "c1",
+      "label": "$580"
+    }
+  ]
+}

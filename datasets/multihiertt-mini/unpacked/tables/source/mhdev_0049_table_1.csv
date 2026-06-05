@@ -1,0 +1,15 @@
+row_index,c0,c1,c2,c3,c4,c5
+1,,Basel III Standardized Transitional,,Basel III Advanced Transitional,,
+2,"(in millions,except ratios)","Dec 31, 2017","Dec 31, 2016",,"Dec 31, 2017","Dec 31,2016"
+3,Regulatory capital,,,,,
+4,CET1 capital,"$183,300","$182,967",,"$183,300","$182,967"
+5,Tier 1 capital(a),"208,644","208,112",,"208,644","208,112"
+6,Total capital,"238,395","239,553",,"227,933","228,592"
+7,Assets,,,,,
+8,Risk-weighted,"1,499,506","1,483,132",(e),"1,435,825","1,476,915"
+9,Adjusted average(b),"2,514,270","2,484,631",,"2,514,270","2,484,631"
+10,Capital ratios(c),,,,,
+11,CET1,12.2%,12.3%,(e),12.8%,12.4%
+12,Tier 1(a),13.9,14.0,(e),14.5,14.1
+13,Total,15.9,16.2,(e),15.9,15.5
+14,Tier 1 leverage(d),8.3,8.4,,8.3,8.4

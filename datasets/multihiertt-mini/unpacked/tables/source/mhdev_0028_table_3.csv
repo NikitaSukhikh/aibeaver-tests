@@ -1,0 +1,15 @@
+row_index,c0,c1,c2,c3,c4
+1,,Net Charge-offs,Net Charge-off Ratios-1,,
+2,(Dollars in millions),2011,2010,2011,2010
+3,Non-homebuilder,,,,
+4,Office,$126,$273,1.51%,2.49%
+5,Multi-family rental,36,116,0.52,1.21
+6,Shopping centers/retail,184,318,2.69,3.56
+7,Industrial/warehouse,88,59,1.94,1.07
+8,Multi-use,61,143,1.63,2.92
+9,Hotels/motels,23,45,0.86,1.02
+10,Land and land development,152,377,7.58,13.04
+11,Other,19,220,0.33,3.14
+12,Total non-homebuilder,689,"1,551",1.67,2.86
+13,Homebuilder,258,466,8.00,8.26
+14,Total commercial real estate,$947,"$2,017",2.13,3.37

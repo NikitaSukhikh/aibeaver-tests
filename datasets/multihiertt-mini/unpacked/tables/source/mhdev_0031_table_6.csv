@@ -1,0 +1,12 @@
+row_index,c0,c1,c2,c3,c4,c5,c6
+1,,Public,Private,Total,,,
+2,,Carrying amount,Gross unrealized losses,Carrying amount,Gross unrealized losses,Carrying amount,Gross unrealized losses
+3,,(in millions),,,,,
+4,Three months or less,$133.1,$56.5,$114.6,$32.1,$247.7,$88.6
+5,Greater than three to six months,88.8,12.7,297.1,74.3,385.9,87.0
+6,Greater than six to nine months,102.5,42.9,129.1,46.5,231.6,89.4
+7,Greater than nine to twelve months,163.0,65.9,44.5,43.7,207.5,109.6
+8,Greater than twelve to twenty-four months,242.0,151.7,351.8,239.5,593.8,391.2
+9,Greater than twenty-four to thirty-six months,41.2,26.1,13.3,21.4,54.5,47.5
+10,Greater than thirty-six months,100.3,29.7,100.9,30.3,201.2,60.0
+11,"Total fixed maturity securities, available-for-sale",$870.9,$385.5,"$1,051.3",$487.8,"$1,922.2",$873.3

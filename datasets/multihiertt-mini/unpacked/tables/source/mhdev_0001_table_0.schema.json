@@ -1,0 +1,50 @@
+{
+  "id": "mhdev_0001_table_0",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "(in millions)",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "Premiums and Other Considerations",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "Net Investment Income",
+      "nullable": true
+    },
+    {
+      "name": "c3",
+      "type": "string",
+      "label": "Net Realized Capital Gains (Losses)",
+      "nullable": true
+    },
+    {
+      "name": "c4",
+      "type": "string",
+      "label": "Total Revenues",
+      "nullable": true
+    },
+    {
+      "name": "c5",
+      "type": "string",
+      "label": "Operating Income",
+      "nullable": true
+    }
+  ]
+}

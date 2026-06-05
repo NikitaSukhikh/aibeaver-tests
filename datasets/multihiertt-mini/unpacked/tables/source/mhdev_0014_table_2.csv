@@ -1,0 +1,9 @@
+row_index,c0,c1,c2,c3,c4,c5
+1,,"September 30, 2009",% Incr. (Decr.),"September 30, 2008",% Incr. (Decr.),"September 30, 2007"
+2,,($ in 000's),,,,
+3,Revenues,,,,,
+4,Interest Income,"$ 7,597",-67%,"$ 22,824",-25%,"$ 30,478"
+5,Other,-444,71%,"-1,522",-123%,"6,696"
+6,Total Revenues,"7,153",-66%,"21,302",-43%,"37,174"
+7,Other Expense,"26,955",-34%,"40,973",28%,"31,921"
+8,Pre-tax (Loss) Income,"$ -19,802",-1%,"$ -19,671",-474%,"$ 5,253"

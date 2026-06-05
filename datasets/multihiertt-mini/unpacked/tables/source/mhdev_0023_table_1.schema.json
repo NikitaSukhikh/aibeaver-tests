@@ -1,0 +1,26 @@
+{
+  "id": "mhdev_0023_table_1",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "2014",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "$200",
+      "nullable": true
+    }
+  ]
+}

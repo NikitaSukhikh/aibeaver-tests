@@ -1,0 +1,7 @@
+row_index,c0,c1,c2,c3,c4,c5,c6
+1,"Millions of shares, except prices",Options,Weighted Average Exercise Price(£ Sterling),Options,Weighted Average Exercise Price(£ Sterling),Options,Weighted Average Exercise Price(£ Sterling)
+2,Outstanding at the beginning of year,10.7,13.85,16.4,14.99,23.1,14.06
+3,Forfeited during the year,-5.3,19.70,-3.9,21.90,-2.1,15.15
+4,Exercised during the year,-0.9,8.33,-1.8,6.70,-4.6,10.20
+5,Outstanding at the end of the year,4.5,7.85,10.7,13.85,16.4,14.99
+6,Exercisable at the end of the year,4.5,7.85,10.7,13.85,16.4,14.99

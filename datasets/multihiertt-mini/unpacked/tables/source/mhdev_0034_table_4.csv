@@ -1,0 +1,12 @@
+row_index,c0,c1,c2,c3
+1,,2013,2012,2011
+2,Shareholders’ equity,"$4,855.9","$4,904.5","$4,928.0"
+3,Deduct:,,,
+4,"Losses in other comprehensive income on available-for-sale debt securities and cash flow hedges, net of tax",-459.0,-315.4,-389.6
+5,"Goodwill and other intangible assets, net of deferred tax liabilities","1,654.2","1,899.4","1,947.5"
+6,Subtotal,"3,660.7","3,320.5","3,370.1"
+7,Deduct:,,,
+8,Disallowed servicing assets and deferred tax assets,"1,185.4","1,278.9","1,331.0"
+9,Tier 1 common,"$2,475.3","$2,041.6","$2,039.1"
+10,Total risk-weighted assets,"$17,991.9","$19,849.9","$21,668.1"
+11,Tier 1 common ratio (Tier 1 common / Total risk-weighted assets),13.8%,10.3%,9.4%

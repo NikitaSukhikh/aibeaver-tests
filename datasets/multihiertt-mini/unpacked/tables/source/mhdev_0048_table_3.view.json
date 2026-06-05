@@ -1,0 +1,30 @@
+{
+  "id": "default",
+  "table": "mhdev_0048_table_3",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "At December 31,"
+    },
+    {
+      "name": "c1",
+      "label": "2015 As Reported"
+    },
+    {
+      "name": "c2",
+      "label": "Column 2"
+    },
+    {
+      "name": "c3",
+      "label": "2014 As Reported"
+    },
+    {
+      "name": "c4",
+      "label": "Column 4"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+row_index,c0,c1,c2,c3,c4
+1,,2009,2008,Change,% Change
+2,,(In millions),,,
+3,Operating Revenues,,,,
+4,Premiums,$19,$27,$-8,-29.6%
+5,Net investment income,477,808,-331,-41.0%
+6,Other revenues,"1,092",184,908,493.5%
+7,Total operating revenues,"1,588","1,019",569,55.8%
+8,Operating Expenses,,,,
+9,Policyholder benefits and claims and policyholder dividends,4,46,-42,-91.3%
+10,Interest credited to policyholder account balances,—,7,-7,-100.0%
+11,Interest credited to bank deposits,163,166,-3,-1.8%
+12,Capitalization of DAC,—,-3,3,-100.0%
+13,Amortization of DAC and VOBA,3,5,-2,-40.0%
+14,Interest expense,"1,027","1,033",-6,-0.6%
+15,Other expenses,"1,336",699,637,91.1%
+16,Total operating expenses,"2,533","1,953",580,29.7%
+17,Provision for income tax expense (benefit),-617,-495,-122,-24.6%
+18,Operating earnings,-328,-439,111,25.3%
+19,Preferred stock dividends,122,125,-3,-2.4%
+20,Operating earnings available to common shareholders,$-450,$-564,$114,20.2%

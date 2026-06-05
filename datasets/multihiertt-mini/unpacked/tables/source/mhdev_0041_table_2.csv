@@ -1,0 +1,16 @@
+row_index,c0,c1,c2
+1,,(Dollars in thousands),
+2,Deferred tax assets:,,
+3,Tax loss and credit carryforwards,"$210,055","$136,046"
+4,Pension,"28,147","46,563"
+5,Reserves and accruals,"62,378","52,343"
+6,Other,"3,619","17,704"
+7,Less: valuation allowances,"-104,799","-104,520"
+8,Total deferred tax assets,"199,400","148,136"
+9,Deferred tax liabilities:,,
+10,"Property, plant and equipment","22,299","32,209"
+11,Intangibles — stock acquisitions,"553,245","321,707"
+12,Unremitted foreign earnings,"223,494","63,419"
+13,Other,228,466
+14,Total deferred tax liabilities,"799,266","417,801"
+15,Net deferred tax liability,"$-599,866","$-269,665"

@@ -1,0 +1,15 @@
+row_index,c0,c1,c2,c3,c4
+1,,Nonperforming Loans andForeclosed Properties-1,Utilized ReservableCriticized Exposure-2,,
+2,(Dollars in millions),2011,2010,2011,2010
+3,Non-homebuilder,,,,
+4,Office,$807,"$1,061","$2,375","$3,956"
+5,Multi-family rental,339,500,"1,604","2,940"
+6,Shopping centers/retail,561,"1,000","1,378","2,837"
+7,Industrial/warehouse,521,420,"1,317","1,878"
+8,Multi-use,345,483,971,"1,316"
+9,Hotels/motels,173,139,716,"1,191"
+10,Land and land development,530,820,749,"1,420"
+11,Other,223,168,997,"1,604"
+12,Total non-homebuilder,"3,499","4,591","10,107","17,142"
+13,Homebuilder,993,"1,963","1,418","3,376"
+14,Total commercial real estate,"$4,492","$6,554","$11,525","$20,518"

@@ -1,0 +1,26 @@
+{
+  "id": "default",
+  "table": "mhdev_0048_table_4",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "As of or for the Year Ended December 31, 2015"
+    },
+    {
+      "name": "c1",
+      "label": "Shares"
+    },
+    {
+      "name": "c2",
+      "label": "Weighted Average Exercise Price"
+    },
+    {
+      "name": "c3",
+      "label": "Weighted Average Remaining Contractual Life"
+    }
+  ]
+}

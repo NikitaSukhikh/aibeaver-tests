@@ -1,0 +1,18 @@
+{
+  "id": "default",
+  "table": "mhdev_0030_table_0",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "December 31, 2013 (In millions)"
+    }
+  ]
+}

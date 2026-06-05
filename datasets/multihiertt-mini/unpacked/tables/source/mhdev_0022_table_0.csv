@@ -1,0 +1,13 @@
+row_index,c0,c1,c2,c3
+1,Revenues(a):,,,
+2,Aircraft Leasing(b),"$4,143","$3,578","$3,136"
+3,Capital Markets(c)(d),-186,"3,260","1,278"
+4,Consumer Finance(e),"3,819","3,613","2,978"
+5,Other,234,74,103
+6,Total,"$8,010","$10,525","$7,495"
+7,Operating income (loss)(a):,,,
+8,Aircraft Leasing,$639,$679,$642
+9,Capital Markets(d),-873,"2,661",662
+10,Consumer Finance(f),761,876,786
+11,"Other, includingintercompany adjustments(g)",-3,60,90
+12,Total,$524,"$4,276","$2,180"

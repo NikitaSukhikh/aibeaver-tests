@@ -1,0 +1,26 @@
+{
+  "id": "mhdev_0030_table_2",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "Column 0",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "Other PostretirementBenefits (in millions)",
+      "nullable": true
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "default",
+  "table": "mhdev_0007_table_2",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "(Dollars in millions)"
+    },
+    {
+      "name": "c1",
+      "label": "Securities -1"
+    },
+    {
+      "name": "c2",
+      "label": "Derivatives -2"
+    },
+    {
+      "name": "c3",
+      "label": "Employee Benefit Plans -3"
+    },
+    {
+      "name": "c4",
+      "label": "Foreign Currency -4"
+    },
+    {
+      "name": "c5",
+      "label": "Total"
+    }
+  ]
+}

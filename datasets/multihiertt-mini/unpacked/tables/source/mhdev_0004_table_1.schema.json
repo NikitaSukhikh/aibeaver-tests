@@ -1,0 +1,62 @@
+{
+  "id": "mhdev_0004_table_1",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "2011",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "Entergy Arkansas",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "Entergy Gulf States Louisiana",
+      "nullable": true
+    },
+    {
+      "name": "c3",
+      "type": "string",
+      "label": "Entergy Louisiana",
+      "nullable": true
+    },
+    {
+      "name": "c4",
+      "type": "string",
+      "label": "Entergy Mississippi",
+      "nullable": true
+    },
+    {
+      "name": "c5",
+      "type": "string",
+      "label": "Entergy New Orleans",
+      "nullable": true
+    },
+    {
+      "name": "c6",
+      "type": "string",
+      "label": "Entergy Texas",
+      "nullable": true
+    },
+    {
+      "name": "c7",
+      "type": "string",
+      "label": "System Energy",
+      "nullable": true
+    }
+  ]
+}

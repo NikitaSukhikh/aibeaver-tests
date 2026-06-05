@@ -1,0 +1,80 @@
+{
+  "id": "mhdev_0012_table_4",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "Column 0",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "2018",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "2017",
+      "nullable": true
+    },
+    {
+      "name": "c3",
+      "type": "string",
+      "label": "2016",
+      "nullable": true
+    },
+    {
+      "name": "c4",
+      "type": "string",
+      "label": "2015",
+      "nullable": true
+    },
+    {
+      "name": "c5",
+      "type": "string",
+      "label": "2014",
+      "nullable": true
+    },
+    {
+      "name": "c6",
+      "type": "string",
+      "label": "Column 6",
+      "nullable": true
+    },
+    {
+      "name": "c7",
+      "type": "string",
+      "label": "Column 7",
+      "nullable": true
+    },
+    {
+      "name": "c8",
+      "type": "string",
+      "label": "Column 8",
+      "nullable": true
+    },
+    {
+      "name": "c9",
+      "type": "string",
+      "label": "Column 9",
+      "nullable": true
+    },
+    {
+      "name": "c10",
+      "type": "string",
+      "label": "Column 10",
+      "nullable": true
+    }
+  ]
+}

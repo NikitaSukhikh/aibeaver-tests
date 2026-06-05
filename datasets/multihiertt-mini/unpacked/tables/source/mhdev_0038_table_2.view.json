@@ -1,0 +1,38 @@
+{
+  "id": "default",
+  "table": "mhdev_0038_table_2",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "In millions"
+    },
+    {
+      "name": "c1",
+      "label": "Otherfixedincome"
+    },
+    {
+      "name": "c2",
+      "label": "Hedgefunds"
+    },
+    {
+      "name": "c3",
+      "label": "Privateequity"
+    },
+    {
+      "name": "c4",
+      "label": "Realestate"
+    },
+    {
+      "name": "c5",
+      "label": "Risk parity funds"
+    },
+    {
+      "name": "c6",
+      "label": "Total"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "default",
+  "table": "mhdev_0044_table_3",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "2009"
+    },
+    {
+      "name": "c2",
+      "label": "2008"
+    },
+    {
+      "name": "c3",
+      "label": "Column 3"
+    },
+    {
+      "name": "c4",
+      "label": "Column 4"
+    },
+    {
+      "name": "c5",
+      "label": "Column 5"
+    },
+    {
+      "name": "c6",
+      "label": "Column 6"
+    }
+  ]
+}

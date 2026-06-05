@@ -1,0 +1,23 @@
+row_index,c0,c1,c2,c3,c4,c5
+1,,"September 30, 2009",% Incr. (Decr.),"September 30, 2008",% Incr. (Decr.),"September 30, 2007"
+2,,($ in 000's),,,,
+3,Revenues:,,,,,
+4,Securities Commissions and Fees,"$ 1,262,810",-18%,"$ 1,532,290",5%,"$ 1,462,323"
+5,Interest,"65,589",-72%,"233,801",-28%,"326,601"
+6,Financial Service Fees,"125,038",-2%,"127,304",16%,"110,056"
+7,Other,"104,025",-2%,"106,380",20%,"88,502"
+8,Total Revenues,"1,557,462",-22%,"1,999,775",1%,"1,987,482"
+9,Interest Expense,"14,891",-89%,"141,474",-32%,"208,537"
+10,Net Revenues,"1,542,570",-17%,"1,858,301",4%,"1,778,945"
+11,Non-Interest Expenses:,,,,,
+12,Sales Commissions,"929,202",-19%,"1,144,727",6%,"1,082,457"
+13,Admin & Incentive Comp and Benefit Costs,"279,666",-4%,"289,937",15%,"251,684"
+14,Communications and Information Processing,"58,607",-2%,"59,753",7%,"55,822"
+15,Occupancy and Equipment,"79,072",8%,"73,253",18%,"61,961"
+16,Business Development,"55,488",-15%,"64,992",12%,"57,816"
+17,Clearance and Other,"55,951",18%,"47,369",1%,"46,983"
+18,Total Non-Interest Expenses,"1,457,986",-13%,"1,680,031",8%,"1,556,723"
+19,Income Before Taxes and Minority Interest,"84,584",-53%,"178,270",-20%,"222,222"
+20,Minority Interest,-289,,124,,-148
+21,Pre-tax Income,"$ 84,873",-52%,"$ 178,146",-20%,"$ 222,370"
+22,Margin on Net Revenues,5.5%,,9.6%,,12.5%

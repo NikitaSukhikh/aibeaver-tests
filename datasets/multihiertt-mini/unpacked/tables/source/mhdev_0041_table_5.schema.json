@@ -1,0 +1,62 @@
+{
+  "id": "mhdev_0041_table_5",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "Dollars in millions, except per share data",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "2008",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "2007-1",
+      "nullable": true
+    },
+    {
+      "name": "c3",
+      "type": "string",
+      "label": "Latam Transaction -1",
+      "nullable": true
+    },
+    {
+      "name": "c4",
+      "type": "string",
+      "label": "2007ExcludingLatamTransaction",
+      "nullable": true
+    },
+    {
+      "name": "c5",
+      "type": "string",
+      "label": "2006",
+      "nullable": true
+    },
+    {
+      "name": "c6",
+      "type": "string",
+      "label": "2008 Adjusted % Inc",
+      "nullable": true
+    },
+    {
+      "name": "c7",
+      "type": "string",
+      "label": "2007 Adjusted% Inc",
+      "nullable": true
+    }
+  ]
+}

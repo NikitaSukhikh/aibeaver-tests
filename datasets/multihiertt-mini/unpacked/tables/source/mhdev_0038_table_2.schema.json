@@ -1,0 +1,56 @@
+{
+  "id": "mhdev_0038_table_2",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "In millions",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "Otherfixedincome",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "Hedgefunds",
+      "nullable": true
+    },
+    {
+      "name": "c3",
+      "type": "string",
+      "label": "Privateequity",
+      "nullable": true
+    },
+    {
+      "name": "c4",
+      "type": "string",
+      "label": "Realestate",
+      "nullable": true
+    },
+    {
+      "name": "c5",
+      "type": "string",
+      "label": "Risk parity funds",
+      "nullable": true
+    },
+    {
+      "name": "c6",
+      "type": "string",
+      "label": "Total",
+      "nullable": true
+    }
+  ]
+}

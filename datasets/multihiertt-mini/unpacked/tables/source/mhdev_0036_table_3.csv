@@ -1,0 +1,20 @@
+row_index,c0,c1,c2,c3,c4
+1,,Gross,Net,Gross,Net
+2,(thousands),,,,
+3,United States,,,,
+4,Onshore,"1,535","1,012","1,815","1,318"
+5,Offshore,65,35,562,397
+6,Total United States,"1,600","1,047","2,377","1,715"
+7,International,,,,
+8,Equatorial Guinea,56,19,573,233
+9,Cameroon,-,-,"1,125",563
+10,Israel,62,29,"1,592",660
+11,North Sea-1,52,7,213,41
+12,China,7,4,-,-
+13,Suriname,-,-,"3,087","1,389"
+14,France-2,-,-,"2,808","2,036"
+15,Nicaragua,-,-,"1,977","1,977"
+16,Cyprus-3,-,-,"1,136",795
+17,India,-,-,694,347
+18,Total International,177,59,"13,205","8,041"
+19,Total,"1,777","1,106","15,582","9,756"

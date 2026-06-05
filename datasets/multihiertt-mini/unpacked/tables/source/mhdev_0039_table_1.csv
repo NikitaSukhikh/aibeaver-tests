@@ -1,0 +1,38 @@
+row_index,c0,c1,c2,c3,c4,c5,c6,c7
+1,,,Gross Derivative Assets,Gross Derivative Liabilities,,,,
+2,,,Trading,,,Trading,,
+3,,,Derivatives,,,Derivatives,,
+4,,,and,Qualifying,,and,Qualifying,
+5,,Contract/,Economic,Accounting,,Economic,Accounting,
+6,(Dollars in billions),Notional-1,Hedges,Hedges-2,Total,Hedges,Hedges-2,Total
+7,Interest rate contracts,,,,,,,
+8,Swaps,"$42,719.2","$1,193.9",$14.9,"$1,208.8","$1,187.9",$2.2,"$1,190.1"
+9,Futures and forwards,9.939.2,6.0,–,6.0,4.7,–,4.7
+10,Written options,"2,887.7",–,–,–,82.8,–,82.8
+11,Purchased options,"3,026.2",88.0,–,88.0,–,–,–
+12,Foreign exchange contracts,,,,,,,
+13,Swaps,630.1,26.5,3.7,30.2,28.5,2.1,30.6
+14,"Spot, futures and forwards","2,652.9",41.3,–,41.3,44.2,–,44.2
+15,Written options,439.6,–,–,–,13.2,–,13.2
+16,Purchased options,417.1,13.0,–,13.0,–,–,–
+17,Equity contracts,,,,,,,
+18,Swaps,42.4,1.7,–,1.7,2.0,–,2.0
+19,Futures and forwards,78.8,2.9,–,2.9,2.1,–,2.1
+20,Written options,242.7,–,–,–,19.4,–,19.4
+21,Purchased options,193.5,21.5,–,21.5,–,–,–
+22,Commodity contracts,,,,,,,
+23,Swaps,90.2,8.8,0.2,9.0,9.3,–,9.3
+24,Futures and forwards,413.7,4.1,–,4.1,2.8,–,2.8
+25,Written options,86.3,–,–,–,6.7,–,6.7
+26,Purchased options,84.6,6.6,–,6.6,–,–,–
+27,Credit derivatives,,,,,,,
+28,Purchased credit derivatives:,,,,,,,
+29,Credit default swaps,"2,184.7",69.8,–,69.8,34.0,–,34.0
+30,Total return swaps/other,26.0,0.9,–,0.9,0.2,–,0.2
+31,Written credit derivatives:,,,,,,,
+32,Credit default swaps,"2,133.5",33.3,–,33.3,63.2,–,63.2
+33,Total return swaps/other,22.5,0.5,–,0.5,0.5,–,0.5
+34,Gross derivative assets/liabilities,,"$1,518.8",$18.8,"$1,537.6","$1,501.5",$4.3,"$1,505.8"
+35,Less: Legally enforceable master netting agreements,,,,"-1,406.3",,,"-1,406.3"
+36,Less: Cash collateral applied,,,,-58.3,,,-43.6
+37,Total derivative assets/liabilities,,,,$73.0,,,$55.9

@@ -1,0 +1,26 @@
+{
+  "id": "default",
+  "table": "mhdev_0007_table_0",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "(Dollars in millions, except per share information; shares in thousands)"
+    },
+    {
+      "name": "c1",
+      "label": "2004"
+    },
+    {
+      "name": "c2",
+      "label": "2003"
+    },
+    {
+      "name": "c3",
+      "label": "2002"
+    }
+  ]
+}

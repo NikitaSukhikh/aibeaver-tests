@@ -1,0 +1,56 @@
+{
+  "id": "mhdev_0028_table_1",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "Table 52",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "Total Cross-border Exposure Exceeding One Percent of Total Assets-1",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "Column 2",
+      "nullable": true
+    },
+    {
+      "name": "c3",
+      "type": "string",
+      "label": "Column 3",
+      "nullable": true
+    },
+    {
+      "name": "c4",
+      "type": "string",
+      "label": "Column 4",
+      "nullable": true
+    },
+    {
+      "name": "c5",
+      "type": "string",
+      "label": "Column 5",
+      "nullable": true
+    },
+    {
+      "name": "c6",
+      "type": "string",
+      "label": "Column 6",
+      "nullable": true
+    }
+  ]
+}

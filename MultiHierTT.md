@@ -1,0 +1,1 @@
+This time the goal is not to use any other format like mcd, but to create some harness around plain source files, that would help model to answer more effectively. Harness means additional meta-clues as additional text files (json, markdown etc), that would guide model (without giving direct clues). 

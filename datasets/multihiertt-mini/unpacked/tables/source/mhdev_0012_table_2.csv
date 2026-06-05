@@ -1,0 +1,10 @@
+row_index,c0,c1,c2
+1,Discount rate,,
+2,Qualified pension,4.30%,3.60%
+3,Nonqualified pension,4.15%,3.45%
+4,Postretirement benefits,4.20%,3.55%
+5,Rate of compensation increase (average),3.50%,3.50%
+6,Assumed health care cost trend rate,,
+7,Initial trend,6.50%,6.75%
+8,Ultimate trend,5.00%,5.00%
+9,Year ultimate trend reached,2025,2025

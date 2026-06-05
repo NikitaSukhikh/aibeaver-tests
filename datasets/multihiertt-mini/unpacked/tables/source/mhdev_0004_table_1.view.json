@@ -1,0 +1,42 @@
+{
+  "id": "default",
+  "table": "mhdev_0004_table_1",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "2011"
+    },
+    {
+      "name": "c1",
+      "label": "Entergy Arkansas"
+    },
+    {
+      "name": "c2",
+      "label": "Entergy Gulf States Louisiana"
+    },
+    {
+      "name": "c3",
+      "label": "Entergy Louisiana"
+    },
+    {
+      "name": "c4",
+      "label": "Entergy Mississippi"
+    },
+    {
+      "name": "c5",
+      "label": "Entergy New Orleans"
+    },
+    {
+      "name": "c6",
+      "label": "Entergy Texas"
+    },
+    {
+      "name": "c7",
+      "label": "System Energy"
+    }
+  ]
+}

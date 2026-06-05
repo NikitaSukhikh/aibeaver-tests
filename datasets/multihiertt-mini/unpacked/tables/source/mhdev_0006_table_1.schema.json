@@ -1,0 +1,92 @@
+{
+  "id": "mhdev_0006_table_1",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "Column 0",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "December 31, 2008",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "Column 2",
+      "nullable": true
+    },
+    {
+      "name": "c3",
+      "type": "string",
+      "label": "Column 3",
+      "nullable": true
+    },
+    {
+      "name": "c4",
+      "type": "string",
+      "label": "Column 4",
+      "nullable": true
+    },
+    {
+      "name": "c5",
+      "type": "string",
+      "label": "Column 5",
+      "nullable": true
+    },
+    {
+      "name": "c6",
+      "type": "string",
+      "label": "Column 6",
+      "nullable": true
+    },
+    {
+      "name": "c7",
+      "type": "string",
+      "label": "Column 7",
+      "nullable": true
+    },
+    {
+      "name": "c8",
+      "type": "string",
+      "label": "Column 8",
+      "nullable": true
+    },
+    {
+      "name": "c9",
+      "type": "string",
+      "label": "Column 9",
+      "nullable": true
+    },
+    {
+      "name": "c10",
+      "type": "string",
+      "label": "Column 10",
+      "nullable": true
+    },
+    {
+      "name": "c11",
+      "type": "string",
+      "label": "Column 11",
+      "nullable": true
+    },
+    {
+      "name": "c12",
+      "type": "string",
+      "label": "Column 12",
+      "nullable": true
+    }
+  ]
+}

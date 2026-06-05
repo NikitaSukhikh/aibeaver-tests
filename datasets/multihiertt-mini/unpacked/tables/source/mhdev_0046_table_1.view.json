@@ -1,0 +1,26 @@
+{
+  "id": "default",
+  "table": "mhdev_0046_table_1",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "(in millions)"
+    },
+    {
+      "name": "c1",
+      "label": "December 31, 2009"
+    },
+    {
+      "name": "c2",
+      "label": "December 31, 2010"
+    },
+    {
+      "name": "c3",
+      "label": "February 16, 2011"
+    }
+  ]
+}

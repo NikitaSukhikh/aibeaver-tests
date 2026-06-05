@@ -1,0 +1,9 @@
+row_index,c0,c1,c2,c3,c4
+1,,Minimum,Maximum,Minimum,Maximum
+2,Asset Category,,,,
+3,U.S. Equities,2%,15%,25%,58%
+4,International Equities,2%,16%,2%,22%
+5,Fixed Maturities,50%,69%,3%,52%
+6,Short-term Investments,0%,15%,0%,44%
+7,Real Estate,2%,15%,0%,0%
+8,Other,0%,16%,0%,0%

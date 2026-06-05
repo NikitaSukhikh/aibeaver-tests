@@ -1,0 +1,8 @@
+row_index,c0,c1,c2,c3
+1,,2013,2012,2011
+2,"Balance, beginning of period",$325,$434,$459
+3,Sales inducements deferred,—,7,20
+4,Amortization — Unlock charge [1],-72,-82,-28
+5,Amortization charged to income,-33,-34,-17
+6,Amortization charged to business dispositions [2],-71,—,—
+7,"Balance, end of period",$149,$325,$434

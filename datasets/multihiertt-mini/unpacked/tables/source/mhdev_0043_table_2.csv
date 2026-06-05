@@ -1,0 +1,11 @@
+row_index,c0,c1,c2,c3,c4,c5,c6
+1,,2009,2010,2011,2012,2013,Total
+2,Fixed rate debt,,,,,,
+3,5.25% Guaranteed Bonds (Euro denominated),,,,,$714,$714
+4,2.125% Series B Convertible Debentures,,$321,,,,321
+5,5.14% Guaranteed Notes (Canadian dollar denominated),,203,,,,203
+6,5.875% Guaranteed Bonds (Euro denominated),,,$355,,,355
+7,6.5% Notes,,,,$647,,647
+8,Total fixed rate debt,$–,$524,$355,$647,$714,"$2,240"
+9,Variable rate debt,"$1,597",$245,$422,$771,$16,"$3,051"
+10,Total,"$1,597",$769,$777,"$1,418",$730,"$5,291"

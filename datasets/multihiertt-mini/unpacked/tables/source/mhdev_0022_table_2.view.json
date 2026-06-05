@@ -1,0 +1,38 @@
+{
+  "id": "default",
+  "table": "mhdev_0022_table_2",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "General Insurance"
+    },
+    {
+      "name": "c2",
+      "label": "Life Insurance & Retirement Services"
+    },
+    {
+      "name": "c3",
+      "label": "Financial Services"
+    },
+    {
+      "name": "c4",
+      "label": "Asset Management"
+    },
+    {
+      "name": "c5",
+      "label": "Other"
+    },
+    {
+      "name": "c6",
+      "label": "Total"
+    }
+  ]
+}

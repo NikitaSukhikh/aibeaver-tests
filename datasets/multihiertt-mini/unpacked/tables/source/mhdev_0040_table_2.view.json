@@ -1,0 +1,18 @@
+{
+  "id": "default",
+  "table": "mhdev_0040_table_2",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "2011"
+    },
+    {
+      "name": "c1",
+      "label": "$65.1"
+    }
+  ]
+}

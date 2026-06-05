@@ -1,0 +1,30 @@
+{
+  "id": "default",
+  "table": "mhdev_0005_table_1",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "December 31"
+    },
+    {
+      "name": "c2",
+      "label": "Average Balance"
+    },
+    {
+      "name": "c3",
+      "label": "Column 3"
+    },
+    {
+      "name": "c4",
+      "label": "Column 4"
+    }
+  ]
+}

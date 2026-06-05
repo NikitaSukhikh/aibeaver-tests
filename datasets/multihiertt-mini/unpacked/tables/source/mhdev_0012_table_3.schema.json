@@ -1,0 +1,50 @@
+{
+  "id": "mhdev_0012_table_3",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "Year ended December 31 – dollars in millions",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "2018",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "2017",
+      "nullable": true
+    },
+    {
+      "name": "c3",
+      "type": "string",
+      "label": "2016",
+      "nullable": true
+    },
+    {
+      "name": "c4",
+      "type": "string",
+      "label": "2015",
+      "nullable": true
+    },
+    {
+      "name": "c5",
+      "type": "string",
+      "label": "2014",
+      "nullable": true
+    }
+  ]
+}

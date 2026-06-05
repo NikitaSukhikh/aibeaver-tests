@@ -1,0 +1,11 @@
+row_index,c0,c1,c2,c3,c4,c5
+1,"Balance at December 31, 2007-1","$19,751","$9,288","$12,014",$—,"$41,053"
+2,Goodwill acquired during 2008,$88,$108,"$1,492",$—,"$1,688"
+3,Goodwill disposed of during 2008,—,—,"-1,378",—,"-1,378"
+4,Goodwill impaired during 2008,"-6,547",—,"-3,021",—,"-9,568"
+5,Other-1,"-4,006",775,"-1,432",—,"-4,663"
+6,"Balance at December 31, 2008-1","$9,286","$10,171","$7,675",$—,"$27,132"
+7,Goodwill acquired during 2009,$—,$—,$—,$—,$—
+8,Goodwill disposed of during 2009,—,-39,"-2,248",—,"-2,287"
+9,Other-1,307,225,15,—,547
+10,"Balance at December 31, 2009","$9,593","$10,357","$5,442",$—,"$25,392"

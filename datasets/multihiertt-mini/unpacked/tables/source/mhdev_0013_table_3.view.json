@@ -1,0 +1,26 @@
+{
+  "id": "default",
+  "table": "mhdev_0013_table_3",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "Bond Term"
+    },
+    {
+      "name": "c2",
+      "label": "Bond Authorized Amount(in millions)"
+    },
+    {
+      "name": "c3",
+      "label": "Amount Drawn(in millions)"
+    }
+  ]
+}

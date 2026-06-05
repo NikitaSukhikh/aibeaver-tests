@@ -1,0 +1,22 @@
+{
+  "id": "default",
+  "table": "mhdev_0044_table_0",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "October 30, 2010"
+    },
+    {
+      "name": "c2",
+      "label": "October 31, 2009"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+row_index,c0,c1,c2,c3
+1,"Shares issued, beginning of year","335,413,501","329,704,531","326,455,468"
+2,"Shares issued, net","2,000,000","3,140,194","1,213,663"
+3,Exercise of stock options,"168,720","2,365,401","1,830,004"
+4,Shares issued under Employee Stock Purchase Plan,"259,395","203,375","205,396"
+5,"Shares issued, end of year","337,841,616","335,413,501","329,704,531"
+6,"Common Shares in treasury, end of year","-1,316,959","-1,768,030",–
+7,"Shares issued and outstanding, end of year","336,524,657","333,645,471","329,704,531"
+8,Common Shares issued to employee trust,,,
+9,"Balance, beginning of year","-108,981","-117,231","-166,425"
+10,Shares redeemed,"7,500","8,250","49,194"
+11,"Balance, end of year","-101,481","-108,981","-117,231"

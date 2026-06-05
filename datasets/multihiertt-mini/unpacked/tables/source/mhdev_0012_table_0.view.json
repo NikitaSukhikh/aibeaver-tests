@@ -1,0 +1,22 @@
+{
+  "id": "default",
+  "table": "mhdev_0012_table_0",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Location"
+    },
+    {
+      "name": "c1",
+      "label": "Function Kraft linerboard mill Kraft linerboard mill Semi-chemical medium mill Semi-chemical medium mill"
+    },
+    {
+      "name": "c2",
+      "label": "Capacity (tons) 1,043,000 556,000 538,000 438,000"
+    }
+  ]
+}

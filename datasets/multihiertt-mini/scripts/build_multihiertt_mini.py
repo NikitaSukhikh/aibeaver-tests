@@ -77,7 +77,6 @@ def parse_args() -> argparse.Namespace:
 def reset_generated_outputs(output: Path) -> None:
     for relative in [
         "unpacked",
-        "original_disconnected",
         "qa_questions_50.jsonl",
         "answers.json",
         "ABOUT.md",
@@ -138,6 +137,107 @@ def parse_table(markup: str) -> TableParse:
     return TableParse(rows=parser.rows)
 
 
+def source_table_columns(parsed: TableParse) -> list[tuple[str, str, str, bool]]:
+    width = max((len(row) for row in parsed.rows), default=0)
+    header = parsed.rows[0] if parsed.rows else []
+    columns: list[tuple[str, str, str, bool]] = [("row_index", "integer", "Row Index", False)]
+    for index in range(width):
+        label = " ".join(header[index].split()) if index < len(header) and header[index].strip() else f"Column {index}"
+        columns.append((f"c{index}", "string", label, True))
+    return columns
+
+
+def source_table_csv_rows(parsed: TableParse) -> list[dict[str, Any]]:
+    if not parsed.rows:
+        return []
+    width = max(len(row) for row in parsed.rows)
+    body_rows = parsed.rows[1:]
+    rows: list[dict[str, Any]] = []
+    for row_index, parsed_row in enumerate(body_rows, start=1):
+        row: dict[str, Any] = {"row_index": row_index}
+        for col_index in range(width):
+            row[f"c{col_index}"] = parsed_row[col_index] if col_index < len(parsed_row) else ""
+        rows.append(row)
+    return rows
+
+
+def source_table_view(table_id: str, columns: list[tuple[str, str, str, bool]]) -> dict[str, Any]:
+    return {
+        "id": "default",
+        "table": table_id,
+        "display": "table",
+        "style": {"prominence": "primary"},
+        "columns": [
+            {"name": name, "label": label}
+            for name, _typ, label, _nullable in columns
+            if name != "row_index"
+        ],
+    }
+
+
+def append_table_directive(markdown_lines: list[str], *, mini_id: str, table_index: int, source_table_id: str) -> None:
+    markdown_lines.extend(
+        [
+            f"### Table {table_index}",
+            "",
+            ":::table",
+            f"ref: {source_table_id}",
+            f"table: {source_table_id}",
+            "view: default",
+            "display: table",
+            f"caption: {mini_id} Table {table_index}",
+            "numbering: auto",
+            ":::",
+            "",
+        ]
+    )
+
+
+def append_source_document(
+    markdown_lines: list[str],
+    *,
+    mini_id: str,
+    paragraphs: list[str],
+    parsed_tables: list[TableParse],
+    source_table_ids: list[str],
+) -> None:
+    markdown_lines.extend(
+        [
+            f"## {mini_id}",
+            "",
+        ]
+    )
+
+    emitted_tables: set[int] = set()
+    for text in paragraphs:
+        table_marker = re.fullmatch(r"\s*##\s*Table\s+(\d+)\s*##\s*", text)
+        if table_marker:
+            table_index = int(table_marker.group(1))
+            if table_index < len(parsed_tables):
+                append_table_directive(
+                    markdown_lines,
+                    mini_id=mini_id,
+                    table_index=table_index,
+                    source_table_id=source_table_ids[table_index],
+                )
+                emitted_tables.add(table_index)
+            else:
+                markdown_lines.extend([text, ""])
+            continue
+
+        markdown_lines.extend([text, ""])
+
+    for table_index, parsed in enumerate(parsed_tables):
+        if table_index in emitted_tables:
+            continue
+        append_table_directive(
+            markdown_lines,
+            mini_id=mini_id,
+            table_index=table_index,
+            source_table_id=source_table_ids[table_index],
+        )
+
+
 def write_json(path: Path, data: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -192,34 +292,9 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
     answer_rows: list[dict[str, Any]] = []
     original_examples: list[dict[str, Any]] = []
     selection_map_rows: list[dict[str, Any]] = []
+    source_document_tables: dict[str, dict[str, Any]] = {}
 
-    markdown_lines = [
-        "# MultiHiertt Mini Financial Reasoning Package",
-        "",
-        "This package is a 50-example curated subset of the public MultiHiertt dev split. "
-        "It is intended as an MCD example for hybrid reasoning over financial report prose, "
-        "multiple source tables, and benchmark questions.",
-        "",
-        "The source benchmark stores each document as paragraphs plus multiple HTML tables. "
-        "This MCD package normalizes those records into queryable CSV tables while preserving "
-        "the original example IDs, table indexes, row indexes, and column indexes.",
-        "",
-        "## Package Reference Map",
-        "",
-        "- `multihiertt_examples` stores one row per selected benchmark example.",
-        "- `multihiertt_paragraphs` stores source paragraphs.",
-        "- `multihiertt_source_tables` stores one row per original HTML table.",
-        "- `multihiertt_table_rows` stores each original table row as a fixed-width row matrix.",
-        "- `multihiertt_cells` stores each table cell with the original `table-row-column` ref and cell description.",
-        "- MultiHiertt cell refs use zero-based `table_index-row_index-col_index`, such as `0-2-4`.",
-        "",
-        "## Reasoning Notes",
-        "",
-        "For arithmetic questions, inspect the relevant source paragraphs and tables, then compute "
-        "the requested value from source numbers. The row matrix table is useful for scanning table "
-        "shape, while the cell table is better for exact cell lookup.",
-        "",
-    ]
+    markdown_lines: list[str] = []
 
     for index, item in enumerate(examples, start=1):
         mini_id = f"MHDEV-{index:04d}"
@@ -240,9 +315,19 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
         )
 
         parsed_tables = [parse_table(markup) for markup in item.get("tables", [])]
+        cell_refs_seen: set[str] = set()
         for table_index, parsed in enumerate(parsed_tables):
             source_table_id = f"{mini_id.lower().replace('-', '_')}_table_{table_index}"
             source_table_ids.append(source_table_id)
+            document_columns = source_table_columns(parsed)
+            source_document_tables[source_table_id] = {
+                "id": source_table_id,
+                "data": f"tables/source/{source_table_id}.csv",
+                "schema": f"tables/source/{source_table_id}.schema.json",
+                "view": f"tables/source/{source_table_id}.view.json",
+                "columns": document_columns,
+                "rows": source_table_csv_rows(parsed),
+            }
             source_table_rows.append(
                 {
                     "source_table_id": source_table_id,
@@ -268,6 +353,7 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
                 matrix_rows.append(row_record)
                 for col_index, cell_text in enumerate(parsed_row):
                     cell_ref = f"{table_index}-{row_index}-{col_index}"
+                    cell_refs_seen.add(cell_ref)
                     cell_rows.append(
                         {
                             "cell_id": f"{source_table_id}_r{row_index}_c{col_index}",
@@ -282,6 +368,33 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
                             "cell_description": item.get("table_description", {}).get(cell_ref, ""),
                         }
                     )
+        for cell_ref, description in item.get("table_description", {}).items():
+            if cell_ref in cell_refs_seen:
+                continue
+            try:
+                table_index_text, row_index_text, col_index_text = cell_ref.split("-", 2)
+                table_index = int(table_index_text)
+                row_index = int(row_index_text)
+                col_index = int(col_index_text)
+            except ValueError:
+                continue
+            if table_index >= len(source_table_ids):
+                continue
+            source_table_id = source_table_ids[table_index]
+            cell_rows.append(
+                {
+                    "cell_id": f"{source_table_id}_r{row_index}_c{col_index}_description",
+                    "source_table_id": source_table_id,
+                    "example_id": mini_id,
+                    "source_uid": uid,
+                    "table_index": table_index,
+                    "row_index": row_index,
+                    "col_index": col_index,
+                    "cell_ref": cell_ref,
+                    "cell_text": "",
+                    "cell_description": description,
+                }
+            )
 
         for paragraph_index, text in enumerate(item.get("paragraphs", [])):
             paragraph_rows.append(
@@ -338,21 +451,12 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
             }
         )
 
-        markdown_lines.extend(
-            [
-                f"## {mini_id}",
-                "",
-                f"Source UID: `{uid}`.",
-                "",
-                f"Question: {qa.get('question', '')}",
-                "",
-            ]
-        )
-        markdown_lines.extend(
-            [
-                f"Source tables for this example: `{', '.join(source_table_ids)}`.",
-                "",
-            ]
+        append_source_document(
+            markdown_lines,
+            mini_id=mini_id,
+            paragraphs=item.get("paragraphs", []),
+            parsed_tables=parsed_tables,
+            source_table_ids=source_table_ids,
         )
 
     columns_by_table: dict[str, list[tuple[str, str, str, bool]]] = {
@@ -422,57 +526,12 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
         write_json(tables_dir / f"{table_id}.schema.json", schema(table_id, primary_keys[table_id], columns))
         write_json(tables_dir / f"{table_id}.view.json", view(table_id, columns))
 
-    markdown_lines.extend(
-        [
-            "## Normalized Package Tables",
-            "",
-            ":::table",
-            "ref: multihiertt-examples-table",
-            "table: multihiertt_examples",
-            "view: default",
-            "display: table",
-            "caption: MultiHiertt selected examples",
-            "numbering: auto",
-            ":::",
-            "",
-            ":::table",
-            "ref: multihiertt-paragraphs-table",
-            "table: multihiertt_paragraphs",
-            "view: default",
-            "display: table",
-            "caption: MultiHiertt source paragraphs",
-            "numbering: auto",
-            ":::",
-            "",
-            ":::table",
-            "ref: multihiertt-source-tables-table",
-            "table: multihiertt_source_tables",
-            "view: default",
-            "display: table",
-            "caption: MultiHiertt source table metadata",
-            "numbering: auto",
-            ":::",
-            "",
-            ":::table",
-            "ref: multihiertt-table-rows-table",
-            "table: multihiertt_table_rows",
-            "view: default",
-            "display: table",
-            "caption: MultiHiertt row-matrix table data",
-            "numbering: auto",
-            ":::",
-            "",
-            ":::table",
-            "ref: multihiertt-cells-table",
-            "table: multihiertt_cells",
-            "view: default",
-            "display: table",
-            "caption: MultiHiertt cell-level source table",
-            "numbering: auto",
-            ":::",
-            "",
-        ]
-    )
+    for table_id, table_def in source_document_tables.items():
+        columns = table_def["columns"]
+        fieldnames = [name for name, _typ, _label, _nullable in columns]
+        write_csv(unpacked / table_def["data"], fieldnames, table_def["rows"])
+        write_json(unpacked / table_def["schema"], schema(table_id, ["row_index"], columns))
+        write_json(unpacked / table_def["view"], source_table_view(table_id, columns))
 
     content_dir.mkdir(parents=True, exist_ok=True)
     (content_dir / "main.md").write_text("\n".join(markdown_lines), encoding="utf-8")
@@ -486,6 +545,15 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
         }
         for table_id in columns_by_table
     ]
+    manifest_tables.extend(
+        {
+            "id": table_id,
+            "data": table_def["data"],
+            "schema": table_def["schema"],
+            "views": {"default": table_def["view"]},
+        }
+        for table_id, table_def in source_document_tables.items()
+    )
 
     write_json(
         unpacked / "manifest.json",
@@ -548,6 +616,11 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
             *[Path(f"tables/{table_id}.csv") for table_id in columns_by_table],
             *[Path(f"tables/{table_id}.schema.json") for table_id in columns_by_table],
             *[Path(f"tables/{table_id}.view.json") for table_id in columns_by_table],
+            *[
+                Path(path)
+                for table_def in source_document_tables.values()
+                for path in (table_def["data"], table_def["schema"], table_def["view"])
+            ],
         ]
     ]
     write_json(

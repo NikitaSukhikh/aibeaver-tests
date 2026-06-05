@@ -1,0 +1,30 @@
+{
+  "id": "default",
+  "table": "mhdev_0011_table_0",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "Outstanding Balance December 31,"
+    },
+    {
+      "name": "c2",
+      "label": "Stated Interest Rate December 31,"
+    },
+    {
+      "name": "c3",
+      "label": "Column 3"
+    },
+    {
+      "name": "c4",
+      "label": "Column 4"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "default",
+  "table": "mhdev_0001_table_0",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "(in millions)"
+    },
+    {
+      "name": "c1",
+      "label": "Premiums and Other Considerations"
+    },
+    {
+      "name": "c2",
+      "label": "Net Investment Income"
+    },
+    {
+      "name": "c3",
+      "label": "Net Realized Capital Gains (Losses)"
+    },
+    {
+      "name": "c4",
+      "label": "Total Revenues"
+    },
+    {
+      "name": "c5",
+      "label": "Operating Income"
+    }
+  ]
+}

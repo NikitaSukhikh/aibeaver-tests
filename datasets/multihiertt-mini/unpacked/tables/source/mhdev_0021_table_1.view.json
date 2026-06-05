@@ -1,0 +1,26 @@
+{
+  "id": "default",
+  "table": "mhdev_0021_table_1",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "Year Ended December 28, 2003"
+    },
+    {
+      "name": "c2",
+      "label": "Year Ended December 29, 2002"
+    },
+    {
+      "name": "c3",
+      "label": "Year Ended December 30, 2001"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "mhdev_0048_table_3",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "At December 31,",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "2015 As Reported",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "Column 2",
+      "nullable": true
+    },
+    {
+      "name": "c3",
+      "type": "string",
+      "label": "2014 As Reported",
+      "nullable": true
+    },
+    {
+      "name": "c4",
+      "type": "string",
+      "label": "Column 4",
+      "nullable": true
+    }
+  ]
+}

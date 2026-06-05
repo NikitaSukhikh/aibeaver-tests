@@ -1,0 +1,38 @@
+{
+  "id": "default",
+  "table": "mhdev_0042_table_2",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "2017"
+    },
+    {
+      "name": "c2",
+      "label": "2018"
+    },
+    {
+      "name": "c3",
+      "label": "2019"
+    },
+    {
+      "name": "c4",
+      "label": "2020"
+    },
+    {
+      "name": "c5",
+      "label": "2021"
+    },
+    {
+      "name": "c6",
+      "label": "Total"
+    }
+  ]
+}

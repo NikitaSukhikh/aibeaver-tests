@@ -1,0 +1,9 @@
+row_index,c0,c1,c2
+1,,(In Millions),
+2,less than 1 year,$31,$21
+3,1 year - 5 years,676,526
+4,5 years - 10 years,388,490
+5,10 years - 15 years,131,146
+6,15 years - 20 years,34,52
+7,20 years+,163,161
+8,Total,"$1,423","$1,396"

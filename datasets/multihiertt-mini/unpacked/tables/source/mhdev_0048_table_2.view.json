@@ -1,0 +1,34 @@
+{
+  "id": "default",
+  "table": "mhdev_0048_table_2",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Years Ended December 31,"
+    },
+    {
+      "name": "c1",
+      "label": "Column 1"
+    },
+    {
+      "name": "c2",
+      "label": "Column 2"
+    },
+    {
+      "name": "c3",
+      "label": "Column 3"
+    },
+    {
+      "name": "c4",
+      "label": "Percentage Change"
+    },
+    {
+      "name": "c5",
+      "label": "Column 5"
+    }
+  ]
+}

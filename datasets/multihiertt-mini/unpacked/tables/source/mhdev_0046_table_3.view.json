@@ -1,0 +1,26 @@
+{
+  "id": "default",
+  "table": "mhdev_0046_table_3",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "(in millions)"
+    },
+    {
+      "name": "c1",
+      "label": "2014"
+    },
+    {
+      "name": "c2",
+      "label": "2013"
+    },
+    {
+      "name": "c3",
+      "label": "2012"
+    }
+  ]
+}

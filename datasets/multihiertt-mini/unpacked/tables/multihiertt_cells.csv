@@ -5104,6 +5104,7 @@ mhdev_0022_table_2_r6_c3,mhdev_0022_table_2,MHDEV-0022,032145bd6fdd4712b05cd5495
 mhdev_0022_table_2_r6_c4,mhdev_0022_table_2,MHDEV-0022,032145bd6fdd4712b05cd5495f7c8f35,2,6,4,2-6-4,—,
 mhdev_0022_table_2_r6_c5,mhdev_0022_table_2,MHDEV-0022,032145bd6fdd4712b05cd5495f7c8f35,2,6,5,2-6-5,—,
 mhdev_0022_table_2_r6_c6,mhdev_0022_table_2,MHDEV-0022,032145bd6fdd4712b05cd5495f7c8f35,2,6,6,2-6-6,"3,844","Table 2 shows Securities lending invested collateral, at fair value of Total (In millions) is 3844 ."
+mhdev_0022_table_0_r7_c3_description,mhdev_0022_table_0,MHDEV-0022,032145bd6fdd4712b05cd5495f7c8f35,0,7,3,0-7-3,,Table 0 shows Operating income (loss): of 2004 is nan .
 mhdev_0023_table_0_r0_c0,mhdev_0023_table_0,MHDEV-0023,9df041a1ce9440c2aaaf77f773811fcb,0,0,0,0-0-0,,
 mhdev_0023_table_0_r0_c1,mhdev_0023_table_0,MHDEV-0023,9df041a1ce9440c2aaaf77f773811fcb,0,0,1,0-0-1,"For the years ended December 31,",
 mhdev_0023_table_0_r1_c0,mhdev_0023_table_0,MHDEV-0023,9df041a1ce9440c2aaaf77f773811fcb,0,1,0,0-1-0,,
@@ -5855,6 +5856,8 @@ mhdev_0026_table_3_r11_c1,mhdev_0026_table_3,MHDEV-0026,f1b58737e9a34f60b4882c8b
 mhdev_0026_table_3_r11_c2,mhdev_0026_table_3,MHDEV-0026,f1b58737e9a34f60b4882c8b7226395e,3,11,2,3-11-2,100%,Table 3 shows Total funding sources Collateralized financings: of As of December 2018.1 is 100% .
 mhdev_0026_table_3_r11_c3,mhdev_0026_table_3,MHDEV-0026,f1b58737e9a34f60b4882c8b7226395e,3,11,3,3-11-3,"$609,755","Table 3 shows Total funding sources Collateralized financings: of As of December 2017 is $609,755 ."
 mhdev_0026_table_3_r11_c4,mhdev_0026_table_3,MHDEV-0026,f1b58737e9a34f60b4882c8b7226395e,3,11,4,3-11-4,100%,Table 3 shows Total funding sources Collateralized financings: of As of December 2017.1 is 100% .
+mhdev_0026_table_2_r4_c1_description,mhdev_0026_table_2,MHDEV-0026,f1b58737e9a34f60b4882c8b7226395e,2,4,1,2-4-1,,Table 2 shows Loans on nonaccrual status and/or more than 90 days past due of As of December 2016 is Loans on nonaccrual status and/or more than 90 days past due .
+mhdev_0026_table_2_r4_c2_description,mhdev_0026_table_2,MHDEV-0026,f1b58737e9a34f60b4882c8b7226395e,2,4,2,2-4-2,,Table 2 shows Loans on nonaccrual status and/or more than 90 days past due of As of December 2015 is Loans on nonaccrual status and/or more than 90 days past due .
 mhdev_0027_table_0_r0_c0,mhdev_0027_table_0,MHDEV-0027,b86d620b573c45ffae2f15fb5a02e688,0,0,0,0-0-0,,
 mhdev_0027_table_0_r0_c1,mhdev_0027_table_0,MHDEV-0027,b86d620b573c45ffae2f15fb5a02e688,0,0,1,0-0-1,A.M. Best Company,
 mhdev_0027_table_0_r0_c2,mhdev_0027_table_0,MHDEV-0027,b86d620b573c45ffae2f15fb5a02e688,0,0,2,0-0-2,Standard & Poor's Rating Services,
@@ -7859,6 +7862,8 @@ mhdev_0037_table_3_r11_c1,mhdev_0037_table_3,MHDEV-0037,ae2ce9e907114dd786d4a024
 mhdev_0037_table_3_r11_c2,mhdev_0037_table_3,MHDEV-0037,ae2ce9e907114dd786d4a02437917f15,3,11,2,3-11-2,100%,Table 3 shows Total funding sources Collateralized financings: of As of December 2018.1 is 100% .
 mhdev_0037_table_3_r11_c3,mhdev_0037_table_3,MHDEV-0037,ae2ce9e907114dd786d4a02437917f15,3,11,3,3-11-3,"$609,755","Table 3 shows Total funding sources Collateralized financings: of As of December 2017 is $609,755 ."
 mhdev_0037_table_3_r11_c4,mhdev_0037_table_3,MHDEV-0037,ae2ce9e907114dd786d4a02437917f15,3,11,4,3-11-4,100%,Table 3 shows Total funding sources Collateralized financings: of As of December 2017.1 is 100% .
+mhdev_0037_table_2_r4_c1_description,mhdev_0037_table_2,MHDEV-0037,ae2ce9e907114dd786d4a02437917f15,2,4,1,2-4-1,,Table 2 shows Loans on nonaccrual status and/or more than 90 days past due of As of December 2016 is Loans on nonaccrual status and/or more than 90 days past due .
+mhdev_0037_table_2_r4_c2_description,mhdev_0037_table_2,MHDEV-0037,ae2ce9e907114dd786d4a02437917f15,2,4,2,2-4-2,,Table 2 shows Loans on nonaccrual status and/or more than 90 days past due of As of December 2015 is Loans on nonaccrual status and/or more than 90 days past due .
 mhdev_0038_table_0_r0_c0,mhdev_0038_table_0,MHDEV-0038,930465d2a8a14fbc9c3de57267a5f067,0,0,0,0-0-0,,
 mhdev_0038_table_0_r0_c1,mhdev_0038_table_0,MHDEV-0038,930465d2a8a14fbc9c3de57267a5f067,0,0,1,0-0-1,"For the Years Ended December 31,",
 mhdev_0038_table_0_r0_c2,mhdev_0038_table_0,MHDEV-0038,930465d2a8a14fbc9c3de57267a5f067,0,0,2,0-0-2,,

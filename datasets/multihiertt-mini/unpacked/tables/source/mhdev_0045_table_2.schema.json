@@ -1,0 +1,38 @@
+{
+  "id": "mhdev_0045_table_2",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "Plan Category",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "Number of Securitiesto be Issued UponExercise ofOutstanding Options, Warrants and Rights-1 (A)(B)",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "Weighted-AverageExercise Price ofOutstanding Options, Warrants and Rights",
+      "nullable": true
+    },
+    {
+      "name": "c3",
+      "type": "string",
+      "label": "Number of SecuritiesRemaining Available forFuture Issuance UnderEquity CompensationPlans (ExcludingSecurities Reflected in Column (A)) (C)",
+      "nullable": true
+    }
+  ]
+}

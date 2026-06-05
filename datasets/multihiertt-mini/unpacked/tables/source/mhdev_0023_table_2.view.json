@@ -1,0 +1,22 @@
+{
+  "id": "default",
+  "table": "mhdev_0023_table_2",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Non-vested Units"
+    },
+    {
+      "name": "c1",
+      "label": "Restricted Units (in thousands)"
+    },
+    {
+      "name": "c2",
+      "label": "Weighted-Average Grant-Date Fair Value"
+    }
+  ]
+}

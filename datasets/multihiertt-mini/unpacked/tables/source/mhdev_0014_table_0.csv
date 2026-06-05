@@ -1,0 +1,10 @@
+row_index,c0,c1,c2,c3
+1,Balance at beginning of year,$921,$856,$731
+2,Liabilities incurred,6,9,5
+3,Revisions to cash flow estimatesa,211,48,105
+4,Accretion expense,55,58,54
+5,Spending,-47,-49,-38
+6,Foreign currency translation adjustment,—,-1,-1
+7,Balance at end of year,"1,146",921,856
+8,Less current portion,-55,-31,-69
+9,Long-term portion,"$1,091",$890,$787

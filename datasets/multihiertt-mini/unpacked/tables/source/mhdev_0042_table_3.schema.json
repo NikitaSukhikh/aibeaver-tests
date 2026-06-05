@@ -1,0 +1,50 @@
+{
+  "id": "mhdev_0042_table_3",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "Period",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "Total Numberof SharesPurchased",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "AveragePrice Paidper Share",
+      "nullable": true
+    },
+    {
+      "name": "c3",
+      "type": "string",
+      "label": "Total Number ofShares NotPurchased as Part ofPublicly AnnouncedPlans or Programs (a)",
+      "nullable": true
+    },
+    {
+      "name": "c4",
+      "type": "string",
+      "label": "Total Number ofShares Purchased asPart of PubliclyAnnounced Plans orPrograms",
+      "nullable": true
+    },
+    {
+      "name": "c5",
+      "type": "string",
+      "label": "Approximate DollarValue of Shares thatMay Yet Be PurchasedUnder the Plans orPrograms (b)",
+      "nullable": true
+    }
+  ]
+}

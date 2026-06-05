@@ -1,0 +1,22 @@
+{
+  "id": "default",
+  "table": "mhdev_0039_table_2",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "(Dollars in millions)"
+    },
+    {
+      "name": "c1",
+      "label": "2010"
+    },
+    {
+      "name": "c2",
+      "label": "2009"
+    }
+  ]
+}

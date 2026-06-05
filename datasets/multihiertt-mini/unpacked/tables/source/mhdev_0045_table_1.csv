@@ -1,0 +1,34 @@
+row_index,c0,c1,c2,c3,c4,c5,c6
+1,(in millions),Non-U.S. Plans,U.S. Plans,Total,Non-U.S. Plans,U.S. Plans,Total
+2,2006,,,,,,
+3,Components of net periodic benefit cost:,,,,,,
+4,Service cost,$78,$130,$208,$4,$6,$10
+5,Interest cost,36,169,205,2,11,13
+6,Expected return on assets,-28,-201,-229,—,—,—
+7,Amortization of prior service cost,-9,-3,-12,—,-6,-6
+8,Amortization of transitional obligation,1,—,1,—,—,—
+9,Recognition of net actuarial (gains)/losses,16,75,91,—,—,—
+10,Other,1,6,7,—,—,—
+11,Net periodic benefit cost,$95,$176,$271,$6,$11,$17
+12,Total recognized in other comprehensive income,$38,$24,$62,$—,$—,$—
+13,Total recognized in net periodic benefit cost and other comprehensive income,$133,$200,$333,$6,$11,$17
+14,2005,,,,,,
+15,Components of net periodic benefit cost:,,,,,,
+16,Service cost,$71,$111,$182,$4,$5,$9
+17,Interest cost,32,153,185,2,11,13
+18,Expected return on assets,-21,-180,-201,—,—,—
+19,Amortization of prior service cost,-10,-3,-13,—,-6,-6
+20,Amortization of transitional obligation,1,—,1,—,—,—
+21,Recognition of net actuarial (gains)/losses,21,55,76,—,—,—
+22,Other,7,1,8,—,—,—
+23,Net periodic benefit cost,$101,$137,$238,$6,$10,$16
+24,2004,,,,,,
+25,Components of net periodic benefit cost:,,,,,,
+26,Service cost,$59,$101,$160,$3,$6,$9
+27,Interest cost,33,147,180,2,14,16
+28,Expected return on assets,-22,-170,-192,—,—,—
+29,Amortization of prior service cost,-8,—,-8,—,-7,-7
+30,Amortization of transitional obligation,2,—,2,—,—,—
+31,Recognition of net actuarial (gains)/losses,15,53,68,11,2,13
+32,Other*,-24,—,-24,3,—,3
+33,Net periodic benefit cost,$55,$131,$186,$19,$15,$34

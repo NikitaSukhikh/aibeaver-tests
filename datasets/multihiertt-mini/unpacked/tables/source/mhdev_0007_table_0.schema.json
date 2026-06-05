@@ -1,0 +1,38 @@
+{
+  "id": "mhdev_0007_table_0",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "(Dollars in millions, except per share information; shares in thousands)",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "2004",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "2003",
+      "nullable": true
+    },
+    {
+      "name": "c3",
+      "type": "string",
+      "label": "2002",
+      "nullable": true
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+row_index,c0,c1,c2,c3,c4,c5,c6
+1,(Millions of Dollars),2015,2014,2013,2015,2014,2013
+2,CHANGE IN BENEFIT OBLIGATION,,,,,,
+3,Benefit obligation at beginning of year,"$1,411","$1,395","$1,454","$1,203","$1,198","$1,238"
+4,Service cost,20,19,23,15,15,18
+5,Interest cost on accumulated postretirement benefit obligation,51,60,54,43,52,46
+6,Amendments,—,-12,—,—,—,—
+7,Net actuarial loss/(gain),-103,47,-42,-85,28,-20
+8,Benefits paid and administrative expenses,-127,-134,-136,-117,-125,-126
+9,Participant contributions,35,36,38,34,35,38
+10,Medicare prescription subsidy,—,—,4,—,—,4
+11,BENEFIT OBLIGATION AT END OF YEAR,"$1,287","$1,411","$1,395","$1,093","$1,203","$1,198"
+12,CHANGE IN PLAN ASSETS,,,,,,
+13,Fair value of plan assets at beginning of year,"$1,084","$1,113","$1,047",$950,$977,$922
+14,Actual return on plan assets,-6,59,153,-4,54,134
+15,Employer contributions,6,7,9,6,7,9
+16,EGWP payments,28,12,8,26,11,7
+17,Participant contributions,35,36,38,34,35,38
+18,Benefits paid,-153,-143,-142,-142,-134,-133
+19,FAIR VALUE OF PLAN ASSETS AT END OF YEAR,$994,"$1,084","$1,113",$870,$950,$977
+20,FUNDED STATUS,$-293,$-327,$-282,$-223,$-253,$-221
+21,Unrecognized net loss,$28,$78,$70,$4,$45,$54
+22,Unrecognized prior service costs,-51,-71,-78,-32,-46,-61

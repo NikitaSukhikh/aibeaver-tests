@@ -1,0 +1,32 @@
+{
+  "id": "mhdev_0029_table_1",
+  "primaryKey": [
+    "row_index"
+  ],
+  "columns": [
+    {
+      "name": "row_index",
+      "type": "integer",
+      "label": "Row Index",
+      "nullable": false
+    },
+    {
+      "name": "c0",
+      "type": "string",
+      "label": "In millions of dollars",
+      "nullable": true
+    },
+    {
+      "name": "c1",
+      "type": "string",
+      "label": "Liquidity Facilities",
+      "nullable": true
+    },
+    {
+      "name": "c2",
+      "type": "string",
+      "label": "LoanCommitments",
+      "nullable": true
+    }
+  ]
+}

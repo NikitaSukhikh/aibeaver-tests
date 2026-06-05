@@ -1,0 +1,30 @@
+{
+  "id": "default",
+  "table": "mhdev_0030_table_3",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "Pension"
+    },
+    {
+      "name": "c2",
+      "label": "Postretirement"
+    },
+    {
+      "name": "c3",
+      "label": "Column 3"
+    },
+    {
+      "name": "c4",
+      "label": "Column 4"
+    }
+  ]
+}

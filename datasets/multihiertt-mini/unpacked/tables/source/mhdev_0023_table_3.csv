@@ -1,0 +1,13 @@
+row_index,c0,c1,c2,c3,c4
+1,,Amount,Percent,Amount,Percent
+2,"Fixed maturities, available-for-sale (""AFS""), at fair value","$62,357",79.2%,"$85,922",81.6%
+3,"Fixed maturities, at fair value using the fair value option (""FVO"")",844,1.1%,"1,087",1.0%
+4,"Equity securities, AFS, at fair value",868,1.1%,890,0.8%
+5,Mortgage loans,"5,598",7.1%,"6,711",6.4%
+6,"Policy loans, at outstanding balance","1,420",1.8%,"1,997",1.9%
+7,Limited partnerships and other alternative investments,"3,040",3.9%,"3,015",2.9%
+8,Other investments [1],521,0.7%,"1,114",1.1%
+9,Short-term investments,"4,008",5.1%,"4,581",4.3%
+10,"Total investments excluding equity securities, trading","78,656",100%,"105,317",100%
+11,"Equity securities, trading, at fair value [2]","19,745",,"28,933",
+12,Total investments,"$98,401",,"$134,250",

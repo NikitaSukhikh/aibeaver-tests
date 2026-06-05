@@ -1,0 +1,30 @@
+{
+  "id": "default",
+  "table": "mhdev_0002_table_3",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "Column 0"
+    },
+    {
+      "name": "c1",
+      "label": "A.M. Best Company, Inc."
+    },
+    {
+      "name": "c2",
+      "label": "Standard & Poor's Ratings Services"
+    },
+    {
+      "name": "c3",
+      "label": "Moody's Investors Service"
+    },
+    {
+      "name": "c4",
+      "label": "Fitch Ratings Ltd."
+    }
+  ]
+}

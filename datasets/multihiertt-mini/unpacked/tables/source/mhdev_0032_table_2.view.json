@@ -1,0 +1,30 @@
+{
+  "id": "default",
+  "table": "mhdev_0032_table_2",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "c0",
+      "label": "$ in millions"
+    },
+    {
+      "name": "c1",
+      "label": "Before Consolidation-1"
+    },
+    {
+      "name": "c2",
+      "label": "Consolidated Investment Products"
+    },
+    {
+      "name": "c3",
+      "label": "Adjustments-1(2)"
+    },
+    {
+      "name": "c4",
+      "label": "Total"
+    }
+  ]
+}

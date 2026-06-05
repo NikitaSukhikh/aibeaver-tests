@@ -1,0 +1,42 @@
+{
+  "modes": [
+    {
+      "provider": "openai",
+      "mode": "mcd",
+      "model": "gpt-5.4",
+      "total": 10,
+      "scored": 10,
+      "passed": 6,
+      "failed": 4,
+      "errors": 0,
+      "pass_rate": 0.6,
+      "elapsed_seconds": 150.926,
+      "avg_elapsed_seconds": 15.093,
+      "tool_calls": 27,
+      "token_usage": {
+        "input_tokens": 274534,
+        "output_tokens": 7768,
+        "total_tokens": 282302
+      }
+    },
+    {
+      "provider": "openai",
+      "mode": "original",
+      "model": "gpt-5.4",
+      "total": 10,
+      "scored": 10,
+      "passed": 6,
+      "failed": 4,
+      "errors": 0,
+      "pass_rate": 0.6,
+      "elapsed_seconds": 21.249,
+      "avg_elapsed_seconds": 2.125,
+      "tool_calls": 0,
+      "token_usage": {
+        "input_tokens": 101144,
+        "output_tokens": 1128,
+        "total_tokens": 102272
+      }
+    }
+  ]
+}

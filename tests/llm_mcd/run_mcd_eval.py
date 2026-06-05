@@ -1278,7 +1278,7 @@ def summarize_mcd_observation(step: Any, action: dict[str, Any], observation: di
                 {
                     "columns": payload.get("columns"),
                     "row_count": payload.get("rowCount"),
-                    "rows": rows[:5],
+                    "rows": rows,
                 }
             )
         else:
@@ -1286,7 +1286,7 @@ def summarize_mcd_observation(step: Any, action: dict[str, Any], observation: di
     else:
         stdout = str(observation.get("stdout") or "")
         if stdout:
-            summary["stdout_preview"] = stdout[:2000]
+            summary["stdout"] = stdout
     return summary
 
 
@@ -1295,7 +1295,6 @@ def build_mcd_agent_state(trace: list[dict[str, Any]]) -> dict[str, Any]:
     successful_result_summaries: list[dict[str, Any]] = []
     failed_attempts: list[dict[str, Any]] = []
     ignored_response_objects: list[dict[str, Any]] = []
-    provisional_answers: list[dict[str, Any]] = []
     observed_columns_by_query: list[dict[str, Any]] = []
 
     for item in trace:
@@ -1303,14 +1302,13 @@ def build_mcd_agent_state(trace: list[dict[str, Any]]) -> dict[str, Any]:
         raw = str(item.get("raw") or "")
         response_objects = extract_json_objects(raw)
         if len(response_objects) > 1:
-            ignored_response_objects.extend(
-                {"step": item.get("step"), "object": value}
-                for value in response_objects[1:]
-            )
-        for value in response_objects:
-            if "answer" in value:
-                provisional_answers.append(
-                    {"step": item.get("step"), "answer": str(value.get("answer"))}
+            for value in response_objects[1:]:
+                ignored_response_objects.append(
+                    {
+                        "step": item.get("step"),
+                        "object_keys": sorted(str(key) for key in value),
+                        "ignored_because": "Only the first JSON object in a model response is executed.",
+                    }
                 )
 
         step_record: dict[str, Any] = {
@@ -1351,7 +1349,6 @@ def build_mcd_agent_state(trace: list[dict[str, Any]]) -> dict[str, Any]:
         "observed_columns_by_query": observed_columns_by_query,
         "failed_attempts": failed_attempts,
         "ignored_response_objects": ignored_response_objects,
-        "provisional_answers": provisional_answers,
     }
 
 
@@ -1397,7 +1394,7 @@ def make_mcd_agent_compact_prompt(
     return (
         "You are continuing an MCD package QA task. Use the current state below as persistent working memory for "
         "the same question. The state includes prior model responses, executed actions, tool observations, "
-        "successful result summaries, failed attempts, ignored extra response objects, and provisional answer text.\n\n"
+        "successful result summaries, failed attempts, and ignored extra response object metadata.\n\n"
         "Rules: return exactly one JSON object and no prose. Use "
         '{"answer":"..."} for the final answer or '
         '{"mcp_tool":"mcd_query","arguments":{"sql":"select ..."}} for MCD queries. Use '
@@ -1419,8 +1416,8 @@ def make_mcd_agent_compact_prompt(
         "booleans as 1/0. Use <> or != for text inequality; reserve "
         "IS/IS NOT for NULL checks. For counts plus first/worst/best rows, use CTEs or ordered subqueries so the "
         "same successful observation contains the count and row details. "
-        "Tool observations are source of truth; provisional answer text and ignored response objects are clues only "
-        "and must be checked against observations. Carry forward every observed table name, column name, row value, "
+        "Tool observations are source of truth; ignored response object metadata is never evidence. "
+        "Carry forward every observed table name, column name, row value, "
         "count, and failure. Use only exact column names already observed for a table, or inspect metadata before "
         "using uncertain columns. Before writing a query, form an answer contract from the question: requested "
         "output fields, source fields used in derived expressions, and source fields used in rules/filters must all "

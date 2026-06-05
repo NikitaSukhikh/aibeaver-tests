@@ -1,0 +1,34 @@
+{
+  "id": "default",
+  "table": "multihiertt_paragraphs",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "paragraph_id",
+      "label": "Paragraph ID"
+    },
+    {
+      "name": "example_id",
+      "label": "Example ID"
+    },
+    {
+      "name": "source_uid",
+      "label": "Source UID"
+    },
+    {
+      "name": "paragraph_index",
+      "label": "Paragraph Index"
+    },
+    {
+      "name": "paragraph_text",
+      "label": "Paragraph Text"
+    },
+    {
+      "name": "is_text_evidence",
+      "label": "Is Text Evidence"
+    }
+  ]
+}

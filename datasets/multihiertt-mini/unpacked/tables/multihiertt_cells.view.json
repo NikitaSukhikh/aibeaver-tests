@@ -1,0 +1,54 @@
+{
+  "id": "default",
+  "table": "multihiertt_cells",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "cell_id",
+      "label": "Cell ID"
+    },
+    {
+      "name": "source_table_id",
+      "label": "Source Table ID"
+    },
+    {
+      "name": "example_id",
+      "label": "Example ID"
+    },
+    {
+      "name": "source_uid",
+      "label": "Source UID"
+    },
+    {
+      "name": "table_index",
+      "label": "Table Index"
+    },
+    {
+      "name": "row_index",
+      "label": "Row Index"
+    },
+    {
+      "name": "col_index",
+      "label": "Column Index"
+    },
+    {
+      "name": "cell_ref",
+      "label": "Cell Ref"
+    },
+    {
+      "name": "cell_text",
+      "label": "Cell Text"
+    },
+    {
+      "name": "cell_description",
+      "label": "Cell Description"
+    },
+    {
+      "name": "is_table_evidence",
+      "label": "Is Table Evidence"
+    }
+  ]
+}

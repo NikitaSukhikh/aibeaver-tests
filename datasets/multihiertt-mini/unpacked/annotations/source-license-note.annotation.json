@@ -1,0 +1,17 @@
+{
+  "id": "source-license-note",
+  "target": {
+    "type": "path",
+    "path": "content/main.md"
+  },
+  "kind": "comment",
+  "status": "resolved",
+  "body": "This mini package is derived from the public MIT-licensed MultiHiertt dataset and keeps only a small selected subset.",
+  "author": "mcd-example-builder",
+  "created": "2026-06-05T00:00:00Z",
+  "labels": [
+    "source",
+    "license",
+    "benchmark"
+  ]
+}

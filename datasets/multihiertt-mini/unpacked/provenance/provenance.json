@@ -1,0 +1,267 @@
+{
+  "sources": [
+    {
+      "id": "multihiertt-dev-json",
+      "uri": "https://huggingface.co/datasets/yilunzhao/MultiHiertt/resolve/main/multihiertt_data/dev.json",
+      "mediaType": "application/json",
+      "title": "MultiHiertt dev split",
+      "createdAt": "2022-06-02T00:00:00Z"
+    }
+  ],
+  "actors": [
+    {
+      "id": "mcd-example-builder",
+      "kind": "agent",
+      "name": "MCD MultiHiertt mini builder"
+    }
+  ],
+  "tools": [
+    {
+      "id": "multihiertt-mini-builder",
+      "name": "build_multihiertt_mini.py",
+      "version": "0.1.0"
+    }
+  ],
+  "generatedAssets": [
+    {
+      "id": "content_main_md",
+      "path": "content/main.md",
+      "mediaType": "text/markdown",
+      "createdAt": "2026-06-05T00:00:00Z",
+      "sourceRefs": [
+        "multihiertt-dev-json"
+      ],
+      "toolRefs": [
+        "multihiertt-mini-builder"
+      ],
+      "actorRefs": [
+        "mcd-example-builder"
+      ]
+    },
+    {
+      "id": "tables_multihiertt_examples_csv",
+      "path": "tables/multihiertt_examples.csv",
+      "mediaType": "text/csv",
+      "createdAt": "2026-06-05T00:00:00Z",
+      "sourceRefs": [
+        "multihiertt-dev-json"
+      ],
+      "toolRefs": [
+        "multihiertt-mini-builder"
+      ],
+      "actorRefs": [
+        "mcd-example-builder"
+      ]
+    },
+    {
+      "id": "tables_multihiertt_paragraphs_csv",
+      "path": "tables/multihiertt_paragraphs.csv",
+      "mediaType": "text/csv",
+      "createdAt": "2026-06-05T00:00:00Z",
+      "sourceRefs": [
+        "multihiertt-dev-json"
+      ],
+      "toolRefs": [
+        "multihiertt-mini-builder"
+      ],
+      "actorRefs": [
+        "mcd-example-builder"
+      ]
+    },
+    {
+      "id": "tables_multihiertt_source_tables_csv",
+      "path": "tables/multihiertt_source_tables.csv",
+      "mediaType": "text/csv",
+      "createdAt": "2026-06-05T00:00:00Z",
+      "sourceRefs": [
+        "multihiertt-dev-json"
+      ],
+      "toolRefs": [
+        "multihiertt-mini-builder"
+      ],
+      "actorRefs": [
+        "mcd-example-builder"
+      ]
+    },
+    {
+      "id": "tables_multihiertt_table_rows_csv",
+      "path": "tables/multihiertt_table_rows.csv",
+      "mediaType": "text/csv",
+      "createdAt": "2026-06-05T00:00:00Z",
+      "sourceRefs": [
+        "multihiertt-dev-json"
+      ],
+      "toolRefs": [
+        "multihiertt-mini-builder"
+      ],
+      "actorRefs": [
+        "mcd-example-builder"
+      ]
+    },
+    {
+      "id": "tables_multihiertt_cells_csv",
+      "path": "tables/multihiertt_cells.csv",
+      "mediaType": "text/csv",
+      "createdAt": "2026-06-05T00:00:00Z",
+      "sourceRefs": [
+        "multihiertt-dev-json"
+      ],
+      "toolRefs": [
+        "multihiertt-mini-builder"
+      ],
+      "actorRefs": [
+        "mcd-example-builder"
+      ]
+    },
+    {
+      "id": "tables_multihiertt_examples_schema_json",
+      "path": "tables/multihiertt_examples.schema.json",
+      "mediaType": "application/json",
+      "createdAt": "2026-06-05T00:00:00Z",
+      "sourceRefs": [
+        "multihiertt-dev-json"
+      ],
+      "toolRefs": [
+        "multihiertt-mini-builder"
+      ],
+      "actorRefs": [
+        "mcd-example-builder"
+      ]
+    },
+    {
+      "id": "tables_multihiertt_paragraphs_schema_json",
+      "path": "tables/multihiertt_paragraphs.schema.json",
+      "mediaType": "application/json",
+      "createdAt": "2026-06-05T00:00:00Z",
+      "sourceRefs": [
+        "multihiertt-dev-json"
+      ],
+      "toolRefs": [
+        "multihiertt-mini-builder"
+      ],
+      "actorRefs": [
+        "mcd-example-builder"
+      ]
+    },
+    {
+      "id": "tables_multihiertt_source_tables_schema_json",
+      "path": "tables/multihiertt_source_tables.schema.json",
+      "mediaType": "application/json",
+      "createdAt": "2026-06-05T00:00:00Z",
+      "sourceRefs": [
+        "multihiertt-dev-json"
+      ],
+      "toolRefs": [
+        "multihiertt-mini-builder"
+      ],
+      "actorRefs": [
+        "mcd-example-builder"
+      ]
+    },
+    {
+      "id": "tables_multihiertt_table_rows_schema_json",
+      "path": "tables/multihiertt_table_rows.schema.json",
+      "mediaType": "application/json",
+      "createdAt": "2026-06-05T00:00:00Z",
+      "sourceRefs": [
+        "multihiertt-dev-json"
+      ],
+      "toolRefs": [
+        "multihiertt-mini-builder"
+      ],
+      "actorRefs": [
+        "mcd-example-builder"
+      ]
+    },
+    {
+      "id": "tables_multihiertt_cells_schema_json",
+      "path": "tables/multihiertt_cells.schema.json",
+      "mediaType": "application/json",
+      "createdAt": "2026-06-05T00:00:00Z",
+      "sourceRefs": [
+        "multihiertt-dev-json"
+      ],
+      "toolRefs": [
+        "multihiertt-mini-builder"
+      ],
+      "actorRefs": [
+        "mcd-example-builder"
+      ]
+    },
+    {
+      "id": "tables_multihiertt_examples_view_json",
+      "path": "tables/multihiertt_examples.view.json",
+      "mediaType": "application/json",
+      "createdAt": "2026-06-05T00:00:00Z",
+      "sourceRefs": [
+        "multihiertt-dev-json"
+      ],
+      "toolRefs": [
+        "multihiertt-mini-builder"
+      ],
+      "actorRefs": [
+        "mcd-example-builder"
+      ]
+    },
+    {
+      "id": "tables_multihiertt_paragraphs_view_json",
+      "path": "tables/multihiertt_paragraphs.view.json",
+      "mediaType": "application/json",
+      "createdAt": "2026-06-05T00:00:00Z",
+      "sourceRefs": [
+        "multihiertt-dev-json"
+      ],
+      "toolRefs": [
+        "multihiertt-mini-builder"
+      ],
+      "actorRefs": [
+        "mcd-example-builder"
+      ]
+    },
+    {
+      "id": "tables_multihiertt_source_tables_view_json",
+      "path": "tables/multihiertt_source_tables.view.json",
+      "mediaType": "application/json",
+      "createdAt": "2026-06-05T00:00:00Z",
+      "sourceRefs": [
+        "multihiertt-dev-json"
+      ],
+      "toolRefs": [
+        "multihiertt-mini-builder"
+      ],
+      "actorRefs": [
+        "mcd-example-builder"
+      ]
+    },
+    {
+      "id": "tables_multihiertt_table_rows_view_json",
+      "path": "tables/multihiertt_table_rows.view.json",
+      "mediaType": "application/json",
+      "createdAt": "2026-06-05T00:00:00Z",
+      "sourceRefs": [
+        "multihiertt-dev-json"
+      ],
+      "toolRefs": [
+        "multihiertt-mini-builder"
+      ],
+      "actorRefs": [
+        "mcd-example-builder"
+      ]
+    },
+    {
+      "id": "tables_multihiertt_cells_view_json",
+      "path": "tables/multihiertt_cells.view.json",
+      "mediaType": "application/json",
+      "createdAt": "2026-06-05T00:00:00Z",
+      "sourceRefs": [
+        "multihiertt-dev-json"
+      ],
+      "toolRefs": [
+        "multihiertt-mini-builder"
+      ],
+      "actorRefs": [
+        "mcd-example-builder"
+      ]
+    }
+  ]
+}

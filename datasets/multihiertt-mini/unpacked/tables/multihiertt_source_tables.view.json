@@ -1,0 +1,34 @@
+{
+  "id": "default",
+  "table": "multihiertt_source_tables",
+  "display": "table",
+  "style": {
+    "prominence": "primary"
+  },
+  "columns": [
+    {
+      "name": "source_table_id",
+      "label": "Source Table ID"
+    },
+    {
+      "name": "example_id",
+      "label": "Example ID"
+    },
+    {
+      "name": "source_uid",
+      "label": "Source UID"
+    },
+    {
+      "name": "table_index",
+      "label": "Table Index"
+    },
+    {
+      "name": "row_count",
+      "label": "Row Count"
+    },
+    {
+      "name": "max_column_count",
+      "label": "Max Column Count"
+    }
+  ]
+}

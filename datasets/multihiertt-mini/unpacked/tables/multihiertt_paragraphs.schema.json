@@ -1,0 +1,44 @@
+{
+  "id": "multihiertt_paragraphs",
+  "primaryKey": [
+    "paragraph_id"
+  ],
+  "columns": [
+    {
+      "name": "paragraph_id",
+      "type": "string",
+      "label": "Paragraph ID",
+      "nullable": false
+    },
+    {
+      "name": "example_id",
+      "type": "string",
+      "label": "Example ID",
+      "nullable": false
+    },
+    {
+      "name": "source_uid",
+      "type": "string",
+      "label": "Source UID",
+      "nullable": false
+    },
+    {
+      "name": "paragraph_index",
+      "type": "integer",
+      "label": "Paragraph Index",
+      "nullable": false
+    },
+    {
+      "name": "paragraph_text",
+      "type": "string",
+      "label": "Paragraph Text",
+      "nullable": false
+    },
+    {
+      "name": "is_text_evidence",
+      "type": "boolean",
+      "label": "Is Text Evidence",
+      "nullable": false
+    }
+  ]
+}

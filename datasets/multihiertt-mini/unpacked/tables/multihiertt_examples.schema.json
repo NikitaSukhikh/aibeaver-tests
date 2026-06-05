@@ -1,0 +1,74 @@
+{
+  "id": "multihiertt_examples",
+  "primaryKey": [
+    "example_id"
+  ],
+  "columns": [
+    {
+      "name": "example_id",
+      "type": "string",
+      "label": "Example ID",
+      "nullable": false
+    },
+    {
+      "name": "source_uid",
+      "type": "string",
+      "label": "Source UID",
+      "nullable": false
+    },
+    {
+      "name": "source_split",
+      "type": "string",
+      "label": "Source Split",
+      "nullable": false
+    },
+    {
+      "name": "question",
+      "type": "string",
+      "label": "Question",
+      "nullable": false
+    },
+    {
+      "name": "answer",
+      "type": "string",
+      "label": "Answer",
+      "nullable": false
+    },
+    {
+      "name": "question_type",
+      "type": "string",
+      "label": "Question Type",
+      "nullable": false
+    },
+    {
+      "name": "qa_program",
+      "type": "string",
+      "label": "QA Program",
+      "nullable": true
+    },
+    {
+      "name": "text_evidence_indices",
+      "type": "string",
+      "label": "Text Evidence Indices",
+      "nullable": true
+    },
+    {
+      "name": "table_evidence_refs",
+      "type": "string",
+      "label": "Table Evidence Refs",
+      "nullable": true
+    },
+    {
+      "name": "paragraph_count",
+      "type": "integer",
+      "label": "Paragraph Count",
+      "nullable": false
+    },
+    {
+      "name": "table_count",
+      "type": "integer",
+      "label": "Table Count",
+      "nullable": false
+    }
+  ]
+}

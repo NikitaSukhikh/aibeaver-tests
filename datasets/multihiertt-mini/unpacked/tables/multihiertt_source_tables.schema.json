@@ -1,0 +1,44 @@
+{
+  "id": "multihiertt_source_tables",
+  "primaryKey": [
+    "source_table_id"
+  ],
+  "columns": [
+    {
+      "name": "source_table_id",
+      "type": "string",
+      "label": "Source Table ID",
+      "nullable": false
+    },
+    {
+      "name": "example_id",
+      "type": "string",
+      "label": "Example ID",
+      "nullable": false
+    },
+    {
+      "name": "source_uid",
+      "type": "string",
+      "label": "Source UID",
+      "nullable": false
+    },
+    {
+      "name": "table_index",
+      "type": "integer",
+      "label": "Table Index",
+      "nullable": false
+    },
+    {
+      "name": "row_count",
+      "type": "integer",
+      "label": "Row Count",
+      "nullable": false
+    },
+    {
+      "name": "max_column_count",
+      "type": "integer",
+      "label": "Max Column Count",
+      "nullable": false
+    }
+  ]
+}

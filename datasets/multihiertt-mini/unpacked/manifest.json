@@ -1,0 +1,71 @@
+{
+  "format": "MCD",
+  "version": "0.1",
+  "profile": "MCD-Core",
+  "conformance": [
+    "MCD-Core"
+  ],
+  "entrypoint": "content/main.md",
+  "title": "MultiHiertt Mini Financial Reasoning Package",
+  "tables": [
+    {
+      "id": "multihiertt_examples",
+      "data": "tables/multihiertt_examples.csv",
+      "schema": "tables/multihiertt_examples.schema.json",
+      "views": {
+        "default": "tables/multihiertt_examples.view.json"
+      }
+    },
+    {
+      "id": "multihiertt_paragraphs",
+      "data": "tables/multihiertt_paragraphs.csv",
+      "schema": "tables/multihiertt_paragraphs.schema.json",
+      "views": {
+        "default": "tables/multihiertt_paragraphs.view.json"
+      }
+    },
+    {
+      "id": "multihiertt_source_tables",
+      "data": "tables/multihiertt_source_tables.csv",
+      "schema": "tables/multihiertt_source_tables.schema.json",
+      "views": {
+        "default": "tables/multihiertt_source_tables.view.json"
+      }
+    },
+    {
+      "id": "multihiertt_table_rows",
+      "data": "tables/multihiertt_table_rows.csv",
+      "schema": "tables/multihiertt_table_rows.schema.json",
+      "views": {
+        "default": "tables/multihiertt_table_rows.view.json"
+      }
+    },
+    {
+      "id": "multihiertt_cells",
+      "data": "tables/multihiertt_cells.csv",
+      "schema": "tables/multihiertt_cells.schema.json",
+      "views": {
+        "default": "tables/multihiertt_cells.view.json"
+      }
+    }
+  ],
+  "annotations": [
+    {
+      "id": "source-license-note",
+      "metadata": "annotations/source-license-note.annotation.json"
+    }
+  ],
+  "externalData": [
+    {
+      "id": "multihiertt-dev-json",
+      "uri": "https://huggingface.co/datasets/yilunzhao/MultiHiertt/resolve/main/multihiertt_data/dev.json",
+      "mediaType": "application/json",
+      "description": "Public MultiHiertt dev split used to derive the 50-example mini package.",
+      "access": {
+        "requiresNetwork": true,
+        "requiresAuthentication": false
+      }
+    }
+  ],
+  "provenance": "provenance/provenance.json"
+}

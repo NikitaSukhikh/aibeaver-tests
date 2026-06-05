@@ -29,36 +29,6 @@
       "nullable": false
     },
     {
-      "name": "answer",
-      "type": "string",
-      "label": "Answer",
-      "nullable": false
-    },
-    {
-      "name": "question_type",
-      "type": "string",
-      "label": "Question Type",
-      "nullable": false
-    },
-    {
-      "name": "qa_program",
-      "type": "string",
-      "label": "QA Program",
-      "nullable": true
-    },
-    {
-      "name": "text_evidence_indices",
-      "type": "string",
-      "label": "Text Evidence Indices",
-      "nullable": true
-    },
-    {
-      "name": "table_evidence_refs",
-      "type": "string",
-      "label": "Table Evidence Refs",
-      "nullable": true
-    },
-    {
       "name": "paragraph_count",
       "type": "integer",
       "label": "Paragraph Count",

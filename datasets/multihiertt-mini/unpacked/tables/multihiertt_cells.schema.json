@@ -63,12 +63,6 @@
       "type": "string",
       "label": "Cell Description",
       "nullable": true
-    },
-    {
-      "name": "is_table_evidence",
-      "type": "boolean",
-      "label": "Is Table Evidence",
-      "nullable": false
     }
   ]
 }

@@ -33,12 +33,6 @@
       "type": "string",
       "label": "Paragraph Text",
       "nullable": false
-    },
-    {
-      "name": "is_text_evidence",
-      "type": "boolean",
-      "label": "Is Text Evidence",
-      "nullable": false
     }
   ]
 }

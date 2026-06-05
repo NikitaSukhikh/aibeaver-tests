@@ -45,10 +45,6 @@
     {
       "name": "cell_description",
       "label": "Cell Description"
-    },
-    {
-      "name": "is_table_evidence",
-      "label": "Is Table Evidence"
     }
   ]
 }

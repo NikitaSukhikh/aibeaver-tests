@@ -23,26 +23,6 @@
       "label": "Question"
     },
     {
-      "name": "answer",
-      "label": "Answer"
-    },
-    {
-      "name": "question_type",
-      "label": "Question Type"
-    },
-    {
-      "name": "qa_program",
-      "label": "QA Program"
-    },
-    {
-      "name": "text_evidence_indices",
-      "label": "Text Evidence Indices"
-    },
-    {
-      "name": "table_evidence_refs",
-      "label": "Table Evidence Refs"
-    },
-    {
       "name": "paragraph_count",
       "label": "Paragraph Count"
     },

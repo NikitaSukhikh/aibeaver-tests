@@ -79,6 +79,7 @@ def reset_generated_outputs(output: Path) -> None:
         "unpacked",
         "original_disconnected",
         "qa_questions_50.jsonl",
+        "answers.json",
         "ABOUT.md",
         "multihiertt-mini.mcd",
     ]:
@@ -187,7 +188,8 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
     source_table_rows: list[dict[str, Any]] = []
     matrix_rows: list[dict[str, Any]] = []
     cell_rows: list[dict[str, Any]] = []
-    qa_rows: list[dict[str, Any]] = []
+    question_rows: list[dict[str, Any]] = []
+    answer_rows: list[dict[str, Any]] = []
     original_examples: list[dict[str, Any]] = []
     selection_map_rows: list[dict[str, Any]] = []
 
@@ -196,30 +198,26 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
         "",
         "This package is a 50-example curated subset of the public MultiHiertt dev split. "
         "It is intended as an MCD example for hybrid reasoning over financial report prose, "
-        "multiple source tables, cell-level evidence, and executable arithmetic programs.",
+        "multiple source tables, and benchmark questions.",
         "",
         "The source benchmark stores each document as paragraphs plus multiple HTML tables. "
         "This MCD package normalizes those records into queryable CSV tables while preserving "
-        "the original example IDs, table indexes, row indexes, column indexes, and evidence refs.",
+        "the original example IDs, table indexes, row indexes, and column indexes.",
         "",
         "## Package Reference Map",
         "",
         "- `multihiertt_examples` stores one row per selected benchmark example.",
-        "- `multihiertt_paragraphs` stores source paragraphs and marks text evidence rows.",
+        "- `multihiertt_paragraphs` stores source paragraphs.",
         "- `multihiertt_source_tables` stores one row per original HTML table.",
         "- `multihiertt_table_rows` stores each original table row as a fixed-width row matrix.",
-        "- `multihiertt_cells` stores each table cell with the original `table-row-column` ref.",
+        "- `multihiertt_cells` stores each table cell with the original `table-row-column` ref and cell description.",
         "- MultiHiertt cell refs use zero-based `table_index-row_index-col_index`, such as `0-2-4`.",
         "",
         "## Reasoning Notes",
         "",
-        "For arithmetic questions, use `qa_program` from `multihiertt_examples` as the gold "
-        "reasoning program when present. The program uses functions such as `add`, `subtract`, "
-        "`multiply`, and `divide`; intermediate results are referenced as `#0`, `#1`, and so on.",
-        "",
-        "For evidence-grounded answers, inspect `multihiertt_paragraphs.is_text_evidence` and "
-        "`multihiertt_cells.is_table_evidence`. The row matrix table is useful for scanning table "
-        "shape, while the cell table is better for exact evidence references.",
+        "For arithmetic questions, inspect the relevant source paragraphs and tables, then compute "
+        "the requested value from source numbers. The row matrix table is useful for scanning table "
+        "shape, while the cell table is better for exact cell lookup.",
         "",
     ]
 
@@ -237,8 +235,6 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
                 "source_uid": uid,
                 "source_split": "dev",
                 "question": qa.get("question", ""),
-                "answer": str(qa.get("answer", "")),
-                "question_type": qa.get("question_type", ""),
                 "source_record_index": index - 1,
             }
         )
@@ -284,7 +280,6 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
                             "cell_ref": cell_ref,
                             "cell_text": cell_text,
                             "cell_description": item.get("table_description", {}).get(cell_ref, ""),
-                            "is_table_evidence": str(cell_ref in table_evidence).lower(),
                         }
                     )
 
@@ -296,7 +291,6 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
                     "source_uid": uid,
                     "paragraph_index": paragraph_index,
                     "paragraph_text": text,
-                    "is_text_evidence": str(paragraph_index in text_evidence).lower(),
                 }
             )
 
@@ -306,21 +300,33 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
                 "source_uid": uid,
                 "source_split": "dev",
                 "question": qa.get("question", ""),
-                "answer": str(qa.get("answer", "")),
-                "question_type": qa.get("question_type", ""),
-                "qa_program": qa.get("program", ""),
-                "text_evidence_indices": ",".join(str(i) for i in sorted(text_evidence)),
-                "table_evidence_refs": ",".join(sorted(table_evidence)),
                 "paragraph_count": len(item.get("paragraphs", [])),
                 "table_count": len(parsed_tables),
             }
         )
 
-        qa_rows.append(
+        question_rows.append(
             {
                 "id": f"multihiertt_mini_{index:04d}",
                 "family_id": f"multihiertt_{qa.get('question_type', 'unknown')}",
+                "example_id": mini_id,
+                "source_uid": uid,
                 "prompt": f"In MultiHiertt mini example {mini_id}, answer the benchmark question: {qa.get('question', '')}",
+            }
+        )
+        answer_rows.append(
+            {
+                "id": f"multihiertt_mini_{index:04d}",
+                "family_id": f"multihiertt_{qa.get('question_type', 'unknown')}",
+                "example_id": mini_id,
+                "source_uid": uid,
+                "source_split": "dev",
+                "question": qa.get("question", ""),
+                "answer": str(qa.get("answer", "")),
+                "question_type": qa.get("question_type", ""),
+                "program": qa.get("program", ""),
+                "text_evidence": sorted(text_evidence),
+                "table_evidence": sorted(table_evidence),
                 "expected_contains": [mini_id, str(qa.get("answer", ""))],
                 "reference_answer": (
                     f"For {mini_id}, the answer is {qa.get('answer', '')}. "
@@ -340,25 +346,10 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
                 "",
                 f"Question: {qa.get('question', '')}",
                 "",
-                f"Gold answer: `{qa.get('answer', '')}`.",
-                "",
-                f"Question type: `{qa.get('question_type', '')}`.",
-                "",
             ]
         )
-        if qa.get("program"):
-            markdown_lines.extend(["Gold reasoning program:", "", f"`{qa['program']}`", ""])
-        evidence_paragraphs = [item["paragraphs"][i] for i in sorted(text_evidence) if i < len(item["paragraphs"])]
-        if evidence_paragraphs:
-            markdown_lines.extend(["Evidence paragraphs:", ""])
-            for paragraph_index in sorted(text_evidence):
-                if paragraph_index < len(item["paragraphs"]):
-                    markdown_lines.append(f"- Paragraph {paragraph_index}: {item['paragraphs'][paragraph_index]}")
-            markdown_lines.append("")
         markdown_lines.extend(
             [
-                f"Original table evidence refs: `{', '.join(sorted(table_evidence)) or 'none'}`.",
-                "",
                 f"Source tables for this example: `{', '.join(source_table_ids)}`.",
                 "",
             ]
@@ -370,11 +361,6 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
             ("source_uid", "string", "Source UID", False),
             ("source_split", "string", "Source Split", False),
             ("question", "string", "Question", False),
-            ("answer", "string", "Answer", False),
-            ("question_type", "string", "Question Type", False),
-            ("qa_program", "string", "QA Program", True),
-            ("text_evidence_indices", "string", "Text Evidence Indices", True),
-            ("table_evidence_refs", "string", "Table Evidence Refs", True),
             ("paragraph_count", "integer", "Paragraph Count", False),
             ("table_count", "integer", "Table Count", False),
         ],
@@ -384,7 +370,6 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
             ("source_uid", "string", "Source UID", False),
             ("paragraph_index", "integer", "Paragraph Index", False),
             ("paragraph_text", "string", "Paragraph Text", False),
-            ("is_text_evidence", "boolean", "Is Text Evidence", False),
         ],
         "multihiertt_source_tables": [
             ("source_table_id", "string", "Source Table ID", False),
@@ -414,7 +399,6 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
             ("cell_ref", "string", "Cell Ref", False),
             ("cell_text", "string", "Cell Text", True),
             ("cell_description", "string", "Cell Description", True),
-            ("is_table_evidence", "boolean", "Is Table Evidence", False),
         ],
     }
     primary_keys = {
@@ -483,7 +467,7 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
             "table: multihiertt_cells",
             "view: default",
             "display: table",
-            "caption: MultiHiertt cell-level evidence table",
+            "caption: MultiHiertt cell-level source table",
             "numbering: auto",
             ":::",
             "",
@@ -608,8 +592,6 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
             "source_uid",
             "source_split",
             "question",
-            "answer",
-            "question_type",
             "source_record_index",
         ],
         selection_map_rows,
@@ -624,8 +606,11 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
                 "",
                 "- `dev_50.json` is a direct JSON array of the selected upstream dev records.",
                 "- `selection_map.csv` maps local `MHDEV-000x` IDs to upstream `uid` values and source record indexes.",
+                "- `../answers.json` is the evaluator-only gold-label file for these examples.",
                 "",
-                "Use this directory for original-source or disconnected-source benchmark modes.",
+                "Use this directory for original-source or disconnected-source benchmark modes. When prompting a model, "
+                "strip evaluator fields from each record's `qa` object and provide only the source paragraphs, tables, "
+                "table descriptions, and question text.",
                 "",
                 "The full upstream dataset is not vendored here.",
                 "",
@@ -635,8 +620,23 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
     )
 
     with (output / "qa_questions_50.jsonl").open("w", encoding="utf-8") as f:
-        for row in qa_rows:
+        for row in question_rows:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+    write_json(
+        output / "answers.json",
+        {
+            "dataset": "multihiertt-mini",
+            "source_split": "dev",
+            "created_at": CREATED_AT,
+            "source_url": SOURCE_URL,
+            "notes": (
+                "Evaluator-only gold labels. Do not include this file in model prompts, MCD packages, "
+                "or original-source context."
+            ),
+            "answers": answer_rows,
+        },
+    )
 
     (output / "ABOUT.md").write_text(
         "\n".join(
@@ -645,8 +645,11 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
                 "",
                 "This directory contains a 50-example MCD package derived from the public MultiHiertt dev split.",
                 "",
-                "The package is designed to test MCD usage on acknowledged benchmark data: financial-report prose, "
-                "multiple source tables per example, cell-level evidence refs, and arithmetic reasoning programs.",
+                "The package is designed to test MCD usage on acknowledged benchmark data: financial-report prose "
+                "and multiple source tables per example.",
+                "",
+                "Model-facing files are answer-free. Evaluator labels, programs, and evidence refs live only in "
+                "`answers.json`, which is evaluator-only and must not be included in prompts.",
                 "",
                 "The full upstream dataset is not vendored here. Rebuild with:",
                 "",
@@ -655,7 +658,8 @@ def build(output: Path, examples: list[dict[str, Any]]) -> None:
                 "mcd pack datasets\\multihiertt-mini\\unpacked --output datasets\\multihiertt-mini\\multihiertt-mini.mcd",
                 "```",
                 "",
-                "`original_disconnected/` contains the same 50 examples in the original MultiHiertt JSON shape for MCD-vs-original benchmark comparisons.",
+                "`original_disconnected/` contains the same 50 examples in the original MultiHiertt JSON shape for MCD-vs-original benchmark comparisons. "
+                "For model prompts, use the original paragraphs, tables, table descriptions, and question text while excluding evaluator fields from `qa`.",
                 "",
                 "Upstream source: https://huggingface.co/datasets/yilunzhao/MultiHiertt",
                 "",

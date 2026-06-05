@@ -25,10 +25,6 @@
     {
       "name": "paragraph_text",
       "label": "Paragraph Text"
-    },
-    {
-      "name": "is_text_evidence",
-      "label": "Is Text Evidence"
     }
   ]
 }

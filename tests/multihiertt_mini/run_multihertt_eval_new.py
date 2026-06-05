@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compare MultiHiertt mini QA quality in MCD-extracted and original-JSON modes."""
+"""Compare one-shot MultiHiertt mini answers with model-visible source-tool packs."""
 
 from __future__ import annotations
 
@@ -37,14 +37,14 @@ DEFAULT_MCD_PATH = Path("datasets/multihiertt-mini/multihiertt-mini.mcd")
 DEFAULT_ORIGINAL_DIR = Path("datasets/multihiertt-mini/original_disconnected")
 DEFAULT_QUESTIONS_PATH = Path("datasets/multihiertt-mini/qa_questions_50.jsonl")
 DEFAULT_ANSWERS_PATH = Path("datasets/multihiertt-mini/answers.json")
-DEFAULT_RESULTS_ROOT = Path("results/multihiertt_mini")
+DEFAULT_RESULTS_ROOT = Path("results/multihiertt_mini_new")
 DEFAULT_OPENAI_MODEL = "gpt-5.4"
 DEFAULT_ANTHROPIC_MODEL = "claude-opus-4-5"
 DEFAULT_XAI_MODEL = "grok-4.3"
 DEFAULT_MAX_OUTPUT_TOKENS = 12000
 DEFAULT_JUDGE_MAX_OUTPUT_TOKENS = 2000
 PROVIDERS = ["openai", "anthropic", "xai"]
-MODES = ["mcd", "original", "mcd_agent", "original_agent"]
+MODES = ["mcd_tools", "original_tools"]
 MATRIX_COLUMNS = [f"c{index}" for index in range(12)]
 MULTIHIERTT_PROGRAM_OPS = {"add", "subtract", "multiply", "divide", "exp"}
 
@@ -414,7 +414,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--modes",
         default="all",
-        help="Comma-separated modes: all, mcd, original, mcd_agent, original_agent, or any subset.",
+        help="Comma-separated modes: all, mcd_tools, original_tools, or any subset.",
     )
     parser.add_argument("--providers", nargs="+", choices=PROVIDERS, default=["openai"])
     parser.add_argument("--openai-model", default=os.getenv("OPENAI_MODEL", DEFAULT_OPENAI_MODEL))
@@ -738,11 +738,15 @@ def make_source_prompt(question: dict[str, Any], source_payload: dict[str, Any],
         "source_record": source_payload,
     }
     return (
-        "You are answering one MultiHiertt mini benchmark question.\n\n"
+        "You are answering one MultiHiertt mini benchmark question in a one-shot source-tool-pack setting.\n\n"
         "Shared task rules:\n"
         f"{multihiertt_common_reasoning_rules()}\n\n"
         "Source access:\n"
         f"{source_access_note}\n\n"
+        "Important orchestration rule:\n"
+        "This benchmark permits exactly one model turn for this answer. You cannot actually call tools after this "
+        "message. Treat the tool contracts below as a guide to how the source payload is organized, and treat the "
+        "source payload as the already-materialized output of those tools.\n\n"
         "Return exactly one JSON object with this shape:\n"
         '{"example_id":"the provided example id","predicted_ans":"requested answer value only","predicted_program":[]}\n\n'
         "`predicted_program` may be a MultiHiertt program token list only if you are certain it exactly represents "
@@ -754,18 +758,27 @@ def make_source_prompt(question: dict[str, Any], source_payload: dict[str, Any],
 
 def original_source_note() -> str:
     return (
-        "The source record below is copied from the original MultiHiertt JSON shape with its `qa` evaluator object "
-        "removed. Paragraph text, HTML table strings, and table descriptions are otherwise preserved. Use only this "
-        "source record. Do not use outside knowledge and do not assume labels that are not in the source record."
+        "Original JSON source-tool pack. The model-visible tools are conceptual, but their data is already included "
+        "below:\n"
+        "- overview(): source counts and table inventory.\n"
+        "- paragraphs(indexes|query|limit): paragraph records from `paragraphs`.\n"
+        "- table(table_index,start_row,limit): parsed original HTML table rows from `tables`.\n"
+        "- search(query,scope,limit): search across paragraphs, table cells, and descriptions.\n"
+        "- cell_descriptions(cell_refs|query|limit): entries from `table_description`.\n"
+        "Use only the supplied parsed original JSON source record. Do not use hidden `qa` evaluator labels or "
+        "outside knowledge."
     )
 
 
 def mcd_source_note() -> str:
     return (
-        "The source record below is extracted deterministically from the MCD package before the model call. It "
-        "contains the same example's source paragraphs, source table row matrices, and cell descriptions from the "
-        "MCD tables. Use only this source record. Do not call tools, use outside knowledge, or assume labels that "
-        "are not in the source record.\n\n"
+        "MCD source-tool pack. The model-visible tools are conceptual, but their data is already included below:\n"
+        "- mcd_query over `multihiertt_examples`, `multihiertt_paragraphs`, `multihiertt_source_tables`, "
+        "`multihiertt_table_rows`, and `multihiertt_cells`.\n"
+        "- mcd_table for table inventory and row slices.\n"
+        "- mcd_search over paragraph text, cell text, and cell descriptions.\n"
+        "- mcd_schemas for column names and table meanings.\n"
+        "Use only the supplied MCD-extracted source record. Do not assume labels that are not in the source record.\n\n"
         f"{mcd_format_mode_guide()}"
     )
 
@@ -1411,6 +1424,7 @@ def run_source_mode(
             "metadata": metadata,
             "trace": trace,
             "tool_calls": 0,
+            "one_shot_tool_pack": True,
             "elapsed_seconds": round(time.perf_counter() - started, 3),
         }
         row["score"] = score_or_none(
@@ -1568,7 +1582,7 @@ def write_summary(
     rows_by_key: dict[tuple[str, str], list[dict[str, Any]]],
 ) -> None:
     lines = [
-        "# MultiHiertt Mini MCD vs Original",
+        "# MultiHiertt Mini One-Shot Source Tool Packs",
         "",
         f"- Created at: `{created_at}`",
         f"- MCD package: `{args.mcd_path}`",
@@ -1577,8 +1591,10 @@ def write_summary(
         f"- Questions: `{len(questions)}` from `{args.questions_path}`",
         f"- Evaluator labels: `{args.answers_path}`",
         "- Evaluator: shared per-question payload from `answers.json`; both modes use the same evaluator hash.",
-        "- Format modes: `mcd` and `original` use one model call per question and no model-visible tools.",
-        "- Agent modes: `mcd_agent` uses MCD MCP tools; `original_agent` uses original JSON source-inspection tools.",
+        "- Both modes use exactly one provider call per question.",
+        "- `mcd_tools` gives the model MCD-specific conceptual tool contracts plus pre-materialized MCD source data.",
+        "- `original_tools` gives the model original JSON/table conceptual tool contracts plus pre-materialized parsed source data.",
+        "- No runtime MCP, SQL, or JSON-table tool calls are executed after the model response.",
         f"- Modes: `{', '.join(modes)}`",
         f"- Scoring mode: `{args.scoring_mode}`",
         "",
@@ -1644,9 +1660,9 @@ def main() -> int:
     for path in (args.questions_path, args.answers_path):
         if not path.exists():
             raise FileNotFoundError(path)
-    if any(mode in modes for mode in ("mcd", "mcd_agent")) and not args.mcd_path.exists():
+    if "mcd_tools" in modes and not args.mcd_path.exists():
         raise FileNotFoundError(args.mcd_path)
-    if any(mode in modes for mode in ("original", "original_agent")):
+    if "original_tools" in modes:
         if not args.original_dir.exists():
             raise FileNotFoundError(args.original_dir)
         if not args.original_json.exists():
@@ -1660,27 +1676,19 @@ def main() -> int:
 
     original_records_by_example_id = (
         load_original_records(args.original_dir, args.original_json, questions)
-        if any(mode in modes for mode in ("original", "original_agent"))
+        if "original_tools" in modes
         else {}
     )
     mcd_records_by_example_id = (
         load_mcd_source_records(args.mcd_path, questions)
-        if "mcd" in modes
+        if "mcd_tools" in modes
         else {}
     )
-    original_agent_records_by_example_id = (
+    original_tools_records_by_example_id = (
         load_original_agent_records(original_records_by_example_id, questions)
-        if "original_agent" in modes
+        if "original_tools" in modes
         else {}
     )
-    original_agent_index = (
-        original_agent_dataset_index(original_agent_records_by_example_id)
-        if "original_agent" in modes
-        else ""
-    )
-    mcd_agent_summary_text = mcd_eval.build_mcd_summary(args.mcd_path) if "mcd_agent" in modes else ""
-    if "mcd_agent" in modes:
-        install_mcd_agent_prompt_patch()
     output_dir = make_output_dir(args.results_root)
     created_at = datetime.now().isoformat(timespec="seconds")
     plain_eval.write_json(
@@ -1712,13 +1720,15 @@ def main() -> int:
             },
             "judge_provider": args.judge_provider,
             "judge_model": args.judge_model,
-            "format_modes": {
-                "mcd": "single model call over deterministic pre-model extraction from MCD tables",
-                "original": "single model call over original JSON source record",
-            },
-            "agent_modes": {
-                "mcd_agent": "multi-step agent using MCD MCP tools",
-                "original_agent": "multi-step agent using original JSON source-inspection tools",
+            "one_shot_tool_pack_modes": {
+                "mcd_tools": (
+                    "single model call with MCD-specific conceptual tool contracts and pre-materialized MCD "
+                    "table/paragraph/cell-description payload"
+                ),
+                "original_tools": (
+                    "single model call with original JSON conceptual tools and pre-materialized parsed "
+                    "paragraph/table/cell-description payload"
+                ),
             },
             "max_tool_steps": args.max_tool_steps,
             "mcd_mcp": args.mcd_mcp,
@@ -1729,7 +1739,7 @@ def main() -> int:
             "max_output_tokens": args.max_output_tokens,
             "temperature": args.temperature,
             "dry_run": args.dry_run,
-            "prompt_profile": "multihiertt_official_eval_shape_with_mcd_format_and_agentic_guides",
+            "prompt_profile": "multihiertt_one_shot_source_tool_packs",
         },
     )
 
@@ -1738,36 +1748,20 @@ def main() -> int:
     rows_by_key: dict[tuple[str, str], list[dict[str, Any]]] = {}
     for config in configs:
         for mode in modes:
-            if mode == "mcd":
+            if mode == "mcd_tools":
                 rows = run_source_mode(
-                    mode="mcd",
+                    mode="mcd_tools",
                     source_records_by_example_id=mcd_records_by_example_id,
                     source_access_note=mcd_source_note(),
                     questions=questions,
                     config=config,
                     args=args,
                 )
-            elif mode == "original":
-                rows = run_source_mode(
-                    mode="original",
-                    source_records_by_example_id=original_records_by_example_id,
-                    source_access_note=original_source_note(),
-                    questions=questions,
-                    config=config,
-                    args=args,
-                )
-            elif mode == "mcd_agent":
-                rows = run_mcd_agent_mode(
-                    mcd_path=args.mcd_path,
-                    mcd_summary_text=mcd_agent_summary_text,
-                    questions=questions,
-                    config=config,
-                    args=args,
-                )
             else:
-                rows = run_original_agent_mode(
-                    records_by_example_id=original_agent_records_by_example_id,
-                    dataset_index=original_agent_index,
+                rows = run_source_mode(
+                    mode="original_tools",
+                    source_records_by_example_id=original_tools_records_by_example_id,
+                    source_access_note=original_source_note(),
                     questions=questions,
                     config=config,
                     args=args,

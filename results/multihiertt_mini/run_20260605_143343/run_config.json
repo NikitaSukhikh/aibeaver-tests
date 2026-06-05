@@ -1,0 +1,87 @@
+{
+  "created_at": "2026-06-05T14:33:43",
+  "providers": [
+    {
+      "name": "openai",
+      "model": "gpt-5.4",
+      "api_key_env": "OPENAI_API_KEY"
+    }
+  ],
+  "modes": [
+    "mcd_agent",
+    "original_agent"
+  ],
+  "mcd_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\multihiertt-mini.mcd",
+  "original_dir": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\original_disconnected",
+  "original_json": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\original_disconnected\\dev_50.json",
+  "questions_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\qa_questions_50.jsonl",
+  "answers_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\answers.json",
+  "question_count": 10,
+  "shared_evaluator": {
+    "scoring_mode": "llm_judge",
+    "answers_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\answers.json",
+    "evaluation_hashes": {
+      "multihiertt_mini_0001": "0bb64a4697f4ef820c1d198a3ef68c119b218200f858b6b2571f35e5399c90c9",
+      "multihiertt_mini_0002": "b4ec61b64e8c8418b6e8e86f42d2108b95054c111f336a96abec13840f5f9084",
+      "multihiertt_mini_0003": "5f69410938eab95036c4043c3dacea85f2e8bebeec403ee2f0df91f1a87d5d7e",
+      "multihiertt_mini_0004": "c744a27f98a94dbb9fc650e91cf8d9afed01a980c0f285d1296da37e4966ddca",
+      "multihiertt_mini_0005": "a13eb9be83c97569c618f2d511ce95dc030db304113b00c7f0dfd59a6ec65545",
+      "multihiertt_mini_0006": "31a8c64fef1d76e94b053f9a3b2a01c043edf595f321636fbe794e9b1ae78981",
+      "multihiertt_mini_0007": "81f377496b4307bb1a34a7f8fa32e7e9b363d353e1e53104748e544b3e773797",
+      "multihiertt_mini_0008": "fada0a66c5bac56c96008e57f0ad32639c058b9c0af429bf60328be3b8fb2749",
+      "multihiertt_mini_0009": "3059703e1e8a51e89f89508c7054b5ad64aa214da335c5eabadf3f63aad7ec5a",
+      "multihiertt_mini_0010": "67256aae7cec00ba7b666eb36abe15d7f9c28cf3d61f01ca0e99ab1cefa9d5b9"
+    },
+    "note": "Both mcd and original modes call the same evaluator with the same per-question payload."
+  },
+  "scoring_mode": "llm_judge",
+  "judge_provider": "same",
+  "judge_model": null,
+  "format_modes": {
+    "mcd": "single model call over deterministic pre-model extraction from MCD tables",
+    "original": "single model call over original JSON source record"
+  },
+  "agent_modes": {
+    "mcd_agent": "multi-step agent using MCD MCP tools",
+    "original_agent": "multi-step agent using original JSON source-inspection tools"
+  },
+  "max_tool_steps": 20,
+  "mcd_mcp": "C:\\Users\\Nikita\\.cargo\\bin\\mcd-mcp.exe",
+  "mcd_mcp_status": {
+    "configured_executable": "C:\\Users\\Nikita\\.cargo\\bin\\mcd-mcp.exe",
+    "resolved_executable": "C:\\Users\\Nikita\\.cargo\\bin\\mcd-mcp.exe",
+    "available_on_path_or_filesystem": true,
+    "protocol_version": "2025-06-18",
+    "read_only_tools": [
+      "mcd_agent_context",
+      "mcd_annotations",
+      "mcd_chart",
+      "mcd_external_data",
+      "mcd_images",
+      "mcd_inspect",
+      "mcd_markdown",
+      "mcd_provenance",
+      "mcd_queries",
+      "mcd_query",
+      "mcd_relationships",
+      "mcd_schemas",
+      "mcd_search",
+      "mcd_table",
+      "mcd_validate"
+    ],
+    "placeholder_package": "{MCD_PATH}"
+  },
+  "mcd_cli": "mcd",
+  "mcd_cli_status": {
+    "configured_executable": "mcd",
+    "resolved_executable": "C:\\Users\\Nikita\\.cargo\\bin\\mcd.EXE",
+    "available_on_path_or_filesystem": true,
+    "placeholder_executable": "{MCD_CLI}",
+    "placeholder_package": "{MCD_PATH}"
+  },
+  "max_observation_chars": 200000,
+  "max_output_tokens": 12000,
+  "temperature": 0.0,
+  "dry_run": false,
+  "prompt_profile": "multihiertt_format_and_agentic_modes"
+}

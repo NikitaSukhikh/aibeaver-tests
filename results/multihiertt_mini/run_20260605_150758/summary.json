@@ -1,0 +1,46 @@
+{
+  "modes": [
+    {
+      "provider": "anthropic",
+      "mode": "mcd",
+      "model": "claude-opus-4-5",
+      "total": 10,
+      "scored": 10,
+      "passed": 9,
+      "failed": 1,
+      "errors": 0,
+      "pass_rate": 0.9,
+      "exact_match": 0.9,
+      "f1": 0.9,
+      "elapsed_seconds": 79.481,
+      "avg_elapsed_seconds": 7.948,
+      "tool_calls": 0,
+      "token_usage": {
+        "input_tokens": 136631,
+        "output_tokens": 4622,
+        "total_tokens": 141253
+      }
+    },
+    {
+      "provider": "anthropic",
+      "mode": "original",
+      "model": "claude-opus-4-5",
+      "total": 10,
+      "scored": 10,
+      "passed": 8,
+      "failed": 2,
+      "errors": 0,
+      "pass_rate": 0.8,
+      "exact_match": 0.8,
+      "f1": 0.8,
+      "elapsed_seconds": 80.697,
+      "avg_elapsed_seconds": 8.07,
+      "tool_calls": 0,
+      "token_usage": {
+        "input_tokens": 116795,
+        "output_tokens": 4503,
+        "total_tokens": 121298
+      }
+    }
+  ]
+}

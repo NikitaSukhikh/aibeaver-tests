@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-06-05T12:58:23",
+  "created_at": "2026-06-05T13:17:01",
   "providers": [
     {
       "name": "openai",
@@ -12,10 +12,11 @@
     "original"
   ],
   "mcd_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\multihiertt-mini.mcd",
+  "original_dir": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\original_disconnected",
   "original_json": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\original_disconnected\\dev_50.json",
   "questions_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\qa_questions_50.jsonl",
   "answers_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\answers.json",
-  "question_count": 1,
+  "question_count": 50,
   "scoring_mode": "llm_judge",
   "judge_provider": "same",
   "judge_model": null,
@@ -55,6 +56,6 @@
   },
   "max_output_tokens": 12000,
   "temperature": 0.0,
-  "dry_run": true,
+  "dry_run": false,
   "prompt_profile": "multihiertt_mini_source_only"
 }

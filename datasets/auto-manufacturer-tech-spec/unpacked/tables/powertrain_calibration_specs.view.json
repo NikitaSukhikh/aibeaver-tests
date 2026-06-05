@@ -2,6 +2,19 @@
   "id": "default",
   "table": "powertrain_calibration_specs",
   "display": "table",
+  "style": {
+    "prominence": "supporting",
+    "keyColumns": [
+      "calibration_id",
+      "platform_code",
+      "propulsion_type",
+      "peak_power_kw",
+      "peak_torque_nm",
+      "production_release_date",
+      "obd_standard"
+    ],
+    "summary": "Calibration release evidence for platform compatibility, propulsion output, emissions basis, checksum, and OBD traceability."
+  },
   "columns": [
     {
       "name": "calibration_id",

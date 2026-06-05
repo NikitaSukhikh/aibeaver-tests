@@ -2,6 +2,20 @@
   "id": "default",
   "table": "chassis_brake_validation_specs",
   "display": "table",
+  "style": {
+    "prominence": "primary",
+    "keyColumns": [
+      "test_id",
+      "vehicle_variant",
+      "stop_distance_100_0_m",
+      "regulatory_brake_pass",
+      "fade_test_pass",
+      "gcwr_stop_distance_m",
+      "trailer_stability_pass",
+      "grade_launch_pass"
+    ],
+    "summary": "Validation evidence table linked to vehicle variants by foreign key."
+  },
   "columns": [
     {
       "name": "test_id",

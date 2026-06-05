@@ -1,0 +1,16 @@
+{
+  "id": "review-towing-validation-scope",
+  "target": {
+    "type": "block",
+    "id": "block-paragraph-865b6aca77704b9c"
+  },
+  "kind": "comment",
+  "status": "resolved",
+  "body": "The towing statement now frames capability at vehicle-combination level and avoids treating final-drive ratio or battery capacity as standalone pass/fail rules.",
+  "author": "example-maintainer",
+  "created": "2026-06-04T19:30:00Z",
+  "labels": [
+    "technical-realism",
+    "towing"
+  ]
+}

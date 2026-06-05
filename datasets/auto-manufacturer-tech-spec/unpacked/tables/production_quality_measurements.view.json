@@ -2,6 +2,21 @@
   "id": "default",
   "table": "production_quality_measurements",
   "display": "table",
+  "style": {
+    "prominence": "primary",
+    "keyColumns": [
+      "lot_id",
+      "plant_code",
+      "build_date",
+      "release_status",
+      "cpk_min",
+      "ppk_min",
+      "ppap_status",
+      "containment_status",
+      "supplier_lot_traceability"
+    ],
+    "summary": "Manufacturing release gate evidence for lot disposition, core-tool maturity, and traceability."
+  },
   "columns": [
     {
       "name": "lot_id",

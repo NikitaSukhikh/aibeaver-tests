@@ -2,6 +2,19 @@
   "id": "default",
   "table": "vehicle_variant_configuration_specs",
   "display": "table",
+  "style": {
+    "prominence": "primary",
+    "keyColumns": [
+      "variant_id",
+      "region",
+      "body_style",
+      "drivetrain",
+      "certification_market",
+      "test_cycle",
+      "gcwr_kg"
+    ],
+    "summary": "Configuration anchor for market, vehicle envelope, certification basis, payload, and towing context."
+  },
   "columns": [
     {
       "name": "variant_id",

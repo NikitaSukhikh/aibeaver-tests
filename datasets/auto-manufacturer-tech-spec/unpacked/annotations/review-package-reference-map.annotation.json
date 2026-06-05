@@ -1,0 +1,16 @@
+{
+  "id": "review-package-reference-map",
+  "target": {
+    "type": "block",
+    "id": "block-list-d627ba6301123ff5"
+  },
+  "kind": "comment",
+  "status": "resolved",
+  "body": "The reference map gives stable table IDs, primary keys, placement refs, and block-ID usage in one block for retrieval and citation workflows.",
+  "author": "example-maintainer",
+  "created": "2026-06-04T19:30:00Z",
+  "labels": [
+    "block-id",
+    "citation"
+  ]
+}

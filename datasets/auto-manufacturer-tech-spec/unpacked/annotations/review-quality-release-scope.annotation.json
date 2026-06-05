@@ -1,0 +1,16 @@
+{
+  "id": "review-quality-release-scope",
+  "target": {
+    "type": "block",
+    "id": "block-paragraph-8f81f2ff7872dd99"
+  },
+  "kind": "comment",
+  "status": "resolved",
+  "body": "The lot-release block now foregrounds PPAP, containment, traceability, capability, MSA, end-of-line results, and release status as separate quality-gate evidence.",
+  "author": "example-maintainer",
+  "created": "2026-06-04T19:30:00Z",
+  "labels": [
+    "technical-realism",
+    "quality"
+  ]
+}

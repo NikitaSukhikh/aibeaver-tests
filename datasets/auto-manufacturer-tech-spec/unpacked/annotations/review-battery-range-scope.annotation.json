@@ -1,0 +1,16 @@
+{
+  "id": "review-battery-range-scope",
+  "target": {
+    "type": "block",
+    "id": "block-paragraph-3179f388d530f306"
+  },
+  "kind": "comment",
+  "status": "resolved",
+  "body": "The range wording distinguishes engineering estimates from regulatory range labels and keeps the battery-capacity rule from becoming an unrealistic global threshold.",
+  "author": "example-maintainer",
+  "created": "2026-06-04T19:30:00Z",
+  "labels": [
+    "technical-realism",
+    "battery"
+  ]
+}

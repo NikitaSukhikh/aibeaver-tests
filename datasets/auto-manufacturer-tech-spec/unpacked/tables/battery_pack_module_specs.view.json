@@ -2,6 +2,19 @@
   "id": "default",
   "table": "battery_pack_module_specs",
   "display": "table",
+  "style": {
+    "prominence": "supporting",
+    "keyColumns": [
+      "pack_id",
+      "chemistry",
+      "capacity_kwh",
+      "usable_capacity_kwh",
+      "peak_discharge_kw",
+      "battery_heat_rejection_kw",
+      "thermal_derate_start_c"
+    ],
+    "summary": "Battery architecture and usable-energy evidence for range, thermal, warranty, and duty-cycle validation."
+  },
   "columns": [
     {
       "name": "pack_id",

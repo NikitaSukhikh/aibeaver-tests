@@ -49,6 +49,24 @@
       }
     }
   ],
+  "annotations": [
+    {
+      "id": "review-package-reference-map",
+      "metadata": "annotations/review-package-reference-map.annotation.json"
+    },
+    {
+      "id": "review-towing-validation-scope",
+      "metadata": "annotations/review-towing-validation-scope.annotation.json"
+    },
+    {
+      "id": "review-battery-range-scope",
+      "metadata": "annotations/review-battery-range-scope.annotation.json"
+    },
+    {
+      "id": "review-quality-release-scope",
+      "metadata": "annotations/review-quality-release-scope.annotation.json"
+    }
+  ],
   "externalData": [
     {
       "id": "raw-auto-spec-source",

@@ -39,21 +39,6 @@
       ]
     },
     {
-      "id": "content-improvement-md",
-      "path": "content/Content_improvement.md",
-      "mediaType": "text/markdown",
-      "createdAt": "2026-05-26T00:05:00Z",
-      "sourceRefs": [
-        "raw-auto-spec-source"
-      ],
-      "toolRefs": [
-        "mcd-example-generator"
-      ],
-      "actorRefs": [
-        "example-maintainer"
-      ]
-    },
-    {
       "id": "tables-battery-pack-module-specs-csv",
       "path": "tables/battery_pack_module_specs.csv",
       "mediaType": "text/csv",

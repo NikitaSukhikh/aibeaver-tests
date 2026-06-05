@@ -5,7 +5,9 @@
       "Bash(git remote add:*)",
       "Bash(git fetch:*)",
       "Bash(where:*)",
-      "Bash(pip show:*)"
+      "Bash(pip show:*)",
+      "Bash(python compare_datasets.py:*)",
+      "Bash(python -c:*)"
     ]
   }
 }

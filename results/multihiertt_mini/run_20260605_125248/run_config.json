@@ -1,0 +1,60 @@
+{
+  "created_at": "2026-06-05T12:52:48",
+  "providers": [
+    {
+      "name": "openai",
+      "model": "gpt-5.4",
+      "api_key_env": "OPENAI_API_KEY"
+    }
+  ],
+  "modes": [
+    "mcd",
+    "original"
+  ],
+  "mcd_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\multihiertt-mini.mcd",
+  "original_json": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\original_disconnected\\dev_50.json",
+  "questions_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\qa_questions_50.jsonl",
+  "answers_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\answers.json",
+  "question_count": 1,
+  "scoring_mode": "llm_judge",
+  "judge_provider": "same",
+  "judge_model": null,
+  "max_tool_steps": 20,
+  "mcd_mcp": "C:\\Users\\Nikita\\.cargo\\bin\\mcd-mcp.exe",
+  "mcd_mcp_status": {
+    "configured_executable": "C:\\Users\\Nikita\\.cargo\\bin\\mcd-mcp.exe",
+    "resolved_executable": "C:\\Users\\Nikita\\.cargo\\bin\\mcd-mcp.exe",
+    "available_on_path_or_filesystem": true,
+    "protocol_version": "2025-06-18",
+    "read_only_tools": [
+      "mcd_agent_context",
+      "mcd_annotations",
+      "mcd_chart",
+      "mcd_external_data",
+      "mcd_images",
+      "mcd_inspect",
+      "mcd_markdown",
+      "mcd_provenance",
+      "mcd_queries",
+      "mcd_query",
+      "mcd_relationships",
+      "mcd_schemas",
+      "mcd_search",
+      "mcd_table",
+      "mcd_validate"
+    ],
+    "placeholder_package": "{MCD_PATH}"
+  },
+  "mcd_cli": "mcd",
+  "mcd_cli_status": {
+    "configured_executable": "mcd",
+    "resolved_executable": "C:\\Users\\Nikita\\.cargo\\bin\\mcd.EXE",
+    "available_on_path_or_filesystem": true,
+    "placeholder_executable": "{MCD_CLI}",
+    "placeholder_package": "{MCD_PATH}"
+  },
+  "max_output_tokens": 12000,
+  "temperature": 0.0,
+  "dry_run": true,
+  "prompt_profile": "multihiertt_mini_source_only"
+}

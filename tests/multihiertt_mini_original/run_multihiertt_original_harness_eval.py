@@ -149,6 +149,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--xai-model", default=os.getenv("XAI_MODEL", DEFAULT_XAI_MODEL))
     parser.add_argument("--questions", type=int, default=None, help="Run only the first N questions.")
     parser.add_argument("--max-tool-steps", type=int, default=20)
+    parser.add_argument(
+        "--tools-single-round",
+        "--tools-single-shot",
+        action="store_true",
+        dest="tools_single_round",
+        help=(
+            "For harnessed_tools, make one batched tool-request call, execute all requested tools, "
+            "then make one final answer call. --max-tool-steps caps the batched tool-call count."
+        ),
+    )
     parser.add_argument("--max-observation-chars", type=int, default=60000)
     parser.add_argument("--max-output-tokens", type=int, default=DEFAULT_MAX_OUTPUT_TOKENS)
     parser.add_argument("--temperature", type=float, default=0.0)
@@ -1295,6 +1305,31 @@ def parse_harness_agent_action(text: str) -> dict[str, Any]:
     raise ValueError("Agent response must contain either 'tool', 'answer', or 'predicted_ans'.")
 
 
+def parse_harness_single_round_action(text: str) -> dict[str, Any]:
+    objects = extract_json_objects(text)
+    if not objects:
+        raise ValueError("Agent response did not contain a JSON object.")
+    action = objects[0]
+    if "answer" in action or "predicted_ans" in action:
+        return parse_harness_agent_action(text)
+
+    tool_calls = action.get("tool_calls")
+    if not isinstance(tool_calls, list) or not tool_calls:
+        raise ValueError("Single-round response must contain a non-empty 'tool_calls' array.")
+
+    parsed_calls = []
+    for index, call in enumerate(tool_calls, start=1):
+        if not isinstance(call, dict):
+            raise ValueError(f"Tool call {index} must be an object.")
+        if "tool" not in call:
+            raise ValueError(f"Tool call {index} must include 'tool'.")
+        call_args = call.get("args", {})
+        if not isinstance(call_args, dict):
+            raise ValueError(f"Tool call {index} 'args' must be an object.")
+        parsed_calls.append({"tool": str(call["tool"]), "args": call_args})
+    return {"tool_calls": parsed_calls}
+
+
 def truncate_observation(observation: dict[str, Any], max_chars: int) -> dict[str, Any]:
     text = json.dumps(observation, ensure_ascii=False)
     if len(text) <= max_chars:
@@ -1307,7 +1342,17 @@ def truncate_observation(observation: dict[str, Any], max_chars: int) -> dict[st
 
 
 def harness_agent_tool_calls_from_trace(trace: list[dict[str, Any]]) -> int:
-    return sum(1 for item in trace if item.get("action", {}).get("tool"))
+    total = 0
+    for item in trace:
+        action = item.get("action", {})
+        if not isinstance(action, dict):
+            continue
+        if action.get("tool"):
+            total += 1
+        tool_calls = action.get("tool_calls")
+        if isinstance(tool_calls, list):
+            total += len(tool_calls)
+    return total
 
 
 def make_harness_agent_prompt(
@@ -1357,6 +1402,223 @@ def make_harness_agent_prompt(
         "Previous tool observations:\n"
         f"{json.dumps(observations, ensure_ascii=False, indent=2)}"
     )
+
+
+def make_harness_single_round_tool_prompt(
+    *,
+    record: dict[str, Any],
+    question: dict[str, Any],
+) -> str:
+    payload = {
+        "id": question["id"],
+        "example_id": question["example_id"],
+        "source_uid": question.get("source_uid"),
+        "question": question["prompt"],
+    }
+    dataset_index = {
+        "example_id": record["example_id"],
+        "source_uid": record["source_uid"],
+        "harness_files": sorted(record.get("files", {})),
+        "paragraph_count": len(record.get("paragraphs", [])),
+        "tables": [
+            {
+                "table_index": table["table_index"],
+                "row_count": table["row_count"],
+                "max_column_count": table["max_column_count"],
+            }
+            for table in record.get("tables", [])
+        ],
+        "question_locations": record.get("question_locations", {}),
+    }
+    return (
+        "You are answering one MultiHierTT mini benchmark question using original plain-source harness tools.\n\n"
+        "Task rules:\n"
+        f"{common_reasoning_rules()}\n\n"
+        "Source access:\n"
+        f"{harness_tools_source_note()}\n\n"
+        "Single-round tool protocol:\n"
+        "Return exactly one JSON object and no prose. Choose every source lookup and arithmetic helper call needed "
+        "for the answer now, because there will be no additional tool-request round. Return this shape:\n"
+        '{"tool_calls":[{"tool":"tool_name","args":{...}}]}\n'
+        "Use multiple tool calls when needed to inspect source rows, table windows, cell descriptions, and arithmetic. "
+        "Do not include an answer in this tool-request response unless no tool is needed.\n\n"
+        "Available harness tools:\n"
+        f"{json.dumps(harness_tool_docs(), ensure_ascii=False, indent=2)}\n\n"
+        "Harness index:\n"
+        f"{json.dumps(dataset_index, ensure_ascii=False, indent=2)}\n\n"
+        "Question:\n"
+        f"{json.dumps(payload, ensure_ascii=False, indent=2)}"
+    )
+
+
+def make_harness_single_round_answer_prompt(
+    *,
+    record: dict[str, Any],
+    question: dict[str, Any],
+    observations: list[dict[str, Any]],
+) -> str:
+    payload = {
+        "id": question["id"],
+        "example_id": question["example_id"],
+        "source_uid": question.get("source_uid"),
+        "question": question["prompt"],
+    }
+    return (
+        "You are answering one MultiHierTT mini benchmark question from already-executed harness tool observations.\n\n"
+        "Task rules:\n"
+        f"{common_reasoning_rules()}\n\n"
+        "Final answer protocol:\n"
+        "Return exactly one JSON object and no prose. Tool use is closed; do not request another tool. "
+        "Use only successful tool observations as source evidence. Return this shape:\n"
+        '{"answer":"requested answer value only","predicted_program":[]}\n\n'
+        "Question:\n"
+        f"{json.dumps(payload, ensure_ascii=False, indent=2)}\n\n"
+        "Executed tool observations:\n"
+        f"{json.dumps(observations, ensure_ascii=False, indent=2)}"
+    )
+
+
+def run_harness_tools_single_round_question(
+    *,
+    record: dict[str, Any],
+    question: dict[str, Any],
+    config: ProviderConfig,
+    args: argparse.Namespace,
+) -> tuple[str, list[str], dict[str, Any], list[dict[str, Any]], str | None]:
+    tool_prompt = make_harness_single_round_tool_prompt(record=record, question=question)
+    if args.dry_run:
+        return (
+            "",
+            [],
+            {
+                "dry_run": True,
+                "tools_single_round": True,
+                "token_usage": {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0},
+                "prompt_chars": len(tool_prompt),
+                "prompt_char_counts": {"tool_request": len(tool_prompt), "answer": 0},
+            },
+            [],
+            None,
+        )
+
+    total_usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
+    call_token_usage: list[dict[str, int]] = []
+    call_metadata: list[dict[str, Any]] = []
+    trace: list[dict[str, Any]] = []
+
+    raw, metadata = plain_eval.call_with_retries(
+        config.name,
+        tool_prompt,
+        config.model,
+        args.max_output_tokens,
+        args.temperature,
+        args.timeout_seconds,
+        args.retries,
+    )
+    token_usage = token_usage_from_metadata(metadata)
+    call_token_usage.append(token_usage)
+    call_metadata.append(metadata)
+    for key in total_usage:
+        total_usage[key] += token_usage[key]
+    try:
+        action = parse_harness_single_round_action(raw)
+    except Exception as exc:
+        final_metadata = {
+            **metadata,
+            "tools_single_round": True,
+            "token_usage": total_usage,
+            "call_token_usage": call_token_usage,
+            "call_metadata": call_metadata,
+            "prompt_chars": len(tool_prompt),
+            "prompt_char_counts": {"tool_request": len(tool_prompt), "answer": 0},
+        }
+        trace.append({"step": 1, "round": "tool_request", "raw": raw, "error": str(exc)})
+        return "", [], final_metadata, trace, f"Could not parse single-round harness tool action: {exc}"
+
+    trace_item: dict[str, Any] = {"step": 1, "round": "tool_request", "raw": raw, "action": action}
+    if "answer" in action:
+        trace.append(trace_item)
+        final_metadata = {
+            **metadata,
+            "tools_single_round": True,
+            "token_usage": total_usage,
+            "call_token_usage": call_token_usage,
+            "call_metadata": call_metadata,
+            "prompt_chars": len(tool_prompt),
+            "prompt_char_counts": {"tool_request": len(tool_prompt), "answer": 0},
+        }
+        return action["answer"], action.get("predicted_program", []), final_metadata, trace, None
+
+    tool_calls = action["tool_calls"]
+    if len(tool_calls) > int(args.max_tool_steps):
+        trace_item["error"] = f"Requested {len(tool_calls)} tool calls, above --max-tool-steps={args.max_tool_steps}."
+        trace.append(trace_item)
+        final_metadata = {
+            **metadata,
+            "tools_single_round": True,
+            "token_usage": total_usage,
+            "call_token_usage": call_token_usage,
+            "call_metadata": call_metadata,
+            "prompt_chars": len(tool_prompt),
+            "prompt_char_counts": {"tool_request": len(tool_prompt), "answer": 0},
+        }
+        return "", [], final_metadata, trace, trace_item["error"]
+
+    observations: list[dict[str, Any]] = []
+    for call_index, call in enumerate(tool_calls, start=1):
+        try:
+            observation = execute_harness_tool(record, call["tool"], call["args"])
+        except Exception as exc:
+            observation = {"tool": call["tool"], "error": str(exc)}
+        observations.append(
+            {
+                "step": call_index,
+                "tool": call["tool"],
+                "args": call["args"],
+                "observation": truncate_observation(observation, int(args.max_observation_chars)),
+            }
+        )
+    trace_item["observations"] = observations
+    trace.append(trace_item)
+
+    answer_prompt = make_harness_single_round_answer_prompt(
+        record=record,
+        question=question,
+        observations=observations,
+    )
+    raw_answer, answer_metadata = plain_eval.call_with_retries(
+        config.name,
+        answer_prompt,
+        config.model,
+        args.max_output_tokens,
+        args.temperature,
+        args.timeout_seconds,
+        args.retries,
+    )
+    answer_token_usage = token_usage_from_metadata(answer_metadata)
+    call_token_usage.append(answer_token_usage)
+    call_metadata.append(answer_metadata)
+    for key in total_usage:
+        total_usage[key] += answer_token_usage[key]
+    final_metadata = {
+        **answer_metadata,
+        "tools_single_round": True,
+        "token_usage": total_usage,
+        "call_token_usage": call_token_usage,
+        "call_metadata": call_metadata,
+        "prompt_chars": len(answer_prompt),
+        "prompt_char_counts": {"tool_request": len(tool_prompt), "answer": len(answer_prompt)},
+    }
+    try:
+        answer_action = parse_harness_agent_action(raw_answer)
+    except Exception as exc:
+        trace.append({"step": 2, "round": "answer", "raw": raw_answer, "error": str(exc)})
+        return "", [], final_metadata, trace, f"Could not parse single-round final answer: {exc}"
+    answer_trace_item: dict[str, Any] = {"step": 2, "round": "answer", "raw": raw_answer, "action": answer_action}
+    trace.append(answer_trace_item)
+    if "answer" not in answer_action:
+        return "", [], final_metadata, trace, "Final single-round response requested another tool instead of answering."
+    return answer_action["answer"], answer_action.get("predicted_program", []), final_metadata, trace, None
 
 
 def run_harness_tools_question(
@@ -1490,7 +1752,12 @@ def run_mode(
         predicted_program: list[str] = []
         error = None
         if mode == "harnessed_tools":
-            answer, predicted_program, metadata, trace, error = run_harness_tools_question(
+            tool_runner = (
+                run_harness_tools_single_round_question
+                if args.tools_single_round
+                else run_harness_tools_question
+            )
+            answer, predicted_program, metadata, trace, error = tool_runner(
                 record=harness_tool_records_by_example_id[question["example_id"]],
                 question=model_question(question),
                 config=config,
@@ -1723,6 +1990,7 @@ def main() -> int:
             "judge_provider": args.judge_provider,
             "judge_model": args.judge_model,
             "max_tool_steps": args.max_tool_steps,
+            "tools_single_round": args.tools_single_round,
             "max_observation_chars": args.max_observation_chars,
             "max_output_tokens": args.max_output_tokens,
             "temperature": args.temperature,
@@ -1733,7 +2001,11 @@ def main() -> int:
             "mode_profiles": {
                 "plain_source": "single model call over sanitized original JSON source",
                 "harnessed_plain": "single model call over generated source.md, parsed table CSVs, and neutral metadata harness",
-                "harnessed_tools": "multi-step JSON tool loop over generated harness files, parsed tables, source paragraphs, cell descriptions, and calculator",
+                "harnessed_tools": (
+                    "one batched tool-request call plus one final answer call"
+                    if args.tools_single_round
+                    else "multi-step JSON tool loop over generated harness files, parsed tables, source paragraphs, cell descriptions, and calculator"
+                ),
             },
             "harness_tool_docs": harness_tool_docs(),
             "shared_evaluator": {

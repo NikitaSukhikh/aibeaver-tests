@@ -1,0 +1,4061 @@
+American International Group, Inc.  and Subsidiaries Management’s Discussion and Analysis of Financial Condition and Results of Operations Continued Domestic Retirement Services Results Domestic Retirement Services results, presented on a sub-product basis for 2007, 2006 and 2005 were as follows:
+## Table 0 ##
+[mhdev_0001_table_0.csv](mhdev_0001_table_0.csv)
+* Primarily represents runoff annuity business sold through discontinued distribution relationships.2007 and 2006 Comparison Total revenues and operating income for Domestic Retirement Services declined in 2007 compared to 2006 primarily due to increased net realized capital losses.
+Net realized capital losses for Domestic Retirement Services increased due to higher other- than-temporary impairmentcharges of$1.2 billion in 2007 compared to $368 million in 2006 and sales to reposition assets in certain investment portfolios for both group retirement products and individual ?xed annuities, as well as from changes in the value of certain individual variable annuity product guarantees and related hedges associated with living bene?t features.
+Changes in actuarial estimates, including DAC unlockingsand re?nements to estimates resulting from actuarial valuation system enhance- ments, resulted in a net decrease to operating income of $112 million in 2007.
+Group retirement products operating income in 2007 de- creased compared to 2006 primarily as a result of increased net realized capital losses due to higher other-than-temporary impair- mentcharges and an increase in DAC amortization related to both an increase in surrenders and to policy changes adding guaran- teed minimum withdrawal bene?t riders to existing contracts.
+Operating income was also negatively affected in 2007 by an $18 million adjustment,primarily re?ecting changes in actuarial estimates from the conversion to a new valuation system.
+These were partially offset by higher variable annuity fees which resulted from an increase in separate account assets compared to 2006.
+Individual ?xed annuities operating income in 2007 decreased compared to 2006 as a result of net realized capital losses due to higher other-than-temporary impairmentcharges partially offset by increases in partnership income.
+The decline in operating income also re?ected higher DAC amortization and sales induce-ment costs related to increased surrenders and a $33 million charge re?ecting changes in actuarial estimates from the conver-
+American International Group, Inc. , and Subsidiaries Expected Loss Models — Under this mechanism, the amount of collateral to be posted is determined based on the amount of expected credit losses, generally determined using a rating-agency model.
+Negotiated Amount — Under this mechanism, the amount of collateral to be posted is determined based on terms negotiated between AIGFP and the counterparty, which could be a fixed percentage of the notional amount or present value of premiums to be earned by AIGFP.
+The following table presents the amount of collateral postings by underlying mechanism as described above with respect to the regulatory capital relief portfolio (prior to consideration of transactions other than the Capital Markets super senior credit default swaps subject to the same Master Agreements) as of the periods ended:
+## Table 1 ##
+[mhdev_0001_table_1.csv](mhdev_0001_table_1.csv)
+Arbitrage Portfolio — Multi-Sector CDOs In the CDS transactions with physical settlement provisions, in respect of multi-sector CDOs, the standard CSA provisions for the calculation of exposure have been modified, with the exposure amount determined pursuant to an agreed formula that is based on the difference between the net notional amount of such transaction and the market value of the relevant underlying CDO security, rather than the replacement value of the transaction.
+As of any date, the ‘‘market value’’ of the relevant CDO security is the price at which a marketplace participant would be willing to purchase such CDO security in a market transaction on such date, while the ‘‘replacement value of the transaction’’ is the cost on such date of entering into a credit default swap transaction with substantially the same terms on the same referenced obligation (e. g. , the CDO security).
+In cases where a formula is utilized, a transaction-specific threshold is generally factored into the calculation of exposure, which reduces the amount of collateral required to be posted.
+These thresholds typically vary based on the credit ratings of AIG and/or the reference obligations, with greater posting obligations arising in the context of lower ratings.
+For the large majority of counterparties to these transactions, the Master Agreement and CSA cover non-CDS transactions (e. g. , interest rate and cross currency swap transactions) as well as CDS transactions.
+As a result, the amount of collateral to be posted by AIGFP in relation to the CDS transactions will be added to or offset by the amount, if any, of the exposure AIG has to the counterparty on the non-CDS transactions.
+Arbitrage Portfolio — Corporate Debt/CLOs All of the Capital Markets corporate arbitrage-CLO transactions are subject to CSAs.
+These transactions are treated the same as other transactions subject to the same Master Agreement and CSA, with the calculation of collateral in accordance with the standard CSA procedures outlined above.
+The vast majority of corporate debt transactions are no longer subject to future collateral postings.
+In exchange for an upfront payment to an intermediary counterparty, AIGFP has eliminated all future obligations to post collateral on corporate debt transactions that mature after 2011.
+Collateral Calls AIGFP has received collateral calls from counterparties in respect of certain super senior credit default swaps, of which a large majority relate to multi-sector CDOs.
+To a lesser extent, AIGFP has also received collateral calls in respect of certain super senior credit default swaps entered into by counterparties for regulatory capital relief purposes and in respect of corporate arbitrage.
+From time to time, valuation methodologies used and estimates made by counterparties with respect to certain super senior credit default swaps or the underlying reference CDO securities, for purposes of determining the
+ITEM 7 / LIQUIDITY AND CAPITAL RESOURCES The following table presents a summary of AIG’s Consolidated Statement of Cash Flows:
+## Table 2 ##
+[mhdev_0001_table_2.csv](mhdev_0001_table_2.csv)
+Operating Cash Flow Activities Interest payments totaled $4.0 billion in 2012 compared to $9.0 billion in 2011.
+Cash paid for interest in 2011 includes the payment of FRBNY Credit Facility accrued compounded interest totaling $6.4 billion.
+Excluding interest payments, AIG generated positive operating cash flow of $7.7 billion and $8.9 billion in 2012 and 2011, respectively.
+Insurance companies generally receive most premiums in advance of the payment of claims or policy benefits.
+The ability of insurance companies to generate positive cash flow is affected by the frequency and severity of losses under their insurance policies, policy retention rates and operating expenses.
+Cash provided by AIG Property Casualty operating activities was $1.1 billion in 2012 compared to $1.9 billion in 2011, primarily reflecting the decrease in net premiums written as a result of the continued execution of strategic initiatives to improve business mix and the timing of the cash flows used to pay claims and claims adjustment expenses and the related reinsurance recoveries.
+Cash provided by operating activities by AIG Life and Retirement was $2.9 billion in 2012 compared to $2.4 billion in 2011, primarily reflecting efforts to actively manage spread income.
+Cash provided by operating activities of discontinued operations of $2.9 billion in 2012 compared to $6.2 billion in 2011, includes ILFC, and in 2011 and 2010, foreign life insurance subsidiaries that were divested in 2011, including Nan Shan, AIG Star and AIG Edison.
+Net cash provided by operating activities declined in 2011 compared to 2010, principally due to the following: ?
+the cash payment by AIG Parent of $6.4 billion in accrued compounded interest and fees under the FRBNY Credit Facility.
+In prior periods, these payments were paid in-kind and did not affect operating cash flows; ?
+cash provided by operating activities of foreign life subsidiaries declined by $10.4 billion due to the sale of those subsidiaries (AIA, ALICO, AIG Star, AIG Edison and Nan Shan).
+The subsidiaries generated operational cash inflows of $3.4 billion and $13.8 billion in 2011 and 2010, respectively; and ?
+the effect of catastrophes and the cession of a large portion of AIG Property Casualty’s net asbestos liabilities in the U. S.  to NICO.
+Excluding the impact of the NICO cession and catastrophes, cash provided by AIG’s reportable segments in 2011 is consistent with 2010, as increases in claims paid were offset by increases in premiums collected at the insurance subsidiaries.
+Investing Cash Flow Activities Net cash provided by investing activities for 2012 includes the following items: ?
+payments received relating to the sale of the underlying assets held by ML II of approximately $1.6 billion; ?
+payments of approximately $8.5 billion received in connection with the dispositions of ML III assets by the FRBNY;
+ITEM 7 / RESULTS OF OPERATIONS / COMMERCIAL INSURANCE low interest rate environment, partially offset by growth in average assets.
+See MD&A – Investments – Life Insurance Companies for additional information on the investment strategy, asset-liability management process and invested assets of our Life Insurance Companies, which include the invested assets of the Institutional Markets business.
+General operating expenses in 2014 increased slightly compared to 2013, primarily due to investments in technology.2013 and 2012 Comparison Pre-tax operating income for 2013 increased compared to 2012, due in part to higher net investment income from alternative investments, partially offset by lower base net investment income.
+Interest credited to policyholder account balances in 2012 included $110 million of expense resulting from a comprehensive review of reserves for the GIC portfolio.
+Results for 2013 included a full year of the growing stable value wrap business, which contributed $31 million to the increase in pre-tax operating income compared to 2012.
+Stable value wrap notional assets under management grew to $24.6 billion at December 31, 2013 from $10.4 billion at December 31, 2012, including the notional amount of contracts transferred from an AIG affiliate.
+Net investment income for 2013 increased slightly compared to 2012, primarily due to higher net investment income from alternative investments, largely offset by lower income from the base portfolio.
+The increase in alternative investment income in 2013 compared to 2012 reflected higher hedge fund income due to favorable equity market conditions.
+The decrease in base net income was primarily due to investment of available cash, including proceeds from sales of securities made during 2013 to utilize capital loss carryforwards, at rates below the weighted average yield of the overall portfolio.
+General operating expenses in 2013 increased compared to 2012, primarily to support increased volume in the stable value wrap business.
+Institutional Markets Premiums, Deposits and Net Flows For Institutional Markets, premiums represent amounts received on traditional life insurance policies and life-contingent payout annuities or structured settlements.
+Premiums and deposits is a non-GAAP financial measure that includes direct and assumed premiums as well as deposits received on universal life insurance and investment-type annuity contracts, including GICs and stable value wrap funding agreements.
+The following table presents a reconciliation of Institutional Markets premiums and deposits to GAAP premiums:
+## Table 3 ##
+[mhdev_0001_table_3.csv](mhdev_0001_table_3.csv)
+The decrease in premiums in 2014 compared to 2013 was primarily due to a high volume of single-premium products sold in 2013, including life-contingent payout annuities.
+Sales of these products decreased in 2014 compared to 2013 due to a more competitive environment as well as continued low interest rates.
+The increase in deposits in 2014 compared to 2013 included a $2.5 billion deposit to the separate accounts of one of the Life Insurance Companies for a stable value wrap funding agreement.
+The majority of stable value wrap sales are measured based on the notional amount included in assets under management, but do not include the receipt of funds that would be included in premiums and deposits.
+The increase in deposits in 2014 compared to 2013 also reflected a $450 million GIC issued in 2014.
+The increase in premiums in 2013 compared to 2012 reflected a high volume of single-premium product sales in 2013, including structured settlements with life contingencies and terminal funding annuities.
+The increase in deposits in 2013 compared to 2012 reflected strong sales of high net worth products, primarily private placement variable annuities.
+The Company is required to establish a valuation allowance for any portion of the deferred tax assets that management believes will not be realized.
+Included in deferred tax assets is a significant deferred tax asset relating to capital losses that have been recognized for financial statement purposes but not yet for tax return purposes.
+Under current U. S.  federal income tax law, capital losses generally must be used against capital gain income within five years of the year in which the capital losses are recognized for tax purposes.
+Significant judgment is required in determining if a valuation allowance should be established, and the amount of such allowance if required.
+Factors used in making this determination include estimates relating to the performance of the business including the ability to generate capital gains.
+Consideration is given to, among other things in making this determination, i) future taxable income exclusive of reversing temporary differences and carryforwards, ii) future reversals of existing taxable temporary differences, iii) taxable income in prior carryback years, and iv) tax planning strategies.
+Based on analysis of the Company’s tax position, management believes it is more likely than not that the results of future operations and implementation of tax planning strategies will generate sufficient taxable income to enable the Company to utilize all of its deferred tax assets.
+Accordingly, no valuation allowance for deferred tax assets has been established as of December 31, 2009 and 2008.
+Included in the Company’s deferred income tax assets are tax benefits related to net operating loss carryforwards of $59 million which will expire beginning December 31, 2025 as well as tax credit carryforwards of $166 million which will expire beginning December 31, 2025.
+A reconciliation of the beginning and ending amount of gross unrecognized tax benefits for 2009 is as follows:
+## Table 0 ##
+[mhdev_0002_table_0.csv](mhdev_0002_table_0.csv)
+If recognized, approximately $81 million, $62 million and $84 million, net of federal tax benefits, of the unrecognized tax benefits as of December 31, 2009, 2008 and 2007, respectively, would affect the effective tax rate.
+The Company recognizes interest and penalties related to unrecognized tax benefits as a component of the income tax provision.
+The Company recognized $1 million in interest and penalties for the year ended December 31, 2009 and a net reduction of $25 million and $4 million in interest and penalties for the years ended December 31, 2008 and 2007, respectively.
+At December 31, 2009 and 2008, the Company had a receivable of $12 million and $13 million, respectively, related to accrued interest and penalties.
+It is reasonably possible that the total amounts of unrecognized tax benefits will change in the next 12 months.
+However, there are a number of open audits and quantification of a range cannot be made at this time.
+The Company or one or more of its subsidiaries files income tax returns in the U. S.  federal jurisdiction, and various states and foreign jurisdictions.
+With few exceptions, the Company is no longer subject to U. S.  federal, state and local, or non-U.
+S.  income tax examinations by tax authorities for years before 1997.
+The Internal Revenue Service (‘‘IRS’’), as part of the overall examination of the American Express Company consolidated return, completed its field examination of the Company’s U. S.  income tax returns for 1997 through 2002 during 2008 and completed its field examination of 2003 through 2004 in the third quarter of 2009.
+However, for federal income tax purposes these years continue to remain open as a consequence of certain issues under appeal.
+In the fourth quarter of 2008, the IRS commenced an examination of the Company’s U. S.  income tax returns for 2005 through 2007, which is expected to be completed in 2010.
+The Company’s or certain of its subsidiaries’ state income tax returns are currently under examination by various jurisdictions for years ranging from 1998 through 2006.
+On September 25, 2007, the IRS issued Revenue Ruling 2007-61 in which it announced that it intends to issue regulations with respect to certain computational aspects of the Dividends Received Deduction (‘‘DRD’’) related to separate account assets held in connection with variable contracts of life insurance companies.
+Revenue Ruling 2007-61 suspended a revenue ruling issued in August 2007 that purported to change accepted industry and IRS interpretations of the statutes governing these computational questions.
+Any regulations that the
+The following table presents the changes in wrap account assets:
+## Table 1 ##
+[mhdev_0002_table_1.csv](mhdev_0002_table_1.csv)
+Our wrap accounts had net inflows of $9.3 billion in 2009 compared to net inflows of $3.7 billion in 2008 and market appreciation of $12.8 billion in 2009 compared to market depreciation of $26.8 billion in 2008.
+In 2008, we acquired $2.0 billion in wrap account assets attributable to our acquisition of H&R Block Financial Advisors, Inc.  We provide securities execution and clearing services for our retail and institutional clients through our registered broker-dealer subsidiaries.
+As of December 31, 2009, we administered $95.1 billion in assets for clients, an increase of $19.6 billion compared to the prior year primarily due to market appreciation.
+The following table presents the results of operations of our Advice & Wealth Management segment:
+## Table 2 ##
+[mhdev_0002_table_2.csv](mhdev_0002_table_2.csv)
+Our Advice & Wealth Management segment pretax loss was $34 million in 2009 compared to pretax loss of $149 million in 2008.
+Net revenues Net revenues were $3.2 billion for the year ended December 31, 2009 compared to $3.1 billion in the prior year, an increase of $106 million, or 3%, driven by an increase in net investment income as well as revenues resulting from our 2008 acquisitions and a decrease in banking and deposit interest expense, partially offset by decreases in management and financial advice fees and distribution fees.
+Management and financial advice fees decreased $105 million, or 8%, to $1.2 billion for the year ended December 31, 2009, driven by a 22% decline in the daily average S&P 500 Index on a period-over-period basis, partially offset by net inflows.
+Wrap account assets increased $22.1 billion, or 30%, compared to the prior year due to net inflows and market appreciation.
+Financial planning fees were lower for the year ended December 31, 2009 compared to the prior year resulting from accelerated financial plan delivery standards in 2008.
+Distribution fees decreased $179 million, or 9%, to $1.7 billion for the year ended December 31, 2009, primarily due to lower client activity levels and lower asset-based fees driven by lower equity markets, partially offset by revenues resulting from our 2008 acquisitions.
+Liquidity and Capital Resources Overview We maintained substantial liquidity during 2009.
+At December 31, 2009, we had $3.1 billion in cash and cash equivalents compared to $6.2 billion at December 31, 2008.
+Excluding collateral received from derivative counterparties, cash and cash equivalents were $3.0 billion and $4.4 billion at December 31, 2009 and 2008, respectively.
+We have additional liquidity available through an unsecured revolving credit facility for $750 million that expires in September 2010, which we anticipate re-establishing before expiration.
+Under the terms of the underlying credit agreement, we can increase this facility to $1.0 billion.
+Available borrowings under this facility are reduced by any outstanding letters of credit.
+We have had no borrowings under this credit facility and had $2 million of outstanding letters of credit at December 31, 2009.
+In June 2009, we issued $200 million of 7.75% senior notes due 2039 and $300 million of 7.30% senior notes due 2019 (collectively, ‘‘senior notes’’).
+In July 2009, we used a portion of the proceeds from the issuance of our senior notes to repurchase $450 million aggregate principal amount of our 5.35% senior notes due 2010 pursuant to a cash tender offer.
+In addition, in June 2009, we received cash of $869 million from the issuance and sale of 36 million shares of our common stock.
+In September 2009, we announced the all-cash acquisition of the long-term asset management business of Columbia Management, which is expected to close in the spring of 2010.
+The total consideration to be paid will be between $900 million and $1.2 billion, which is expected to be funded through the use of cash on hand.
+In 2009, our subsidiaries, Ameriprise Bank, FSB and RiverSource Life, became members of the Federal Home Loan Bank of Des Moines (‘‘FHLB of Des Moines’’), which provides these subsidiaries with access to collateralized borrowings.
+As of December 31, 2009, we had no borrowings from the FHLB of Des Moines.
+We believe cash flows from operating activities, available cash balances and our availability of revolver borrowings will be sufficient to fund our operating liquidity needs.
+Various ratings organizations publish financial strength ratings, which measure an insurance company’s ability to meet contractholder and policyholder obligations, and credit ratings.
+The following table summarizes the ratings for Ameriprise Financial, Inc.  and certain of its insurance subsidiaries as of the date of this filing:
+## Table 3 ##
+[mhdev_0002_table_3.csv](mhdev_0002_table_3.csv)
+As of December 31, 2009, A. M.  Best Company, Inc. , Standard & Poor’s Ratings Services, Moody’s Investors Service and Fitch Ratings Ltd.  retained negative outlooks on Ameriprise Financial, Inc.  and RiverSource Life and the life insurance industry as a whole.
+For information on how changes in our financial strength or credit ratings could affect our financial condition and results of operations, see the ‘‘Risk Factors’’ discussion included in Part 1, Item 1A in our Annual Report on Form 10-K.  Dividends from Subsidiaries Ameriprise Financial is primarily a parent holding company for the operations carried out by our wholly owned subsidiaries.
+Because of our holding company structure, our ability to meet our cash requirements, including the payment of dividends on our common stock, substantially depends upon the receipt of dividends or return of capital from our subsidiaries, particularly our life insurance subsidiary, RiverSource Life, our face-amount certificate subsidiary, Ameriprise Certificate Company (‘‘ACC’’), AMPF Holding Corporation, which is the parent company of our retail introducing broker-dealer subsidiary, Ameriprise Financial Services, Inc.  (‘‘AFSI’’) and our clearing broker-dealer subsidiary, American Enterprise Investment Services, Inc.  (‘‘AEIS’’), our auto and home insurance subsidiary, IDS Property Casualty Insurance Company (‘‘IDS Property Casualty’’), doing business as Ameriprise Auto & Home Insurance, Threadneedle, RiverSource Service Corporation and our investment advisory company, RiverSource Investments, LLC.
+The payment of dividends by many of our subsidiaries is restricted and certain of our subsidiaries are subject to regulatory capital requirements.
+Kendal Vroman, 39 Mr.  Vroman has served as our Managing Director, Commodity Products, OTC Services & Information Products since February 2010.
+Mr.  Vroman previously served as Managing Director and Chief Corporate Development Officer from 2008 to 2010.
+Mr.  Vroman joined us in 2001 and since then has held positions of increasing responsibility, including most recently as Managing Director, Corporate Development and Managing Director, Information and Technology Services.
+Scot E.  Warren, 47 Mr.  Warren has served as our Managing Director, Equity Index Products and Index Services since February 2010.
+Mr.  Warren previously served as our Managing Director, Equity Products since joining us in 2007.
+Prior to that, Mr.  Warren worked for Goldman Sachs as its President, Manager Trading and Business Analysis Team.
+Prior to Goldman Sachs, Mr.  Warren managed equity and option execution and clearing businesses for ABN Amro in Chicago and was a Senior Consultant for Arthur Andersen & Co.  for financial services firms.
+FINANCIAL INFORMATION ABOUT GEOGRAPHIC AREAS Due to the nature of its business, CME Group does not track revenues based upon geographic location.
+We do, however, track trading volume generated outside of traditional U. S.  trading hours and through our international telecommunication hubs.
+Our customers can directly access our exchanges throughout the world.
+The following table shows the percentage of our total trading volume on our Globex electronic trading platform generated during non-U.
+S.  hours and through our international hubs.
+strategy to provide omni-channel solutions that combine gateway services, payment service provisioning and merchant acquiring across Europe.
+This transaction was accounted for as a business combination.
+We recorded the assets acquired, liabilities assumed and noncontrolling interest at their estimated fair values as of the acquisition date.
+In connection with the acquisition of Realex, we paid a transaction-related tax of $1.2 million.
+Other acquisition costs were not material.
+The revenue and earnings of Realex for the year ended May 31, 2015 were not material nor were the historical revenue and earnings of Realex material for the purpose of presenting pro forma information for the current or prior-year periods.
+The estimated acquisition date fair values of the assets acquired, liabilities assumed and the noncontrolling interest, including a reconciliation to the total purchase consideration, are as follows (in thousands):
+## Table 0 ##
+[mhdev_0003_table_0.csv](mhdev_0003_table_0.csv)
+Goodwill of $66.8 million arising from the acquisition, included in the Europe segment, was attributable to expected growth opportunities in Europe, potential synergies from combining our existing business with gateway services and payment service provisioning in certain markets and an assembled workforce to support the newly acquired technology.
+Goodwill associated with this acquisition is not deductible for income tax purposes.
+The customer-related intangible assets have an estimated amortization period of 16 years.
+The acquired technology has an estimated amortization period of 10 years.
+The trade name has an estimated amortization period of 7 years.
+strategy to provide omni-channel solutions that combine gateway services, payment service provisioning and merchant acquiring across Europe.
+This transaction was accounted for as a business combination.
+We recorded the assets acquired, liabilities assumed and noncontrolling interest at their estimated fair values as of the acquisition date.
+In connection with the acquisition of Realex, we paid a transaction-related tax of $1.2 million.
+Other acquisition costs were not material.
+The revenue and earnings of Realex for the year ended May 31, 2015 were not material nor were the historical revenue and earnings of Realex material for the purpose of presenting pro forma information for the current or prior-year periods.
+The estimated acquisition date fair values of the assets acquired, liabilities assumed and the noncontrolling interest, including a reconciliation to the total purchase consideration, are as follows (in thousands):
+Goodwill of $66.8 million arising from the acquisition, included in the Europe segment, was attributable to expected growth opportunities in Europe, potential synergies from combining our existing business with gateway services and payment service provisioning in certain markets and an assembled workforce to support the newly acquired technology.
+Goodwill associated with this acquisition is not deductible for income tax purposes.
+The customer-related intangible assets have an estimated amortization period of 16 years.
+The acquired technology has an estimated amortization period of 10 years.
+The trade name has an estimated amortization period of 7 years.
+On October 5, 2015, we paid €6.7 million ($7.5 million equivalent as of October 5, 2015) to acquire the remaining shares of Realex after which we own 100% of the outstanding shares.
+Ezidebit On October 10, 2014, we completed the acquisition of 100% of the outstanding stock of Ezi Holdings Pty Ltd (¡°Ezidebit¡±) for AUD302.6 million in cash ($266.0 million equivalent as of the acquisition date).
+This acquisition was funded by a combination of cash on hand and borrowings on our revolving credit facility.
+Ezidebit is a leading integrated payments company focused on recurring payments verticals in Australia and New Zealand.
+Ezidebit markets its services through a network of integrated software vendors and direct channels to numerous vertical markets.
+We acquired Ezidebit to establish a direct distribution channel in Australia and New Zealand and to further enhance our existing integrated solutions offerings.
+This transaction was accounted for as a business combination.
+We recorded the assets acquired and liabilities assumed at their estimated fair values as of the acquisition date.
+Certain adjustments to estimated fair value were recorded during the year ended May 31, 2016 based on new information obtained that existed as of the acquisition date.
+During the measurement period, management determined that deferred income taxes should be reflected for certain nondeductible intangible assets.
+Measurement-period adjustments, which are reflected in the table below, had no material effect on earnings or other comprehensive income for the current or prior periods.
+The revenue and earnings of Ezidebit
+for which $92 million of the fees are offset in incentive compensation expense in accordance with the terms of the contractual agreements.
+Certain of these incentive fees are subject to positive or negative future adjustment based on cumulative fund performance in relation to specified benchmarks.
+The increase also reflects $68 million greater revenues from proprietary investing mainly due to appreciation and gains on sale of real estate related investments, including income of $12 million relating to a single investment in the current period and $58 million relating to two sale transactions in the prior year.
+Asset management fees increased $88 million mainly from institutional and retail customer assets as a result of increased asset values due to market appreciation and net asset flows.
+Expenses 2007 to 2006 Annual Comparison.
+Expenses, as shown in the table above under “—Operating Results,” increased $170 million, from $1.457 billion in 2006 to $1.627 billion in 2007.
+The increase is primarily driven by higher expenses associated with certain real estate funds, as discussed above.2006 to 2005 Annual Comparison.
+Expenses increased $225 million, from $1.232 billion in 2005 to $1.457 billion in 2006.
+The increase in expenses was primarily due to higher performance-based compensation costs resulting from favorable performance in 2006, higher expenses related to proprietary investing activities and incentive compensation related to performance based incentive fees, as discussed above.
+Financial Advisory Operating Results The following table sets forth the Financial Advisory segment’s operating results for the periods indicated.
+## Table 1 ##
+[mhdev_0003_table_1.csv](mhdev_0003_table_1.csv)
+(1) Equity in earnings of operating joint ventures are included in adjusted operating income but excluded from income from continuing operations before income taxes and equity in earnings of operating joint ventures, as they are reflected on a U. S.  GAAP basis on an after-tax basis as a separate line on our Consolidated Statements of Operations.
+On July 1, 2003, we combined our retail securities brokerage and clearing operations with those of Wachovia Corporation, or Wachovia, and formed Wachovia Securities Financial Holdings, LLC, or Wachovia Securities, a joint venture now headquartered in St.  Louis, Missouri.
+As of December 31, 2007, we had a 38% ownership interest in the joint venture, with Wachovia owning the remaining 62%.
+As part of the transaction, we retained certain assets and liabilities related to the contributed businesses, including liabilities for certain litigation and regulatory matters.
+We account for our ownership of the joint venture under the equity method of accounting.
+On October 1, 2007, Wachovia completed the acquisition of A. G.  Edwards, Inc. , or A. G.  Edwards, for $6.8 billion and on January 1, 2008 combined the retail securities brokerage business of A. G.  Edwards with Wachovia Securities.
+As discussed in Note 6 to the Consolidated Financial Statements, we have elected the “lookback” option under the terms of the agreements relating to the joint venture in connection with the combination of the A. G.  Edwards business with Wachovia Securities.
+The “lookback” option permits us to delay for approximately two years following the combination of the A. G.  Edwards business with Wachovia Securities our decision to make or not to make payments to avoid or limit dilution of our ownership interest in the joint venture.
+During this “lookback” period, our share in the earnings of the joint venture, as well as our share of the one-time costs associated with the combination, will be based on our diluted ownership level, which is in the process of being determined.
+Any payment at the end of the “lookback” period to restore all or part of our ownership interest in the joint venture would be based on the appraised or agreed value of the existing joint venture and the A. G.  Edwards business.
+In such event, we would also need to make a true-up payment of one-time costs associated with the combination to reflect the incremental increase in our ownership interest in the joint venture.
+Alternatively, we may at the end of the “lookback” period “put” our joint venture interests to Wachovia based on the appraised value of the joint venture, excluding the A. G.  Edwards business, as of the date of the combination of the A. G.  Edwards business with Wachovia Securities.
+We also retain our separate right to “put” our joint venture interests to Wachovia at any time after July 1, 2008 based on the appraised value of the joint venture, including the A. G.  Edwards business, determined as if it were a public company and including a control premium such as would apply in the case of a sale of 100% of its common equity.
+However, if in connection with the “lookback” option we elect at the end of the “lookback” period to make payments to avoid or limit dilution, we may not exercise this “put” option prior to the first anniversary of the end of the “lookback” period.
+Investment Results The following tables set forth the income yield and investment income, excluding realized investment gains (losses), for each major investment category of our general account for the periods indicated.
+## Table 2 ##
+[mhdev_0003_table_2.csv](mhdev_0003_table_2.csv)
+Year Ended December 31, 2006
+## Table 3 ##
+[mhdev_0003_table_3.csv](mhdev_0003_table_3.csv)
+(1) Yields are based on quarterly average carrying values except for fixed maturities, equity securities and securities lending activity.
+Yields for fixed maturities are based on amortized cost.
+Yields for equity securities are based on cost.
+Yields for securities lending activity are calculated net of corresponding liabilities and rebate expenses.
+Yields exclude investment income on assets other than those included in invested assets of the Financial Services Businesses.
+Prior periods yields are presented on a basis consistent with the current period presentation.
+(2) Includes investment income of securities brokerage, securities trading, banking operations, real estate and relocation services, and asset management operations.
+The net investment income yield on our general account investments after investment expenses, excluding realized investment gains (losses), was 5.43% and 5.38% for the years ended December 31, 2007 and 2006, respectively.
+The net investment income yield attributable to the Financial Services Businesses was 5.06% for the year ended December 31, 2007, compared to 4.99% for the year ended December 31, 2006.
+See below for a discussion of the change in the Financial Services Businesses’ yields.
+The net investment income yield attributable to the Closed Block Business was 6.41% for the year ended December 31, 2007, compared to 6.37% for the year ended December 31, 2006.
+The increase was primarily due to higher income from investments in joint ventures and limited partnerships, driven by net appreciation of underlying assets and gains from the sale of underlying assets partially offset by lower mortgage loan prepayment income.
+Entergy Corporation and Subsidiaries Notes to Financial Statements 145 The fair value of debt securities, summarized by contractual maturities, as of December 31, 2009 and 2008 are as follows:
+## Table 0 ##
+[mhdev_0004_table_0.csv](mhdev_0004_table_0.csv)
+During the years ended December 31, 2009, 2008, and 2007, proceeds from the dispositions of securities amounted to $2,571 million, $1,652 million, and $1,583 million, respectively.
+During the years ended December 31, 2009, 2008, and 2007, gross gains of $80 million, $26 million, and $5 million, respectively, and gross losses of $30 million, $20 million, and $4 million, respectively, were reclassified out of other comprehensive income into earnings.
+Other-than-temporary impairments and unrealized gains and losses Entergy evaluates unrealized losses at the end of each period to determine whether an other-than-temporary impairment has occurred.
+Effective January 1, 2009, Entergy adopted an accounting pronouncement providing guidance regarding recognition and presentation of other-than-temporary impairments related to investments in debt securities.
+The assessment of whether an investment in a debt security has suffered an other-than-temporary impairment is based on whether Entergy has the intent to sell or more likely than not will be required to sell the debt security before recovery of its amortized costs.
+Further, if Entergy does not expect to recover the entire amortized cost basis of the debt security, an other-than-temporary impairment is considered to have occurred and it is measured by the present value of cash flows expected to be collected less the amortized cost basis (credit loss).
+For debt securities held as of January 1, 2009 for which an other-than-temporary impairment had previously been recognized but for which assessment under the new guidance indicates this impairment is temporary, Entergy recorded an adjustment to its opening balance of retained earnings of $11.3 million ($6.4 million net-of-tax).
+Entergy did not have any material other-than-temporary impairments relating to credit losses on debt securities in 2009.
+The assessment of whether an investment in an equity security has suffered an other-than-temporary impairment continues to be based on a number of factors including, first, whether Entergy has the ability and intent to hold the investment to recover its value, the duration and severity of any losses, and, then, whether it is expected that the investment will recover its value within a reasonable period of time.
+Entergy's trusts are managed by third parties who operate in accordance with agreements that define investment guidelines and place restrictions on the purchases and sales of investments.
+Non-Utility Nuclear recorded charges to other income of $86 million in 2009, $50 million in 2008, and $5 million in 2007, resulting from the recognition of the other-than-temporary impairment of certain equity securities held in its decommissioning trust funds.
+NOTE 18.
+ENTERGY NEW ORLEANS BANKRUPTCY PROCEEDING As a result of the effects of Hurricane Katrina and the effect of extensive flooding that resulted from levee breaks in and around the New Orleans area, on September 23, 2005, Entergy New Orleans filed a voluntary petition in bankruptcy court seeking reorganization relief under Chapter 11 of the U. S.  Bankruptcy Code.
+On May 7, 2007, the bankruptcy judge entered an order confirming Entergy New Orleans' plan of reorganization.
+With the receipt of CDBG funds, and the agreement on insurance recovery with one of its excess insurers, Entergy New Orleans waived the conditions precedent in its plan of reorganization and the plan became effective on May 8, 2007.
+Following are significant terms in Entergy New Orleans' plan of reorganization:
+As a result of the accounting for uncertain tax positions, the amount of the deferred tax assets reflected in the financial statements is less than the amount of the tax effect of the federal and state net operating loss carryovers, tax credit carryovers, and other tax attributes reflected on income tax returns.
+Because it is more likely than not that the benefit from certain state net operating and capital loss carryovers will not be utilized, a valuation allowance of $66 million and $13 million has been provided on the deferred tax assets relating to these state net operating and capital loss carryovers, respectively.
+Significant components of accumulated deferred income taxes and taxes accrued for the Registrant Subsidiaries as of December 31, 2011 and 2010 are as follows:
+## Table 1 ##
+[mhdev_0004_table_1.csv](mhdev_0004_table_1.csv)
+Entergy Mississippi, Inc.  Management’s Financial Discussion and Analysis 327 2010 Compared to 2009 Net revenue consists of operating revenues net of: 1) fuel, fuel-related expenses, and gas purchased for resale, 2) purchased power expenses, and 3) other regulatory charges (credits).
+Following is an analysis of the change in net revenue comparing 2010 to 2009.
+## Table 2 ##
+[mhdev_0004_table_2.csv](mhdev_0004_table_2.csv)
+The volume/weather variance is primarily due to an increase of 1,046 GWh, or 8%, in billed electricity usage in all sectors, primarily due to the effect of more favorable weather on the residential sector.
+Gross operating revenues, fuel and purchased power expenses, and other regulatory charges (credits) Gross operating revenues increased primarily due to an increase of $22 million in power management rider revenue as the result of higher rates, the volume/weather variance discussed above, and an increase in Grand Gulf rider revenue as a result of higher rates and increased usage, offset by a decrease of $23.5 million in fuel cost recovery revenues due to lower fuel rates.
+Fuel and purchased power expenses decreased primarily due to a decrease in deferred fuel expense as a result of prior over-collections, offset by an increase in the average market price of purchased power coupled with increased net area demand.
+Other regulatory charges increased primarily due to increased recovery of costs associated with the power management recovery rider.
+Other Income Statement Variances 2011 Compared to 2010 Other operation and maintenance expenses decreased primarily due to: x a $5.4 million decrease in compensation and benefits costs primarily resulting from an increase in the accrual for incentive-based compensation in 2010 and a decrease in stock option expense; and x the sale of $4.9 million of surplus oil inventory.
+The decrease was partially offset by an increase of $3.9 million in legal expenses due to the deferral in 2010 of certain litigation expenses in accordance with regulatory treatment.
+Taxes other than income taxes increased primarily due to an increase in ad valorem taxes due to a higher 2011 assessment as compared to 2010, partially offset by higher capitalized property taxes as compared with prior year.
+Depreciation and amortization expenses increased primarily due to an increase in plant in service.
+Interest expense decreased primarily due to a revision caused by FERC’s acceptance of a change in the treatment of funds received from independent power producers for transmission interconnection projects.
+Entergy New Orleans, Inc.  Management’s Financial Discussion and Analysis 350 Also in addition to the contractual obligations, Entergy New Orleans has $53.7 million of unrecognized tax benefits and interest net of unused tax attributes and payments for which the timing of payments beyond 12 months cannot be reasonably estimated due to uncertainties in the timing of effective settlement of tax positions.
+See Note 3 to the financial statements for additional information regarding unrecognized tax benefits.
+The planned capital investment estimate for Entergy New Orleans reflects capital required to support existing business.
+The estimated capital expenditures are subject to periodic review and modification and may vary based on the ongoing effects of regulatory constraints, environmental compliance, market volatility, economic trends, changes in project plans, and the ability to access capital.
+Management provides more information on long-term debt and preferred stock maturities in Notes 5 and 6 and to the financial statements.
+As an indirect, wholly-owned subsidiary of Entergy Corporation, Entergy New Orleans pays dividends from its earnings at a percentage determined monthly.
+Entergy New Orleans’s long-term debt indentures contain restrictions on the payment of cash dividends or other distributions on its common and preferred stock.
+Sources of Capital Entergy New Orleans’s sources to meet its capital requirements include: x internally generated funds; x cash on hand; and x debt and preferred stock issuances.
+Entergy New Orleans may refinance, redeem, or otherwise retire debt and preferred stock prior to maturity, to the extent market conditions and interest and dividend rates are favorable.
+Entergy New Orleans’s receivables from the money pool were as follows as of December 31 for each of the following years:
+## Table 3 ##
+[mhdev_0004_table_3.csv](mhdev_0004_table_3.csv)
+See Note 4 to the financial statements for a description of the money pool.
+Entergy New Orleans has obtained short-term borrowing authorization from the FERC under which it may borrow through October 2013, up to the aggregate amount, at any one time outstanding, of $100 million.
+See Note 4 to the financial statements for further discussion of Entergy New Orleans’s short-term borrowing limits.
+The long-term securities issuances of Entergy New Orleans are limited to amounts authorized by the City Council, and the current authorization extends through July 2012.
+Entergy Louisiana’s Ninemile Point Unit 6 Self-Build Project In June 2011, Entergy Louisiana filed with the LPSC an application seeking certification that the public necessity and convenience would be served by Entergy Louisiana’s construction of a combined-cycle gas turbine generating facility (Ninemile 6) at its existing Ninemile Point electric generating station.
+Ninemile 6 will be a nominally-sized 550 MW unit that is estimated to cost approximately $721 million to construct, excluding interconnection and transmission upgrades.
+Entergy Gulf States Louisiana joined in the application, seeking certification of its purchase under a life-of-unit power purchase agreement of up to 35% of the capacity and energy generated by Ninemile 6.
+The Ninemile 6 capacity and energy is proposed to be allocated 55% to Entergy Louisiana, 25% to Entergy Gulf States Louisiana, and 20% to Entergy New Orleans.
+In February 2012 the City Council passed a resolution authorizing Entergy New Orleans to purchase 20% of the Ninemile 6 energy and capacity.
+If approvals are obtained from the LPSC and other permitting agencies, Ninemile 6 construction is
+Equity Compensation Plan Information The following table summarizes the equity compensation plan information as of December 31, 2011.
+Information is included for equity compensation plans approved by the stockholders and equity compensation plans not approved by the stockholders.
+The calculation of earnings per common share and diluted earnings per common share for 2004, 2003 and 2002 is presented below.
+See Note 1 of the Consolidated Financial Statements for a discussion on the calculation of earnings per common share.
+## Table 0 ##
+[mhdev_0005_table_0.csv](mhdev_0005_table_0.csv)
+(1) For 2004, 2003 and 2002, average options to purchase 10 million, 19 million and 45 million shares, respectively, were outstanding but not included in the computation of earnings per common share because they were antidilutive.
+(2) Includes incremental shares from assumed conversions of convertible preferred stock, restricted stock units, restricted stock shares and stock options.
+Note 14 Regulatory Requirements and Restrictions The Board of Governors of the Federal Reserve System (FRB) requires the Corporation’s banking subsidiaries to maintain reserve balances based on a percentage of certain deposits.
+Average daily reserve balances required by the FRB were $6.9 billion and $4.1 billion for 2004 and 2003, respectively.
+Currency and coin residing in branches and cash vaults (vault cash) are used to partially satisfy the reserve requirement.
+The average daily reserve balances, in excess of vault cash, held with the Federal Reserve Bank amounted to $70 million and $317 million for 2004 and 2003, respectively.
+The primary source of funds for cash distributions by the Corporation to its shareholders is dividends received from its banking subsidiaries.
+Bank of America, N. A.  and Fleet National Bank declared and paid dividends of $5.9 billion and $1.3 billion, respectively, for 2004 to the parent.
+In 2005, Bank of America, N. A.  and Fleet National Bank can declare and pay dividends to the parent of $4.7 billion and $790 million plus an additional amount equal to their net profits for 2005, as defined by statute, up to the date of any such dividend declaration.
+The other subsidiary national banks can initiate aggregate dividend payments in 2005 of $2.6 billion plus an additional amount equal to their net profits for 2005, as defined by statute, up to the date of any such dividend declaration.
+The amount of dividends that each subsidiary bank may declare in a calendar year without approval by the OCC is the subsidiary bank’s net profits for that year combined with its net retained profits, as defined, for the preceding two years.
+The FRB, the OCC and the Federal Deposit Insurance Corporation (collectively, the Agencies) have issued regulatory capital guidelines for U. S.  banking organizations.
+Failure to meet the capital requirements can initiate certain mandatory and discretionary actions by regulators that could have a material effect on the Corporation’s financial statements.
+At December 31, 2004 and 2003, the Corporation and Bank of America, N. A.  were classified as well-capitalized under this regulatory framework.
+At December 31, 2004, Fleet National Bank was classified as well-capitalized under this regulatory framework.
+There have been no conditions or events since December 31, 2004 that management believes have changed the Corporation’s, Bank of America, N. A.
+’s or Fleet National Bank’s capital classifications.
+## Table 1 ##
+[mhdev_0005_table_1.csv](mhdev_0005_table_1.csv)
+The strategy for GCSBB is to attract, retain and deepen customer relationships.
+We achieve this strategy through our ability to offer a wide range of products and services through a franchise that stretches coast to coast through 32 states and the District of Columbia.
+We also provide credit card products to customers in Canada, Ireland, Spain and the United Kingdom.
+In the U. S. , we serve approximately 59 million consumer and small business relationships utilizing our network of 6,149 banking centers, 18,753 domestic branded ATMs, and telephone and Internet channels.
+Within GCSBB, there are three primary businesses: Deposits, Card Services, and Consumer Real Estate.
+In addition, ALM/Other includes the results of ALM activities and other consumer-related businesses (e. g. , insurance).
+GCSBB, specifically Card Services, is presented on a managed basis.
+For a reconciliation of managed GCSBB to held GCSBB, see Note 22 – Business Segment Information to the Consolidated Financial Statements.
+During 2007, Visa Inc.  filed a registration statement with the SEC with respect to a proposed IPO.
+Subject to market conditions and other factors, Visa Inc.  expects the IPO to occur in the first half of 2008.
+We expect to record a gain associated with the IPO.
+In addition, we expect that a portion of the proceeds from the IPO will be used by Visa Inc.  to fund liabilities arising from litigation which would allow us to record an offset to the litigation liabilities that we recorded in the fourth quarter of 2007 as discussed below.
+Net income decreased $1.9 billion, or 17 percent, to $9.4 billion compared to 2006 as increases in noninterest income and net interest income were more than offset by increases in provision for credit losses and noninterest expense.
+Net interest income increased $612 million, or two percent, to $28.8 billion due to the impacts of organic growth and the LaSalle acquisition on average loans and leases, and deposits compared to 2006.
+Noninterest income increased $2.1 billion, or 13 percent, to $18.9 billion compared to the same period in 2006, mainly due to increases in card income, service charges and mortgage banking income.
+Provision for credit losses increased $4.4 billion, or 51 percent, to $12.9 billion compared to 2006.
+This increase primarily resulted from a $3.2 billion increase in Card Services and a $978 million increase in Consumer Real Estate.
+For further discussion of the increase in provision for credit losses related to Card Services and Consumer Real Estate, see their respective discussions.
+Noninterest expense increased $1.7 billion, or nine percent, to $20.1 billion largely due to increases in personnel-related expenses, Visarelated litigation costs, equally allocated to Card Services and Treasury Services on a management accounting basis, and technology related costs.
+For additional information on Visa-related litigation, see Note 13 – Commitments and Contingencies to the Consolidated Financial Statements.
+Deposits Deposits provides a comprehensive range of products to consumers and small businesses.
+Our products include traditional savings accounts, money market savings accounts, CDs and IRAs, and noninterest and interest-bearing checking accounts.
+Debit card results are also included in Deposits.
+Deposit products provide a relatively stable source of funding and liquidity.
+We earn net interest spread revenues from investing this liquidity in earning assets through client-facing lending activity and our ALM activities.
+The revenue is allocated to the deposit products using our funds transfer pricing process which takes into account the interest rates and maturity characteristics of the deposits.
+Deposits also generate fees such as account service fees, non-sufficient fund fees, overdraft charges and ATM fees, while debit cards generate merchant interchange fees based on purchase volume.
+Excluding accounts obtained through acquisitions, we added approximately 2.3 million net new retail checking accounts in 2007.
+These additions resulted from continued improvement in sales and service results in the Banking Center Channel and Online, and the success of such products as Keep the ChangeTM, Risk Free CDs, Balance Rewards and Affinity.
+We continue to migrate qualifying affluent customers and their related deposit balances from GCSBB to GWIM.
+In 2007, a total of $11.4 billion of deposits were migrated from GCSBB to GWIM compared to $10.7 billion in 2006.
+After migration, the associated net interest income, service charges and noninterest expense are recorded in GWIM.
+Net income increased $364 million, or seven percent, to $5.2 billion compared to 2006 as an increase in noninterest income was partially offset by an increase in noninterest expense.
+Net interest income remained relatively flat at $9.4 billion compared to 2006 as the addition of LaSalle and higher deposit spreads resulting from disciplined pricing were offset by the impact of lower balances.
+Average deposits decreased $3.2 billion, or one percent, largely due to the migration of customer relationships and related balances to GWIM, partially offset by the acquisition of LaSalle.
+The increase in noninterest income was driven by higher service charges of $665 million, or 12 percent, primarily as a result of new demand deposit account growth and the addition of LaSalle.
+Additionally, debit card revenue growth of $248 million, or 13 percent, was due to a higher number of checking accounts, increased usage, the addition of LaSalle and market penetration (i. e. , increase in the number of existing account holders with debit cards).
+Noninterest expense increased $323 million, or four percent, to $9.1 billion compared to 2006, primarily due to the addition of LaSalle, and to higher account and transaction volumes.
+Card Services Card Services, which excludes the results of debit cards (included in Deposits), provides a broad offering of products, including U. S.  Consumer and Business Card, Unsecured Lending, and International Card.
+We offer a variety of co-branded and affinity credit card products and have become the leading issuer of credit cards through endorsed marketing in the U. S.  and Europe.
+During 2007, Merchant Services was transferred to Treasury Services within GCIB.
+Previously their results were reported in Card Services.
+Prior period amounts have been reclassified.
+The shares of the series of preferred stock previously discussed are not subject to the operation of a sinking fund and have no participation rights.
+With the exception of the Series L Preferred Stock, the shares of the series of preferred stock in the previous table are not convertible.
+The holders of these series have no general voting rights.
+If any dividend payable on these series is in arrears for three or more semi-annual or six or more quarterly dividend periods, as applicable (whether consecutive or not), the holders of these series and any other class or series of preferred stock ranking equally as to payment of dividends and upon which equivalent voting rights have been conferred and are exercisable (voting as a single class) will be entitled to vote for the election of two additional directors.
+These voting rights terminate when the Corporation has paid in full dividends on these series for at least two semi-annual or four quarterly dividend periods, as applicable, following the dividend arrearage (or, in the case of the Series N Preferred Stock, upon payment of all accrued and unpaid dividends).
+In October 2008, in connection with the TARP Capital Purchase Program, established as part of the Emergency Economic Stabilization Act of 2008, the Corporation issued to the U. S.  Treasury 600 thousand shares of Series N Preferred Stock as presented in the previous table.
+The Series N Preferred Stock has a call feature after three years.
+In connection with this investment, the Corporation also issued to the U. S.  Treasury 10-year warrants to purchase approximately 73.1 million shares of Bank of America Corporation common stock at an exercise price of $30.79 per share.
+Upon the request of the U. S.  Treasury, at any time, the Corporation has agreed to enter into a deposit arrangement pursuant to which the Series N Preferred Stock may be deposited and depositary shares, representing 1/25th of a share of Series N Preferred Stock, may be issued.
+The Corporation has agreed to register the Series N Preferred Stock, the warrants, the shares of common stock underlying the warrants and the depositary shares, if any, for resale under the Securities Act of 1933.
+As required under the TARP Capital Purchase Program in connection with the sale of the Series N Preferred Stock to the U. S.  Treasury, dividend payments on, and repurchases of, the Corporation’s outstanding preferred and common stock are subject to certain restrictions.
+For as long as any Series N Preferred Stock is outstanding, no dividends may be declared or paid on the Corporation’s outstanding preferred and common stock until all accrued and unpaid dividends on Series N Preferred Stock are fully paid.
+In addition, the U. S.  Treasury’s consent is required for any increase in dividends declared on shares of common stock before the third anniversary of the issuance of the Series N Preferred Stock unless the Series N Preferred Stock is redeemed by the Corporation or transferred in whole by the U. S.  Treasury.
+Further, the U. S.  Treasury’s consent is required for any repurchase of any equity securities or trust preferred securities except for repurchases of Series N Preferred Stock or repurchases of common shares in connection with benefit plans consistent with past practice before the third anniversary of the issuance of the Series N Preferred Stock unless redeemed by the Corporation or transferred in whole by the U. S.  Treasury.
+On July 14, 2006, the Corporation redeemed its 6.75% Perpetual Preferred Stock with a stated value of $250 per share.
+The 382.5 thousand shares, or $96 million, outstanding of preferred stock were redeemed at the stated value of $250 per share, plus accrued and unpaid dividends.
+On July 3, 2006, the Corporation redeemed its Fixed/Adjustable Rate Cumulative Preferred Stock with a stated value of $250 per share.
+The 700 thousand shares, or $175 million, outstanding of preferred stock were redeemed at the stated value of $250 per share, plus accrued and unpaid dividends.
+All preferred stock outstanding has preference over the Corporation’s common stock with respect to the payment of dividends and distribution of the Corporation’s assets in the event of a liquidation or dissolution.
+Except in certain circumstances, the holders of preferred stock have no voting rights.
+During 2008, 2007 and 2006 the aggregate dividends declared on preferred stock were $1.3 billion, $182 million and $22 million respectively.
+In addition, in January 2009, the Corporation declared aggregate dividends on preferred stock of $909 million, including $145 million related to preferred stock exchanged in connection with the Merrill Lynch acquisition.
+Accumulated OCI The following table presents the changes in accumulated OCI for 2008, 2007 and 2006, net-of-tax.
+## Table 2 ##
+[mhdev_0005_table_2.csv](mhdev_0005_table_2.csv)
+(1) In 2008, 2007 and 2006, the Corporation reclassified net realized losses into earnings on the sales and other-than-temporary impairments of AFS debt securities of $1.4 billion, $137 million and $279 million, net-of-tax, respectively, and net realized (gains) losses on the sales and other-than-temporary impairments of AFS marketable equity securities of $377 million, $(284) million, and $(499) million, net-of-tax, respectively.
+(2) The amounts included in accumulated OCI for terminated interest rate derivative contracts were losses of $3.4 billion, $3.8 billion and $3.2 billion, net-of-tax, at December 31, 2008, 2007 and 2006, respectively.
+(3) For more information, see Note 16 – Employee Benefit Plans to the Consolidated Financial Statements.
+(4) For 2008, the net change in fair value recorded in accumulated OCI represented $3.8 billion in losses associated with the Corporation’s foreign currency translation adjustments on its net investment in consolidated foreign operations partially offset by gains of $2.8 billion on the related foreign currency exchange hedging results.
+(5) Securities include the fair value adjustment of $4.8 billion and $8.4 billion, net-of-tax, related to the Corporation’s investment in CCB at December 31, 2008 and 2007.
+(6) Included in this line item are amounts related to derivatives used in cash flow hedge relationships.
+These amounts are reclassified into earnings in the same period or periods during which the hedged forecasted transactions affect earnings.
+This line item also includes (gains) losses on AFS debt and marketable equity securities and impairment charges.
+These amounts are reclassified into earnings upon sale of the related security or when the other-than-temporary impairment charge is recognized.
+Entering 2006, earnings in the first quarter are expected to improve compared with the 2005 fourth quarter due principally to higher average price realizations, reflecting announced price increases.
+Product demand for the first quarter should be seasonally slow, but is expected to strengthen as the year progresses, supported by continued economic growth in North America, Asia and Eastern Europe.
+Average prices should also improve in 2006 as price increases announced in late 2005 and early 2006 for uncoated freesheet paper and pulp continue to be realized.
+Operating rates are expected to improve as a result of industry-wide capacity reductions in 2005.
+Although energy and raw material costs remain high, there has been some decline in both natural gas and delivered wood costs, with further moderation expected later in 2006.
+We will continue to focus on further improvements in our global manufacturing operations, implementation of supply chain enhancements and reductions in overhead costs during 2006.
+Industrial Packaging Demand for Industrial Packaging products is closely correlated with non-durable industrial goods production in the United States, as well as with demand for processed foods, poultry, meat and agricultural products.
+In addition to prices and volumes, major factors affecting the profitability of Industrial Packaging are raw material and energy costs, manufacturing efficiency and product mix.
+Industrial Packaging’s net sales for 2005 increased 2% compared with 2004, and were 18% higher than in 2003, reflecting the inclusion of International Paper Distribution Limited (formerly International Paper Pacific Millennium Limited) beginning in August 2005.
+Operating profits in 2005 were 39% lower than in 2004 and 13% lower than in 2003.
+Sales volume increases ($24 million), improved price realizations ($66 million), and strong mill operating performance ($27 million) were not enough to offset the effects of increased raw material costs ($103 million), higher market related downtime costs ($50 million), higher converting operating costs ($22 million), and unfavorable mix and other costs ($67 million).
+Additionally, the May 2005 sale of our Industrial Papers business resulted in a $25 million lower earnings contribution from this business in 2005.
+The segment took 370,000 tons of downtime in 2005, including 230,000 tons of lack-of-order downtime to balance internal supply with customer demand, compared to a total of 170,000 tons in 2004, which included 5,000 tons of lack-of-order downtime.
+## Table 3 ##
+[mhdev_0005_table_3.csv](mhdev_0005_table_3.csv)
+Containerboard’s net sales totaled $895 million in 2005, $951 million in 2004 and $815 million in 2003.
+Soft market conditions and declining customer demand at the end of the first quarter led to lower average sales prices during the second and third quarters.
+Beginning in the fourth quarter, prices recovered as a result of increased customer demand and a rationalization of supply.
+Full year sales volumes trailed 2004 levels early in the year, reflecting the weak market conditions in the first half of 2005.
+However, volumes rebounded in the second half of the year, and finished the year ahead of 2004 levels.
+Operating profits decreased 38% from 2004, but were flat with 2003.
+The favorable impacts of increased sales volumes, higher average sales prices and improved mill operating performance were not enough to offset the impact of higher wood, energy and other raw material costs and increased lack-of-order downtime.
+Implementation of the new supply chain operating model in our containerboard mills during 2005 resulted in increased operating efficiency and cost savings.
+Specialty Papers in 2005 included the Kraft Paper business for the full year and the Industrial Papers business for five months prior to its sale in May 2005.
+Net sales totaled $468 million in 2005, $723 million in 2004 and $690 million in 2003.
+Operating profits in 2005 were down 23% compared with 2004 and 54% compared with 2003, reflecting the lower contribution from Industrial Papers.
+U. S.  Converting Operations net sales for 2005 were $2.6 billion compared with $2.3 billion in 2004 and $1.9 billion in 2003.
+Sales volumes were up 10% in 2005 compared with 2004, mainly due to the acquisition of Box USA in July 2004.
+Average sales prices in 2005 began the year above 2004 levels, but softened in the second half of the year.
+Operating profits in 2005 decreased 46% and 4% from 2004 and 2003 levels, respectively, primarily due to increased linerboard, freight and energy costs.
+European Container sales for 2005 were $883 million compared with $865 million in 2004 and $801 million in 2003.
+Operating profits declined 19% and 13% compared with 2004 and 2003, respectively.
+The increase in sales in 2005 reflected a slight increase in demand over 2004, but this was not sufficient to offset the negative earnings effect of increased operating costs, unfavorable foreign exchange rates and a reduction in average sales prices.
+The Moroccan box plant acquisition, which was completed in October 2005, favorably impacted fourth-quarter results.
+Industrial Packaging’s sales in 2005 included $104 million from International Paper Distribution Limited, our Asian box and containerboard business, subsequent to the acquisition of an additional 50% interest in August 2005.
+MetLife, Inc.  Notes to the Consolidated Financial Statements — (Continued) Issuance Costs In connection with the offering of common equity units, the Holding Company incurred $55.3 million of issuance costs of which $5.8 million related to the issuance of the junior subordinated debentures underlying common equity units which funded the Series A and Series B trust preferred securities and $49.5 million related to the expected issuance of the common stock under the stock purchase contracts.
+The $5.8 million in debt issuance costs were capitalized, included in other assets, and amortized using the effective interest method over the period from issuance date of the common equity units to the initial and subsequent stock purchase date.
+The remaining $49.5 million of costs related to the common stock issuance under the stock purchase contracts and were recorded as a reduction of additional paid-in capital.
+Earnings Per Common Share The stock purchase contracts are reflected in diluted earnings per common share using the treasury stock method.
+The stock purchase contracts were included in diluted earnings per common share for the years ended December 31, 2008, 2007 and 2006 as shown in Note 20.
+Remarketing of Junior Subordinated Debentures and Settlement of Stock Purchase Contracts On August 15, 2008, the Holding Company closed the successful remarketing of the Series A portion of the junior subordinated debentures underlying the common equity units.
+The Series A junior subordinated debentures were modified as permitted by their terms to be 6.817% senior debt securities Series A, due August 15, 2018.
+The Holding Company did not receive any proceeds from the remarketing.
+Most common equity unit holders chose to have their junior subordinated debentures remarketed and used the remarketing proceeds to settle their payment obligations under the applicable stock purchase contract.
+For those common equity unit holders that elected not to participate in the remarketing and elected to use their own cash to satisfy the payment obligations under the stock purchase contract, the terms of the debt are the same as the remarketed debt.
+The initial settlement of the stock purchase contracts occurred on August 15, 2008, providing proceeds to the Holding Company of $1,035 million in exchange for shares of the Holding Company’s common stock.
+The Holding Company delivered 20,244,549 shares of its common stock held in treasury at a value of $1,064 million to settle the stock purchase contracts.
+On February 17, 2009, the Holding Company closed the successful remarketing of the Series B portion of the junior subordinated debentures underlying the common equity units.
+The Series B junior subordinated debentures were modified as permitted by their terms to be 7.717% senior debt securities Series B, due February 15, 2019.
+The Holding Company did not receive any proceeds from the remarketing.
+Most common equity unit holders chose to have their junior subordinated debentures remarketed and used the remarketing proceeds to settle their payment obligations under the applicable stock purchase contract.
+For those common equity unit holders that elected not to participate in the remarketing and elected to use their own cash to satisfy the payment obligations under the stock purchase contract, the terms of the debt are the same as the remarketed debt.
+The subsequent settlement of the stock purchase contracts occurred on February 17, 2009, providing proceeds to the Holding Company of $1,035 million in exchange for shares of the Holding Company’s common stock.
+The Holding Company delivered 24,343,154 shares of its newly issued common stock at a value of $1,035 million to settle the stock purchase contracts.
+See also Notes 10, 12, 18 and 25.14.
+Shares Subject to Mandatory Redemption and Company-Obligated Mandatorily Redeemable Securities of Subsidiary Trusts GenAmerica Capital I.
+In June 1997, GenAmerica Corporation (“GenAmerica”) issued $125 million of 8.525% capital securities through a wholly-owned subsidiary trust, GenAmerica Capital I.
+In October 2007, GenAmerica redeemed these securities which were due to mature on June 30, 2027.
+As a result of this redemption, the Company recognized additional interest expense of $10 million.
+Interest expense on these instruments is included in other expenses and was $20 million and $11 million for the years ended December 31, 2007 and 2006, respectively.15.
+Income Tax The provision for income tax from continuing operations is as follows:
+## Table 0 ##
+[mhdev_0006_table_0.csv](mhdev_0006_table_0.csv)
+the same default methodology to all Alt-A bonds, regardless of the underlying collateral.
+The Company’s Alt-A portfolio has superior structure to the overall Alt-A market.
+The Company’s Alt-A portfolio is 88% fixed rate collateral, has zero exposure to option ARM mortgages and has only 12% hybrid ARMs.
+Fixed rate mortgages have performed better than both option ARMs and hybrid ARMs.
+Additionally, 83% of the Company’s Alt-A portfolio has super senior credit enhancement, which typically provides double the credit enhancement of a standard AAA rated bond.
+Based upon the analysis of the Company’s exposure to Alt-A mortgage loans through its investment in asset-backed securities, the Company continues to expect to receive payments in accordance with the contractual terms of the securities.
+Asset-Backed Securities.
+The Company’s asset-backed securities are diversified both by sector and by issuer.
+At December 31, 2008, the largest exposures in the Company’s asset-backed securities portfolio were credit card receivables, automobile receivables, student loan receivables and residential mortgage-backed securities backed by sub-prime mortgage loans of 49%, 10%, 10% and 10% of the total holdings, respectively.
+At December 31, 2008 and 2007, the Company’s holdings in asset-backed securities was $10.5 billion and $10.6 billion at estimated fair value.
+At December 31, 2008 and 2007, $7.9 billion and $5.7 billion, respectively, or 75% and 54%, respectively, of total asset-backed securities were rated Aaa/AAA by Moody’s, S&P or Fitch.
+The Company’s asset-backed securities included in the structured securities table above include exposure to residential mortgagebacked securities backed by sub-prime mortgage loans.
+Sub-prime mortgage lending is the origination of residential mortgage loans to customers with weak credit profiles.
+The Company’s exposure exists through investment in asset-backed securities which are supported by sub-prime mortgage loans.
+The slowing U. S.  housing market, greater use of affordable mortgage products, and relaxed underwriting standards for some originators of below-prime loans have recently led to higher delinquency and loss rates, especially within the 2006 and 2007 vintage year.
+Vintage year refers to the year of origination and not to the year of purchase.
+These factors have caused a pull-back in market liquidity and repricing of risk, which has led to an increase in unrealized losses from December 31, 2007 to December 31, 2008.
+Based upon the analysis of the Company’s exposure to sub-prime mortgage loans through its investment in asset-backed securities, the Company expects to receive payments in accordance with the contractual terms of the securities.
+The following table shows the Company’s exposure to asset-backed securities supported by sub-prime mortgage loans by credit quality and by vintage year:
+## Table 1 ##
+[mhdev_0006_table_1.csv](mhdev_0006_table_1.csv)
+December 31, 2007
+## Table 2 ##
+[mhdev_0006_table_2.csv](mhdev_0006_table_2.csv)
+At December 31, 2008 and 2007, the Company had asset-backed securities supported by sub-prime mortgage loans with estimated fair values of $1.1 billion and $2.0 billion, respectively, and unrealized losses of $730 million and $198 million, respectively, as outlined in the tables above.
+At December 31, 2008, approximately 82% of the portfolio is rated Aa or better of which 82% was in vintage year 2005 and prior.
+At December 31, 2007, approximately 98% of the portfolio was rated Aa or better of which 79% was in vintage year 2005 and prior.
+These older vintages benefit from better underwriting, improved enhancement levels and higher residential property price appreciation.
+At December 31, 2008, 37% of the asset-backed securities backed by sub-prime mortgage loans have been guaranteed by financial guarantee insurers, of which 19% and 37% were guaranteed by financial guarantee insurers who were Aa and Baa rated, respectively.
+At December 31, 2008, all of the $1.1 billion of asset-backed securities supported by sub-prime mortgage loans were classified as Level 3 securities.
+have access to liquidity by issuing bonds to public or private investors based on our assessment of the current condition of the credit markets.
+At December 31, 2009, we had a working capital surplus of approximately $1.0 billion, which reflects our decision to maintain additional cash reserves to enhance liquidity in response to difficult economic conditions.
+At December 31, 2008, we had a working capital deficit of approximately $100 million.
+Historically, we have had a working capital deficit, which is common in our industry and does not indicate a lack of liquidity.
+We maintain adequate resources and, when necessary, have access to capital to meet any daily and short-term cash requirements, and we have sufficient financial capacity to satisfy our current liabilities.
+## Table 3 ##
+[mhdev_0006_table_3.csv](mhdev_0006_table_3.csv)
+Operating Activities Lower net income in 2009, a reduction of $184 million in the outstanding balance of our accounts receivable securitization program, higher pension contributions of $72 million, and changes to working capital combined to decrease cash provided by operating activities compared to 2008.
+Higher net income and changes in working capital combined to increase cash provided by operating activities in 2008 compared to 2007.
+In addition, accelerated tax deductions enacted in 2008 on certain new operating assets resulted in lower income tax payments in 2008 versus 2007.
+Voluntary pension contributions in 2008 totaling $200 million and other pension contributions of $8 million partially offset the year-over-year increase versus 2007.
+Investing Activities Lower capital investments and higher proceeds from asset sales drove the decrease in cash used in investing activities in 2009 versus 2008.
+Increased capital investments and lower proceeds from asset sales drove the increase in cash used in investing activities in 2008 compared to 2007.
+The calculation of earnings per common share and diluted earnings per common share for 2004, 2003 and 2002 is presented below.
+See Note 1 of the Consolidated Financial Statements for a discussion on the calculation of earnings per common share.
+## Table 0 ##
+[mhdev_0007_table_0.csv](mhdev_0007_table_0.csv)
+(1) For 2004, 2003 and 2002, average options to purchase 10 million, 19 million and 45 million shares, respectively, were outstanding but not included in the computation of earnings per common share because they were antidilutive.
+(2) Includes incremental shares from assumed conversions of convertible preferred stock, restricted stock units, restricted stock shares and stock options.
+Note 14 Regulatory Requirements and Restrictions The Board of Governors of the Federal Reserve System (FRB) requires the Corporation’s banking subsidiaries to maintain reserve balances based on a percentage of certain deposits.
+Average daily reserve balances required by the FRB were $6.9 billion and $4.1 billion for 2004 and 2003, respectively.
+Currency and coin residing in branches and cash vaults (vault cash) are used to partially satisfy the reserve requirement.
+The average daily reserve balances, in excess of vault cash, held with the Federal Reserve Bank amounted to $70 million and $317 million for 2004 and 2003, respectively.
+The primary source of funds for cash distributions by the Corporation to its shareholders is dividends received from its banking subsidiaries.
+Bank of America, N. A.  and Fleet National Bank declared and paid dividends of $5.9 billion and $1.3 billion, respectively, for 2004 to the parent.
+In 2005, Bank of America, N. A.  and Fleet National Bank can declare and pay dividends to the parent of $4.7 billion and $790 million plus an additional amount equal to their net profits for 2005, as defined by statute, up to the date of any such dividend declaration.
+The other subsidiary national banks can initiate aggregate dividend payments in 2005 of $2.6 billion plus an additional amount equal to their net profits for 2005, as defined by statute, up to the date of any such dividend declaration.
+The amount of dividends that each subsidiary bank may declare in a calendar year without approval by the OCC is the subsidiary bank’s net profits for that year combined with its net retained profits, as defined, for the preceding two years.
+The FRB, the OCC and the Federal Deposit Insurance Corporation (collectively, the Agencies) have issued regulatory capital guidelines for U. S.  banking organizations.
+Failure to meet the capital requirements can initiate certain mandatory and discretionary actions by regulators that could have a material effect on the Corporation’s financial statements.
+At December 31, 2004 and 2003, the Corporation and Bank of America, N. A.  were classified as well-capitalized under this regulatory framework.
+At December 31, 2004, Fleet National Bank was classified as well-capitalized under this regulatory framework.
+There have been no conditions or events since December 31, 2004 that management believes have changed the Corporation’s, Bank of America, N. A.
+’s or Fleet National Bank’s capital classifications.
+## Table 1 ##
+[mhdev_0007_table_1.csv](mhdev_0007_table_1.csv)
+The strategy for GCSBB is to attract, retain and deepen customer relationships.
+We achieve this strategy through our ability to offer a wide range of products and services through a franchise that stretches coast to coast through 32 states and the District of Columbia.
+We also provide credit card products to customers in Canada, Ireland, Spain and the United Kingdom.
+In the U. S. , we serve approximately 59 million consumer and small business relationships utilizing our network of 6,149 banking centers, 18,753 domestic branded ATMs, and telephone and Internet channels.
+Within GCSBB, there are three primary businesses: Deposits, Card Services, and Consumer Real Estate.
+In addition, ALM/Other includes the results of ALM activities and other consumer-related businesses (e. g. , insurance).
+GCSBB, specifically Card Services, is presented on a managed basis.
+For a reconciliation of managed GCSBB to held GCSBB, see Note 22 – Business Segment Information to the Consolidated Financial Statements.
+During 2007, Visa Inc.  filed a registration statement with the SEC with respect to a proposed IPO.
+Subject to market conditions and other factors, Visa Inc.  expects the IPO to occur in the first half of 2008.
+We expect to record a gain associated with the IPO.
+In addition, we expect that a portion of the proceeds from the IPO will be used by Visa Inc.  to fund liabilities arising from litigation which would allow us to record an offset to the litigation liabilities that we recorded in the fourth quarter of 2007 as discussed below.
+Net income decreased $1.9 billion, or 17 percent, to $9.4 billion compared to 2006 as increases in noninterest income and net interest income were more than offset by increases in provision for credit losses and noninterest expense.
+Net interest income increased $612 million, or two percent, to $28.8 billion due to the impacts of organic growth and the LaSalle acquisition on average loans and leases, and deposits compared to 2006.
+Noninterest income increased $2.1 billion, or 13 percent, to $18.9 billion compared to the same period in 2006, mainly due to increases in card income, service charges and mortgage banking income.
+Provision for credit losses increased $4.4 billion, or 51 percent, to $12.9 billion compared to 2006.
+This increase primarily resulted from a $3.2 billion increase in Card Services and a $978 million increase in Consumer Real Estate.
+For further discussion of the increase in provision for credit losses related to Card Services and Consumer Real Estate, see their respective discussions.
+Noninterest expense increased $1.7 billion, or nine percent, to $20.1 billion largely due to increases in personnel-related expenses, Visarelated litigation costs, equally allocated to Card Services and Treasury Services on a management accounting basis, and technology related costs.
+For additional information on Visa-related litigation, see Note 13 – Commitments and Contingencies to the Consolidated Financial Statements.
+Deposits Deposits provides a comprehensive range of products to consumers and small businesses.
+Our products include traditional savings accounts, money market savings accounts, CDs and IRAs, and noninterest and interest-bearing checking accounts.
+Debit card results are also included in Deposits.
+Deposit products provide a relatively stable source of funding and liquidity.
+We earn net interest spread revenues from investing this liquidity in earning assets through client-facing lending activity and our ALM activities.
+The revenue is allocated to the deposit products using our funds transfer pricing process which takes into account the interest rates and maturity characteristics of the deposits.
+Deposits also generate fees such as account service fees, non-sufficient fund fees, overdraft charges and ATM fees, while debit cards generate merchant interchange fees based on purchase volume.
+Excluding accounts obtained through acquisitions, we added approximately 2.3 million net new retail checking accounts in 2007.
+These additions resulted from continued improvement in sales and service results in the Banking Center Channel and Online, and the success of such products as Keep the ChangeTM, Risk Free CDs, Balance Rewards and Affinity.
+We continue to migrate qualifying affluent customers and their related deposit balances from GCSBB to GWIM.
+In 2007, a total of $11.4 billion of deposits were migrated from GCSBB to GWIM compared to $10.7 billion in 2006.
+After migration, the associated net interest income, service charges and noninterest expense are recorded in GWIM.
+Net income increased $364 million, or seven percent, to $5.2 billion compared to 2006 as an increase in noninterest income was partially offset by an increase in noninterest expense.
+Net interest income remained relatively flat at $9.4 billion compared to 2006 as the addition of LaSalle and higher deposit spreads resulting from disciplined pricing were offset by the impact of lower balances.
+Average deposits decreased $3.2 billion, or one percent, largely due to the migration of customer relationships and related balances to GWIM, partially offset by the acquisition of LaSalle.
+The increase in noninterest income was driven by higher service charges of $665 million, or 12 percent, primarily as a result of new demand deposit account growth and the addition of LaSalle.
+Additionally, debit card revenue growth of $248 million, or 13 percent, was due to a higher number of checking accounts, increased usage, the addition of LaSalle and market penetration (i. e. , increase in the number of existing account holders with debit cards).
+Noninterest expense increased $323 million, or four percent, to $9.1 billion compared to 2006, primarily due to the addition of LaSalle, and to higher account and transaction volumes.
+Card Services Card Services, which excludes the results of debit cards (included in Deposits), provides a broad offering of products, including U. S.  Consumer and Business Card, Unsecured Lending, and International Card.
+We offer a variety of co-branded and affinity credit card products and have become the leading issuer of credit cards through endorsed marketing in the U. S.  and Europe.
+During 2007, Merchant Services was transferred to Treasury Services within GCIB.
+Previously their results were reported in Card Services.
+Prior period amounts have been reclassified.
+The shares of the series of preferred stock previously discussed are not subject to the operation of a sinking fund and have no participation rights.
+With the exception of the Series L Preferred Stock, the shares of the series of preferred stock in the previous table are not convertible.
+The holders of these series have no general voting rights.
+If any dividend payable on these series is in arrears for three or more semi-annual or six or more quarterly dividend periods, as applicable (whether consecutive or not), the holders of these series and any other class or series of preferred stock ranking equally as to payment of dividends and upon which equivalent voting rights have been conferred and are exercisable (voting as a single class) will be entitled to vote for the election of two additional directors.
+These voting rights terminate when the Corporation has paid in full dividends on these series for at least two semi-annual or four quarterly dividend periods, as applicable, following the dividend arrearage (or, in the case of the Series N Preferred Stock, upon payment of all accrued and unpaid dividends).
+In October 2008, in connection with the TARP Capital Purchase Program, established as part of the Emergency Economic Stabilization Act of 2008, the Corporation issued to the U. S.  Treasury 600 thousand shares of Series N Preferred Stock as presented in the previous table.
+The Series N Preferred Stock has a call feature after three years.
+In connection with this investment, the Corporation also issued to the U. S.  Treasury 10-year warrants to purchase approximately 73.1 million shares of Bank of America Corporation common stock at an exercise price of $30.79 per share.
+Upon the request of the U. S.  Treasury, at any time, the Corporation has agreed to enter into a deposit arrangement pursuant to which the Series N Preferred Stock may be deposited and depositary shares, representing 1/25th of a share of Series N Preferred Stock, may be issued.
+The Corporation has agreed to register the Series N Preferred Stock, the warrants, the shares of common stock underlying the warrants and the depositary shares, if any, for resale under the Securities Act of 1933.
+As required under the TARP Capital Purchase Program in connection with the sale of the Series N Preferred Stock to the U. S.  Treasury, dividend payments on, and repurchases of, the Corporation’s outstanding preferred and common stock are subject to certain restrictions.
+For as long as any Series N Preferred Stock is outstanding, no dividends may be declared or paid on the Corporation’s outstanding preferred and common stock until all accrued and unpaid dividends on Series N Preferred Stock are fully paid.
+In addition, the U. S.  Treasury’s consent is required for any increase in dividends declared on shares of common stock before the third anniversary of the issuance of the Series N Preferred Stock unless the Series N Preferred Stock is redeemed by the Corporation or transferred in whole by the U. S.  Treasury.
+Further, the U. S.  Treasury’s consent is required for any repurchase of any equity securities or trust preferred securities except for repurchases of Series N Preferred Stock or repurchases of common shares in connection with benefit plans consistent with past practice before the third anniversary of the issuance of the Series N Preferred Stock unless redeemed by the Corporation or transferred in whole by the U. S.  Treasury.
+On July 14, 2006, the Corporation redeemed its 6.75% Perpetual Preferred Stock with a stated value of $250 per share.
+The 382.5 thousand shares, or $96 million, outstanding of preferred stock were redeemed at the stated value of $250 per share, plus accrued and unpaid dividends.
+On July 3, 2006, the Corporation redeemed its Fixed/Adjustable Rate Cumulative Preferred Stock with a stated value of $250 per share.
+The 700 thousand shares, or $175 million, outstanding of preferred stock were redeemed at the stated value of $250 per share, plus accrued and unpaid dividends.
+All preferred stock outstanding has preference over the Corporation’s common stock with respect to the payment of dividends and distribution of the Corporation’s assets in the event of a liquidation or dissolution.
+Except in certain circumstances, the holders of preferred stock have no voting rights.
+During 2008, 2007 and 2006 the aggregate dividends declared on preferred stock were $1.3 billion, $182 million and $22 million respectively.
+In addition, in January 2009, the Corporation declared aggregate dividends on preferred stock of $909 million, including $145 million related to preferred stock exchanged in connection with the Merrill Lynch acquisition.
+Accumulated OCI The following table presents the changes in accumulated OCI for 2008, 2007 and 2006, net-of-tax.
+## Table 2 ##
+[mhdev_0007_table_2.csv](mhdev_0007_table_2.csv)
+(1) In 2008, 2007 and 2006, the Corporation reclassified net realized losses into earnings on the sales and other-than-temporary impairments of AFS debt securities of $1.4 billion, $137 million and $279 million, net-of-tax, respectively, and net realized (gains) losses on the sales and other-than-temporary impairments of AFS marketable equity securities of $377 million, $(284) million, and $(499) million, net-of-tax, respectively.
+(2) The amounts included in accumulated OCI for terminated interest rate derivative contracts were losses of $3.4 billion, $3.8 billion and $3.2 billion, net-of-tax, at December 31, 2008, 2007 and 2006, respectively.
+(3) For more information, see Note 16 – Employee Benefit Plans to the Consolidated Financial Statements.
+(4) For 2008, the net change in fair value recorded in accumulated OCI represented $3.8 billion in losses associated with the Corporation’s foreign currency translation adjustments on its net investment in consolidated foreign operations partially offset by gains of $2.8 billion on the related foreign currency exchange hedging results.
+(5) Securities include the fair value adjustment of $4.8 billion and $8.4 billion, net-of-tax, related to the Corporation’s investment in CCB at December 31, 2008 and 2007.
+(6) Included in this line item are amounts related to derivatives used in cash flow hedge relationships.
+These amounts are reclassified into earnings in the same period or periods during which the hedged forecasted transactions affect earnings.
+This line item also includes (gains) losses on AFS debt and marketable equity securities and impairment charges.
+These amounts are reclassified into earnings upon sale of the related security or when the other-than-temporary impairment charge is recognized.
+Entering 2006, earnings in the first quarter are expected to improve compared with the 2005 fourth quarter due principally to higher average price realizations, reflecting announced price increases.
+Product demand for the first quarter should be seasonally slow, but is expected to strengthen as the year progresses, supported by continued economic growth in North America, Asia and Eastern Europe.
+Average prices should also improve in 2006 as price increases announced in late 2005 and early 2006 for uncoated freesheet paper and pulp continue to be realized.
+Operating rates are expected to improve as a result of industry-wide capacity reductions in 2005.
+Although energy and raw material costs remain high, there has been some decline in both natural gas and delivered wood costs, with further moderation expected later in 2006.
+We will continue to focus on further improvements in our global manufacturing operations, implementation of supply chain enhancements and reductions in overhead costs during 2006.
+Industrial Packaging Demand for Industrial Packaging products is closely correlated with non-durable industrial goods production in the United States, as well as with demand for processed foods, poultry, meat and agricultural products.
+In addition to prices and volumes, major factors affecting the profitability of Industrial Packaging are raw material and energy costs, manufacturing efficiency and product mix.
+Industrial Packaging’s net sales for 2005 increased 2% compared with 2004, and were 18% higher than in 2003, reflecting the inclusion of International Paper Distribution Limited (formerly International Paper Pacific Millennium Limited) beginning in August 2005.
+Operating profits in 2005 were 39% lower than in 2004 and 13% lower than in 2003.
+Sales volume increases ($24 million), improved price realizations ($66 million), and strong mill operating performance ($27 million) were not enough to offset the effects of increased raw material costs ($103 million), higher market related downtime costs ($50 million), higher converting operating costs ($22 million), and unfavorable mix and other costs ($67 million).
+Additionally, the May 2005 sale of our Industrial Papers business resulted in a $25 million lower earnings contribution from this business in 2005.
+The segment took 370,000 tons of downtime in 2005, including 230,000 tons of lack-of-order downtime to balance internal supply with customer demand, compared to a total of 170,000 tons in 2004, which included 5,000 tons of lack-of-order downtime.
+## Table 3 ##
+[mhdev_0007_table_3.csv](mhdev_0007_table_3.csv)
+Containerboard’s net sales totaled $895 million in 2005, $951 million in 2004 and $815 million in 2003.
+Soft market conditions and declining customer demand at the end of the first quarter led to lower average sales prices during the second and third quarters.
+Beginning in the fourth quarter, prices recovered as a result of increased customer demand and a rationalization of supply.
+Full year sales volumes trailed 2004 levels early in the year, reflecting the weak market conditions in the first half of 2005.
+However, volumes rebounded in the second half of the year, and finished the year ahead of 2004 levels.
+Operating profits decreased 38% from 2004, but were flat with 2003.
+The favorable impacts of increased sales volumes, higher average sales prices and improved mill operating performance were not enough to offset the impact of higher wood, energy and other raw material costs and increased lack-of-order downtime.
+Implementation of the new supply chain operating model in our containerboard mills during 2005 resulted in increased operating efficiency and cost savings.
+Specialty Papers in 2005 included the Kraft Paper business for the full year and the Industrial Papers business for five months prior to its sale in May 2005.
+Net sales totaled $468 million in 2005, $723 million in 2004 and $690 million in 2003.
+Operating profits in 2005 were down 23% compared with 2004 and 54% compared with 2003, reflecting the lower contribution from Industrial Papers.
+U. S.  Converting Operations net sales for 2005 were $2.6 billion compared with $2.3 billion in 2004 and $1.9 billion in 2003.
+Sales volumes were up 10% in 2005 compared with 2004, mainly due to the acquisition of Box USA in July 2004.
+Average sales prices in 2005 began the year above 2004 levels, but softened in the second half of the year.
+Operating profits in 2005 decreased 46% and 4% from 2004 and 2003 levels, respectively, primarily due to increased linerboard, freight and energy costs.
+European Container sales for 2005 were $883 million compared with $865 million in 2004 and $801 million in 2003.
+Operating profits declined 19% and 13% compared with 2004 and 2003, respectively.
+The increase in sales in 2005 reflected a slight increase in demand over 2004, but this was not sufficient to offset the negative earnings effect of increased operating costs, unfavorable foreign exchange rates and a reduction in average sales prices.
+The Moroccan box plant acquisition, which was completed in October 2005, favorably impacted fourth-quarter results.
+Industrial Packaging’s sales in 2005 included $104 million from International Paper Distribution Limited, our Asian box and containerboard business, subsequent to the acquisition of an additional 50% interest in August 2005.
+nonperformance credit spread moves to a zero spread over the LIBOR swap curve, the reduction to net income would be approximately $71 million, net of DAC and DSIC amortization and income taxes, based on December 31, 2010 credit spreads.
+Liquidity and Capital Resources Overview We maintained substantial liquidity during the year ended December 31, 2010.
+At December 31, 2010, we had $2.9 billion in cash and cash equivalents compared to $3.1 billion at December 31, 2009.
+We have additional liquidity available through an unsecured revolving credit facility for up to $500 million that we entered into on September 30, 2010 and which expires in September 2011.
+Under the terms of the underlying credit agreement, we can increase this facility to $750 million upon satisfaction of certain approval requirements.
+Available borrowings under this facility are reduced by any outstanding letters of credit.
+We have had no borrowings under this credit facility and had $1 million of outstanding letters of credit at December 31, 2010.
+In March 2010, we issued $750 million of 5.30% senior notes due 2020.
+A portion of the proceeds was used to retire $340 million of debt that matured in November 2010.
+On April 30, 2010, we closed on the Columbia Management Acquisition and paid $866 million in the second quarter with cash on hand and assumed liabilities of $30 million.
+Our subsidiaries, Ameriprise Bank, FSB and RiverSource Life, are members of the Federal Home Loan Bank (‘‘FHLB’’) of Des Moines, which provides these subsidiaries with access to collateralized borrowings.
+As of December 31, 2010, we had no borrowings from the FHLB.
+In 2010, we entered into repurchase agreements to reduce reinvestment risk from higher levels of expected annuity net cash flows.
+Repurchase agreements allow us to receive cash to reinvest in longer-duration assets, while paying back the short-term debt with cash flows generated by the fixed income portfolio.
+The balance of repurchase agreements at December 31, 2010 was $397 million, which is collateralized with agency residential mortgage backed securities and corporate debt securities from our investment portfolio.
+We believe cash flows from operating activities, available cash balances and our availability of revolver borrowings will be sufficient to fund our operating liquidity needs.
+Dividends from Subsidiaries Ameriprise Financial is primarily a parent holding company for the operations carried out by our wholly owned subsidiaries.
+Because of our holding company structure, our ability to meet our cash requirements, including the payment of dividends on our common stock, substantially depends upon the receipt of dividends or return of capital from our subsidiaries, particularly our life insurance subsidiary, RiverSource Life, our face-amount certificate subsidiary, Ameriprise Certificate Company (‘‘ACC’’), AMPF Holding Corporation, which is the parent company of our retail introducing broker-dealer subsidiary, Ameriprise Financial Services, Inc.  (‘‘AFSI’’) and our clearing broker-dealer subsidiary, American Enterprise Investment Services, Inc.  (‘‘AEIS’’), our Auto and Home insurance subsidiary, IDS Property Casualty Insurance Company (‘‘IDS Property Casualty’’), doing business as Ameriprise Auto & Home Insurance, our transfer agent subsidiary, Columbia Management Investment Services Corp. , our investment advisory company, Columbia Management Investment Advisers, LLC, and Threadneedle.
+The payment of dividends by many of our subsidiaries is restricted and certain of our subsidiaries are subject to regulatory capital requirements.
+Actual capital and regulatory capital requirements as of December 31 for our wholly owned subsidiaries subject to regulatory capital requirements were as follows:
+## Table 0 ##
+[mhdev_0008_table_0.csv](mhdev_0008_table_0.csv)
+# Amounts are less than $1 million.
+(1) Actual capital is determined on a statutory basis.
+(2) Regulatory capital requirement is based on the statutory risk-based filing
+The Company believes that its unrecognized tax benefits could decrease by $10,273 within the next twelve months.
+The Company has effectively settled all Federal income tax matters related to years prior to 2010.
+Various other state and foreign income tax returns are open to examination for various years.
+Belgian Tax Matter The Company believes that its unrecognized tax benefits could decrease by $10,273 within the next twelve months.
+The Company has effectively settled all Federal income tax matters related to years prior to 2010.
+Various other state and foreign income tax returns are open to examination for various years.
+Belgian Tax Matter In January 2012, the Company received a €23,789 assessment from the Belgian tax authority related to its year ended December 31, 2008, asserting that the Company had understated its Belgian taxable income for that year.
+The Company filed a formal protest in the first quarter of 2012 refuting the Belgian tax authority¡¯s position.
+The Belgian tax authority set aside the assessment in the third quarter of 2012 and refunded all related deposits, including interest income of €1,583 earned on such deposits.
+However, on October 23, 2012, the Belgian tax authority notified the Company of its intent to increase the Company¡¯s taxable income for the year ended December 31, 2008 under a revised theory.
+On December 28, 2012, the Belgian tax authority issued assessments for the years ended December 31, 2005 and December 31, 2009, in the amounts of €46,135 and €35,567, respectively, including penalties, but excluding interest.
+The Company filed a formal protest during the first quarter of 2013 relating to the new assessments.
+In September 2013, the Belgian tax authority denied the Company¡¯s protests, and the Company has brought these two years before the Court of First Appeal in Bruges.
+In December 2013, the Belgian tax authority issued additional assessments related to the years ended December 31, 2006, 2007, and 2010, in the amounts of €38,817, €39,635, and €43,117, respectively, including penalties, but excluding interest.
+The Company filed formal protests during the first quarter of 2014, refuting the Belgian tax authority¡¯s position for each of the years assessed.
+In the quarter ended June 28, 2014, the Company received a formal assessment for the year ended December 31, 2008, totaling €30,131, against which the Company also submitted its formal protest.
+All 4 additional years have been brought before the Court of First Appeal in November 2014.
+In January of 2015, the Company met with the Court of First Appeal in Bruges, Belgium and agreed with the Belgium tax authorities to consolidate and argue the issues regarding the years 2005 and 2009, and apply the ruling to all of the open years (to the extent there are no additional facts/procedural arguments in the other years).
+On January 27, 2016, the Court of First Appeal in Bruges, Belgium ruled in favor of the Company with respect to the calendar years ending December 31, 2005 and December 31, 2009.
+The Company anticipates that the Belgian tax authority will appeal this ruling.
+The Company disagrees with the views of the Belgian tax authority on this matter and will persist in its vigorous defense if there is an appeal.
+Although there can be no assurances, the Company believes the ultimate outcome of these actions will not have a material adverse effect on its financial condition but could have a material adverse effect on its results of operations, liquidity or cash flows in a given quarter or year.
+NOTE 14 COMMITMENTS AND CONTINGENCIES The Company is obligated under various operating leases for office and manufacturing space, machinery, and equipment.
+Future minimum lease payments under non-cancelable capital and operating leases (with initial or remaining lease terms in excess of one year) as of December 31:
+## Table 1 ##
+[mhdev_0008_table_1.csv](mhdev_0008_table_1.csv)
+Rental expense under operating leases was $110,771, $114,529 and $116,541 in 2015, 2014 and 2013, respectively.
+The Company had approximately $1,381 and $47,713 in standby letters of credit for various insurance contracts and commitments to foreign vendors as of December 31, 2015 and 2014, respectively that expire within two years.
+The Company is involved in litigation from time to time in the regular course of its business.
+Except as noted below and in Note 13¡ªIncome Taxes Belgian Tax Matter, there are no material legal proceedings pending or known by the Company to be contemplated to which the Company is a party or to which any of its property is subject.
+Each of these facilities has a renewal provision for two one-year extensions, subject to lender approval.
+The following table shows our capitalization structure as of December 31, 2011 and 2010, as well as an adjusted capitalization structure that we believe is consistent with the manner in which the rating agencies currently view the Junior Notes:
+## Table 2 ##
+[mhdev_0008_table_2.csv](mhdev_0008_table_2.csv)
+For a summary of the interest rate, maturity and amount outstanding of each series of our long-term debt on a consolidated basis, see the Consolidated Statements of Capitalization.
+Included in Long-Term Debt on our Consolidated Balance Sheet as of December 31, 2011 and 2010 is $500 million aggregate principal amount of the Junior Notes.
+The adjusted presentation attributes $250 million of the Junior Notes to Common Equity and $250 million to Long-Term Debt.
+We believe this presentation is consistent with the 50% or greater equity credit the majority of rating agencies currently attribute to the Junior Notes.
+The adjusted presentation of our consolidated capitalization structure is presented as a complement to our capitalization structure presented in accordance with GAAP.
+Management evaluates and manages Wisconsin Energy's capitalization structure, including its total debt to total capitalization ratio, using the GAAP calculation as adjusted by the rating agency treatment of the Junior Notes.
+Therefore, we believe the non-GAAP adjusted presentation reflecting this treatment is useful and relevant to investors in understanding how management and the rating agencies evaluate our capitalization structure.
+As described in Note I -- Common Equity, in the Notes to Consolidated Financial Statements, certain restrictions exist on the ability of our subsidiaries to transfer funds to us.
+We do not expect these restrictions to have any material effect on our operations or ability to meet our cash obligations.
+Wisconsin Electric is the obligor under two series of tax exempt pollution control refunding bonds in outstanding principal amounts of $147 million.
+In August 2009, Wisconsin Electric terminated letters of credit that provided credit and liquidity support for the bonds, which resulted in a mandatory tender of the bonds.
+Wisconsin Electric issued commercial paper to fund the purchase of the bonds.
+As of December 31, 2011, the repurchased bonds were still outstanding, but were reported as a reduction in our consolidated long-term debt because they are held by Wisconsin Electric.
+Depending on market conditions and other factors, Wisconsin Electric may change the method used to determine the interest rate on the bonds and have them remarketed to third parties.
+Bonus Depreciation Provisions In December 2010, the President of the United States signed tax legislation extending the bonus depreciation rules to certain projects placed in service in 2010, 2011 and 2012.
+As a result of this extension, we recognized increased federal tax depreciation in 2010 and 2011 relating to assets placed in service during those years, including the Glacier Hills Wind Park, OC 1 and OC 2.
+In addition, we also anticipate an increase in tax depreciation in 2012 for assets placed in service during 2012, including the Oak Creek AQCS project.
+As a result of the increased tax depreciation in 2011 and 2012, we will not make federal income tax payments for 2011 and do not anticipate making federal income tax payments for 2012.
+Overall, billed business increased in 2017 compared to 2016.
+U. S.  billed business increased 1 percent and non-U.
+S.  billed business increased 12 percent.
+See Tables 5 and 6 for more details on billed business performance.
+The average discount rate was 2.43 percent, 2.45 percent and 2.46 percent for 2017, 2016 and 2015, respectively.
+The decrease in the average discount rate in 2017 compared to 2016 primarily reflected rate pressure from merchant negotiations, including those resulting from the recent regulatory changes affecting competitor pricing in certain international markets, the continued growth of the OptBlue program, and changes in industry and geographic mix.
+We expect the average discount rate will continue to decline over time due to a greater shift of existing merchants into OptBlue, merchant negotiations and competition, volume related pricing discounts, certain pricing initiatives mainly driven by pricing regulation (including regulation of competitors’ interchange rates) and other factors.
+Net card fees increased in both periods.
+The increase in 2017 was primarily driven by growth in the Platinum and Delta portfolios and growth in key international markets.
+The increase in 2016 was primarily driven by growth in the Platinum, Gold and Delta portfolios.
+Other fees and commissions increased in 2017 compared to 2016, and decreased in 2016 compared to 2015.
+The increase in 2017 was primarily driven by an increase in delinquency fees due to a change in the late fee assessment date for certain U. S.  charge cards and an increase in foreign exchange conversion revenue.
+The decrease in 2016 was primarily due to lower Costco-related fees, partially offset by an increase in delinquency and loyalty coalition-related fees.
+Other revenues decreased in 2017 compared to 2016, and were relatively flat in 2016 compared to 2015.
+The decrease in 2017 was primarily driven by prior-year revenues related to the Loyalty Edge business, which was sold in the fourth quarter of 2016, and a contractual payment from a GNS partner also in the prior year.2016 included the previously-mentioned contractual payment from a GNS partner and higher revenues from our Prepaid Services business compared to 2015, offset by lower revenues related to Costco, Loyalty Edge and the GBT JV transition services agreement.
+Interest income increased in 2017 compared to 2016 and decreased in 2016 compared to 2015.
+The increase in 2017 primarily reflected higher average Card Member loans and higher yields.
+The growth in average Card Member loans was primarily driven by a mix shift over time towards non-cobrand lending products, where Card Members tend to revolve more of their loan balances.
+The increase in yields was primarily driven by a greater percentage of loans at higher rate buckets, specific pricing actions, and increases in benchmark interest rates.
+The decrease in 2016 was primarily driven by lower Costco cobrand loans and the associated interest income, partially offset by modestly higher yields and an increase in average Card Member loans across other lending products.
+Interest expense increased in both periods.
+The increase in 2017 was primarily driven by higher interest rates and higher average long-term debt.
+The increase in 2016 was primarily driven by higher average customer deposit balances, partially offset by lower average long-term debt.
+TABLE 3: PROVISIONS FOR LOSSES SUMMARY
+## Table 0 ##
+[mhdev_0009_table_0.csv](mhdev_0009_table_0.csv)
+(a) Beginning December 1, 2015 through to the sale completion dates, did not reflect the HFS portfolios.
+EXPENSES Marketing, promotion, rewards, Card Member services and other expenses increased in 2017 compared to 2016, reflecting higher Card Member rewards and Card Member services and other expenses, partially offset by lower marketing and promotion expenses.
+Card Member rewards expense increased $218 million, primarily driven by enhancements to Platinum rewards and increased spending volumes, partially offset by Costco-related expenses in the prior year.
+Card Member services and other expense increased $173 million driven by higher usage of travel-related benefits and enhanced Platinum card benefits.
+Marketing and promotion expenses decreased $112 million due to lower spending on growth initiatives.
+Salaries and employee benefits and other operating expense increased in 2017 compared to 2016, primarily reflecting the gains on the sales of the HFS portfolios in the prior year, which were recognized as an expense reduction in other expenses, partially offset by lower technology and other servicing-related costs in the current year and restructuring charges in the prior year.
+Total expenses decreased in 2016 compared to 2015, primarily driven by lower salaries and employee benefits and other operating expenses, largely reflecting the gains on the sales of the HFS portfolios as previously mentioned.
+Income tax provision decreased in 2017 compared to 2016, primarily reflecting the impact of recurring permanent tax benefits on the lower level of pretax income.
+## Table 1 ##
+[mhdev_0009_table_1.csv](mhdev_0009_table_1.csv)
+(a) Refer to Table 7 footnote (a).
+(b) Refer to Table 7 footnote (e).
+(c) Refer to Table 8 footnote (a).
+(d) Refer to Table 8 footnote (b).
+(e) Refer to Table 8 footnote (c).
+(f) Refer to Table 8 footnote (d).
+UNITED PARCEL SERVICE, INC.  AND SUBSIDIARIES NOTES TO CONSOLIDATED FINANCIAL STATEMENTS—(Continued) The following table summarizes the activity related to our unrecognized tax benefits (in millions):
+## Table 2 ##
+[mhdev_0009_table_2.csv](mhdev_0009_table_2.csv)
+As of December 31, 2007, the total amount of gross unrecognized tax benefits that, if recognized, would affect the effective tax rate was $134 million.
+We also had gross recognized tax benefits of $567 million recorded as of December 31, 2007 associated with outstanding refund claims for prior tax years.
+Therefore, we had a net receivable recorded with respect to prior year income tax matters in the accompanying balance sheets.
+Our continuing practice is to recognize interest and penalties associated with income tax matters as a component of income tax expense.
+Related to the uncertain tax benefits noted above, we accrued penalties of $5 million and interest of $36 million during 2007.
+As of December 31, 2007, we have recognized a liability for penalties of $6 million and interest of $75 million.
+Additionally, we have recognized a receivable for interest of $116 million for the recognized tax benefits associated with outstanding refund claims.
+We file income tax returns in the U. S.  federal jurisdiction, most U. S.  state and local jurisdictions, and many non-U.
+S.  jurisdictions.
+As of December 31, 2007, we had substantially resolved all U. S.  federal income tax matters for tax years prior to 1999.
+In the third quarter of 2007, we entered into a Joint Stipulation to Dismiss the case with the Department of Justice, effectively withdrawing our refund claim related to the 1994 disposition of a subsidiary in France.
+The write-off of previously recognized tax receivable balances associated with the 1994 French matter resulted in a $37 million increase in income tax expense for the quarter.
+However, this increase was offset by the impact of favorable developments with various other U. S.  federal, U. S.  state, and non-U.
+S.  contingency matters.
+In February 2008, the IRS completed its audit of the tax years 1999 through 2002 with only a limited number of issues that will be considered by the IRS Appeals Office by 2009.
+The IRS is in the final stages of completing its audit of the tax years 2003 through 2004.
+We anticipate that the IRS will conclude its audit of the 2003 and 2004 tax years by 2009.
+With few exceptions, we are no longer subject to U. S.  state and local and non-U.
+S.  income tax examinations by tax authorities for tax years prior to 1999, but certain U. S.  state and local matters are subject to ongoing litigation.
+A number of years may elapse before an uncertain tax position is audited and ultimately settled.
+It is difficult to predict the ultimate outcome or the timing of resolution for uncertain tax positions.
+It is reasonably possible that the amount of unrecognized tax benefits could significantly increase or decrease within the next twelve months.
+Items that may cause changes to unrecognized tax benefits include the timing of interest deductions, the deductibility of acquisition costs, the consideration of filing requirements in various states, the allocation of income and expense between tax jurisdictions and the effects of terminating an election to have a foreign subsidiary join in filing a consolidated return.
+These changes could result from the settlement of ongoing litigation, the completion of ongoing examinations, the expiration of the statute of limitations, or other unforeseen circumstances.
+At this time, an estimate of the range of the reasonably possible change cannot be made.
+Entergy Corporation and Subsidiaries Management's Financial Discussion and Analysis 31 The Vermont Yankee acquisition included a 10-year PPA under which the former owners will buy the power produced by the plant, which is through the expiration in 2012 of the current operating license for the plant.
+The PPA includes an adjustment clause under which the prices specified in the PPA will be adjusted downward monthly, beginning in November 2005, if power market prices drop below PPA prices.
+Accordingly, because the price is not fixed, the table above does not report power from that plant as sold forward after November 2005.
+A sale of power on a unit contingent basis coupled with an availability guarantee provides for the payment to the power purchaser of contract damages, if incurred, in the event the seller fails to deliver power as a result of the failure of the specified generation unit to generate power at or above a specified availability threshold.
+To date, Entergy has not incurred any payment obligation to any power purchaser pursuant to an availability guarantee.
+All of Entergy's outstanding availability guarantees provide for dollar limits on Entergy's maximum liability under such guarantees.
+Some of the agreements to sell the power produced by Entergy's Non-Utility Nuclear power plants contain provisions that require an Entergy subsidiary to provide collateral to secure its obligations under the agreements.
+The Entergy subsidiary may be required to provide collateral based upon the difference between the current market and contracted power prices in the regions where the Non-Utility Nuclear business sells its power.
+The primary form of the collateral to satisfy these requirements would be an Entergy Corporation guaranty.
+Cash and letters of credit are also acceptable forms of collateral.
+At December 31, 2004, based on power prices at that time, Entergy had in place as collateral $545.5 million of Entergy Corporation guarantees and $47.5 million of letters of credit.
+In the event of a decrease in Entergy Corporation's credit rating to specified levels below investment grade, Entergy may be required to replace Entergy Corporation guarantees with cash or letters of credit under some of the agreements.
+In addition to selling the power produced by its plants, the Non-Utility Nuclear business sells installed capacity to load-serving distribution companies in order for those companies to meet requirements placed on them by the ISO in their area.
+Following is a summary of the amount of the Non-Utility Nuclear business' installed capacity that is currently sold forward, and the blended amount of the Non-Utility Nuclear business' planned generation output and installed capacity that is currently sold forwar
+## Table 0 ##
+[mhdev_0010_table_0.csv](mhdev_0010_table_0.csv)
+As of December 31, 2004, approximately 99% of Entergy's counterparties to Non-Utility Nuclear's energy and capacity contracts have investment grade credit rating
+Entergy Corporation and Subsidiaries Notes to Financial Statements Fuel and purchased power cost recovery Entergy Arkansas, Entergy Gulf States Louisiana, Entergy Louisiana, Entergy Mississippi, Entergy New Orleans, and Entergy Texas are allowed to recover fuel and purchased power costs through fuel mechanisms included in electric and gas rates that are recorded as fuel cost recovery revenues.
+The difference between revenues collected and the current fuel and purchased power costs is generally recorded as “Deferred fuel costs” on the Utility operating companies’ financial statements.
+The table below shows the amount of deferred fuel costs as of December 31, 2013 and 2012 that Entergy expects to recover (or return to customers) through fuel mechanisms, subject to subsequent regulatory review.
+## Table 1 ##
+[mhdev_0010_table_1.csv](mhdev_0010_table_1.csv)
+(a) 2013 and 2012 include $100.1 million for Entergy Gulf States Louisiana, $68 million for Entergy Louisiana, and $4.1 million for Entergy New Orleans of fuel, purchased power, and capacity costs, which do not currently earn a return on investment and whose recovery periods are indeterminate but are expected to be over a period greater than twelve months.
+Entergy Arkansas Production Cost Allocation Rider The APSC approved a production cost allocation rider for recovery from customers of the retail portion of the costs allocated to Entergy Arkansas as a result of the System Agreement proceedings, which are discussed in the “System Agreement Cost Equalization Proceedings” section below.
+These costs cause an increase in Entergy Arkansas’s deferred fuel cost balance because Entergy Arkansas pays the costs over seven months but collects them from customers over twelve months.
+Energy Cost Recovery Rider Entergy Arkansas’s retail rates include an energy cost recovery rider to recover fuel and purchased energy costs in monthly customer bills.
+The rider utilizes the prior calendar-year energy costs and projected energy sales for the twelve-month period commencing on April 1 of each year to develop an energy cost rate, which is redetermined annually and includes a true-up adjustment reflecting the over- or under-recovery, including carrying charges, of the energy costs for the prior calendar year.
+The energy cost recovery rider tariff also allows an interim rate request depending upon the level of over- or under-recovery of fuel and purchased energy costs.
+In October 2005 the APSC initiated an investigation into Entergy Arkansas's interim energy cost recovery rate.
+The investigation focused on Entergy Arkansas's 1) gas contracting, portfolio, and hedging practices; 2) wholesale purchases during the period; 3) management of the coal inventory at its coal generation plants; and 4) response to the contractual failure of the railroads to provide coal deliveries.
+In March 2006 the APSC extended its investigation to cover the costs included in Entergy Arkansas’s March 2006 annual energy cost rate filing, and a hearing was held in the APSC investigation in October 2006.
+Entergy Corporation and Subsidiaries Notes to Financial Statements As of December?31, 2017, System Energy, in connection with the Grand Gulf sale and leaseback transactions, had future minimum lease payments (reflecting an implicit rate of 5.13%) that are recorded as long-term debt, as follows:
+## Table 2 ##
+[mhdev_0010_table_2.csv](mhdev_0010_table_2.csv)
+NOTE 11. ?
+RETIREMENT, OTHER POSTRETIREMENT BENEFITS, AND DEFINED CONTRIBUTION PLANS??
+(Entergy Corporation, Entergy Arkansas, Entergy Louisiana, Entergy Mississippi, Entergy New Orleans, Entergy Texas, and System Energy) Qualified Pension Plans Entergy has eight qualified pension plans covering substantially all employees.
+The Entergy Corporation Retirement Plan for Non-Bargaining Employees (Non-Bargaining Plan I), the Entergy Corporation Retirement Plan for Bargaining Employees (Bargaining Plan I), the Entergy Corporation Retirement Plan II for Non-Bargaining Employees (Non-Bargaining Plan II), the Entergy Corporation Retirement Plan II for Bargaining Employees, the Entergy Corporation Retirement Plan III, and the Entergy Corporation Retirement Plan IV for Bargaining Employees?are non-contributory final average pay plans and provide pension benefits that are based on employees’ credited service and compensation during employment.
+?Effective as of the close of business on December 31, 2016, the Entergy Corporation Retirement Plan IV for Non-Bargaining Employees (Non-Bargaining Plan IV) was merged with and into Non-Bargaining Plan II.
+At the close of business on December 31, 2016, the liabilities for the accrued benefits and the assets attributable to such liabilities of all participants in Non-Bargaining Plan IV were assumed by and transferred to Non-Bargaining Plan II.
+There was no loss of vesting or benefit options or reduction of accrued benefits to affected participants as a result of this plan merger.
+Non-bargaining employees whose most recent date of hire is after June 30, 2014 participate in the Entergy Corporation Cash Balance Plan for Non-Bargaining Employees (Non-Bargaining Cash Balance Plan).
+Certain bargaining employees hired or rehired after June 30, 2014, or such later date provided for in their applicable collective bargaining agreements, participate in the Entergy Corporation Cash Balance Plan for Bargaining Employees (Bargaining Cash Balance Plan).
+The Registrant Subsidiaries participate in these four plans: Non-Bargaining Plan I, Bargaining Plan I, Non-Bargaining Cash Balance Plan, and Bargaining Cash Balance Plan.
+The assets of the six final average pay qualified pension plans are held in a master trust established by Entergy, and the assets of the two cash balance pension plans are held in a second master trust established by Entergy. ?
+?Each pension plan has an undivided beneficial interest in each of the investment accounts in its respective master trust that is maintained by a trustee. ?
+?Use of the master trusts permits the commingling of the trust assets of the pension plans of Entergy Corporation and its Registrant Subsidiaries for investment and administrative purposes. ?
+?Although assets in the master trusts are commingled, the trustee maintains supporting records for the purpose of allocating the trust level equity in net earnings (loss) and the administrative expenses of the investment accounts in each trust to the various participating pension plans in that particular trust. ?
+?The fair value of the trusts’ assets is determined by the trustee and certain investment managers. ?
+?For each trust, the trustee calculates a daily earnings factor, including realized and
+MetLife, Inc.  Notes to Consolidated Financial Statements — (Continued) The following is a summary of Stock Option exercise activity for the:
+## Table 3 ##
+[mhdev_0010_table_3.csv](mhdev_0010_table_3.csv)
+Performance Shares Beginning in 2005, certain members of management were awarded Performance Shares under (and as defined in) the 2005 Stock Plan.
+Participants are awarded an initial target number of Performance Shares with the final number of Performance Shares payable being determined by the product of the initial target multiplied by a factor of 0.0 to 2.0.
+The factor applied is based on measurements of the Company’s performance with respect to: (i) the change in annual net operating earnings per share, as defined; and (ii) the proportionate total shareholder return, as defined, with reference to the three-year performance period relative to other companies in the S&P Insurance Index with reference to the same three-year period.
+Performance Share awards will normally vest in their entirety at the end of the threeyear performance period (subject to certain contingencies) and will be payable entirely in shares of the Company’s common stock.
+The following is a summary of Performance Share activity for the year ended December 31, 2007:
+## Table 4 ##
+[mhdev_0010_table_4.csv](mhdev_0010_table_4.csv)
+Performance Share amounts above represent aggregate initial target awards and do not reflect potential increases or decreases resulting from the final performance factor to be determined at the end of the respective performance period.
+As of December 31, 2007, the three year performance period for the 2005 Performance Share grants was completed.
+Included in the immediately preceding table are 965,525 outstanding Performance Shares to which the final performance factor will be applied.
+The calculation of the performance factor is expected to be finalized during the second quarter of 2008 after all data necessary to perform the calculation is publicly available.
+Performance Share awards are accounted for as equity awards but are not credited with dividend-equivalents for actual dividends paid on the Holding Company’s common stock during the performance period.
+Accordingly, the fair value of Performance Shares is based upon the closing price of the Holding Company’s common stock on the date of grant, reduced by the present value of estimated dividends to be paid on that stock during the performance period.
+Compensation expense related to initial Performance Shares granted prior to January 1, 2006 and expected to vest is recognized ratably during the performance period.
+Compensation expense related to initial Performance Shares granted on or after January 1, 2006 and expected to vest is recognized ratably over the performance period or the period to retirement eligibility, if shorter.
+Performance Shares expected to vest and the related compensation expenses may be further adjusted by the performance factor most likely to be achieved, as estimated by management, at the end of the performance period.
+Compensation expense of $90 million, $74 million and $24 million, related to Performance Shares was recognized for the years ended December 31, 2007, 2006 and 2005, respectively.
+As of December 31, 2007, there were $57 million of total unrecognized compensation costs related to Performance Share awards.
+It is expected that these costs will be recognized over a weighted average period of 1.72 years.
+Long-Term Performance Compensation Plan Prior to January 1, 2005, the Company granted stock-based compensation to certain members of management under the LTPCP.
+Each participant was assigned a target compensation amount (an “Opportunity Award”) at the inception of the performance period with the final compensation amount determined based on the total shareholder return on the Company’s common stock over the three-year performance period, subject to limited further adjustment approved by the Company’s Board of Directors.
+Payments on the Opportunity Awards were normally payable in their entirety (subject to certain contingencies) at the end of the three-year performance period, and were paid in whole or in part with shares of the Company’s common stock, as approved by the Company’s Board of Directors.
+There were no new grants under the LTPCP during the years ended December 31, 2007, 2006 and 2005.
+A portion of each Opportunity Award under the LTPCP was settled in shares of the Holding Company’s common stock while the remainder was settled in cash.
+The portion of the Opportunity Award settled in shares of the Holding Company’s common stock was accounted for as an equity award with the fair value of the award determined based upon the closing price of the Holding Company’s common stock on the date of grant.
+The compensation expense associated with the equity award, based upon the grant date fair value, was recognized into expense ratably over the respective three-year performance period.
+The portion of the Opportunity Award settled in cash was accounted for as a liability and was remeasured using the closing price of the Holding Company’s common stock on the final day of each subsequent reporting period during the three-year performance period.
+The final LTPCP performance period concluded during the six months ended June 30, 2007.
+Final Opportunity Awards in the amount of 618,375 shares of the Company’s common stock and $16 million in cash were paid on April 18, 2007.
+No significant compensation
+expected policy assessments based on the level of guaranteed minimum benefits generated using multiple scenarios of separate account returns.
+The scenarios use best estimate assumptions consistent with those used to amortize DAC.
+Because separate account balances have had positive returns relative to the prior year, current estimates of future benefits are lower than that previously projected which resulted in a decrease in this liability in the current period.
+Partially offsetting these increases, higher DAC amortization of $49 million resulted from business growth and favorable investment results.
+Latin America Region.
+The decrease in operating earnings was primarily driven by lower net investment income.
+Net investment income decreased by $297 million due to a decrease of $383 million from lower yields, partially offset by an increase of $86 million due to an increase in average invested assets.
+The decrease in yields was due, in part, to the impact of changes in assumptions for measuring the effects of inflation on certain inflation-indexed fixed maturity securities.
+This decrease was partially offset by a reduction of $221 million in the related insurance liability primarily due to lower inflation.
+The increase in net investment income attributable to an increase in average invested assets was primarily due to business growth and, as such, was largely offset by increases in policyholder benefits and interest credited expense.
+Higher claim experience in Mexico resulted in a $45 million decline in operating earnings.
+The nationalization and reform of the pension business in Argentina impacted both the current year and prior year earnings, resulting in a net $36 million decline in operating earnings.
+In addition, operating earnings decreased due to a net income tax increase of $8 million in Mexico, resulting from a change in assumption regarding the repatriation of earnings, partially offset by the favorable impact of a lower effective tax rate in 2009.
+Partially offsetting these decreases in operating earnings was the combination of growth in Mexico’s individual and institutional businesses and higher premium rates in its institutional business, which increased operating earnings by $51 million.
+Pesification in Argentina impacted both the current year and prior year earnings, resulting in a net $73 million increase in operating earnings.
+This benefit was largely due to a reassessment of our approach in managing existing and potential future claims related to certain social security pension annuity contract holders in Argentina resulting in a liability release.
+Lower expenses of $8 million resulted primarily from the impact of operational efficiencies achieved through our Operational Excellence initiative.
+EMEI Region.
+The impact of foreign currency transaction gains and a tax benefit, both of which occurred in the prior year, contributed $12 million to the decline in operating earnings.
+Our investment of $9 million in our distribution capability and growth initiatives in 2009 also reduced operating earnings.
+There was an increase in net investment income of $76 million, which was due to an increase of $65 million from an improvement in yields and $11 million from an increase in average invested assets.
+The increase in yields was primarily due to favorable results on the trading securities portfolio, stemming from the equity markets experiencing some recovery in 2009.
+As our trading portfolio backs unit-linked policyholder liabilities, the trading portfolio results were entirely offset by a corresponding increase in interest credited expense.
+The increase in net investment income attributable to an increase in average invested assets was primarily due to business growth and was largely offset by increases in policyholder benefits and interest credited expense, also due to business growth.
+Banking, Corporate & Other
+## Table 5 ##
+[mhdev_0010_table_5.csv](mhdev_0010_table_5.csv)
+Banking, Corporate & Other recognized the full year impact of our forward and reverse residential mortgage platform acquisitions, a strong residential mortgage refinance market, healthy growth in the reverse mortgage arena, and a favorable interest spread environment.
+Our forward and reverse residential mortgage production of $37.4 billion in 2009 is up 484% compared to 2008 production.
+The increase in mortgage production drove higher investments in residential mortgage loans held-for-sale and mortgage servicing rights.
+At December 31, 2009, our residential mortgage loans servicing portfolio was $64.1 billion comprised of agency (Federal National Mortgage Association (“FNMA”), Federal Home Loan Mortgage Corporation (“FHLMC”) or Government National Mortgage Association (“GNMA”) securities) portfolios.
+Transaction and time deposits, which provide a relatively stable source of funding and liquidity and are used to fund loans and fixed income securities purchases, grew 48% in 2009 to $10.2 billion.
+Borrowings decreased 10% in 2009 to $2.4 billion.
+During 2009, we participated in the Federal Reserve Bank of New York Term Auction Facility, which provided short term liquidity with low funding costs.
+Factory Stores We extend our reach to additional consumer groups through our 259 factory stores worldwide, which are principally located in major outlet centers.
+During Fiscal 2015, we added 30 new factory stores and closed six factory stores.
+rates and accrued interest thereon.
+On certificates allowing for the deduction of a surrender charge, the cash surrender values may be less than accumulated investment certificate reserves prior to maturity dates.
+Cash surrender values on certificates allowing for no surrender charge are equal to certificate reserves.
+The Company generally invests the proceeds from investment certificates in fixed and variable rate securities.
+The Company may hedge the interest rate risks under these obligations with derivative instruments.
+As of December 31, 2009 and 2008, there were no outstanding derivatives to hedge these interest rate risks.
+Certain investment certificate products have returns tied to the performance of equity markets.
+The Company guarantees the principal for purchasers who hold the certificate for the full 52-week term and purchasers may participate in increases in the stock market based on the S&P 500 Index, up to a maximum return.
+Purchasers can choose 100% participation in the market index up to the cap or 25% participation plus fixed interest with a combined total up to the cap.
+Current first term certificates have maximum returns of 4% or 5%.
+The equity component of these certificates is considered an embedded derivative and is accounted for separately.
+The change in fair values of the embedded derivative reserve is reflected in banking and deposit interest expense.
+See Note 20 for additional information about derivative instruments used to economically hedge the equity price risk related to the Company’s stock market certificates.14.
+Debt Debt and the stated interest rates were as follows:
+## Table 0 ##
+[mhdev_0011_table_0.csv](mhdev_0011_table_0.csv)
+On November 23, 2005, the Company issued $1.5 billion of unsecured senior notes including $800 million of five-year senior notes which mature November 15, 2010 and $700 million of 10-year senior notes which mature November 15, 2015, and incurred debt issuance costs of $7 million.
+Interest payments are due semi-annually on May 15 and November 15.
+In July 2009, the Company purchased $450 million aggregate principal amount of its senior notes due 2010, pursuant to a cash tender offer.
+The tender offer consideration per $1,000 principal amount of these notes accepted for purchase was $1,000, with an early tender payment of $30.
+Payments for these notes purchased pursuant to the tender offer included accrued and unpaid interest from the last interest payment date to, but not including, the settlement date.
+The Company also repurchased $10 million of these notes in the second quarter of 2009 in open market transactions.
+On June 8, 2009, the Company issued $300 million of unsecured senior notes which mature June 28, 2019, and incurred debt issuance costs of $3 million.
+Interest payments are due semi-annually in arrears on June 28 and December 28.
+On June 3, 2009, the Company issued $200 million of unsecured senior notes which mature June 15, 2039, and incurred debt issuance costs of $6 million.
+Interest payments are due quarterly in arrears on March 15, June 15, September 15 and December 15.
+In June 2005, the Company entered into interest rate swap agreements totaling $1.5 billion, which qualified as cash flow hedges related to planned debt offerings.
+The Company terminated the swap agreements in November 2005 when the senior notes due 2010 and 2015 were issued.
+The related gain on the swap agreements of $71 million was recorded to accumulated other comprehensive income (loss) and is being amortized as a reduction to interest expense over the period in which the hedged cash flows are expected to occur.
+Considering the
+The components of the Company’s share-based compensation expense, net of forfeitures, were as follows:
+## Table 1 ##
+[mhdev_0011_table_1.csv](mhdev_0011_table_1.csv)
+For the years ended December 31, 2009, 2008 and 2007, the total income tax benefit recognized by the Company related to the sharebased compensation expense was $64 million, $52 million and $50 million, respectively.
+As of December 31, 2009, there was $158 million of total unrecognized compensation cost related to non-vested awards under the Company’s share-based compensation plans.
+That cost is expected to be recognized over a weighted-average period of 2.5 years.
+Amended and Restated Ameriprise Financial 2005 Incentive Compensation Plan The 2005 ICP, which was amended and approved by shareholders on April 25, 2007, provides for the grant of cash and equity incentive awards to directors, employees and independent contractors, including stock options, restricted stock awards, restricted stock units, stock appreciation rights, performance shares and similar awards designed to comply with the applicable federal regulations and laws of jurisdiction.
+Under the 2005 ICP, a maximum of 37.9 million shares may be issued.
+Of this total, no more than 4.4 million shares may be issued after April 25, 2007 for full value awards, which are awards other than stock options and stock appreciation rights.
+Shares issued under the 2005 ICP may be authorized and unissued shares or treasury shares.
+Deferred Compensation Plan The Deferred Compensation Plan (‘‘DCP’’) gives certain employees the choice to defer a portion of their bonus, which can be invested in investment options as provided by the DCP, including the Ameriprise Financial Stock Fund.
+The Company provides a match if the participant deferrals are invested in the Ameriprise Financial Stock Fund.
+Participant deferrals vest immediately and the Company match vests after three years.
+Distributions are made in shares of the Company’s common stock for the portion of the deferral invested in the Ameriprise Financial Stock Fund and the related Company match, for which the Company has recorded in equity.
+The DCP does allow for accelerated vesting of the share-based awards in cases of death, disability and qualified retirement.
+Compensation expense related to the Company match is recognized on a straight-line basis over the vesting period.
+Ameriprise Financial 2008 Employment Incentive Equity Award Plan The 2008 Plan is designed to align new employees’ interests with those of the shareholders of the Company and attract and retain new employees.
+The 2008 Plan provides for the grant of equity incentive awards to new employees who became employees in connection with a merger or acquisition, including stock options, restricted stock awards, restricted stock units, and other equity-based awards designed to comply with the applicable federal and foreign regulations and laws of jurisdiction.
+Under the 2008 Plan, a maximum of 6.0 million shares may be issued.
+Awards granted under the 2008 Plan may be settled in cash and/or shares of the Company’s common stock according to the award’s terms.
+Stock Options Stock options granted have an exercise price not less than 100% of the current fair market value of a share of the Company’s common stock on the grant date and a maximum term of 10 years.
+Stock options granted generally vest ratably over three to four years.
+Vesting of option awards may be accelerated based on age and length of service.
+Stock options granted are expensed on a straight-line basis over the option vesting period based on the estimated fair value of the awards on the date of grant using a Black-Scholes option-pricing model.
+Net revenues increased $3 million compared to the prior year.
+Net investment loss for the year ended December 31, 2009 reflects the transfer priced interest income allocated to the Annuities and Protection segments for maintaining excess liquidity and the period-over-period decline in short-term interest rates.
+The increase in other revenues compared to the prior year was due to a $58 million gain on the repurchase of $135 million of our junior notes in 2009 compared to a gain of $19 million on the repurchase of $43 million of our junior notes in 2008.
+Total expenses decreased $96 million, or 26%, to $267 million for the year ended December 31, 2009.
+Interest and debt expense for the year ended December 31, 2009 included a $13 million expense related to the early retirement of $450 million of our 5.35% senior notes due 2010.
+General and administrative expense decreased $116 million, or 46%, compared to the prior year due to money market support costs incurred in 2008, including $77 million related to the mark-to-market of Lehman Brothers securities that we purchased from various 2a-7 money market mutual funds managed by our subsidiary, RiverSource Investments, LLC and $36 million for the cost of guaranteeing specific client holdings in an unaffiliated money market mutual fund, and $60 million in restructuring charges in 2008, partially offset by higher performance compensation accruals and legal expenses in 2009.
+Consolidated Results of Operations Year Ended December 31, 2008 Compared to Year Ended December 31, 2007 The following table presents our consolidated results of operations:
+## Table 2 ##
+[mhdev_0011_table_2.csv](mhdev_0011_table_2.csv)
+MASCO CORPORATION NOTES TO CONSOLIDATED FINANCIAL STATEMENTS (CONTINUED) 62 M.  EMPLOYEE RETIREMENT PLANS (Continued) Plan Assets.
+Our qualified defined-benefit pension plan weighted average asset allocation, which is based upon fair value, was as follows:
+Item 1B.
+UNRESOLVED STAFF COMMENTS None.
+Item 2.
+PROPERTIES The table below provides a summary of our containerboard mills, the principal products produced and each mill’s year-end 2011 annual practical maximum capacity based upon all of our paper machines’ production capabilities, as reported to the AF&PA:
+## Table 0 ##
+[mhdev_0012_table_0.csv](mhdev_0012_table_0.csv)
+We currently own our four containerboard mills and 44 of our corrugated manufacturing operations (37 corrugated plants and seven sheet plants).
+We also own one warehouse and miscellaneous other property, which includes sales offices and woodlands management offices.
+These sales offices and woodlands management offices generally have one to four employees and serve as administrative offices.
+PCA leases the space for four corrugated plants, 23 sheet plants, six regional design centers, and numerous other distribution centers, warehouses and facilities.
+The equipment in these leased facilities is, in virtually all cases, owned by PCA, except for forklifts and other rolling stock which are generally leased.
+We lease the cutting rights to approximately 88,000 acres of timberland located near our Valdosta mill (77,000 acres) and our Counce mill (11,000 acres).
+On average, these cutting rights agreements have terms with approximately 12 years remaining.
+Our corporate headquarters is located in Lake Forest, Illinois.
+The headquarters facility is leased for the next ten years with provisions for two additional five year lease extensions.
+Item 3.
+LEGAL PROCEEDINGS During September and October 2010, PCA and eight other U. S.  and Canadian containerboard producers were named as defendants in five purported class action lawsuits filed in the United States District Court for the Northern District of Illinois, alleging violations of the Sherman Act.
+The lawsuits have been consolidated in a single complaint under the caption Kleen Products LLC v Packaging Corp.  of America et al.
+The consolidated complaint alleges that the defendants conspired to limit the supply of containerboard, and that the purpose and effect of the alleged conspiracy was to artificially increase prices of containerboard products during the period from August 2005 to the time of filing of the complaints.
+The complaint was filed as a purported class action suit on behalf of all purchasers of containerboard products during such period.
+The complaint seeks treble damages and costs, including attorney’s fees.
+The defendants’ motions to dismiss the complaint were denied by the court in April 2011.
+PCA believes the allegations are without merit and will defend this lawsuit vigorously.
+However, as the lawsuit is in the early stages of discovery, PCA is unable to predict the ultimate outcome or estimate a range of reasonably possible losses.
+PCA is a party to various other legal actions arising in the ordinary course of our business.
+These legal actions cover a broad variety of claims spanning our entire business.
+As of the date of this filing, we believe it is not reasonably possible that the resolution of these legal actions will, individually or in the aggregate, have a material adverse effect on our financial condition, results of operations or cash flows.
+NOTE 18 EQUITY COMMON STOCK On February 8, 2010, we raised $3.0 billion in new common equity through the issuance of 55.6 million shares of common stock in an underwritten offering at $54 per share.
+The underwriters exercised their option to purchase an additional 8.3 million shares of common stock at the offering price of $54 per share, totaling approximately $450 million, to cover over-allotments.
+We completed this issuance on March 11, 2010.
+PREFERRED STOCK Information related to preferred stock is as follows: Preferred Stock – Issued and Outstanding
+## Table 1 ##
+[mhdev_0012_table_1.csv](mhdev_0012_table_1.csv)
+Our Series B preferred stock is cumulative and is not redeemable at our option.
+Annual dividends on Series B preferred stock total $1.80 per share.
+Holders of Series B preferred stock are entitled to 8 votes per share, which is equal to the number of full shares of common stock into which the Series B Preferred Stock is convertible.
+Our Series K preferred stock was issued in May 2008 in connection with our issuance of $500 million of Depositary Shares, each representing a fractional interest in a share of the Fixed-to-Floating Non-Cumulative Perpetual Preferred Stock, Series K.  Dividends are payable if and when declared each May 21 and November 21 until May 21, 2013.
+After that date, dividends will be payable each 21st of August, November, February and May.
+Dividends will be paid at a rate of 8.25% prior to May 21, 2013 and at a rate of three-month LIBOR plus 422 basis points beginning May 21, 2013.
+The Series K preferred stock is redeemable at our option on or after May 21, 2013.
+Our 9.875% Fixed-to-Floating Rate Non-Cumulative Preferred Stock, Series L was issued in connection with the National City transaction in exchange for National City’s Fixed-to-Floating Rate Non-Cumulative Preferred Stock, Series F.  Dividends on the Series L preferred stock are payable if and when declared each 1st of February, May, August and November.
+Dividends will be paid at a rate of 9.875% prior to February 1, 2013 and at a rate of three-month LIBOR plus 633 basis points beginning February 1, 2013.
+The Series L is redeemable at PNC’s option, subject to Federal Reserve approval, if then applicable, on or after February 1, 2013 at a redemption price per share equal to the liquidation preference plus any declared but unpaid dividends.
+Our Series O preferred stock was issued on July 27, 2011, when we issued one million depositary shares, each representing a 1/100th interest in a share of our Fixed-to-Floating Rate Non-Cumulative Perpetual Preferred Stock, Series O for gross proceeds before commissions and expenses of $1 billion.
+Dividends are payable when, as, and if declared by our board of directors or an authorized committee of our board, semi-annually on February 1 and August 1 of each year until August 1, 2021 at a rate of 6.75%.
+After that date, dividends will be payable on February 1, May 1, August 1 and November 1 of each year beginning on November 1, 2021 at a rate of three-month LIBOR plus 3.678% per annum.
+The Series O preferred stock is redeemable at our option on or after August 1, 2021 and at our option within 90 days of a regulatory capital treatment event as defined in the designations.
+We have authorized but unissued Series H, I, J and M preferred stock.
+As described in Note 13 Capital Securities of Subsidiary Trusts and Perpetual Trust Securities, under the terms of two of the hybrid capital vehicles we issued that currently qualify as capital for regulatory purposes (the Trust II Securities and the Trust III Securities), these Trust Securities are automatically exchangeable into shares of PNC preferred stock (Series I and Series J, respectively) in each case under certain conditions relating to the capitalization or the financial condition of PNC Bank, N. A.  and upon the direction of the Office of the Comptroller of the Currency.
+The Series preferred stock of PNC REIT Corp.  is also automatically exchangeable under similar conditions into shares of PNC Series H preferred stock.
+As a part of the National City transaction, we established the PNC Non-Cumulative Perpetual Preferred Stock, Series M, which mirrors in all material respects the former National City Non-Cumulative Perpetual Preferred Stock, Series E.  PNC has designated 5,751 preferred shares, liquidation value $100,000 per share, for this series.
+No shares have yet been issued; however, National City issued stock purchase contracts for 5,001 shares of its Series E Preferred Stock (now replaced by the PNC Series M as part of the National City transaction) to the National City Preferred Capital Trust I in connection with the issuance by that Trust of $500 million of 12.000% Fixed-to-Floating Rate Normal Automatic Preferred Enhanced Capital Securities (the Normal APEX Securities) in January 2008 by the Trust.
+It is expected that the Trust will purchase 5,001 of the Series M preferred shares pursuant to these stock purchase contracts on December 10, 2012 or on an earlier date and possibly as late as December 10, 2013.
+The Trust has
+The weighted-average assumptions used (as of the end of each year) to determine year end obligations for pension and postretirement benefits were as follows.
+Table 74: Other Pension Assumptions
+## Table 2 ##
+[mhdev_0012_table_2.csv](mhdev_0012_table_2.csv)
+The discount rates are determined independently for each plan by comparing the expected future benefits that will be paid under each plan with yields available on high quality corporate bonds of similar duration.
+For this analysis, 10% of bonds with the highest yields and 40% with the lowest yields were removed from the bond universe.
+The expected return on plan assets is a long-term assumption established by considering historical and anticipated returns of the asset classes invested in by the pension plan and the allocation strategy currently in place among those classes.
+For purposes of setting and reviewing this assumption, “long- term” refers to the period over which the plan’s projected benefit obligations will be disbursed.
+We review this assumption at each measurement date and adjust it if warranted.
+Our selection process references certain historical data and the current environment, but primarily utilizes qualitative judgment regarding future return expectations.
+We also examine the assumption used by other companies with similar pension investment strategies.
+Taking into account all of these factors, the expected long-term return on plan assets for determining net periodic pension cost for 2018 was 6.00%.
+We are reducing our expected long-term return on assets to 5.75% for determining pension cost for 2019.
+This decision was made after considering the views of both internal and external capital market advisors, particularly with regard to the effects of the recent economic environment on long-term prospective equity and fixed income returns.
+PNC’s net periodic benefit cost recognized for the plans is sensitive to the discount rate and expected long-term return on plan assets.
+With all other assumptions held constant, a .5% decline in the discount rate would have resulted in an immaterial increase in net periodic benefit cost for the qualified pension plan in 2018, and to be recognized in 2019.
+For the nonqualified pension plan and postretirement benefits, a .5% decline in the discount rate would also have resulted in an immaterial increase in net periodic benefit cost.
+The health care cost trend rate assumptions shown in Tables 73 and 74 relate only to the postretirement benefit plans.
+The effect of a one-percentage-point increase or decrease in assumed health care cost trend rates would be insignificant.
+Defined Contribution Plans The PNC Incentive Savings Plan (ISP) is a qualified defined contribution plan that covers all of our eligible employees.
+Effective January 1, 2015, newly-hired full time employees and part-time employees who became eligible to participate in the ISP after that date are automatically enrolled in the ISP with a deferral rate equal to 4% of eligible compensation in the absence of an affirmative election otherwise.
+Employee benefits expense related to the ISP was $139 million in 2018, $125 million in 2017 and $122 million in 2016, representing cash contributed to the ISP by PNC.
+The ISP is a 401(k) Plan and includes an employee stock ownership (ESOP) feature.
+Employee contributions are invested in a number of investment options, including pre mixed portfolios and individual core funds, available under the ISP at the direction of the employee.
+NOTE 12 STOCK BASED COMPENSATION PLANS We have long-term incentive award plans (Incentive Plans) that provide for the granting of incentive stock options, nonqualified stock options, stock appreciation rights, incentive shares/performance units, restricted shares, restricted share units, other share-based awards and dollar-denominated awards to executives and, other than incentive stock options, to non-employee directors.
+Certain Incentive Plan awards may be paid in stock, cash or a combination of stock and cash.
+We typically grant a substantial portion of our stock-based compensation awards during the first quarter of each year.
+SUMMARY OF LOAN LOSS EXPERIENCE
+## Table 3 ##
+[mhdev_0012_table_3.csv](mhdev_0012_table_3.csv)
+(a) Includes automobile, education and other consumer.
+(b) Includes $468 million in write-offs of purchased impaired loans in 2015 due to the change in derecognition policy effective December 31, 2016 for certain consumer purchased impaired loans.
+See Note 1 Accounting Policies in our 2015 Form 10-K for additional information.
+The following table presents the assignment of the allowance for loan and lease losses and the categories of loans as a percentage of total loans.
+Changes in the allocation over time reflect the changes in loan portfolio composition, risk profile and refinements to reserve methodologies.
+ALLOCATION OF ALLOWANCE FOR LOAN AND LEASE LOSSES
+## Table 4 ##
+[mhdev_0012_table_4.csv](mhdev_0012_table_4.csv)
+(a) Includes automobile, education and other consumer.
+Table of Contents Index to Financial Statements Cargo Delta Cargo is the largest cargo carrier among the U. S.  passenger airlines, based on revenue.
+Through the strength of our global network, we are able to connect all of the world’s major freight gateways.
+We generate cargo revenues in domestic and international markets primarily through the use of cargo space on regularly scheduled passenger aircraft.
+Additionally, we have a limited, focused network of freighters that tie together the key freight markets in Asia and connect to three gateways in the U. S.  Delta Cargo is a member of SkyTeam Cargo, the world’s largest global airline cargo alliance.
+The alliance, whose other members are Aeromexico Cargo, Air France Cargo, Alitalia Cargo, CSA Czech Airlines Cargo, KLM Cargo and Korean Air Cargo, offers a global network with over 16,000 daily flights spanning 6 continents.
+This alliance offers cargo customers a consistent international product line, and the partners work to jointly improve their efficiency and effectiveness in the marketplace.
+MRO Our maintenance, repair and overhaul (“MRO”) operations known as Delta TechOps is the largest airline MRO in North America with state-of-the-art facilities worldwide.
+In addition to providing maintenance and engineering support for the combined Delta and NWA fleets of nearly 800 aircraft, Delta TechOps serves more than 125 aviation and airline customers from around the world.
+Delta TechOps employs approximately 8,500 maintenance professionals and is one of the most experienced MRO providers in the world.
+Among the key services we offer are: ?
+Airframe Maintenance—aircraft overhaul for both widebody and narrowbody craft; ?
+Component Maintenance—repair, overhaul, and test facilities for electromechanical components and avionics; ?
+Engine Maintenance—full overhaul, repair, and support capabilities for engine parts and components; ?
+Line Maintenance—a full range of ground services including deicing and aircraft parking; ?
+Support Services—logistics, fleet engineering, engine leasing, and more; and ?
+Technical Operations Training—technical training for a wide variety of aircraft types.
+Fuel Our results of operations are significantly impacted by changes in the price and availability of aircraft fuel.
+The following table shows our aircraft fuel consumption and costs for 2006 through 2008.
+## Table 0 ##
+[mhdev_0013_table_0.csv](mhdev_0013_table_0.csv)
+(1) Includes Northwest operations for the period from October 30 to December 31, 2008.
+(2) Includes the operations under contract carrier agreements with regional air carriers.
+(3) Net of fuel hedge (losses) gains under our fuel hedging program of ($65) million, $51 million and ($108) million for 2008, 2007 and 2006, (4) Total operating expense for 2008 reflects a $7.3 billion non-cash charge from an impairment of goodwill and other intangible assets and $1.1 billion in primarily non-cash merger-related charges.
+Including these charges, fuel costs accounted for 28% of total operating expense.
+Our aircraft fuel purchase contracts do not provide material protection against price increases or assure the availability of our fuel supplies.
+We purchase most of our aircraft fuel under contracts that establish the price based on various market indices.
+We also purchase aircraft fuel on the spot market, from off-shore sources and under contracts that permit the refiners to set the price.
+We use derivative instruments, which are comprised of crude oil, heating oil and jet fuel swap, collar and call option contracts, in an effort to manage our exposure to changes in aircraft fuel prices.
+Table of Contents Index to Financial Statements Our purchase commitments (firm orders) for aircraft, as well as options to purchase additional aircraft, as of December 31, 2008 are shown in the following tables:
+## Table 1 ##
+[mhdev_0013_table_1.csv](mhdev_0013_table_1.csv)
+(1) Includes 31 aircraft, which we have entered into definitive agreements to sell to third parties immediately following delivery of these aircraft to us by the manufacturer.
+(2) Includes 2 aircraft orders we assigned to a regional air carrier.
+(3) We have excluded from the table above our order of 18 B-787-8 aircraft.
+The Boeing Company (“Boeing”) has informed us that Boeing will be unable to meet the contractual delivery schedule for these aircraft.
+We are in discussions with Boeing regarding this situation.
+## Table 2 ##
+[mhdev_0013_table_2.csv](mhdev_0013_table_2.csv)
+(1) Aircraft options have scheduled delivery slots, while rolling options replace options and are assigned delivery slots as options expire or are exercised.
+Ground Facilities We lease most of the land and buildings that we occupy.
+Delta’s largest aircraft maintenance base, various computer, cargo, flight kitchen and training facilities and most of its principal offices are located at or near the Atlanta Airport, on land leased from the City of Atlanta generally under long-term leases.
+Delta owns a portion of its principal offices, its Atlanta reservations center and other real property in Atlanta.
+NWA owns its primary offices, which are located near the Minneapolis/St.
+Paul International Airport, including its corporate offices located on a 160-acre site east of the airport.
+Other NWA owned facilities include reservations centers in Baltimore, Maryland, Tampa, Florida, Minot, North Dakota and Chisholm, Minnesota, and a data processing center in Eagan, Minnesota.
+NWA also owns property in Tokyo, including a 1.3-acre site in downtown Tokyo and a 33-acre land parcel, 512-room hotel and flight kitchen located near Tokyo’s Narita International Airport.
+We lease ticket counter and other terminal space, operating areas and air cargo facilities in most of the airports that we serve.
+At most airports, we have entered into use agreements which provide for the non-exclusive use of runways, taxiways, and other improvements and facilities; landing fees under these agreements normally are based on the number of landings and weight of aircraft.
+These leases and use agreements generally run for
+The Company entered into agreements with various governmental entities in the states of Kentucky, Georgia and Tennessee to implement tax abatement plans related to its distribution center in Franklin, Kentucky (Simpson County), its distribution center in Macon, Georgia (Bibb County), and its Store Support Center in Brentwood, Tennessee (Williamson County).
+The tax abatement plans provide for reduction of real property taxes for specified time frames by legally transferring title to its real property in exchange for industrial revenue bonds.
+This property was then leased back to the Company.
+No cash was exchanged.
+The lease payments are equal to the amount of the payments on the bonds.
+The tax abatement period extends through the term of the lease, which coincides with the maturity date of the bonds.
+At any time, the Company has the option to purchase the real property by paying off the bonds, plus $1.
+The terms and amounts authorized and drawn under each industrial revenue bond agreement are outlined as follows, as of December 30, 2017:
+## Table 3 ##
+[mhdev_0013_table_3.csv](mhdev_0013_table_3.csv)
+Due to the form of these transactions, the Company has not recorded the bonds or the lease obligation associated with the sale lease-back transaction.
+The original cost of the Company’s property and equipment is recorded on the balance sheet and is being depreciated over its estimated useful life.
+Capitalized Software Costs The Company capitalizes certain costs related to the acquisition and development of software and amortizes these costs using the straight-line method over the estimated useful life of the software, which is three to five years.
+Computer software consists of software developed for internal use and third-party software purchased for internal use.
+A subsequent addition, modification or upgrade to internal-use software is capitalized to the extent that it enhances the software’s functionality or extends its useful life.
+These costs are included in computer software and hardware in the accompanying Consolidated Balance Sheets.
+Certain software costs not meeting the criteria for capitalization are expensed as incurred.
+Store Closing Costs The Company regularly evaluates the performance of its stores and periodically closes those that are under-performing.
+The Company records a liability for costs associated with an exit or disposal activity when the liability is incurred, usually in the period the store closes.
+Store closing costs were not significant to the results of operations for any of the fiscal years presented.
+Leases Assets under capital leases are amortized in accordance with the Company’s normal depreciation policy for owned assets or over the lease term, if shorter, and the related charge to operations is included in depreciation expense in the Consolidated Statements of Income.
+Certain operating leases include rent increases during the lease term.
+For these leases, the Company recognizes the related rental expense on a straight-line basis over the term of the lease (which includes the pre-opening period of construction, renovation, fixturing and merchandise placement) and records the difference between the expense charged to operations and amounts paid as a deferred rent liability.
+The Company occasionally receives reimbursements from landlords to be used towards improving the related store to be leased.
+Leasehold improvements are recorded at their gross costs, including items reimbursed by landlords.
+Related reimbursements are deferred and amortized on a straight-line basis as a reduction of rent expense over the applicable lease term.
+Note 2 - Share-Based Compensation: Share-based compensation includes stock option and restricted stock unit awards and certain transactions under the Company’s ESPP.
+Share-based compensation expense is recognized based on the grant date fair value of all stock option and restricted stock unit awards plus a discount on shares purchased by employees as a part of the ESPP.
+The discount under the ESPPrepresents the difference between the purchase date market value and the employee’s purchase price.
+Uranium Mining Sites.
+During a period between 1940 and the early 1970s, certain FMC predecessor entities were involved in uranium exploration and mining in the western U. S.  Similar exploration and mining activities by other companies have caused environmental impacts that have warranted remediation, and EPA and local authorities are currently evaluating the need for significant cleanup activities in the region.
+To date, FMC has undertaken remediation at a limited number of sites associated with these predecessor entities.
+An initiative to gather additional information about sites in the region is ongoing, and information gathered under this initiative was submitted to EPA Region 9 during the second and third quarters of 2008 and the fourth quarter of 2009 in response to an information request by EPA regarding uranium mining activities on Navajo Nation properties.
+FCX utilized the results of FMC’s remediation experience, in combination with historical and updated information to initially estimate the fair value of uranium-related liabilities assumed in the FMC acquisition.
+Asset Retirement Obligations (AROs).
+FCX’s ARO cost estimates are reflected on a third-party cost basis and comply with FCX’s legal obligation to retire tangible, long-lived assets.
+A summary of changes in FCX’s AROs for the years ended December 31 follows:
+## Table 0 ##
+[mhdev_0014_table_0.csv](mhdev_0014_table_0.csv)
+a.
+Revisions to cash flow estimates were primarily related to updated closure plans that included revised cost estimates and accelerated timing of certain closure activities.
+ARO costs may increase or decrease significantly in the future as a result of changes in regulations, changes in engineering designs and technology, permit modifications or updates, changes in mine plans, inflation or other factors and as actual reclamation spending occurs.
+ARO activities and expenditures generally are made over an extended period of time commencing near the end of the mine life; however, certain reclamation activities may be accelerated if legally required or if determined to be economically beneficial.
+Legal requirements in New Mexico, Arizona, Colorado and other states require financial assurance to be provided for the estimated costs of reclamation and closure, including groundwater quality protection programs.
+FCX has satisfied financial assurance requirements by using a variety of mechanisms, such as performance guarantees, financial capability demonstrations, trust funds, surety bonds, letters of credit and collateral.
+The applicable regulations specify financial strength tests that are designed to confirm a company’s or guarantor’s financial capability to fund estimated reclamation and closure costs.
+The amount of financial assurance FCX is required to provide will vary with changes in laws, regulations and reclamation and closure requirements, and cost estimates.
+At December 31, 2012, FCX’s financial assurance obligations associated with these closure and reclamation costs totaled $970 million, of which $601 million was in the form of guarantees issued by FCX and financial capability demonstrations.
+At December 31, 2012, FCX had trust assets totaling $161 million (included in other assets), which are legally restricted to fund a portion of its AROs for properties in New Mexico as required by New Mexico regulatory authorities.
+New Mexico Environmental and Reclamation Programs.
+FCX’s New Mexico operations are regulated under the New Mexico Water Quality Act and regulations adopted under that act by the Water Quality Control Commission (WQCC).
+The New Mexico Environment Department (NMED) has required each of these operations to submit closure plans for NMED’s approval.
+The closure plans must include measures to assure meeting groundwater quality standards following the closure of discharging facilities and to abate any groundwater or surface water contamination.
+In March 2009, the Tyrone operation appealed the WQCC Final Order, dated February 4, 2009, regarding location of the “places of withdrawal of water,” a legal criterion used to determine where groundwater quality standards must be met at FCX’s New Mexico mining sites.
+In December 2010, FCX's Tyrone mine entered into a settlement agreement with NMED that calls for a stay of the appeal while NMED and the WQCC complete several administrative actions, including renewal of Tyrone’s closure permit consistent with the terms of the settlement, review and approval of a groundwater abatement plan and adoption of alternative abatement standards, and adoption of new groundwater discharge permit rules for copper mines.
+If the administrative actions are concluded consistent with the terms of the settlement agreement within the period of the stay, then Tyrone will move to dismiss the appeal.
+In December 2012, Tyrone and NMED agreed to extend the period to conclude the administrative actions through December 31, 2013.
+The Court of Appeals also extended the stay for another year.
+Finalized closure plan requirements, including those resulting from the actions to be taken under the settlement agreement, could result in increases in closure costs for FCX's New Mexico operations.
+FCX’s New Mexico operations also are subject to regulation under the 1993 New Mexico Mining Act (the Mining Act) and the related rules that are administered by the Mining and Minerals Division (MMD) of the New Mexico Energy, Minerals and Natural Resources Department.
+Under the Mining Act, mines are required to obtain approval of plans describing the reclamation to be performed following cessation of mining operations.
+At December 31, 2012, FCX had accrued reclamation and closure
+Middleton's reported cigars shipment volume for 2012 decreased 0.7% due primarily to changes in trade inventories, partially offset by volume growth as a result of retail share gains.
+In the cigarette category, Marlboro's 2012 retail share performance continued to benefit from the brand-building initiatives supporting Marlboro's new architecture.
+Marlboro's retail share for 2012 increased 0.6 share points versus 2011 to 42.6%.
+In January 2013, PM USA expanded distribution of Marlboro Southern Cut nationally.
+Marlboro Southern Cut is part of the Marlboro Gold family.
+PM USA's 2012 retail share increased 0.8 share points versus 2011, reflecting retail share gains by Marlboro and by L&M in Discount.
+These gains were partially offset by share losses on other portfolio brands.
+In the machine-made large cigars category, Black & Mild's retail share for 2012 increased 0.5 share points.
+The brand benefited from new untipped cigarillo varieties that were introduced in 2011, Black & Mild seasonal offerings and the 2012 third-quarter introduction of Black & Mild Jazz untipped cigarillos into select geographies.
+In December 2012, Middleton announced plans to launch nationally Black & Mild Jazz cigars in both plastic tip and wood tip in the first quarter of 2013.
+The following discussion compares smokeable products segment results for the year ended December 31, 2011 with the year ended December 31, 2010.
+Net revenues, which include excise taxes billed to customers, decreased $221 million (1.0%) due to lower shipment volume ($1,051 million), partially offset by higher net pricing ($830 million), which includes higher promotional investments.
+Operating companies income increased $119 million (2.1%), due primarily to higher net pricing ($831 million), which includes higher promotional investments, marketing, administration, and research savings reflecting cost reduction initiatives ($198 million) and 2010 implementation costs related to the closure of the Cabarrus, North Carolina manufacturing facility ($75 million), partially offset by lower volume ($527 million), higher asset impairment and exit costs due primarily to the 2011 Cost Reduction Program ($158 million), higher per unit settlement charges ($120 million), higher charges related to tobacco and health judgments ($87 million) and higher FDA user fees ($73 million).
+For 2011, total smokeable products shipment volume decreased 4.0% versus 2010.
+PM USA's reported domestic cigarettes shipment volume declined 4.0% versus 2010 due primarily to retail share losses and one less shipping day, partially offset by changes in trade inventories.
+After adjusting for changes in trade inventories and one less shipping day, PM USA's 2011 domestic cigarette shipment volume was estimated to be down approximately 4% versus 2010.
+PM USA believes that total cigarette category volume for 2011 decreased approximately 3.5% versus 2010, when adjusted primarily for changes in trade inventories and one less shipping day PM USA's total premium brands (Marlboro and Other Premium brands) shipment volume decreased 4.3%.
+Marlboro's shipment volume decreased 3.8% versus 2010.
+In the Discount brands, PM USA's shipment volume decreased 0.9%.
+PM USA's shipments of premium cigarettes accounted for 93.7% of its reported domestic cigarettes shipment volume for 2011, down from 93.9% in 2010.
+Middleton's 2011 reported cigars shipment volume was unchanged versus 2010.
+For 2011, PM USA's retail share of the cigarette category declined 0.8 share points to 49.0% due primarily to retail share losses on Marlboro.
+Marlboro's 2011 retail share decreased 0.6 share points.
+In 2010, Marlboro delivered record full-year retail share results that were achieved at lower margin levels.
+Middleton retained a leading share of the tipped cigarillo segment of the machine-made large cigars category, with a retail share of approximately 84% in 2011.
+For 2011, Middleton's retail share of the cigar category increased 0.3 share points to 29.7% versus 2010.
+Black & Mild's 2011 retail share increased 0.5 share points, as the brand benefited from new product introductions.
+During the fourth quarter of 2011, Middleton broadened its untipped cigarillo portfolio with new Aroma Wrap?
+foil pouch packaging that accompanied the national introduction of Black & Mild Wine.
+This new fourthquarter packaging roll-out also included Black & Mild Sweets and Classic varieties.
+During the second quarter of 2011, Middleton entered into a contract manufacturing arrangement to source the production of a portion of its cigars overseas.
+Middleton entered into this arrangement to access additional production capacity in an uncertain competitive environment and an excise tax environment that potentially benefits imported large cigars over those manufactured domestically.
+Smokeless Products Segment The smokeless products segment's operating companies income grew during 2012 driven by higher pricing, Copenhagen and Skoal's combined volume and retail share performance and effective cost management.
+The following table summarizes smokeless products segment shipment volume performance:
+## Table 1 ##
+[mhdev_0014_table_1.csv](mhdev_0014_table_1.csv)
+Volume includes cans and packs sold, as well as promotional units, but excludes international volume, which is not material to the smokeless products segment.
+Other includes certain USSTC and PM USA smokeless products.
+New types of smokeless products, as well as new packaging configurations
+Year ended September 30, 2009 Compared with the Year ended September 30, 2008 - Proprietary Capital Proprietary Capital results are driven by the valuations within Raymond James Capital Partners, L. P. , the EIF Funds, the valuations of our direct merchant banking investments and our investments in third-party private equity funds.
+During fiscal 2009, our direct merchant banking investments and Raymond James Capital Partners L. P.  portfolio increased in value by $2.4 million and $12.1 million, respectively, while the RJF private equity investment and EIF Funds portfolio decreased by $2.8 million.
+Since we do not own 100% of all of the investments held in this segment, $8.1 million of the net income is attributable to other investors.
+Year ended September 30, 2008 Compared with the Year ended September 30, 2007 - Proprietary Capital Proprietary Capital results in fiscal year 2008 were driven by the valuations within Raymond James Capital Partners, L. P. , Ballast Point Ventures I and II, L. P. , the EIF Funds, our direct merchant banking investments managed by Raymond James Capital, Inc.  and the third-party private equity funds in which RJF was invested.
+During fiscal 2008, our direct merchant banking investments, Raymond James Capital Partners L. P.  and RJF private equity investment portfolio increased in value by $3 million, $8.2 million and $4 million, respectively.
+Results of Operations - Other The following table presents consolidated financial information for the Other segment for the years indicated:
+## Table 2 ##
+[mhdev_0014_table_2.csv](mhdev_0014_table_2.csv)
+Year ended September 30, 2009 Compared with the Year ended September 30, 2008 - Other Revenue in the Other segment includes interest earnings on available corporate cash balances and gains/losses on corporate investments, including company-owned life insurance used as a funding vehicle for non-qualified deferred compensation programs.
+Expenses in this segment are predominantly executive compensation and beginning in August 2009, interest on our senior notes.
+This interest will be approximately $26 million annually.
+Year ended September 30, 2008 Compared with the Year ended September 30, 2007 - Other Revenue in the Other segment includes interest earnings on available corporate cash balances and gains/losses on corporate investments, including company-owned life insurance used as a funding vehicle for non-qualified deferred compensation programs.
+Expenses in this segment are predominantly executive compensation and certain compensation accruals related to our benefit plans as a result of increased profitability at RJ Bank.
+Liquidity and Capital Resources Senior management establishes our liquidity and capital policies.
+These policies include senior management’s review of short- and long-term cash flow forecasts, review of monthly capital expenditures, the monitoring of the availability of alternative sources of financing and the daily monitoring of liquidity in our significant subsidiaries.
+Our decisions on the allocation of capital to our business units consider, among other factors, projected profitability and cash flow, risk and impact on future liquidity needs.
+Our treasury department assists in evaluating, monitoring and controlling the impact that our business activities have on our financial condition, liquidity and capital structure as well as maintains the relationships with various lenders.
+The objectives of these policies are to support the successful execution of our business strategies while ensuring ongoing and sufficient liquidity
+UNITED PARCEL SERVICE, INC.  AND SUBSIDIARIES MANAGEMENT'S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERATIONS 28 Revenue The change in overall revenue was impacted by the following factors for the years ended December 31, 2013 and 2012, compared with the corresponding prior year periods:
+Table of Contents ITEM 2.
+PROPERTIES Flight Equipment and Fleet Renewal As of December 31, 2016, American operated a mainline fleet of 930 aircraft.
+In 2016, we continued our extensive fleet renewal program, which has provided us with the youngest fleet of the major U. S.  network carriers.
+During 2016, American took delivery of 55 new mainline aircraft and retired 71 aircraft.
+We are supported by our wholly-owned and third-party regional carriers that fly under capacity purchase agreements operating as American Eagle.
+As of December 31, 2016, American Eagle operated 606 regional aircraft.
+During 2016, we increased our regional fleet by 61 regional aircraft, we removed and placed in temporary storage one Embraer ERJ 140 aircraft and retired 41 other regional aircraft.
+Mainline As of December 31, 2016, American’s mainline fleet consisted of the following aircraft:
+## Table 0 ##
+[mhdev_0015_table_0.csv](mhdev_0015_table_0.csv)
+CF INDUSTRIES HOLDINGS, INC.  123 Changes in common shares outstanding are as follows:
+## Table 1 ##
+[mhdev_0015_table_1.csv](mhdev_0015_table_1.csv)
+(1) Includes shares issued from treasury.
+(2) Includes shares withheld to pay employee tax obligations upon the vesting of restricted stock.
+Preferred Stock CF Holdings is authorized to issue 50 million shares of $0.01 par value preferred stock.
+Our Second Amended and Restated Certificate of Incorporation, as amended, authorizes the Board, without any further stockholder action or approval, to issue these shares in one or more classes or series, and (except in the case of our Series A Junior Participating Preferred Stock, 500,000 shares of which are authorized and the terms of which were specified in the original certificate of incorporation of CF Holdings) to fix the rights, preferences and privileges of the shares of each wholly unissued class or series and any of its qualifications, limitations or restrictions.
+In connection with the Plan (as defined below), 500,000 shares of preferred stock have been designated as Series B Junior Participating Preferred Stock.
+The Series A Junior Participating Preferred Stock had been established in CF Holdings’ original certificate of incorporation in connection with our former stockholder rights plan that expired in 2015.
+No shares of preferred stock have been issued.
+Tax Benefits Preservation Plan On September 6, 2016, CF Holdings entered into a Tax Benefits Preservation Plan (the Plan) with Computershare Trust Company, N. A. , as rights agent.
+The Plan is intended to help protect our tax net operating losses and certain other tax assets (the Tax Benefits) by deterring any person from becoming a "5-percent shareholder" (as defined in Section 382 of the Internal Revenue Code of 1986, as amended) (a 5% Shareholder).
+Under the Plan, each share of common stock has attached to it one right.
+Each right entitles the holder to purchase one one-thousandth of a share of our preferred stock designated as Series B Junior Participating Preferred Stock at a purchase price of $100, subject to adjustment.
+Rights will only be exercisable under the limited circumstances specified in the Plan when there has been a distribution of the rights and such rights are no longer redeemable by CF Holdings.
+A distribution of the rights would occur upon the earlier of (i) 10 business days following a public announcement that a person or group of affiliated or associated persons has become a 5% Shareholder (subject to certain exceptions described in the Plan) and (ii) 10 business days (or such later date as the Board shall determine) following the commencement of a tender offer or exchange offer that would result in a person or group of affiliated or associated persons becoming a 5% Shareholder (subject to certain exceptions described in the Plan).
+The rights will expire at the earliest of (i) 5:00 P. M.  (New York City time) on September 5, 2017, or such later date and time (but not later than 5:00 P. M.  (New York City time) on September 5, 2019) as may be determined by the Board and approved by the stockholders of CF Holdings by a vote of the majority of the votes cast by the holders of shares entitled to vote thereon at a meeting of the stockholders of CF Holdings prior to 5:00 P. M.  (New York City time) on September 5, 2017, (ii) the time at which the rights are redeemed or exchanged as provided in the Plan, (iii) the time at which the Board determines that the Plan is no longer necessary or desirable for the preservation of Tax Benefits, and (iv) the close of business on the first day of a taxable year of CF Holdings to which the Board determines that no Tax Benefits may be carried forward.
+In the event that a person or group of affiliated or associated persons becomes a 5% Shareholder (subject to certain exceptions described in the Plan), each holder of a right, other than such person, any member of such group or related person, all of whose rights will be null and void, will thereafter have the right to receive, upon exercise, common stock having a value equal to two times the exercise price of the right.
+CF INDUSTRIES HOLDINGS, INC.  126 19.
+Stock-Based Compensation 2014 Equity and Incentive Plan On May 14, 2014, our shareholders approved the CF Industries Holdings, Inc.  2014 Equity and Incentive Plan (the 2014 Equity and Incentive Plan) which replaced the CF Industries Holdings, Inc.  2009 Equity and Incentive Plan.
+Under the 2014 Equity and Incentive Plan, we may grant incentive stock options, nonqualified stock options, stock appreciation rights, restricted stock, restricted stock units, performance awards (payable in cash or stock) and other stock-based awards to our officers, employees, consultants and independent contractors (including non-employee directors).
+The purpose of the 2014 Equity and Incentive Plan is to provide an incentive for our employees, officers, consultants and non-employee directors that is aligned with the interests of our stockholders.
+Share Reserve and Individual Award Limits The maximum number of shares reserved for the grant of awards under the 2014 Equity and Incentive Plan is the sum of (i) 13.9 million and (ii) the number of shares subject to outstanding awards under our predecessor plans to the extent such awards terminate or expire without delivery of shares.
+For purposes of determining the number of shares of stock available for grant under the 2014 Equity and Incentive Plan, each option or stock appreciation right is counted against the reserve as one share.
+Each share of stock granted, other than an option or a stock appreciation right, is counted against the reserve as 1.61 shares.
+If any outstanding award expires or is settled in cash, any unissued shares subject to the award are again available for grant under the 2014 Equity and Incentive Plan.
+Shares tendered in payment of the exercise price of an option and shares withheld by the Company or otherwise received by the Company to satisfy tax withholding obligations are not available for future grant under the 2014 Equity and Incentive Plan.
+As of December 31, 2016, we had 11.7 million shares available for future awards under the 2014 Equity and Incentive Plan.
+The 2014 Equity and Incentive Plan provides that no more than 5.0 million underlying shares may be granted to a participant in any one calendar year.
+Stock Options Under the 2014 Equity and Incentive Plan and our predecessor plans, we granted to plan participants nonqualified stock options to purchase shares of our common stock.
+The exercise price of these options is equal to the market price of our common stock on the date of grant.
+The contractual life of each option is ten years and generally one-third of the options vest on each of the first three anniversaries of the date of grant.
+The fair value of each stock option award is estimated using the Black-Scholes option valuation model.
+Key assumptions used and resulting grant date fair values are shown in the following table.
+## Table 2 ##
+[mhdev_0015_table_2.csv](mhdev_0015_table_2.csv)
+The expected volatility of our stock options is based on the combination of the historical volatility of our common stock and implied volatilities of exchange traded options on our common stock.
+The expected term of options is estimated based on our historical exercise experience, post-vesting employment termination behavior and the contractual term.
+The risk-free interest rate is based on the U. S.  Treasury Strip yield curve in effect at the time of grant for the expected term of the options.
+Ammonia Segment Our ammonia segment produces anhydrous ammonia (ammonia), which is our most concentrated nitrogen fertilizer as it contains 82% nitrogen.
+The results of our ammonia segment consist of sales of ammonia to external customers.
+In addition, ammonia is the "basic" nitrogen product that we upgrade into other nitrogen products such as granular urea, UAN and AN.
+We produce ammonia at all of our nitrogen manufacturing complexes.
+The following table presents summary operating data for our ammonia segment, including the impact of our acquisition of the remaining 50% equity interest in CF Fertilisers UK:
+## Table 3 ##
+[mhdev_0015_table_3.csv](mhdev_0015_table_3.csv)
+(1) Ammonia represents 82% nitrogen content.
+Nutrient tons represent the tons of nitrogen within the product tons.
+Year Ended December 31, 2016 Compared to Year Ended December 31, 2015 Net Sales.
+Total net sales in the ammonia segment decreased by $542 million, or 36%, to $981 million in 2016 from $1.52 billion in 2015 due primarily to a 33% decrease in average selling prices and a 4% decrease in sales volume.
+These results include the impact of the CF Fertilisers UK acquisition, which increased net sales by $26 million, or 2%.
+The remaining decrease in our ammonia net sales of $568 million, or 37%, was due primarily to lower average selling prices and sales volume.
+Selling prices declined due to excess global nitrogen supply.
+In addition, our selling prices reflect the impact of a higher proportion of export sales, the volumes of which increased as a result of the weak fall application season attributable to the combined impact of weather conditions and low crop prices on our customers' decisions related to applying fertilizer in the fall.
+Sales volume in 2016 declined due to combination of the weak fall application season and the impact of upgrading additional ammonia production at our Donaldsonville facility into granular urea and UAN as a result of our capacity expansion projects coming on line at our Donaldsonville, Louisiana complex.
+Cost of Sales.
+Cost of sales per ton in our ammonia segment averaged $248 per ton in 2016, including the impact of the CF Fertilisers UK acquisition, which averaged $220 per ton.
+The remaining cost of sales per ton was $250 in 2016, a 16% decrease from the $296 per ton in 2015.
+The decrease was due primarily to the impact of unrealized net mark-to-market gains on natural gas derivatives in 2016 compared to losses in 2015 and to the impact of lower realized natural gas costs in 2016.
+This was partly offset by capacity expansion project start-up costs of $50 million and an increase in expansion project depreciation as a result of the new ammonia plants at our Donaldsonville and Port Neal facilities.
+A summary of these various obligations at December 31, 2012, follows (in millions):
+## Table 0 ##
+[mhdev_0016_table_0.csv](mhdev_0016_table_0.csv)
+a.
+Represents estimated cash payments, on an undiscounted and unescalated basis, associated with reclamation and environmental activities.
+The timing and the amount of these payments could change as a result of changes in regulatory requirements, changes in scope and timing of reclamation activities, the settlement of environmental matters and as actual spending occurs.
+Refer to Note 13 for additional discussion of environmental and reclamation matters.
+b.
+Represents contractual obligations for purchases of goods or services that are defined by us as agreements that are enforceable and legally binding and that specify all significant terms.
+Take-orpay contracts primarily comprise the procurement of copper concentrates ($799 million), electricity ($524 million) and transportation services ($448 million).
+Some of our take-or-pay contracts are settled based on the prevailing market rate for the service or commodity purchased, and in some cases, the amount of the actual obligation may change over time because of market conditions.
+Obligations for copper concentrates provide for deliveries of specified volumes to Atlantic Copper at market-based prices.
+Electricity obligations are primarily for contractual minimum demand at the South America and Tenke mines.
+Transportation obligations are primarily for South America contracted ocean freight and for North America rail freight.
+c.  Scheduled interest payment obligations were calculated using stated coupon rates for fixed-rate debt and interest rates applicable at December 31, 2012, for variable-rate debt.
+d.  This table excludes certain other obligations in our consolidated balance sheets, including estimated funding for pension obligations as the funding may vary from year to year based on changes in the fair value of plan assets and actuarial assumptions, accrued liabilities totaling $107 million that relate to unrecognized tax benefits where the timing of settlement is not determinable; Atlantic Copper's obligations for retired employees totaling $38 million (refer to Note 10); and PT Freeport Indonesia's reclamation and closure cash fund obligation totaling $17 million (refer to Note 13).
+This table also excludes purchase orders for the purchase of inventory and other goods and services, as purchase orders typically represent authorizations to purchase rather than binding agreements.
+In addition to our debt maturities and other contractual obligations discussed above, we have other commitments, which we expect to fund with available cash, projected operating cash flows, available credit facility or future financing transactions, if necessary.
+These include (i) PT Freeport Indonesia’s commitment to provide one percent of its annual revenue for the development of the local people in its area of operations through the Freeport Partnership Fund for Community Development, (ii) TFM’s commitment to provide 0.3 percent of its annual revenue for the development of the local people in its area of operations and (iii) other commercial commitments, including standby letters of credit, surety bonds and guarantees.
+Refer to Notes 13 and 14 for further discussion.
+CONTINGENCIES Environmental The cost of complying with environmental laws is a fundamental and substantial cost of our business.
+At December 31, 2012, we had $1.2 billion recorded in our consolidated balance sheets for environmental obligations attributed to CERCLA or analogous state programs and for estimated future costs associated with environmental obligations that are considered probable based on specific facts and circumstances.
+During 2012, we incurred environmental capital expenditures and other environmental costs (including our joint venture partners’ shares) of $612 million for programs to comply with applicable environmental laws and regulations that affect our operations, compared to $387 million in 2011 and $372 million in 2010.
+The increase in environmental costs in 2012, compared with 2011 and 2010, primarily relates to higher expenditures for land and settlements of environmental matters (see Note 13 for further discussion).
+For 2013, we expect to incur approximately $600 million of aggregate environmental capital expenditures and other environmental costs, which are part of our overall 2013 operating budget.
+The timing and amount of estimated payments could change as a result of changes in regulatory requirements, changes in scope and timing of reclamation activities, the settlement of environmental matters and as actual spending occurs.
+Refer to Note 13 for further information about environmental regulation, including significant environmental matters.
+Asset Retirement Obligations We recognize AROs as liabilities when incurred, with the initial measurement at fair value.
+These obligations, which are initially estimated based on discounted cash flow estimates, are accreted to full value over time through charges to income.
+Reclamation costs for disturbances are recorded as an ARO in the period of disturbance.
+Our cost estimates are reflected on a third-party cost basis and comply with our legal obligation to retire tangible, long-lived assets.
+At December 31, 2012, we had $1.1 billion recorded in our consolidated balance sheets for AROs.
+Spending
+ILLUMINA, INC.  NOTES TO CONSOLIDATED FINANCIAL STATEMENTS — (Continued) Advertising Costs The Company expenses advertising costs as incurred.
+Advertising costs were approximately $440,000 for 2003, $267,000 for 2002 and $57,000 for 2001.
+Income Taxes A deferred income tax asset or liability is computed for the expected future impact of differences between the financial reporting and tax bases of assets and liabilities, as well as the expected future tax benefit to be derived from tax loss and credit carryforwards.
+Deferred income tax expense is generally the net change during the year in the deferred income tax asset or liability.
+Valuation allowances are established when realizability of deferred tax assets is uncertain.
+The effect of tax rate changes is reflected in tax expense during the period in which such changes are enacted.
+Foreign Currency Translation The functional currencies of the Company’s wholly owned subsidiaries are their respective local currencies.
+Accordingly, all balance sheet accounts of these operations are translated to U. S.  dollars using the exchange rates in effect at the balance sheet date, and revenues and expenses are translated using the average exchange rates in effect during the period.
+The gains and losses from foreign currency translation of these subsidiaries’ financial statements are recorded directly as a separate component of stockholders’ equity under the caption ‘‘Accumulated other comprehensive income.
+’’ Stock-Based Compensation At December 28, 2003, the Company has three stock-based employee and non-employee director compensation plans, which are described more fully in Note 5.
+As permitted by SFAS No.123, Accounting for Stock-Based Compensation, the Company accounts for common stock options granted, and restricted stock sold, to employees, founders and directors using the intrinsic value method and, thus, recognizes no compensation expense for options granted, or restricted stock sold, with exercise prices equal to or greater than the fair value of the Company’s common stock on the date of the grant.
+The Company has recorded deferred stock compensation related to certain stock options, and restricted stock, which were granted prior to the Company’s initial public offering with exercise prices below estimated fair value (see Note 5), which is being amortized on an accelerated amortization methodology in accordance with Financial Accounting Standards Board Interpretation Number (‘‘FIN’’) 28.
+Pro forma information regarding net loss is required by SFAS No.123 and has been determined as if the Company had accounted for its employee stock options and employee stock purchases under the fair value method of that statement.
+The fair value for these options was estimated at the dates of grant using the fair value option pricing model (Black Scholes) with the following weighted-average assumptions for 2003, 2002 and 2001:
+## Table 1 ##
+[mhdev_0016_table_1.csv](mhdev_0016_table_1.csv)
+The Company renewed an unsecured bank credit line on April 29, 2010 which provides for funding of up to $5,000 and bears interest at the prime rate less 1% (2.25% at June 30, 2010).
+The credit line was renewed through April 29, 2012.
+At June 30, 2010, $762 was outstanding.
+The Company renewed a bank credit line on March 7, 2010 which provides for funding of up to $8,000 and bears interest at the Federal Reserve Board’s prime rate (3.25% at June 30, 2010).
+The credit line expires March 7, 2011 and is secured by $1,000 of investments.
+At June 30, 2010, no amount was outstanding.
+The Company has entered into a bank credit facility agreement that includes a revolving loan, a term loan and a bullet term loan.
+The revolving loan allows short-term borrowings of up to $150,000, which may be increased by the Company at any time until maturity to $250,000.
+The revolving loan terminates June 4, 2015.
+At June 30, 2010, the outstanding revolving loan balance was $120,000.
+The term loan has an original principal balance of $150,000, with quarterly principal payments of $5,625 beginning on September 30, 2011, and the remaining balance due June 4, 2015.
+The bullet term loan had an original principal balance of $100,000.
+The full balance, which would have been due on December 4, 2010, was paid in full on July 8, 2010 as set forth in Note 15 to the Consolidated Financial Statements (see Item 8).
+Each of the loans bear interest at a variable rate equal to (a) a rate based on LIBOR or (b) an alternate base rate (the greater of (a) the Federal Funds Rate plus 0.5%, (b) the Prime Rate or (c) LIBOR plus 1.0%), plus an applicable percentage in each case determined by the Company’s leverage ratio.
+The outstanding balances bear interest at a weighted average rate of 2.99%.
+The loans are secured by pledges of capital stock of certain subsidiaries of the Company.
+The loans are also guaranteed by certain subsidiaries of the Company.
+The credit facility is subject to various financial covenants that require the Company to maintain certain financial ratios as defined in the agreement.
+As of June 30, 2010, the Company was in compliance with all such covenants.
+The Company has entered into various capital lease obligations for the use of certain computer equipment.
+Included in property and equipment are related assets of $8,872.
+At June 30, 2010, $5,689 was outstanding, of which $4,380 will be maturing in the next twelve months.
+Contractual Obligations and Other Commitments At June 30, 2010 the Company’s total off balance sheet contractual obligations were $36,935.
+This balance consists of $27,228 of long-term operating leases for various facilities and equipment which expire from 2011 to 2017 and the remaining $9,707 is for purchase commitments related to property and equipment, particularly for contractual obligations related to the on-going construction of new facilities.
+The table excludes $7,548 of liabilities for uncertain tax positions as we are unable to reasonably estimate the ultimate amount or timing of settlement.
+Contractual obligations by Less than More than
+## Table 2 ##
+[mhdev_0016_table_2.csv](mhdev_0016_table_2.csv)
+Recent Accounting Pronouncements In December 2007, the Financial Accounting Standards Board (“FASB”) issued Statement on Financial Accounting Standards (“SFAS”) No.141(R), “Business Combinations,” (“SFAS 141(R)”) which replaces SFAS No.141 and has since been incorporated into the Accounting Standards Codification (“ASC”) as ASC 805-10.
+ASC 805-10 establishes principles and requirements for how an acquirer recognizes and measures in its financial statements the identifiable assets acquired, the liabilities assumed, any non-controlling interest in the acquired entity and the goodwill acquired.
+The Statement also establishes disclosure requirements which will enable users of the financial statements to evaluate the nature and financial effects of the business combination.
+Relative to SFAS 141(R), the FASB issued FSP 141(R)-1 on April 1, 2009, which is now incorporated in ASC 805-20.
+ASC 805-20 eliminates the requirement under FAS 141(R) to record assets and liabilities at the acquisition date for noncontractual contingencies at fair value where it is deemed “more-likely-than-not” that an asset or liability would result.
+Under ASC 805-20, such assets and liabilities would only need to be recorded where the fair value can be determined during the measurement period or where it is probable that an asset or liability exists at the acquisition date and the amount of fair value can be reasonably determined.
+ASC 805-10 was effective for the Company on July 1, 2009.
+The adoption
+Insurance.
+The following table presents the underwriting results and ratios for the Insurance segment for the periods indicated.
+## Table 3 ##
+[mhdev_0016_table_3.csv](mhdev_0016_table_3.csv)
+Premiums.
+Gross written premiums increased by 10.0% to $1,073.1 million in 2012 compared to $975.6 million in 2011.
+This increase was primarily driven by crop and primary A&H medical stop loss business, partially offset by the termination and runoff of several large casualty programs.
+Net written premiums increased 3.9% to $852.1 million in 2012 compared to $820.5 million in 2011.
+The lower increase in net written premiums in comparison to gross written premiums is primarily attributable to a higher level of reinsurance employed for the crop business.
+Premiums earned increased 3.8% to $852.4 million in 2012 compared to $821.2 million in 2011.
+The change in premiums earned is relatively consistent with the increase in net written premiums.
+Gross written premiums increased by 12.7% to $975.6 million in 2011 compared to $865.4 million in 2010.
+This was due to strategic portfolio changes with growth in short-tail business, primarily driven by the acquisition of Heartland, which provided $169.6 million of new crop insurance premium in 2011 and $54.0 million growth in A&H primary business, partially offset by the reduction of a large casualty program.
+Net written premiums increased 32.3% to $820.5 million in 2011 compared to $620.3 million for the same period in 2010 due to higher gross premiums and reduced levels of ceded reinsurance, primarily due to the reduction of the large casualty program.
+Premiums earned increased 28.1% to $821.2 million in 2011 compared to $641.1 million in 2010.
+The change in premiums earned is relatively consistent with the increase in net written premiums.
+Revenues N&SS revenues decreased 1% in 2008 and 2% in 2007.
+The decrease of $137 million in 2008 is primarily due to decreased revenues in FCS, Proprietary and satellite programs partially offset by increased revenues in the SBInet program.
+The decrease of $292 million in 2007 was primarily due to the exclusion of government Delta volume, now a component of our equity investment in ULA and lower FCS volume, partially offset by increased volume on SBInet and several satellite programs.
+Delta launch and new-build satellite deliveries were as follows:
+## Table 0 ##
+[mhdev_0017_table_0.csv](mhdev_0017_table_0.csv)
+Delta government launches are excluded from our deliveries after December 1, 2006 due to the formation of ULA.
+Operating Earnings N&SS operating earnings increased by $171 million in 2008 was primarily due to increased earnings from our investment in ULA.
+The decrease in 2007 was due to lower earnings on FCS and several satellite programs.
+These decreases were partially offset by higher award fees on GMD and a $44 million gain on sale of a property in Anaheim.
+N&SS operating earnings include equity earnings of $73 million, $85 million and $71 million from the United Space Alliance joint venture in 2008, 2007, and 2006, respectively and equity earnings of $105 million, a loss of $11 million and equity earnings of $5 million from the ULA joint venture in 2008, 2007 and 2006, respectively.
+The ULA equity earnings and loss amounts are net of the basis difference amortization.
+Research and Development The N&SS research and development funding remains focused on the development of communications, command and control, computers, intelligence, surveillance and reconnaissance systems (C4ISR); communications and command and control (C3) capabilities that support a network-enabled architecture approach for our various government customers.
+We are investing in communications capabilities to enable connectivity between existing air/ground platforms, increase communications availability and bandwidth through more robust space systems, and leverage innovative communications concepts.
+Key programs in this area include JTRS, FCS, Global Positioning System, Tracking and Data Relay Satellite, Ares 1 Crew Launch Vehicle and GMD.
+Investments were also made to support concepts that may lead to the development of next-generation space intelligence systems.
+Along with increased funding to support these areas of architecture and network-enabled capabilities development, we also maintained our investment levels in global missile defense and advanced missile defense concepts and technologies.
+Backlog N&SS total backlog decreased by 12% in 2008 compared with 2007 primarily due to revenues recognized on multi-year orders received in prior years on FCS, GMD and C3 programs, partially offset by an increase in the International Space Station program.
+Total backlog decreased by 7% in 2007 compared with 2006 due to revenues recognized on FCS and Proprietary programs, partially offset by an increase in Space Exploration programs.
+Additional Considerations Items which could have a future impact on N&SS operations include the following: United Launch Alliance On December 1, 2006, we completed the transaction with Lockheed Martin Corporation (Lockheed) to create a 50/50 joint venture named United Launch Alliance L. L. C.  (ULA).
+ULA combines the production, engineering, test and launch operations associated with U. S.  government launches of Boeing Delta and Lockheed Atlas rockets.
+In connection with the transaction,
+billion of unused borrowing on revolving credit line agreements.
+We anticipate that these credit lines will primarily serve as backup liquidity to support our general corporate borrowing needs.
+Financing commitments totaled $18.1 billion and $15.9 billion as of December 31, 2012 and 2011.
+We anticipate that we will not be required to fund a significant portion of our financing commitments as we continue to work with third party financiers to provide alternative financing to customers.
+Historically, we have not been required to fund significant amounts of outstanding commitments.
+However, there can be no assurances that we will not be required to fund greater amounts than historically required.
+In the event we require additional funding to support strategic business opportunities, our commercial aircraft financing commitments, unfavorable resolution of litigation or other loss contingencies, or other business requirements, we expect to meet increased funding requirements by issuing commercial paper or term debt.
+We believe our ability to access external capital resources should be sufficient to satisfy existing short-term and long-term commitments and plans, and also to provide adequate financial flexibility to take advantage of potential strategic business opportunities should they arise within the next year.
+However, there can be no assurance of the cost or availability of future borrowings, if any, under our commercial paper program, in the debt markets or our credit facilities.
+At December 31, 2012 and 2011, our pension plans were $19.7 billion and $16.6 billion underfunded as measured under GAAP.
+On an ERISA basis our plans are more than 100% funded at December 31, 2012 with minimal required contributions in 2013.
+We expect to make discretionary contributions to our plans of approximately $1.5 billion in 2013.
+We may be required to make higher contributions to our pension plans in future years.
+As of December 31, 2012, we were in compliance with the covenants for our debt and credit facilities.
+The most restrictive covenants include a limitation on mortgage debt and sale and leaseback transactions as a percentage of consolidated net tangible assets (as defined in the credit agreements), and a limitation on consolidated debt as a percentage of total capital (as defined).
+When considering debt covenants, we continue to have substantial borrowing capacity.
+Contractual Obligations The following table summarizes our known obligations to make future payments pursuant to certain contracts as of December 31, 2012, and the estimated timing thereof.
+## Table 1 ##
+[mhdev_0017_table_1.csv](mhdev_0017_table_1.csv)
+(1) Includes interest on variable rate debt calculated based on interest rates at December 31, 2012.
+Variable rate debt was less than 1% of our total debt at December 31, 2012.
+Industry Competitiveness The commercial jet airplane market and the airline industry remain extremely competitive.
+Market liberalization in Europe, the Middle East and Asia is enabling low-cost airlines to continue gaining market share.
+These airlines are increasing the pressure on airfares.
+This results in continued cost pressures for all airlines and price pressure on our products.
+Major productivity gains are essential to ensure a favorable market position at acceptable profit margins.
+Continued access to global markets remains vital to our ability to fully realize our sales potential and longterm investment returns.
+Approximately 91% of Commercial Airplanes’ total backlog, in dollar terms, is with non-U.
+S.  airlines.
+We face aggressive international competitors who are intent on increasing their market share.
+They offer competitive products and have access to most of the same customers and suppliers.
+With government support,Airbus has historically invested heavily to create a family of products to compete with ours.
+Regional jet makers Embraer and Bombardier continue to develop and market larger and increasingly more capable airplanes, including Embraer’s E-195 in the regional jet market and Bombardier’s C Series in the 100-150 seat transcontinental market.
+Additionally, other competitors from Russia, China and Japan are developing commercial jet aircraft.
+Some of these competitors have historically enjoyed access to governmentprovided financial support, including “launch aid,” which greatly reduces the cost and commercial risks associated with airplane development activities.
+This has enabled the development of airplanes without commercial viability; others to be brought to market more quickly than otherwise possible; and many offered for sale below market-based prices.
+Many competitors have continued to make improvements in efficiency, which may result in funding product development, gaining market share and improving earnings.
+This market environment has resulted in intense pressures on pricing and other competitive factors, and we expect these pressures to continue or intensify in the coming years.
+We are focused on improving our products and services and continuing our cost-reduction efforts, which enhances our ability to compete.
+We are also focused on taking actions to ensure that Boeing is not harmed by unfair subsidization of competitors.
+Results of Operations
+## Table 2 ##
+[mhdev_0017_table_2.csv](mhdev_0017_table_2.csv)
+Revenues Commercial Airplanes revenues decreased by $1,283 million or 2% in 2017 compared with 2016 due to delivery mix, with fewer twin aisle deliveries more than offsetting the impact of higher single aisle deliveries.
+Commercial Airplanes revenues decreased by $1,387 million or 2% in 2016 compared with 2015 primarily due to fewer deliveries.
+Through February 25, 2016, we repurchased approximately $415.0 million of shares of our common stock, which includes the $250.0 million of shares that we repurchased from certain selling stockholders on February 10, 2016.
+In order to achieve operational synergies, we expect cash outlays related to our integration plans to be approximately $290.0 million in 2016.
+These cash outlays are necessary to achieve our integration goals of net annual pre-tax operating profit synergies of $350.0 million by the end of the third year post-Closing Date.
+Also as discussed in Note 20 to our consolidated financial statements, as of December 31, 2015, a short-term liability of $50.0 million and long-term liability of $264.6 million related to Durom Cup product liability claims was recorded on our consolidated balance sheet.
+We expect to continue paying these claims over the next few years.
+We expect to be reimbursed a portion of these payments for product liability claims from insurance carriers.
+As of December 31, 2015, we have received a portion of the insurance proceeds we estimate we will recover.
+We have a long-term receivable of $95.3 million remaining for future expected reimbursements from our insurance carriers.
+We also had a short-term liability of $33.4 million related to Biomet metal-on-metal hip implant claims.
+At December 31, 2015, we had ten tranches of senior notes outstanding as follows (dollars in millions):
+ABIOMED, INC.  AND SUBSIDIARIES Notes to Consolidated Financial Statements—(Continued) Note 8.
+Goodwill and In-Process Research and Development (Continued) The Company has no accumulated impairment losses on goodwill.
+The Company performed a Step 0 qualitative assessment during the annual impairment review for fiscal 2015 as of October 31, 2014 and concluded that it is not more likely than not that the fair value of the Company’s single reporting unit is less than its carrying amount.
+Therefore, the two-step goodwill impairment test for the reporting unit was not necessary in fiscal 2015.
+As described in Note 3.
+“Acquisitions,” in July 2014, the Company acquired ECP and AIS and recorded $18.5 million of IPR&D.
+The estimated fair value of the IPR&D was determined using a probability-weighted income approach, which discounts expected future cash flows to present value.
+The projected cash flows from the expandable catheter pump technology were based on certain key assumptions, including estimates of future revenue and expenses, taking into account the stage of development of the technology at the acquisition date and the time and resources needed to complete development.
+The Company used a discount rate of 22.5% and cash flows that have been probability adjusted to reflect the risks of product commercialization, which the Company believes are appropriate and representative of market participant assumptions.
+The carrying value of the Company’s IPR&D assets and the change in the balance for the year ended March 31, 2015 is as follows:
+## Table 0 ##
+[mhdev_0018_table_0.csv](mhdev_0018_table_0.csv)
+Note 9.
+Stockholders’ Equity Class B Preferred Stock The Company has authorized 1,000,000 shares of Class B Preferred Stock, $.01 par value, of which the Board of Directors can set the designation, rights and privileges.
+No shares of Class B Preferred Stock have been issued or are outstanding.
+Stock Repurchase Program In November 2012, the Company’s Board of Directors authorized a stock repurchase program for up to $15.0 million of its common stock.
+The Company financed the stock repurchase program with its available cash.
+During the year ended March 31, 2013, the Company repurchased 1,123,587 shares for $15.0 million in open market purchases at an average cost of $13.39 per share, including commission expense.
+The Company completed the purchase of common stock under this stock repurchase program in January 2013.
+Note 10.
+Stock Award Plans and Stock-Based Compensation Stock Award Plans The Company grants stock options and restricted stock awards to employees and others.
+All outstanding stock options of the Company as of March 31, 2015 were granted with an exercise price equal to the fair market value on the date of grant.
+Outstanding stock options, if not exercised, expire 10 years from the date of grant.
+The Company’s 2008 Stock Incentive Plan (the “Plan”) authorizes the grant of a variety of equity awards to the Company’s officers, directors, employees, consultants and advisers, including awards of unrestricted and restricted stock, restricted stock units, incentive and nonqualified stock options to purchase shares of common stock, performance share awards and stock appreciation rights.
+The Plan provides that options may only be granted at the current market value on the date of grant.
+Each share of stock issued pursuant to a stock option or stock appreciation right counts as one share against the maximum number of shares issuable under the Plan, while each share of stock issued
+Simultaneously, the FASB issued SFAS No.167, Amendments to FASB Interpretation No.46(R) (SFAS 167), which details three key changes to the consolidation model.
+First, former QSPEs will now be included in the scope of SFAS 167.
+In addition, the FASB has changed the method of analyzing which party to a variable interest entity (VIE) should consolidate the VIE (known as the primary beneficiary) to a qualitative determination of which party to the VIE has “power” combined with potentially significant benefits or losses, instead of the current quantitative risks and rewards model.
+The entity that has power has the ability to direct the activities of the VIE that most significantly impact the VIE’s economic performance.
+Finally, the new standard requires that the primary beneficiary analysis be re-evaluated whenever circumstances change.
+The current rules require reconsideration of the primary beneficiary only when specified reconsideration events occur.
+As a result of implementing these new accounting standards, Citigroup will consolidate certain of the VIEs and former QSPEs with which it currently has involvement.
+An ongoing evaluation of the application of these new requirements could, with the resolution of certain uncertainties, result in the identification of additional VIEs and former QSPEs, other than those presented below, needing to be consolidated.
+It is not currently anticipated, however, that any such newly identified VIEs and former QSPEs would have a significant impact on Citigroup’s Consolidated Financial Statements or capital position.
+In accordance with SFAS 167, Citigroup employed three approaches for consolidating all of the VIEs and former QSPEs that it consolidated as of January 1, 2010.
+The first approach requires initially measuring the assets, liabilities, and noncontrolling interests of the VIEs and former QSPEs at their carrying values (the amounts at which the assets, liabilities, and noncontrolling interests would have been carried in the Consolidated Financial Statements, if Citigroup had always consolidated these VIEs and former QSPEs).
+The second approach is to use the unpaid principal amounts, where using carrying values is not practicable.
+The third approach is to elect the fair value option, in which all of the financial assets and liabilities of certain designated VIEs and former QSPEs would be recorded at fair value upon adoption of SFAS 167 and continue to be marked to market thereafter, with changes in fair value reported in earnings.
+Citigroup consolidated all required VIEs and former QSPEs as of January 1, 2010 at carrying values or unpaid principal amounts, except for certain private label residential mortgage and mutual fund deferred sales commissions VIEs, for which the fair value option was elected.
+The following tables present the pro forma impact of adopting these new accounting standards applying these approaches.
+The pro forma impact of these changes on incremental GAAP assets and resulting risk-weighted assets for those VIEs and former QSPEs that were consolidated or deconsolidated for accounting purposes as of January 1, 2010 (based on financial information as of December 31, 2009), reflecting Citigroup’s present understanding of the new accounting requirements and immediate implementation of the recently issued final risk-based capital rules regarding SFAS 166 and SFAS 167, was as follows:
+## Table 1 ##
+[mhdev_0018_table_1.csv](mhdev_0018_table_1.csv)
+(1) Citigroup undertook certain actions during the first and second quarters of 2009 in support of its off-balance-sheet credit card securitization vehicles.
+As a result of these actions, Citigroup included approximately $82 billion of incremental risk-weighted assets in its risk-based capital ratios as of March 31, 2009 and an additional approximate $900 million as of June 30, 2009.
+See Note 23 to the Consolidated Financial Statements.
+(2) The implementation of SFAS 167 will result in the deconsolidation of certain synthetic and cash collateralized debt obligation (CDO) VIEs that were previously consolidated under the requirements of ASC 810 (FIN 46(R)).
+Upon deconsolidation of these synthetic CDOs, Citigroup’s Consolidated Balance Sheet will reflect the recognition of current receivables and payables related to purchased and written credit default swaps entered into with these VIEs, which had previously been eliminated in consolidation.
+The deconsolidation of certain cash CDOs will have a minimal impact on GAAP assets, but will cause a sizable increase in risk-weighted assets.
+The impact on risk-weighted assets results from replacing, in Citigroup’s trading account, largely investment grade securities owned by these VIEs when consolidated, with Citigroup’s holdings of non-investment grade or unrated securities issued by these VIEs when deconsolidated.
+(3) Certain equity-linked note client intermediation transactions that had previously been consolidated under the requirements of ASC 810 (FIN 46 (R)) will be deconsolidated with the implementation of SFAS 167.
+Upon deconsolidation, Citigroup’s Consolidated Balance Sheet will reflect both the equitylinked notes issued by the VIEs and held by Citigroup as trading assets, as well as related trading liabilities in the form of prepaid equity derivatives.
+These trading assets and trading liabilities were formerly eliminated in consolidation.
+19.
+GOODWILL AND INTANGIBLE ASSETS Goodwill The changes in Goodwill during 2008 and 2009 were as follows:
+## Table 2 ##
+[mhdev_0018_table_2.csv](mhdev_0018_table_2.csv)
+The changes in Goodwill by segment during 2008 and 2009 were as follows:
+## Table 3 ##
+[mhdev_0018_table_3.csv](mhdev_0018_table_3.csv)
+(1) Other changes in Goodwill primarily reflect foreign exchange effects on non-dollar-denominated goodwill, as well as purchase accounting adjustments.
+Goodwill impairment testing is performed at a level below the business segments (referred to as a reporting unit).
+The changes in the organizational structure in 2009 resulted in the creation of new reporting segments.
+As a result, commencing with the second quarter of 2009, the Company has identified new reporting units as required under ASC 350, Intangibles— Goodwill and Other.
+Goodwill affected by the reorganization has been reassigned from 10 reporting units to nine, using a fair value approach.
+During 2009, goodwill was allocated to disposals and tested for impairment under the new reporting units.
+The Company performed goodwill impairment testing for all reporting units as of April 1, 2009 and July 1, 2009.
+Additionally, the Company performed an interim goodwill impairment test for the Local Consumer Lending—Cards reporting unit as of November 30, 2009.
+No goodwill was written off due to impairment in 2009.
+During 2008, the share prices of financial stocks continued to be very volatile and were under considerable pressure in sustained turbulent markets.
+In this environment, Citigroup’s market capitalization remained below book value for most of the period and the Company performed goodwill impairment testing for all reporting units as of February 28, 2008, July 1, 2008 and December 31, 2008.
+The results of the first step of the impairment test showed no indication of impairment in any of the reporting units at any of the periods except December 31, 2008 and, accordingly, the Company did not perform the second step of the impairment test, except for the test performed as of December 31, 2008.
+As of December 31, 2008, there was an indication of impairment in the North America Consumer Banking, Latin America Consumer Banking, and Local Consumer Lending—Other reporting units and, accordingly, the second step of testing was performed on these reporting units.
+AMERICAN TOWER CORPORATION AND SUBSIDIARIES NOTES TO CONSOLIDATED FINANCIAL STATEMENTS—(Continued) of certain of its assets and liabilities under its interest rate swap agreements held as of December 31, 2006 and entered into during the first half of 2007.
+In addition, the Company paid $8.0 million related to a treasury rate lock agreement entered into and settled during the year ended December 31, 2008.
+The cost of the treasury rate lock is being recognized as additional interest expense over the 10-year term of the 7.00% Notes.
+During the year ended December 31, 2007, the Company also received $3.1 million in cash upon settlement of the assets and liabilities under ten forward starting interest rate swap agreements with an aggregate notional amount of $1.4 billion, which were designated as cash flow hedges to manage exposure to variability in cash flows relating to forecasted interest payments in connection with the Certificates issued in the Securitization in May 2007.
+The settlement is being recognized as a reduction in interest expense over the five-year period for which the interest rate swaps were designated as hedges.
+The Company also received $17.0 million in cash upon settlement of the assets and liabilities under thirteen additional interest rate swap agreements with an aggregate notional amount of $850.0 million that managed exposure to variability of interest rates under the credit facilities but were not considered cash flow hedges for accounting purposes.
+This gain is included in other income in the accompanying consolidated statement of operations for the year ended December 31, 2007.
+As of December 31, 2008 and 2007, other comprehensive (loss) income included the following items related to derivative financial instruments (in thousands):
+## Table 0 ##
+[mhdev_0019_table_0.csv](mhdev_0019_table_0.csv)
+During the years ended December 31, 2008 and 2007, the Company recorded an aggregate net unrealized loss of approximately $15.8 million and $3.2 million, respectively (net of a tax provision of approximately $10.2 million and $2.0 million, respectively) in other comprehensive loss for the change in fair value of interest rate swaps designated as cash flow hedges and reclassified an aggregate of $0.1 million and $6.2 million, respectively (net of an income tax provision of $2.0 million and an income tax benefit of $3.3 million, respectively) into results of operations.9.
+FAIR VALUE MEASUREMENTS The Company determines the fair market values of its financial instruments based on the fair value hierarchy established in SFAS No.157, which requires an entity to maximize the use of observable inputs and minimize the use of unobservable inputs when measuring fair value.
+The standard describes three levels of inputs that may be used to measure fair value.
+Level 1 Quoted prices in active markets for identical assets or liabilities that the Company has the ability to access at the measurement date.
+The Company’s Level 1 assets consist of available-for-sale securities traded on active markets as well as certain Brazilian Treasury securities that are highly liquid and are actively traded in over-the-counter markets.
+Level 2 Observable inputs other than Level 1 prices, such as quoted prices for similar assets or liabilities; quoted prices in markets that are not active; or other inputs that are observable or can be corroborated by observable market data for substantially the full term of the assets or liabilities.
+TELEFLEX INCORPORATED NOTES?TO CONSOLIDATED FINANCIAL STATEMENTS — (Continued) The Company issued 82,865, 93,367 and 105,239 of non-vested restricted stock units in 2017, 2016 and 2015, respectively, the majority of which provide for vesting as to all underlying shares on the third anniversary of the grant date.
+The weighted average grant-date fair value for non-vested restricted stock units granted during 2017, 2016 and 2015 was $187.85, $142.71 and $118.00, respectively.
+The Company recorded $11.2 million of expense related to restricted stock units during 2017, which is included in cost of goods sold or selling, general and administrative expenses.
+The unamortized share-based compensation cost related to non-vested restricted stock units, net of expected forfeitures, was $13.2 million, which is expected to be recognized over a weighted-average period of 1.8 years.
+The Company uses treasury stock to provide shares of common stock in connection with vesting of the restricted stock units.
+TELEFLEX INCORPORATED NOTES?TO CONSOLIDATED FINANCIAL STATEMENTS — (Continued) F-37 Note 13?— Income taxes The following table summarizes the components of the provision for income taxes from continuing operations:
+## Table 1 ##
+[mhdev_0019_table_1.csv](mhdev_0019_table_1.csv)
+The Tax Cuts and Jobs Act (the “TCJA”) was enacted on December 22, 2017.
+The legislation significantly changes U. S.  tax law by, among other things, permanently reducing corporate income tax rates from a maximum of 35% to 21%, effective January 1, 2018; implementing a territorial tax system, by generally providing for, among other things, a dividends received deduction on the foreign source portion of dividends received from a foreign corporation if specified conditions are met; and imposing a one-time repatriation tax on undistributed post-1986 foreign subsidiary earnings and profits, which are deemed repatriated for purposes of the tax.
+As a result of the TCJA, the Company reassessed and revalued its ending net deferred tax liabilities at December 31, 2017 and recognized a?$46.1 million?provisional tax benefit in the Company’s consolidated statement of income for the year ended December 31, 2017.
+As a result of the deemed repatriation tax under the TCJA, the Company recognized a $154.0 million provisional tax expense in the Company’s consolidated statement of income for the year ended December 31, 2017, and the Company expects to pay this tax over an eight-year period.
+While the TCJA provides for a territorial tax system, beginning in 2018, it includes?two?new U. S.  tax base erosion provisions, the global intangible low-taxed income (“GILTI”) provisions and the base-erosion and anti-abuse tax (“BEAT”) provisions.
+The GILTI provisions require the Company to include in its U. S.  income tax return foreign subsidiary earnings in excess of an allowable return on the foreign subsidiary’s tangible assets.
+The Company expects that it will be subject to incremental U. S.  tax on GILTI income beginning in 2018.
+Because of the complexity of the new GILTI tax rules, the Company is continuing to evaluate this provision of the TCJA and the application of Financial Accounting Standards Board Accounting Standards Codification Topic 740, "Income Taxes. "
+Under U. S.  GAAP, the Company may make an accounting policy election to either (1) treat future taxes with respect to the inclusion in U. S.  taxable income of amounts related to GILTI as current period expense when incurred (the “period cost method”) or (2) take such amounts into a company’s measurement of its deferred taxes (the “deferred method”).
+The Company’s selection of an accounting policy with respect to the new GILTI tax rules will depend, in part, on an analysis of the Company’s global income to determine whether the Company expects to have future U. S.  inclusions in taxable income related to GILTI and, if so, what the impact is expected to be.
+The determination of whether the Company expects to have future U. S.  inclusions
+?
+Miller Insurance Services LLP, which is a Pounds sterling functional entity, earns significant non-functional currency revenues, in which case the Company limits its exposure to exchange rate changes by the use of forward contracts matched to a percentage of forecast cash inflows in specific currencies and periods.
+However, where the foreign exchange risk relates to any Pounds sterling pension benefits assets or liability for pension benefits, we do not hedge the risk.
+Consequently, if our London market operations have a significant pension asset or liability, we may be exposed to accounting gains and losses, recognized in other comprehensive income or loss, if the U. S.  dollar and Pounds sterling exchange rates change.
+We do, however, hedge the Pounds sterling contributions into the pension plan.
+Translation risk Outside our U. S.  and London market operations, we predominantly earn revenues and incur expenses in the local currency.
+When we translate the results and net assets of these operations into U. S.  dollars for reporting purposes, movements in exchange rates will affect reported results and net assets.
+For example, if the U. S.  dollar strengthens against the Euro, the reported results of our Eurozone operations in U. S.  dollar terms will be lower.
+With the exception of foreign currency hedges for certain intercompany loans that are not designated as hedging instruments, we do not hedge translation risk.
+The table below provides information about our foreign currency forward exchange contracts, which are sensitive to exchange rate risk.
+The table summarizes the U. S.  dollar equivalent amounts of each currency bought and sold forward and the weighted average contractual exchange rates.
+All forward exchange contracts mature within three years.
+## Table 2 ##
+[mhdev_0019_table_2.csv](mhdev_0019_table_2.csv)
+(i) Represents the difference between the contract amount and the cash flow in U. S.  dollars which would have been receivable had the foreign currency forward exchange contracts been entered into on December 31, 2016 at the forward exchange rates prevailing at that date.
+(e) Other adjustments primarily include certain historical retention costs, unusual, non-recurring litigation matters, secondary-offering-related expenses and expenses related to the consolidation of office locations north of Chicago.
+During the year ended December 31, 2013, we recorded IPO- and secondary-offering related expenses of $75.0 million.
+For additional information on the IPO- and secondary-offering related expenses, see Note 10 (Stockholder’s Equity) to the accompanying Consolidated Financial Statements.
+(f) Includes the impact of consolidating five months for the year ended December 31, 2015 of Kelway’s financial results.
+(4) Non-GAAPnet income excludes, among other things, charges related to the amortization of acquisition-related intangible assets, non-cash equity-based compensation, acquisition and integration expenses, and gains and losses from the extinguishment of long-term debt.
+Non-GAAP net income is considered a non-GAAP financial measure.
+Generally, a non-GAAPfinancial measure is a numerical measure of a company’s performance, financial position or cash flows that either excludes or includes amounts that are not normally included or excluded in the most directly comparable measure calculated and presented in accordance with GAAP.
+Non-GAAP measures used by us may differ from similar measures used by other companies, even when similar terms are used to identify such measures.
+We believe that non-GAAP net income provides meaningful information regarding our operating performance and cash flows including our ability to meet our future debt service, capital expenditures and working capital requirements.
+The following unaudited table sets forth a reconciliation of net income to non-GAAPnet income for the periods presented:
+## Table 0 ##
+[mhdev_0020_table_0.csv](mhdev_0020_table_0.csv)
+(a) Includes amortization expense for acquisition-related intangible assets, primarily customer relationships, customer contracts and trade names.
+(b) Represents our 35% share of an expense related to certain equity awards granted by one of the sellers to Kelway coworkers in July 2015 prior to our acquisition of Kelway.
+(c) Primarily includes expenses related to the acquisition of Kelway.
+(d) Represents the gain resulting from the remeasurement of our previously held 35% equity investment to fair value upon the completion of the acquisition of Kelway.
+(e) Primarily includes expenses related to the consolidation of office locations north of Chicago and secondaryoffering-related expenses.
+Amount in 2013 primarily relates to IPO- and secondary-offering related expenses.
+(f) Based on a normalized effective tax rate of 38.0% (39.0% prior to the Kelway acquisition), except for the noncash equity-based compensation from our equity investment and the gain resulting from the remeasurement of our previously held 35% equity investment to fair value upon the completion of the acquisition of Kelway, which were tax effected at a rate of 35.4%.
+The aggregate adjustment for income taxes also includes a $4.0 million deferred tax benefit recorded during the three months and year ended December 31, 2015 as a result of a tax rate reduction in the United Kingdom and additional tax expense during the year ended December 31, 2015 of $3.3 million as a result of recording withholding tax on the unremitted earnings of our Canadian subsidiary.
+Additionally, note that certain acquisition costs are non-deductible.
+Net sales Net sales by segment, in dollars and as a percentage of total Net sales, and the year-over-year dollar and percentage change in Net sales for the years ended December 31, 2015 and 2014 are as follows:
+## Table 1 ##
+[mhdev_0020_table_1.csv](mhdev_0020_table_1.csv)
+(1) There were 254 selling days for the years ended December 31, 2015 and 2014.
+Total Net sales in 2015 increased $914.2 million, or 7.6%, to $12,988.7 million, compared to $12,074.5 million in 2014, reflecting both organic net sales growth and the impact of consolidating five months of Kelway net sales.
+Customer priorities continued to shift more towards integrated solutions, which drove higher growth in solutions sales compared to transactional product sales.
+Strong sales performance in solutions-focused products was driven by netcomm and server and server-related products.
+The growth in transactional products was led by notebooks/mobile devices, partially offset by a decline in desktop computers.
+Organic net sales, which excludes the impact of the acquisition of Kelway, increased $563.5 million, or 4.7%, to $12,638.0 million in 2015, compared to $12,074.5 million in 2014.
+Organic net sales on a constant currency basis, which excludes the impact of foreign currency translation, in 2015 increased $635.0 million, or 5.3%, to $12,638.0 million, compared to $12,003.0 million in 2014.
+For additional information, see “Non-GAAP Financial Measure Reconciliations” below.
+Corporate segment net sales in 2015 increased $340.9 million, or 5.3%, compared to 2014, driven by sales growth in both our medium/large and small business customer channels and reflecting stronger performance in solutions sales compared to transactional product sales.
+Within our Corporate segment, net sales to medium/large customers increased $272.8 million, or 5.0%, year over year, primarily due to strong sales performance in solutions-focused products driven by netcomm products and server and server-related products.
+Growth in transactional products was driven by notebook/mobile devices, partially offset by a decline in desktop computers.
+Net sales to small business customers increased by $68.1 million, or 6.9%, between periods, driven by growth in notebooks/mobile devices and netcomm products, partially offset by a decline in desktop computers.
+Public segment net sales in 2015 increased $246.1 million, or 5.0%, between years, due to strong sales performance in government and growth in healthcare, partially offset by education remaining relatively flat.
+Net sales to government customers increased $226.5 million, or 15.6%, between periods, as sales to both federal and state/local government customers experienced mid-teens growth.
+The increase in net sales to the federal government was driven by growth in sales of netcomm products, software and enterprise storage, as we continued to benefit from strategic changes made to better align with new federal government purchasing programs implemented last year.
+A continued focus on public safety drove the increase in net sales to state/local government customers, which was led by netcomm products, notebooks/mobile devices and software, partially offset by a decline in desktop computers.
+Net sales to education customers decreased $17.0 million, or 0.9%, year over year, primarily due to declines in notebooks/mobile devices, partially offset by growth in netcomm products.
+Net sales to healthcare customers increased $36.6 million, or 2.3%, year over year, driven by growth in netcomm and server-related products, partially offset by declines in desktop
+DISH NETWORK CORPORATION NOTES TO CONSOLIDATED FINANCIAL STATEMENTS - Continued F-43 15.
+Stock-Based Compensation Stock Incentive Plans We maintain stock incentive plans to attract and retain officers, directors and key employees.
+Stock awards under these plans include both performance and non-performance based stock incentives.
+As of December 31, 2013, we had outstanding under these plans stock options to acquire 14.1 million shares of our Class A common stock and 1.9 million restricted stock units.
+Stock options granted on or prior to December 31, 2013 were granted with exercise prices equal to or greater than the market value of our Class A common stock at the date of grant and with a maximum term of approximately ten years.
+While historically we have issued stock awards subject to vesting, typically at the rate of 20% per year, some stock awards have been granted with immediate vesting and other stock awards vest only upon the achievement of certain company-specific subscriber, operational and/or financial goals.
+As of December 31, 2013, we had 69.7 million shares of our Class A common stock available for future grant under our stock incentive plans.
+During December 2011, we paid a dividend in cash of $2.00 per share on our outstanding Class A and Class B common stock to shareholders of record on November 17, 2011.
+In light of such dividend, during January 2012, the exercise price of 21.2 million stock options, affecting approximately 600 employees, was reduced by $2.00 per share (the “2011 Stock Option Adjustment”).
+Except as noted below, all information discussed below reflects the 2011 Stock Option Adjustment.
+On December 28, 2012, we paid a dividend in cash of $1.00 per share on our outstanding Class A and Class B common stock to shareholders of record on December 14, 2012.
+In light of such dividend, during January 2013, the exercise price of 16.3 million stock options, affecting approximately 550 employees, was reduced by $0.77 per share (the “2012 Stock Option Adjustment”).
+Except as noted below, all information discussed below reflects the 2012 Stock Option Adjustment.
+On January 1, 2008, we completed the distribution of our technology and set-top box business and certain infrastructure assets (the “Spin-off”) into a separate publicly-traded company, EchoStar.
+In connection with the Spin-off, each DISH Network stock award was converted into an adjusted DISH Network stock award and a new EchoStar stock award consistent with the Spin-off exchange ratio.
+We are responsible for fulfilling all stock awards related to DISH Network common stock and EchoStar is responsible for fulfilling all stock awards related to EchoStar common stock, regardless of whether such stock awards are held by our or EchoStar’s employees.
+Notwithstanding the foregoing, our stock-based compensation expense, resulting from stock awards outstanding at the Spin-off date, is based on the stock awards held by our employees regardless of whether such stock awards were issued by DISH Network or EchoStar.
+Accordingly, stock-based compensation that we expense with respect to EchoStar stock awards is included in “Additional paid-in capital” on our Consolidated Balance Sheets.
+As of March 31, 2013, we have recognized all of our stock-based compensation expense resulting from EchoStar stock awards outstanding at the Spin-off date held by our employees except for the 2005 LTIP performance awards, which were determined not to be probable as of December 31, 2013.
+See discussion of the 2005 LTIP below.
+The following stock awards were outstanding:
+## Table 2 ##
+[mhdev_0020_table_2.csv](mhdev_0020_table_2.csv)
+Average Balances and Interest Rates鈥擫iabilities and Equity, and Net Interest Revenue(1)(2)(3)(4)
+## Table 3 ##
+[mhdev_0020_table_3.csv](mhdev_0020_table_3.csv)
+Net interest revenue includes the taxable equivalent adjustments related to the tax-exempt bond portfolio (based on the U. S.  federal statutory tax rate of 35%) of $487 million, $498 million and $521 million for 2015, 2014 and 2013, respectively.
+Interest rates and amounts include the effects of risk management activities associated with the respective liability categories.
+Monthly or quarterly averages have been used by certain subsidiaries where daily averages are unavailable.
+Detailed average volume, Interest revenue and Interest expense exclude Discontinued operations.
+See Note 2 to the Consolidated Financial Statements.
+Consists of other time deposits and savings deposits.
+Savings deposits are made up of insured money market accounts, NOW accounts, and other savings deposits.
+The interest expense on savings deposits includes FDIC deposit insurance assessments.
+Average rates reflect prevailing local interest rates, including inflationary effects and monetary corrections in certain countries.
+Average volumes of securities sold under agreements to repurchase are reported net pursuant to ASC 210-20-45.
+However, Interest expense excludes the impact of ASC 210-20-45.
+The fair value carrying amounts of derivative contracts are reported net, pursuant to ASC 815-10-45, in Non-interest-earning assets and Other non-interest bearing liabilities.
+A summary of these various obligations at December 31, 2012, follows (in millions):
+## Table 0 ##
+[mhdev_0021_table_0.csv](mhdev_0021_table_0.csv)
+a.
+Represents estimated cash payments, on an undiscounted and unescalated basis, associated with reclamation and environmental activities.
+The timing and the amount of these payments could change as a result of changes in regulatory requirements, changes in scope and timing of reclamation activities, the settlement of environmental matters and as actual spending occurs.
+Refer to Note 13 for additional discussion of environmental and reclamation matters.
+b.
+Represents contractual obligations for purchases of goods or services that are defined by us as agreements that are enforceable and legally binding and that specify all significant terms.
+Take-orpay contracts primarily comprise the procurement of copper concentrates ($799 million), electricity ($524 million) and transportation services ($448 million).
+Some of our take-or-pay contracts are settled based on the prevailing market rate for the service or commodity purchased, and in some cases, the amount of the actual obligation may change over time because of market conditions.
+Obligations for copper concentrates provide for deliveries of specified volumes to Atlantic Copper at market-based prices.
+Electricity obligations are primarily for contractual minimum demand at the South America and Tenke mines.
+Transportation obligations are primarily for South America contracted ocean freight and for North America rail freight.
+c.  Scheduled interest payment obligations were calculated using stated coupon rates for fixed-rate debt and interest rates applicable at December 31, 2012, for variable-rate debt.
+d.  This table excludes certain other obligations in our consolidated balance sheets, including estimated funding for pension obligations as the funding may vary from year to year based on changes in the fair value of plan assets and actuarial assumptions, accrued liabilities totaling $107 million that relate to unrecognized tax benefits where the timing of settlement is not determinable; Atlantic Copper's obligations for retired employees totaling $38 million (refer to Note 10); and PT Freeport Indonesia's reclamation and closure cash fund obligation totaling $17 million (refer to Note 13).
+This table also excludes purchase orders for the purchase of inventory and other goods and services, as purchase orders typically represent authorizations to purchase rather than binding agreements.
+In addition to our debt maturities and other contractual obligations discussed above, we have other commitments, which we expect to fund with available cash, projected operating cash flows, available credit facility or future financing transactions, if necessary.
+These include (i) PT Freeport Indonesia’s commitment to provide one percent of its annual revenue for the development of the local people in its area of operations through the Freeport Partnership Fund for Community Development, (ii) TFM’s commitment to provide 0.3 percent of its annual revenue for the development of the local people in its area of operations and (iii) other commercial commitments, including standby letters of credit, surety bonds and guarantees.
+Refer to Notes 13 and 14 for further discussion.
+CONTINGENCIES Environmental The cost of complying with environmental laws is a fundamental and substantial cost of our business.
+At December 31, 2012, we had $1.2 billion recorded in our consolidated balance sheets for environmental obligations attributed to CERCLA or analogous state programs and for estimated future costs associated with environmental obligations that are considered probable based on specific facts and circumstances.
+During 2012, we incurred environmental capital expenditures and other environmental costs (including our joint venture partners’ shares) of $612 million for programs to comply with applicable environmental laws and regulations that affect our operations, compared to $387 million in 2011 and $372 million in 2010.
+The increase in environmental costs in 2012, compared with 2011 and 2010, primarily relates to higher expenditures for land and settlements of environmental matters (see Note 13 for further discussion).
+For 2013, we expect to incur approximately $600 million of aggregate environmental capital expenditures and other environmental costs, which are part of our overall 2013 operating budget.
+The timing and amount of estimated payments could change as a result of changes in regulatory requirements, changes in scope and timing of reclamation activities, the settlement of environmental matters and as actual spending occurs.
+Refer to Note 13 for further information about environmental regulation, including significant environmental matters.
+Asset Retirement Obligations We recognize AROs as liabilities when incurred, with the initial measurement at fair value.
+These obligations, which are initially estimated based on discounted cash flow estimates, are accreted to full value over time through charges to income.
+Reclamation costs for disturbances are recorded as an ARO in the period of disturbance.
+Our cost estimates are reflected on a third-party cost basis and comply with our legal obligation to retire tangible, long-lived assets.
+At December 31, 2012, we had $1.1 billion recorded in our consolidated balance sheets for AROs.
+Spending
+ILLUMINA, INC.  NOTES TO CONSOLIDATED FINANCIAL STATEMENTS — (Continued) Advertising Costs The Company expenses advertising costs as incurred.
+Advertising costs were approximately $440,000 for 2003, $267,000 for 2002 and $57,000 for 2001.
+Income Taxes A deferred income tax asset or liability is computed for the expected future impact of differences between the financial reporting and tax bases of assets and liabilities, as well as the expected future tax benefit to be derived from tax loss and credit carryforwards.
+Deferred income tax expense is generally the net change during the year in the deferred income tax asset or liability.
+Valuation allowances are established when realizability of deferred tax assets is uncertain.
+The effect of tax rate changes is reflected in tax expense during the period in which such changes are enacted.
+Foreign Currency Translation The functional currencies of the Company’s wholly owned subsidiaries are their respective local currencies.
+Accordingly, all balance sheet accounts of these operations are translated to U. S.  dollars using the exchange rates in effect at the balance sheet date, and revenues and expenses are translated using the average exchange rates in effect during the period.
+The gains and losses from foreign currency translation of these subsidiaries’ financial statements are recorded directly as a separate component of stockholders’ equity under the caption ‘‘Accumulated other comprehensive income.
+’’ Stock-Based Compensation At December 28, 2003, the Company has three stock-based employee and non-employee director compensation plans, which are described more fully in Note 5.
+As permitted by SFAS No.123, Accounting for Stock-Based Compensation, the Company accounts for common stock options granted, and restricted stock sold, to employees, founders and directors using the intrinsic value method and, thus, recognizes no compensation expense for options granted, or restricted stock sold, with exercise prices equal to or greater than the fair value of the Company’s common stock on the date of the grant.
+The Company has recorded deferred stock compensation related to certain stock options, and restricted stock, which were granted prior to the Company’s initial public offering with exercise prices below estimated fair value (see Note 5), which is being amortized on an accelerated amortization methodology in accordance with Financial Accounting Standards Board Interpretation Number (‘‘FIN’’) 28.
+Pro forma information regarding net loss is required by SFAS No.123 and has been determined as if the Company had accounted for its employee stock options and employee stock purchases under the fair value method of that statement.
+The fair value for these options was estimated at the dates of grant using the fair value option pricing model (Black Scholes) with the following weighted-average assumptions for 2003, 2002 and 2001:
+## Table 1 ##
+[mhdev_0021_table_1.csv](mhdev_0021_table_1.csv)
+The Company renewed an unsecured bank credit line on April 29, 2010 which provides for funding of up to $5,000 and bears interest at the prime rate less 1% (2.25% at June 30, 2010).
+The credit line was renewed through April 29, 2012.
+At June 30, 2010, $762 was outstanding.
+The Company renewed a bank credit line on March 7, 2010 which provides for funding of up to $8,000 and bears interest at the Federal Reserve Board’s prime rate (3.25% at June 30, 2010).
+The credit line expires March 7, 2011 and is secured by $1,000 of investments.
+At June 30, 2010, no amount was outstanding.
+The Company has entered into a bank credit facility agreement that includes a revolving loan, a term loan and a bullet term loan.
+The revolving loan allows short-term borrowings of up to $150,000, which may be increased by the Company at any time until maturity to $250,000.
+The revolving loan terminates June 4, 2015.
+At June 30, 2010, the outstanding revolving loan balance was $120,000.
+The term loan has an original principal balance of $150,000, with quarterly principal payments of $5,625 beginning on September 30, 2011, and the remaining balance due June 4, 2015.
+The bullet term loan had an original principal balance of $100,000.
+The full balance, which would have been due on December 4, 2010, was paid in full on July 8, 2010 as set forth in Note 15 to the Consolidated Financial Statements (see Item 8).
+Each of the loans bear interest at a variable rate equal to (a) a rate based on LIBOR or (b) an alternate base rate (the greater of (a) the Federal Funds Rate plus 0.5%, (b) the Prime Rate or (c) LIBOR plus 1.0%), plus an applicable percentage in each case determined by the Company’s leverage ratio.
+The outstanding balances bear interest at a weighted average rate of 2.99%.
+The loans are secured by pledges of capital stock of certain subsidiaries of the Company.
+The loans are also guaranteed by certain subsidiaries of the Company.
+The credit facility is subject to various financial covenants that require the Company to maintain certain financial ratios as defined in the agreement.
+As of June 30, 2010, the Company was in compliance with all such covenants.
+The Company has entered into various capital lease obligations for the use of certain computer equipment.
+Included in property and equipment are related assets of $8,872.
+At June 30, 2010, $5,689 was outstanding, of which $4,380 will be maturing in the next twelve months.
+Contractual Obligations and Other Commitments At June 30, 2010 the Company’s total off balance sheet contractual obligations were $36,935.
+This balance consists of $27,228 of long-term operating leases for various facilities and equipment which expire from 2011 to 2017 and the remaining $9,707 is for purchase commitments related to property and equipment, particularly for contractual obligations related to the on-going construction of new facilities.
+The table excludes $7,548 of liabilities for uncertain tax positions as we are unable to reasonably estimate the ultimate amount or timing of settlement.
+Contractual obligations by Less than More than
+## Table 2 ##
+[mhdev_0021_table_2.csv](mhdev_0021_table_2.csv)
+Recent Accounting Pronouncements In December 2007, the Financial Accounting Standards Board (“FASB”) issued Statement on Financial Accounting Standards (“SFAS”) No.141(R), “Business Combinations,” (“SFAS 141(R)”) which replaces SFAS No.141 and has since been incorporated into the Accounting Standards Codification (“ASC”) as ASC 805-10.
+ASC 805-10 establishes principles and requirements for how an acquirer recognizes and measures in its financial statements the identifiable assets acquired, the liabilities assumed, any non-controlling interest in the acquired entity and the goodwill acquired.
+The Statement also establishes disclosure requirements which will enable users of the financial statements to evaluate the nature and financial effects of the business combination.
+Relative to SFAS 141(R), the FASB issued FSP 141(R)-1 on April 1, 2009, which is now incorporated in ASC 805-20.
+ASC 805-20 eliminates the requirement under FAS 141(R) to record assets and liabilities at the acquisition date for noncontractual contingencies at fair value where it is deemed “more-likely-than-not” that an asset or liability would result.
+Under ASC 805-20, such assets and liabilities would only need to be recorded where the fair value can be determined during the measurement period or where it is probable that an asset or liability exists at the acquisition date and the amount of fair value can be reasonably determined.
+ASC 805-10 was effective for the Company on July 1, 2009.
+The adoption
+Insurance.
+The following table presents the underwriting results and ratios for the Insurance segment for the periods indicated.
+## Table 3 ##
+[mhdev_0021_table_3.csv](mhdev_0021_table_3.csv)
+Premiums.
+Gross written premiums increased by 10.0% to $1,073.1 million in 2012 compared to $975.6 million in 2011.
+This increase was primarily driven by crop and primary A&H medical stop loss business, partially offset by the termination and runoff of several large casualty programs.
+Net written premiums increased 3.9% to $852.1 million in 2012 compared to $820.5 million in 2011.
+The lower increase in net written premiums in comparison to gross written premiums is primarily attributable to a higher level of reinsurance employed for the crop business.
+Premiums earned increased 3.8% to $852.4 million in 2012 compared to $821.2 million in 2011.
+The change in premiums earned is relatively consistent with the increase in net written premiums.
+Gross written premiums increased by 12.7% to $975.6 million in 2011 compared to $865.4 million in 2010.
+This was due to strategic portfolio changes with growth in short-tail business, primarily driven by the acquisition of Heartland, which provided $169.6 million of new crop insurance premium in 2011 and $54.0 million growth in A&H primary business, partially offset by the reduction of a large casualty program.
+Net written premiums increased 32.3% to $820.5 million in 2011 compared to $620.3 million for the same period in 2010 due to higher gross premiums and reduced levels of ceded reinsurance, primarily due to the reduction of the large casualty program.
+Premiums earned increased 28.1% to $821.2 million in 2011 compared to $641.1 million in 2010.
+The change in premiums earned is relatively consistent with the increase in net written premiums.
+American International Group, Inc.  and Subsidiaries Financial Services Operations AlG's Financial Services subsidiaries engage in diversified activi- ties including aircraft and equipment leasing, capital markets, consumer finance and insurance premium finance.
+Financial Services Results Financial Services results for 2006,2005 and 2004 were as follows:
+## Table 0 ##
+[mhdev_0022_table_0.csv](mhdev_0022_table_0.csv)
+(a) Includes the effect of hedging activities that did not qualify for hedge accounting treatment under FAS 133, including the related foreign exchange gains and osses.
+For 2006,2005 and 2004, respectively, the effect was $(1.8) billion,$2.0 billion and $(122) million in both revenues and operating income for Capital Markets.
+These amounts result primarily from interest rate and foreign currency derivatives that are economicaly hedging available for sale securities and borrowings.
+For 2004, the effect was $(27) million in operating income for Aircrat Leasing.
+During 2006 and 2005, Aircraft Leasing derivative gains and losses were reported as part of AlG's Other category, and were not reported in Aircraft Leasing operating income.
+(b) Revenues are primarily aircraft lease rentals from ILFC.
+(cC) Revenues, shown net of interest expense of $3.2 bilion,$3.0 bilion and $2.3 bilion, in 2006,2005 and 2004, respectively, were primarily from hedged financial positions entered into in connection with counterparty transactions and the effect of hedging activities that did not quality for hedge accounting treatment under FAS 133 described n (a) above.
+(d) Certain transactions entered into by AIGFP generate tax credits and benefits which are included in income taxes in the consolidated statement of income.
+The amounts of such tax credits and benefits fod the years ended December 31,2006,2005 and 2004, respectively.
+are $50 million,$67 milion and $107 million.
+(e) Revenues are primarily fimance charges.
+() includes catastrophe-related losses of $62 milion recorded in the third quarter of 2005 resulting from hurricane Katrina, which were reduced by $35 milion in 2006 due to the reevaluation of the remaining estimated los ses.
+(g) Includes specific reserves recorded during 2006 in the amount of $42 millon related to two commercial lending trans actions.
+Financial Services operating income decreased in 2006 com- pared to 2005 and increased in 2005 compared to 2004, due primarily to the effect of hedging activities that did not qualify for hedge accounting under FAS 133.
+AIG is reinstituting hedge accounting in the first quarter of 2007 for AlGFP and later in 2007 for the balance of the Financial Services operations.
+Aircraft Leasing AlG's Aircraft Leasing operations represent the operations of ILFC, which generates its revenues primarily from leasing new and used commercial jet aircraft to foreign and domestic airlines.
+Revenues also result from the remarketing of commercial jets for ILFC's own account, and remarketing and fleet management services for airlines and financial institutions.
+ILFC finances its purchases of aircraft primarily through the issuance of a variety of debt instruments.
+The composite borrowing rates at December 31, 2006 and 2005 were 5.17 percent and 4.61 percent, respec- tively.
+The composite borrowing rates did not reflect the benefit of economically hedging ILFC's floating rate and foreign currency denominated debt using interest rate and foreign currency deriva tives.
+These derivatives are effective economic hedges; however, since hedge accounting under FAS 133 was not applied, the benefits of using derivatives to hedge these exposures were not reflected in ILFC's borrowing rates.
+ILFC's sources of revenue are principally from scheduled and charter airlines and companies associated with the airline indus- try.
+The airline industry is sensitive to changes in economic conditions and is cyclical and highly competitive.
+Airlines and related companies may be affected by political or economic instability, terrorist activities, changes in national policy, competi- tive pressures on certain air carriers, fuel prices and shortages, labor stoppages, insurance costs, recessions, world health issues and other political or economic events adversely affecting world or regonal trading markets.
+ILFC is exposed to operating loss and liquidity strain through nonperformance of aircraft lessees, through owning aircraft which it would be unable to sell or re-lease at acceptable rates at lease expiration and, in part, through committing to purchase aircraft which it would be unable to lease.
+ILFC’s revenues and operating income may be adversely affected by the volatile competitive environment in which its customers operate.
+ILFC manages the risk of nonperformance by its lessees with security deposit requirements, repossession rights, overhaul requirements and close monitoring of industry conditions through its marketing force.
+However, there can be no assurance that ILFC would be able to successfully manage the risks relating to the effect of possible future deterioration in the airline industry.
+Approximately 90 percent of ILFC’s ?eet is leased to non-U.
+S.  carriers, and the ?eet, comprised of the most ef?cient aircraft in the airline industry, continues to be in high demand from such carriers.
+ILFC typically contracts to re-lease aircraft before the end of the existing lease term.
+For aircraft returned before the end of the lease term, ILFC has generally been able to re-lease such aircraft within two to six months of its return.
+As a lessor, ILFC considers an aircraft ‘‘idle’’ or ‘‘off lease’’ when the aircraft is not subject to a signed lease agreement or signed letter of intent.
+ILFC had one aircraft off lease at December 31, 2006, and all new aircraft scheduled for delivery through 2007 have been leased.
+Management formally reviews regularly, and no less frequently than quarterly, issues affecting ILFC’s ?eet, including events and circumstances that may cause impairment of aircraft values.
+Management evaluates aircraft in the ?eet as necessary based on
+American International Group, Inc.  and Subsidiaries Management’s Discussion and Analysis of Financial Condition and Results of Operations Continued
+## Table 1 ##
+[mhdev_0022_table_1.csv](mhdev_0022_table_1.csv)
+(a) Certain reclassifications and format changes have been made to prior period amounts to conform to the current period presentation.
+(b) At December 31, 2006, approximately 68 percent and 32 percent of invested assets were held in domestic and foreign investments, respectively.
+Investment Strategy AIG’s investment strategies are tailored to the speci?c business needs of each operating unit.
+The investment objectives are driven by the business model for each of the businesses: General Insurance, Life Insurance, Retirement Services and Asset Manage-ment’s Spread-Based Investment business.
+The primary objectives are in terms of preservation of capital, growth of surplus and generation of investment income to support the insurance products.
+At the local operating unit level, the strategies are based on considerations that include the local market, liability duration and cash ?ow characteristics, rating agency and regula- tory capital considerations, legal investment limitations, tax optimization and diversi?cation.
+In addition to local risk manage-ment considerations, AIG’s corporate risk management guidelines impose limitations on concentrations to promote diversi?cation by industry, asset class and geographic sector.
+American International Group, Inc. , and Subsidiaries resulted in a benefit to the surplus of the domestic and foreign General Insurance companies of $114 million and $859 million, respectively, and did not affect compliance with minimum regulatory capital requirements.
+As discussed under Item 3.
+Legal Proceedings, various regulators have commenced investigations into certain insurance business practices.
+In addition, the OTS and other regulators routinely conduct examinations of AIG and its subsidiaries, including AIG’s consumer finance operations.
+AIG cannot predict the ultimate effect that these investigations and examinations, or any additional regulation arising therefrom, might have on its business.
+Federal, state or local legislation may affect AIG’s ability to operate and expand its various financial services businesses, and changes in the current laws, regulations or interpretations thereof may have a material adverse effect on these businesses.
+AIG’s U. S.  operations are negatively affected under guarantee fund assessment laws which exist in most states.
+As a result of operating in a state which has guarantee fund assessment laws, a solvent insurance company may be assessed for certain obligations arising from the insolvencies of other insurance companies which operated in that state.
+AIG generally records these assessments upon notice.
+Additionally, certain states permit at least a portion of the assessed amount to be used as a credit against a company’s future premium tax liabilities.
+Therefore, the ultimate net assessment cannot reasonably be estimated.
+The guarantee fund assessments net of credits recognized in 2008, 2007 and 2006, respectively, were $8 million, $87 million and $97 million.
+AIG is also required to participate in various involuntary pools (principally workers’ compensation business) which provide insurance coverage for those not able to obtain such coverage in the voluntary markets.
+This participation is also recorded upon notification, as these amounts cannot reasonably be estimated.
+A substantial portion of AIG’s General Insurance business and a majority of its Life Insurance & Retirement Services business are conducted in foreign countries.
+The degree of regulation and supervision in foreign jurisdictions varies.
+Generally, AIG, as well as the underwriting companies operating in such jurisdictions, must satisfy local regulatory requirements.
+Licenses issued by foreign authorities to AIG subsidiaries are subject to modification and revocation.
+Thus, AIG’s insurance subsidiaries could be prevented from conducting future business in certain of the jurisdictions where they currently operate.
+AIG’s international operations include operations in various developing nations.
+Both current and future foreign operations could be adversely affected by unfavorable political developments up to and including nationalization of AIG’s operations without compensation.
+Adverse effects resulting from any one country may affect AIG’s results of operations, liquidity and financial condition depending on the magnitude of the event and AIG’s net financial exposure at that time in that country.
+Foreign insurance operations are individually subject to local solvency margin requirements that require maintenance of adequate capitalization, which AIG complies with by country.
+In addition, certain foreign locations, notably Japan, have established regulations that can result in guarantee fund assessments.
+These have not had a material effect on AIG’s financial condition or results of operations.
+Investments Investments by Segment The following tables summarize the composition of AIG’s investments by segment:
+## Table 2 ##
+[mhdev_0022_table_2.csv](mhdev_0022_table_2.csv)
+Business Separation Costs On 16 September 2015, the Company announced that it intends to separate its Materials Technologies business via a spin-off.
+During the fourth quarter, we incurred legal and other advisory fees of $7.5 ($.03 per share).
+Gain on Previously Held Equity Interest On 30 December 2014, we acquired our partner’s equity ownership interest in a liquefied atmospheric industrial gases production joint venture in North America for $22.6 which increased our ownership from 50% to 100%.
+The transaction was accounted for as a business combination, and subsequent to the acquisition, the results are consolidated within our Industrial Gases – Americas segment.
+The assets acquired, primarily plant and equipment, were recorded at their fair value as of the acquisition date.
+The acquisition date fair value of the previously held equity interest was determined using a discounted cash flow analysis under the income approach.
+During the first quarter of 2015, we recorded a gain of $17.9 ($11.2 after-tax, or $.05 per share) as a result of revaluing our previously held equity interest to fair value as of the acquisition date.
+Advisory Costs During the fourth quarter of 2013, we incurred legal and other advisory fees of $10.1 ($6.4 after-tax, or $.03 per share) in connection with our response to the rapid acquisition of a large position in shares of our common stock by Pershing Square Capital Management LLC and its affiliates.
+Other Income (Expense), Net Items recorded to other income (expense), net arise from transactions and events not directly related to our principal income earning activities.
+The detail of other income (expense), net is presented in Note 24, Supplemental Information, to the consolidated financial statements.2015 vs.  2014 Other income (expense), net of $47.3 decreased $5.5.
+The current year includes a gain of $33.6 ($28.3 after-tax, or $.13 per share) resulting from the sale of two parcels of land.
+The gain was partially offset by unfavorable foreign exchange impacts and lower gains on other sales of assets and emissions credits.
+No other individual items were significant in comparison to the prior year.2014 vs.  2013 Other income (expense), net of $52.8 decreased $17.4, primarily due to higher gains from the sale of a number of small assets and investments, higher government grants, and a favorable commercial contract settlement in 2013.
+Otherwise, no individual items were significant in comparison to 2013.
+THE HARTFORD FINANCIAL SERVICES GROUP, INC.  NOTES TO CONSOLIDATED FINANCIAL STATEMENTS (continued) 9.
+Goodwill (continued) The annual goodwill assessment for the Mutual Funds and Consumer Markets reporting units and the Group Benefits reporting unit within Corporate was completed as of October 31, 2012, which resulted in no write-downs of goodwill for the year ended December 31, 2012.
+The reporting units passed the first step of their annual impairment test with a significant margin with the exception of the Group Benefits reporting unit.
+Group Benefits passed the first step of its annual impairment test with less than a 10% margin.
+The fair value of the Group Benefits reporting unit is based on discounted cash flows using earnings projections on in force business and future business growth.
+There could be a positive or negative impact on the result of step one in future periods if assumptions change about the level of economic capital, future business growth, earnings projections or the weighted average cost of capital.
+Year ended December 31, 2011 During the second quarter of 2011, the Company wrote off the remaining $15 of goodwill associated with the Federal Trust Corporation (“FTC”) reporting unit within Corporate due to the announced divestiture of FTC.
+The write-off of the FTC reporting unit goodwill was recorded as a loss on disposal within discontinued operations.
+The Consumer Markets reporting unit completed its annual goodwill assessment on October 1, 2011 and again on October 31, 2011, which resulted in no impairment of goodwill.
+In both tests, the Consumer Markets reporting unit passed the first step of the annual impairment tests with a significant margin.
+The annual goodwill assessment for the Property & Casualty Commercial reporting unit that was performed on October 1, 2011 resulted in a write-down of goodwill of $30, pre-tax leaving no remaining goodwill.
+The results of the discounted cash flow calculations indicated that the fair value of the reporting unit was less than the carrying value; this was due primarily to a decrease in future expected underwriting cash flows.
+The decrease in future expected underwriting cash flows is driven by an expected reduction in written premium in the short term as the Company maintains pricing discipline in a downward market cycle, while retaining long term capabilities for future opportunities.
+The Company completed its annual goodwill assessment for Mutual Funds, Individual Life, Retirement Plans and Group Benefits, including the goodwill within Corporate, on January 1, 2011 and October 31, 2011, which resulted in no impairment of goodwill.
+In both tests, the reporting units passed the first step of their annual impairment tests with a significant margin with the exception of the Individual Life reporting unit at the January 1, 2011 test.
+The Individual Life reporting unit had a margin of less than 10% between fair value and book value on January 1, 2011.
+As of the October 31, 2011 impairment test, the Individual Life reporting unit had a fair value in excess of book value of approximately 15%, a modest improvement from January 1, 2011 results due to improving cost of capital.10.
+Sales Inducements The Company offered enhanced crediting rates or bonus payments to contract holders on certain of its individual and group annuity products.
+The expense associated with offering a bonus is deferred and amortized over the life of the related contract in a pattern consistent with the amortization of deferred policy acquisition costs.
+Amortization expense associated with expenses previously deferred is recorded over the remaining life of the contract.
+Consistent with the Unlock, the Company unlocks the amortization of the sales inducement asset.
+For further information concerning the Unlock, see Note 8 - Deferred Policy Acquisition Costs and Present Value of Future Profits of Notes to Consolidated Financial Statements.
+Changes in sales inducement activity are as follows:
+## Table 0 ##
+[mhdev_0023_table_0.csv](mhdev_0023_table_0.csv)
+[1] Includes Unlock charge of $52 in the first quarter of 2013 related to elimination of future estimated gross profits on the Japan variable annuity block due to the increased costs associated with expanding Japan variable annuity hedging program.
+[2] Represents accelerated amortization of $22 and $49 in the first quarter of 2013 recognized upon the sale of the Retirement Plans and Individual Life businesses, respectively.
+For further information, see Note 2 - Business Dispositions of Notes to Consolidated Financial Statements.
+Table of Contents THE HARTFORD FINANCIAL SERVICES GROUP, INC.  NOTES TO CONSOLIDATED FINANCIAL STATEMENTS (continued) 13.
+Debt (continued)The Debentures are unsecured, subordinated and junior in right of payment and upon liquidation to all of the Company’s existing and future senior indebtedness.
+In addition, the Debentures are effectively subordinated to all of the Company’s subsidiaries’ existing and future indebtedness and other liabilities, including obligations to policyholders.
+The Debentures do not limit the Company’s or the Company’s subsidiaries’ ability to incur additional debt, including debt that ranks senior in right of payment and upon liquidation to the Debentures.
+The Debentures rank equally in right of payment and upon liquidation with (i) any indebtedness the terms of which provide that such indebtedness ranks equally with the Debentures, including guarantees of such indebtedness, (ii) the Company’s existing 8.125% fixedto-floating rate junior subordinated debentures due 2068 (the “8.125% Debentures”), (iii) the Company’s Income Capital Obligation Notes due 2067, issuable pursuant to the Junior Subordinated Indenture, dated as of February 12, 2007, between the Company and Wilmington Trust Company (the “ICON securities”), (iv) our trade accounts payable, and (v) any of our indebtedness owed to a person who is our subsidiary or employee.
+Long-Term Debt Maturities Long-term debt maturities (at par values), as of December 31, 2013 are summarized as follows:
+## Table 1 ##
+[mhdev_0023_table_1.csv](mhdev_0023_table_1.csv)
+Shelf Registrations On August 9, 2013, the Company filed with the Securities and Exchange Commission (the “SEC”) an automatic shelf registration statement (Registration No.333-190506) for the potential offering and sale of debt and equity securities.
+The registration statement allows for the following types of securities to be offered: debt securities, junior subordinated debt securities, preferred stock, common stock, depositary shares, warrants, stock purchase contracts, and stock purchase units.
+In that The Hartford is a well-known seasoned issuer, as defined in Rule 405 under the Securities Act of 1933, the registration statement went effective immediately upon filing and The Hartford may offer and sell an unlimited amount of securities under the registration statement during the three-year life of the registration statement.
+Contingent Capital Facility The Company is party to a put option agreement that provides The Hartford with the right to require the Glen Meadow ABC Trust, a Delaware statutory trust, at any time and from time to time, to purchase The Hartford’s junior subordinated notes in a maximum aggregate principal amount not to exceed $500.
+Under the Put Option Agreement, The Hartford will pay the Glen Meadow ABC Trust premiums on a periodic basis, calculated with respect to the aggregate principal amount of notes that The Hartford had the right to put to the Glen Meadow ABC Trust for such period.
+The Hartford has agreed to reimburse the Glen Meadow ABC Trust for certain fees and ordinary expenses.
+The Company holds a variable interest in the Glen Meadow ABC Trust where the Company is not the primary beneficiary.
+As a result, the Company did not consolidate the Glen Meadow ABC Trust.
+As of December 31, 2013, The Hartford has not exercised its right to require Glen Meadow ABC Trust to purchase the notes.
+As a result, the notes remain a source of capital for the HFSG Holding Company.
+Revolving Credit Facilities The Company has a senior unsecured revolving credit facility (the "Credit Facility") that provides for borrowing capacity up to $1.75 billion (which is available in U. S.  dollars, and in Euro, Sterling, Canadian dollars and Japanese Yen) through January 6, 2016.
+As of December 31, 2013, there were no borrowings outstanding under the Credit Facility.
+Of the total availability under the Credit Facility, up to $250 is available to support letters of credit issued on behalf of the Company or subsidiaries of the Company.
+Under the Credit Facility, the Company must maintain a minimum level of consolidated net worth of $14.9 billion.
+The definition of consolidated net worth under the terms of the Credit Facility, excludes AOCI and includes the Company's outstanding junior subordinated debentures and, if any, perpetual preferred securities, net of discount.
+In addition, the Company’s maximum ratio of consolidated total debt to consolidated total capitalization is limited to 35%, and the ratio of consolidated total debt of subsidiaries to consolidated total capitalization is limited to 10%.
+As of December 31, 2013, the Company was in compliance with all financial covenants under the Credit Facility
+Table of Contents THE HARTFORD FINANCIAL SERVICES GROUP, INC.  NOTES TO CONSOLIDATED FINANCIAL STATEMENTS (continued) 19.
+Stock Compensation Plans (continued) Restricted Unit awards In 2010 and 2009, The Hartford issued restricted units as part of The Hartford’s 2005 Stock Plan.
+Restricted stock unit awards under the plan have historically been settled in shares, but under this award will be settled in cash and are thus referred to as “Restricted Units”.
+The economic value recipients will ultimately realize will be identical to the value that would have been realized if the awards had been settled in shares, i. e. , upon settlement, recipients will receive cash equal to The Hartford’s share price multiplied by the number of restricted units awarded.
+Because Restricted Units will be settled in cash, the awards are remeasured at the end of each reporting period until settlement.
+Awards granted in 2009 vested after a three year period.
+Awards granted in 2010 include both graded and cliff vesting restricted units which vest over a three year period.
+The graded vesting attribution method is used to recognize the expense of the award over the requisite service period.
+For example, the graded vesting attribution method views one three-year grant with annual graded vesting as three separate sub-grants, each representing one third of the total number of awards granted.
+The first sub-grant vests over one year, the second sub-grant vests over two years and the third sub-grant vests over three years.
+There were no restricted units awarded for 2013 or 2012.
+As of December 31, 2013 and 2012, 27 thousand and 832 thousand restricted units were outstanding, respectively.
+Deferred Stock Unit Plan Effective July 31, 2009, the Compensation and Management Development Committee of the Board authorized The Hartford Deferred Stock Unit Plan (“Deferred Stock Unit Plan”), and, on October 22, 2009, it was amended.
+The Deferred Stock Unit Plan provides for contractual rights to receive cash payments based on the value of a specified number of shares of stock.
+The Deferred Stock Unit Plan provides for two award types, Deferred Units and Restricted Units.
+Deferred Units are earned ratably over a year, based on the number of regular pay periods occurring during such year.
+Deferred Units are credited to the participant's account on a quarterly basis based on the market price of the Company’s common stock on the date of grant and are fully vested at all times.
+Deferred Units credited to employees prior to January 1, 2010 (other than senior executive officers hired on or after October 1, 2009) are not paid until after two years from their grant date.
+Deferred Units credited on or after January 1, 2010 (and any credited to senior executive officers hired on or after October 1, 2009) are paid in three equal installments after the first, second and third anniversaries of their grant date.
+Restricted Units are intended to be incentive compensation and, unlike Deferred Units, vest over time, generally three years, and are subject to forfeiture.
+The Deferred Stock Unit Plan is structured consistent with the limitations and restrictions on employee compensation arrangements imposed by the Emergency Economic Stabilization Act of 2008 and the TARP Standards for Compensation and Corporate Governance Interim Final Rule issued by the U. S.  Department of Treasury on June 10, 2009.
+There were no deferred stock units awarded in 2013 or 2012.
+A summary of the status of the Company’s non-vested awards under the Deferred Stock Unit Plan as of December 31, 2013, is presented below:
+## Table 2 ##
+[mhdev_0023_table_2.csv](mhdev_0023_table_2.csv)
+Subsidiary Stock Plan In 2013 The Hartford established a subsidiary stock-based compensation plan similar to The Hartford 2010 Incentive Stock Plan except that it awards non-public subsidiary stock as compensation.
+The Company recognized stock-based compensation plans expense of $1 in the year ended December 31, 2013 for the subsidiary stock plan.
+Upon employee vesting of subsidiary stock, the Company will recognize a noncontrolling equity interest.
+Employees will be restricted from selling vested subsidiary stock to other than the Company and the Company will have discretion on the amount of stock to repurchase.
+Therefore the subsidiary stock will be classified as equity because it is not mandatorily redeemable.
+Investment Results Composition of Invested Assets
+## Table 3 ##
+[mhdev_0023_table_3.csv](mhdev_0023_table_3.csv)
+[1] Primarily relates to derivative instruments.
+[2] As of December 31, 2013 and 2012, approximately $19.7 billion and $27.1 billion, respectively, of equity securities, trading, support Japan variable annuities.
+Those equity securities, trading, were invested in mutual funds, which, in turn, invested in the following asset classes as of December 31, 2013 and 2012, respectively: Japan equity 22% and 20%, Japan fixed income (primarily government securities) 15% and 15%, global equity 22% and 21%, global government bonds 40% and 43%, and cash and other 1% and 1%.
+Total investments decreased since December 31, 2012, principally due to the sale of the Retirement Plans and Individual Life businesses resulting in the transfer of fixed maturities, AFS, fixed maturities, FVO, equity securities, AFS, mortgage loans, and policy loans with a total carrying value of $17.3 billion in January 2013.
+In addition, the sale of the U. K.  variable annuity business, HLIL, in the fourth quarter of 2013 resulted in a decline in the carrying value of fixed maturities, AFS and equity securities, trading of $469 and $1.7 billion, respectively.
+Refer to Note 2 - Business Dispositions of Notes to Consolidated Financial Statements for further discussion of these transactions.
+The remaining decrease in total invested assets is primarily due to a decrease in equity securities, trading, fixed maturities, AFS, other investments, and short-term investments.
+The decline in equity securities, trading was primarily due to variable annuity policy surrenders, the depreciation of the Japanese Yen as compared to the U. S.  dollar, partially offset by equity market gains.
+The decrease in fixed maturities, AFS was due to a decline in valuations due to an increase in interest rates, a reduction in assets levels in Talcott Resolution associated with dollar rolls and repurchase agreements, and capital management actions, including debt repayments and share repurchases.
+The decline in other investments was largely due to a decline in derivative market value primarily resulting from an increase in interest rates and the depreciation of the Japanese yen in comparison to the euro and U.
+S dollar.
+The decrease in shortterm investments is primarily attributable to a decline in derivative collateral held due to decreases in derivative market values.
+ABIOMED, INC.  AND SUBSIDIARIES Notes to Consolidated Financial Statements—(Continued) Note 11.
+Strategic Investment (Continued) The Company estimated the fair value of the embedded derivative and warrant associated with the WorldHeart transaction using the BlackScholes option valuation model at the initial dates of investment.
+The fair value of the embedded derivative and warrant were calculated using the following weighted-average assumptions:
+## Table 0 ##
+[mhdev_0024_table_0.csv](mhdev_0024_table_0.csv)
+Note 12.
+Stock Award Plans and Stock Based Compensation Stock Option Plans Virtually all outstanding stock options of the Company as of March 31, 2008 were granted with an exercise price equal to the fair market value on the date of grant.
+For options and restricted stock granted below fair market value, compensation expense is recognized ratably over the vesting period.
+Outstanding stock options, if not exercised, expire 10 years from the date of grant.
+The 1992 Combination Stock Option Plan (the “Combination Plan”), as amended, was adopted in September 1992 as a combination and amendment of the Company’s then outstanding Incentive Stock Option Plan and Nonqualified Plan.
+A total of 2,670,859 options were awarded from the Combination Plan during its ten year restatement term that ended on May 1, 2002.
+As of March 31, 2008, 141,300 of these options remain outstanding, fully vested and eligible for future exercise.
+The 1998 Equity Incentive Plan, (the “Equity Incentive Plan”), was adopted by the Company in August 1998.
+The Equity Incentive Plan provides for grants of options to key employees, directors, advisors and consultants as either incentive stock options or nonqualified stock options as determined by the Company’s Board of Directors.
+A maximum of 1,000,000 shares of common stock may be awarded under this plan.
+Options granted under the Equity Incentive Plan are exercisable at such times and subject to such terms as the Board of Directors may specify at the time of each stock option grant.
+Options outstanding under the Equity Incentive Plan have vesting periods of three to five years from the date of grant and options awarded expire ten years from the date of grant.
+The 2000 Stock Incentive Plan, (the “2000 Plan”), as amended, was adopted by the Company in August 2000.
+The 2000 Plan provides for grants of options to key employees, directors, advisors and consultants to the Company or its subsidiaries as either incentive or nonqualified stock options as determined by the Company’s Board of Directors.
+Up to 4,900,000 shares of common stock may be awarded under the 2000 Plan and are exercisable at such times and subject to such terms as the Board of Directors may specify at the time of each stock option grant.
+Options outstanding under the 2000 Plan generally vest four years from the date of grant and options awarded expire ten years from the date of grant.
+The Company has a nonqualified stock option plan for non-employee directors (the “Directors’ Plan”).
+The Directors’ Plan, as amended, was adopted in July 1989 and provides for grants of options to purchase shares of the Company’s common stock to non-employee Directors of the Company.
+Up to 400,000 shares of common stock may be awarded under the Directors’ Plan.
+Options outstanding under the Director’s Plan have vesting periods of one to five years from the date of grant and options expire ten years from the date of grant.
+18.
+ALLOWANCE FOR CREDIT LOSSES
+## Table 1 ##
+[mhdev_0024_table_1.csv](mhdev_0024_table_1.csv)
+(1) Reclassified to conform to the current period’s presentation.
+(2) 2009 primarily includes reductions to the loan loss reserve of approximately $543 million related to securitizations, approximately $402 million related to the sale or transfers to held-for-sale of U. S.  Real Estate Lending Loans, and $562 million related to the transfer of the U. K.  Cards portfolio to held-for-sale.2008 primarily includes reductions to the loan loss reserve of approximately $800 million related to FX translation, $102 million related to securitizations, $244 million for the sale of the German retail banking operation, $156 million for the sale of CitiCapital, partially offset by additions of $106 million related to the Cuscatlán and Bank of Overseas Chinese acquisitions.2007 primarily includes reductions to the loan loss reserve of $475 million related to securitizations and transfers to loans held-for-sale, and reductions of $83 million related to the transfer of the U. K.  CitiFinancial portfolio to held-for-sale, offset by additions of $610 million related to the acquisitions of Egg, Nikko Cordial, Grupo Cuscatlán and Grupo Financiero Uno.
+(3) Represents additional credit loss reserves for unfunded corporate lending commitments and letters of credit recorded in Other liabilities on the Consolidated Balance Sheet.
+INSTITUTIONAL CLIENTS GROUP Institutional Clients Group (ICG) includes Securities and Banking and Transaction Services.
+ICG provides corporate, institutional and high-net-worth clients with a full range of products and services, including cash management, trading, underwriting, lending and advisory services, around the world.
+ICG’s international presence is supported by trading floors in approximately 75 countries and a proprietary network within Transaction Services in over 90 countries.
+At December 31, 2009, ICG had approximately $866 billion of assets and $442 billion of deposits.
+## Table 2 ##
+[mhdev_0024_table_2.csv](mhdev_0024_table_2.csv)
+Sources of Liquidity Primary sources of liquidity for Citigroup and its principal subsidiaries include: ?
+deposits; ?
+collateralized financing transactions; ?
+senior and subordinated debt; ?
+commercial paper; ?
+trust preferred and preferred securities; and ?
+purchased/wholesale funds.
+Citigroup’s funding sources are diversified across funding types and geography, a benefit of its global franchise.
+Funding for Citigroup and its major operating subsidiaries includes a geographically diverse retail and corporate deposit base of $774.2 billion.
+These deposits are diversified across products and regions, with approximately two-thirds of them outside of the U. S.  This diversification provides the Company with an important, stable and low-cost source of funding.
+A significant portion of these deposits has been, and is expected to be, long-term and stable, and are considered to be core.
+There are qualitative as well as quantitative assessments that determine the Company’s calculation of core deposits.
+The first step in this process is a qualitative assessment of the deposits.
+For example, as a result of the Company’s qualitative analysis certain deposits with wholesale funding characteristics are excluded from consideration as core.
+Deposits that qualify under the Company’s qualitative assessments are then subjected to quantitative analysis.
+Excluding the impact of changes in foreign exchange rates and the sale of our retail banking operations in Germany during the year ending December 31, 2008, the Company’s deposit base remained stable.
+On a volume basis, deposit increases were noted in Transaction Services, U. S.  Retail Banking and Smith Barney.
+This was partially offset by the Company’s decision to reduce deposits considered wholesale funding, consistent with the Company’s de-leveraging efforts, and declines in International Consumer Banking and the Private Bank.
+Citigroup and its subsidiaries have historically had a significant presence in the global capital markets.
+The Company’s capital markets funding activities have been primarily undertaken by two legal entities: (i) Citigroup Inc. , which issues long-term debt, medium-term notes, trust preferred securities, and preferred and common stock; and (ii) Citigroup Funding Inc.  (CFI), a first-tier subsidiary of Citigroup, which issues commercial paper, medium-term notes and structured equity-linked and credit-linked notes, all of which are guaranteed by Citigroup.
+Other significant elements of longterm debt on the Consolidated Balance Sheet include collateralized advances from the Federal Home Loan Bank system, long-term debt related to the consolidation of ICG’s Structured Investment Vehicles, asset-backed outstandings, and certain borrowings of foreign subsidiaries.
+Each of Citigroup’s major operating subsidiaries finances its operations on a basis consistent with its capitalization, regulatory structure and the environment in which it operates.
+Particular attention is paid to those businesses that for tax, sovereign risk, or regulatory reasons cannot be freely and readily funded in the international markets.
+Citigroup’s borrowings have historically been diversified by geography, investor, instrument and currency.
+Decisions regarding the ultimate currency and interest rate profile of liquidity generated through these borrowings can be separated from the actual issuance through the use of derivative instruments.
+Citigroup is a provider of liquidity facilities to the commercial paper programs of the two primary Credit Card securitization trusts with which it transacts.
+Citigroup may also provide other types of support to the trusts.
+As a result of the recent economic downturn, its impact on the cashflows of the trusts, and in response to credit rating agency reviews of the trusts, the Company increased the credit enhancement in the Omni Trust, and plans to provide additional enhancement to the Master Trust (see Note 23 to Consolidated Financial Statements on page 175 for a further discussion).
+This support preserves investor sponsorship of our card securitization franchise, an important source of liquidity.
+Banking Subsidiaries There are various legal limitations on the ability of Citigroup’s subsidiary depository institutions to extend credit, pay dividends or otherwise supply funds to Citigroup and its non-bank subsidiaries.
+The approval of the Office of the Comptroller of the Currency, in the case of national banks, or the Office of Thrift Supervision, in the case of federal savings banks, is required if total dividends declared in any calendar year exceed amounts specified by the applicable agency’s regulations.
+State-chartered depository institutions are subject to dividend limitations imposed by applicable state law.
+In determining the declaration of dividends, each depository institution must also consider its effect on applicable risk-based capital and leverage ratio requirements, as well as policy statements of the federal regulatory agencies that indicate that banking organizations should generally pay dividends out of current operating earnings.
+Non-Banking Subsidiaries Citigroup also receives dividends from its non-bank subsidiaries.
+These non-bank subsidiaries are generally not subject to regulatory restrictions on dividends.
+However, as discussed in “Capital Resources and Liquidity” on page 94, the ability of CGMHI to declare dividends can be restricted by capital considerations of its broker-dealer subsidiaries.
+CGMHI’s consolidated balance sheet is liquid, with the vast majority of its assets consisting of marketable securities and collateralized short-term financing agreements arising from securities transactions.
+CGMHI monitors and evaluates the adequacy of its capital and borrowing base on a daily basis to maintain liquidity and to ensure that its capital base supports the regulatory capital requirements of its subsidiaries.
+Some of Citigroup’s non-bank subsidiaries, including CGMHI, have credit facilities with Citigroup’s subsidiary depository institutions, including Citibank, N. A.
+Borrowings under these facilities must be secured in accordance with Section 23A of the Federal Reserve Act.
+There are various legal restrictions on the extent to which a bank holding company and certain of its non-bank subsidiaries can borrow or obtain credit from Citigroup’s subsidiary depository institutions or engage in certain other transactions with them.
+In general, these restrictions require that transactions be on arm’s length terms and be secured by designated amounts of specified collateral.
+See Note 20 to the Consolidated Financial Statements on page 169.
+At December 31, 2008, long-term debt and commercial paper outstanding for Citigroup, CGMHI, CFI and Citigroup’s subsidiaries were as follows:
+## Table 0 ##
+[mhdev_0025_table_0.csv](mhdev_0025_table_0.csv)
+(1) At December 31, 2008, approximately $67.4 billion relates to collateralized advances from the Federal Home Loan Bank.
+(2) Citigroup Inc.  guarantees all of CFI’s debt and CGMHI’s publicly issued securities.
+Citi Holdings contains businesses and portfolios of assets that Citigroup has determined are not central to its core Citicorp businesses.
+Consistent with its strategy, Citi intends to exit these businesses as quickly as practicable in an economically rational manner through business divestitures, portfolio run-offs and asset sales.
+During 2009 and 2010, Citi made substantial progress divesting and exiting businesses from Citi Holdings, having completed more than 30 divestiture transactions, including Smith Barney, Nikko Cordial Securities, Nikko Asset Management, Primerica Financial Services, various credit card businesses (including Diners Club North America) and The Student Loan Corporation (which is reported as discontinued operations within the Corporate/Other segment for the second half of 2010 only).
+Citi Holdings’ GAAP assets of $359 billion have been reduced by $128 billion from December 31, 2009, and $468 billion from the peak in the first quarter of 2008.
+Citi Holdings’ GAAP assets of $359 billion represent approximately 19% of Citi’s assets as of December 31, 2010.
+Citi Holdings’ risk-weighted assets of approximately $330 billion represent approximately 34% of Citi’s risk-weighted assets as of December 31, 2010.
+Citi Holdings consists of the following: Brokerage and Asset Management, Local Consumer Lending, and Special Asset Pool.
+## Table 1 ##
+[mhdev_0025_table_1.csv](mhdev_0025_table_1.csv)
+receipt in 2005, of a $10 million termination fee associated with one property that left our system.
+The favorable items noted above were also partially offset by $146 million of increased general and administrative expenses and $46 million of lower synthetic fuel revenue net of synthetic fuel expenses.
+Increased general, administrative and other expenses were associated with our Lodging segments as unallocated general, administrative and other expenses were down slightly compared to the prior year.
+The increase in general, administrative and other expenses reflects a $94 million charge impacting our North American Full-Service and International Lodging segments, primarily due to the non-cash write-off of deferred contract acquisition costs associated with the termination of management agreements associated with our acquisition of the CTF properties, and $30 million of expenses associated with our bedding incentive program, impacting our North American Full-Service, North American Limited-Service and International Lodging segments.
+General, administrative and other expenses in 2005 also reflect pre-tax performance termination cure payments of $15 million associated with two properties, a $9 million pre-tax charge associated with three guarantees, increased other net overhead costs of $13 million including costs related to the Company’s unit growth, development and systems, and $2 million of increased foreign exchange losses partially offset by $5 million of lower litigation expenses.
+Additionally, in 2004, general, administrative and other expenses included a $13 million charge associated with the write-off of deferred contract acquisition costs.
+Operating income for 2005 included a synthetic fuel operating loss of $144 million versus a $98 million operating loss in the prior year, reflecting increased costs and the consolidation of our synthetic fuel operations from the start of the 2004 second quarter, which resulted in the recognition of revenue and expenses for all of 2005 versus only three quarters in 2004, as we accounted for the synthetic fuel operations using the equity method of accounting in the 2004 first quarter.
+For additional information, see our “Synthetic Fuel” segment discussion later in this report.
+Gains and Other Income The following table shows our gains and other income for 2006, 2005 and 2004.
+## Table 2 ##
+[mhdev_0025_table_2.csv](mhdev_0025_table_2.csv)
+Gains on sale/income on redemption of joint venture investments of $68 million in 2006 represents $43 million of net gains associated with the sale of joint venture investments and $25 million of income associated with the redemption of preferred stock we held in one investee.
+As further explained in the earlier “Revenues” discussion for 2006, Timeshare segment note sale gains of $77 million in 2006 are presented in the “Timeshare sales and services” revenue caption.
+Interest Expense 2006 COMPARED TO 2005 Interest expense increased $18 million (17 percent) to $124 million in 2006 from $106 million in 2005.
+Included within interest expense for 2006 are charges totaling $46 million relating to interest on accumulated cash inflows, in advance of our cash outflows for various programs that we operate on the owners’ behalf, including the Marriott Rewards, Gift Certificates and SelfInsurance programs.
+The increase in interest on these programs over 2005 is related to higher liability balances and higher interest rates.
+Interest expense also increased in 2006, due to our June 2005 Series F Notes issuance, our June 2006 Series H Notes issuance, and higher commercial paper balances coupled with higher rates.
+Partially offsetting these increases were interest expense declines associated with the payoff, at maturity, of both our Series D Notes in April 2005 and Series B Notes in November 2005, and the exchange of our Series C and Series E Notes for lower interest rate Series G Notes in 2005.2005 COMPARED TO 2004 Interest expense increased $7 million (7 percent) to $106 million in 2005 from $99 million in the prior year, reflecting increased debt levels, which helped to facilitate significantly higher capital expenditures and share repurchases in 2005.
+Interest expense in 2005 reflected our June 2005 Series F Notes issuance and, versus the prior year, higher commercial paper balances coupled with higher rates.
+Included within interest expense for 2005 are charges totaling $29 million relating to interest on accumulated cash inflows, in advance of our cash outflows for various programs that we operate on the owners’ behalf, including the Marriott Rewards, Gift Certificates and Self-Insurance programs.
+The increase over 2004 is related to higher liability balances and higher interest rates.
+Partially offsetting these increases were interest expense declines associated with the payoff, at maturity, of both our Series D Notes in April 2005 and Series B Notes in November 2005, and the capitalization of more interest associated with the development of timeshare properties.
+Interest Income, Provision for Loan Losses, and Income Tax 2006 COMPARED TO 2005 Interest income, before the provision for loan losses, decreased $34 million (43 percent) to $45 million in 2006 from $79 million in 2005, primarily reflecting the impact of loans repaid to us in 2005.
+Also reflected in the decrease versus the prior year are $4 million of mark-to-market expenses in 2006 associated with hedges for our synthetic fuel operations.
+Loan loss provisions decreased $31 million versus the prior year reflecting the reversal of loan loss provisions totaling $3 million in 2006 compared to a charge of $17 million in 2005 due to the impairment of our Delta Air Lines, Inc.  aircraft leveraged lease, see the “Investment in Leveraged Lease” caption later in this report for additional information, and an $11 million loan loss provision in 2005 associated with one property.
+Our tax provision totaled $286 million in 2006 compared to a tax provision of $94 million in 2005.
+The difference of $192 million is primarily attributable to $96 million of higher taxes in 2006 associated with higher pre-tax income from our lodging operations and $96 million of lower tax credits and tax benefit in 2006 associated with our synthetic fuel operations that generated a net tax benefit of $94 million in 2006 compared to a net tax benefit of $190 million in 2005.
+As discussed in more detail in the “Synthetic Fuel” segment caption later in this report, 2006 includes a provision for an estimated 39 percent
+Management’s Discussion and Analysis The table below presents a reconciliation of our common shareholders’ equity to the estimated Basel III Advanced CET1 on a fully phased-in basis.
+## Table 0 ##
+[mhdev_0026_table_0.csv](mhdev_0026_table_0.csv)
+1.
+This deduction, which represents the fully phased-in requirement, is the amount by which our investments in the capital of nonconsolidated financial institutions exceed certain prescribed thresholds.
+During both the transitional period and thereafter, no deduction will be required if the applicable proportion of our investments in the capital of nonconsolidated financial institutions falls below the prescribed thresholds.2.
+Principally includes credit valuation adjustments on derivative liabilities and debt valuation adjustments, as well as other required credit riskbased deductions.
+In addition, beginning with the first quarter of 2015, subject to transitional provisions, we will also be required to disclose ratios calculated under the Standardized approach.
+Our estimated CET1 ratio under the Standardized approach (Standardized CET1 ratio) on a fully phased-in basis was approximately 60 basis points lower than our estimated Basel III Advanced CET1 ratio in the table above.
+Both the Basel III Advanced CET1 ratio and the Standardized CET1 ratio are subject to transitional provisions.
+Reflecting the transitional provisions that became effective January 1, 2014, our estimated Basel III Advanced CET1 ratio and our estimated Standardized CET1 ratio are approximately 150 basis points higher than the respective CET1 ratios on a fully phased-in basis as of December 2013.
+Effective January 1, 2014, Group Inc. ’s capital and leverage ratios are calculated under, and subject to the minimums as defined in, the Revised Capital Framework.
+The changes to the definition of capital and minimum ratios, subject to transitional provisions, were effective beginning January 1, 2014.
+RWAs are based on Basel I Adjusted, as defined in Note 20 to the consolidated financial statements.
+The firm will transition to Basel III beginning on April 1, 2014.
+Including the impact of the changes to the definition of regulatory capital and reflecting the transitional provisions effective in 2014, our estimated CET1 ratio (CET1 to RWAs on a Basel I Adjusted basis) as of December 2013 would have been essentially unchanged as compared to our Tier 1 common ratio under Basel I.
+Regulatory Leverage Ratios.
+The Revised Capital Framework increased the minimum Tier 1 leverage ratio applicable to us from 3% to 4% effective January 1, 2014.
+In addition, the Revised Capital Framework will introduce a new Tier 1 supplementary leverage ratio (supplementary leverage ratio) for Advanced approach banking organizations.
+The supplementary leverage ratio compares Tier 1 capital (as defined under the Revised Capital Framework) to a measure of leverage exposure, defined as the sum of the firm’s assets less certain CET1 deductions plus certain off-balance-sheet exposures, including a measure of derivatives exposures and commitments.
+The Revised Capital Framework requires a minimum supplementary leverage ratio of 3%, effective January 1, 2018, but with disclosure required beginning in the first quarter of 2015.
+In addition, subsequent to the approval of the Revised Capital Framework, the Agencies issued a proposal to increase the minimum supplementary leverage ratio requirement for the largest U. S.  banks (those deemed to be global systemically important banking institutions (G-SIBs) under the Basel G-SIB framework).
+These proposals would require the firm and other G-SIBs to meet a 5% supplementary leverage ratio (comprised of the minimum requirement of 3% plus a 2% buffer).
+As of December 2013, our estimated supplementary leverage ratio based on the Revised Capital Framework approximates this proposed minimum.
+In addition, the Basel Committee recently finalized revisions that would increase the size of the leverage exposure for purposes of the supplementary leverage ratio, but would retain a minimum supplementary leverage ratio requirement of 3%.
+It is not known with certainty at this point whether the U. S.  regulators will adopt this revised definition of leverage into their rules and proposals for the supplementary leverage ratio.
+THE GOLDMAN SACHS GROUP, INC.  AND SUBSIDIARIES Notes to Consolidated Financial Statements Gains and Losses on Financial Assets and Financial Liabilities Accounted for at Fair Value Under the Fair Value Option The table below presents the gains and losses recognized in earnings as a result of the firm electing to apply the fair value option to certain financial assets and financial liabilities.
+These gains and losses are included in “Market making” and “Other principal transactions.
+” The table below also includes gains and losses on the embedded derivative component of hybrid financial instruments included in unsecured short-term borrowings, unsecured long-term borrowings and deposits.
+These gains and losses would have been recognized under other U. S.  GAAP even if the firm had not elected to account for the entire hybrid financial instrument at fair value.
+## Table 1 ##
+[mhdev_0026_table_1.csv](mhdev_0026_table_1.csv)
+In the table above: ‰ Gains/(losses) exclude contractual interest, which is included in “Interest income” and “Interest expense,” for all instruments other than hybrid financial instruments.
+See Note 23 for further information about interest income and interest expense.
+‰ Unsecured short-term borrowings includes gains/(losses) on the embedded derivative component of hybrid financial instruments of $(1.05) billion for 2016, $339 million for 2015 and $(1.22) billion for 2014, respectively.
+‰ Unsecured long-term borrowings includes gains/(losses) on the embedded derivative component of hybrid financial instruments of $737 million for 2016, $653 million for 2015 and $(697) million for 2014, respectively.
+‰ Other liabilities and accrued expenses includes gains/ (losses) on certain subordinated liabilities of consolidated VIEs.
+‰ Other primarily consists of gains/(losses) on receivables from customers and counterparties, deposits and other secured financings.
+Excluding the gains and losses on the instruments accounted for under the fair value option described above, “Market making” and “Other principal transactions” primarily represent gains and losses on “Financial instruments owned, at fair value” and “Financial instruments sold, but not yet purchased, at fair value.
+” Loans and Lending Commitments The table below presents the difference between the aggregate fair value and the aggregate contractual principal amount for loans and long-term receivables for which the fair value option was elected.
+In the table below, the aggregate contractual principal amount of loans on nonaccrual status and/or more than 90 days past due (which excludes loans carried at zero fair value and considered uncollectible) exceeds the related fair value primarily because the firm regularly purchases loans, such as distressed loans, at values significantly below the contractual principal amounts.
+## Table 2 ##
+[mhdev_0026_table_2.csv](mhdev_0026_table_2.csv)
+As of December 2016 and December 2015, the fair value of unfunded lending commitments for which the fair value option was elected was a liability of $80 million and $211 million, respectively, and the related total contractual amount of these lending commitments was $7.19 billion and $14.01 billion, respectively.
+See Note 18 for further information about lending commitments.
+THE GOLDMAN SACHS GROUP, INC.  AND SUBSIDIARIES Management’s Discussion and Analysis Funding Sources Our primary sources of funding are deposits, collateralized financings, unsecured short-term and long-term borrowings, and shareholders’ equity.
+We seek to maintain broad and diversified funding sources globally across products, programs, markets, currencies and creditors to avoid funding concentrations.
+The table below presents information about our funding sources.
+## Table 3 ##
+[mhdev_0026_table_3.csv](mhdev_0026_table_3.csv)
+Our funding is primarily raised in U. S.  dollar, Euro, British pound and Japanese yen.
+We generally distribute our funding products through our own sales force and thirdparty distributors to a large, diverse creditor base in a variety of markets in the Americas, Europe and Asia.
+We believe that our relationships with our creditors are critical to our liquidity.
+Our creditors include banks, governments, securities lenders, corporations, pension funds, insurance companies, mutual funds and individuals.
+We have imposed various internal guidelines to monitor creditor concentration across our funding programs.
+Deposits.
+Our deposits provide us with a diversified source of funding and reduce our reliance on wholesale funding.
+A growing portion of our deposit base consists of consumer deposits.
+Deposits are primarily used to finance lending activity, other inventory and a portion of our GCLA.
+We raise deposits, including savings, demand and time deposits, through internal and third-party broker-dealers, and from consumers and institutional clients, and primarily through Goldman Sachs Bank USA (GS Bank USA) and Goldman Sachs International Bank (GSIB).
+In September 2018, we launched Marcus: by Goldman Sachs in the U. K.  to accept deposits.
+See Note 14 to the consolidated financial statements for further information about our deposits.
+Secured Funding.
+We fund a significant amount of inventory on a secured basis.
+Secured funding includes collateralized financings in the consolidated statements of financial condition.
+We may also pledge our inventory as collateral for securities borrowed under a securities lending agreement.
+We also use our own inventory to cover transactions in which we or our clients have sold securities that have not yet been purchased.
+Secured funding is less sensitive to changes in our credit quality than unsecured funding, due to our posting of collateral to our lenders.
+Nonetheless, we continually analyze the refinancing risk of our secured funding activities, taking into account trade tenors, maturity profiles, counterparty concentrations, collateral eligibility and counterparty roll over probabilities.
+We seek to mitigate our refinancing risk by executing term trades with staggered maturities, diversifying counterparties, raising excess secured funding, and pre-funding residual risk through our GCLA.
+We seek to raise secured funding with a term appropriate for the liquidity of the assets that are being financed, and we seek longer maturities for secured funding collateralized by asset classes that may be harder to fund on a secured basis, especially during times of market stress.
+Our secured funding, excluding funding collateralized by liquid government and agency obligations, is primarily executed for tenors of one month or greater and is primarily executed through term repurchase agreements and securities loaned contracts.
+The weighted average maturity of our secured funding included in collateralized financings in the consolidated statements of financial condition, excluding funding that can only be collateralized by liquid government and agency obligations, exceeded 120 days as of December 2018.
+Assets that may be harder to fund on a secured basis during times of market stress include certain financial instruments in the following categories: mortgage and other assetbacked loans and securities, non-investment-grade corporate debt securities, equity securities and emerging market securities.
+Assets that are classified in level 3 of the fair value hierarchy are generally funded on an unsecured basis.
+See Notes 5 and 6 to the consolidated financial statements for further information about the classification of financial instruments in the fair value hierarchy and “Unsecured Long-Term Borrowings” below for further information about the use of unsecured long-term borrowings as a source of funding.
+We also raise financing through other types of collateralized financings, such as secured loans and notes.
+GS Bank USA has access to funding from the Federal Home Loan Bank.
+Our outstanding borrowings against the Federal Home Loan Bank were $528 million as of December 2018 and $3.40 billion as of December 2017.
+spread over the LIBOR swap curve, the reduction to net income would be approximately $235 million, net of DAC and DSIC amortization and income taxes, based on December 31, 2008 credit spreads.
+The nonperformance risk for our derivatives is managed and mitigated primarily through the use of master netting arrangements and collateral arrangements.
+As of December 31, 2008, any deterioration in our derivative counterparties’ credit would not materially impact our financial statements.
+Liquidity and Capital Resources Overview We maintained substantial liquidity during 2008.
+At December 31, 2008, we had $6.2 billion in cash and cash equivalents compared to $3.8 billion at December 31, 2007.
+Approximately $1.6 billion of the increase in cash and cash equivalents was from increases in collateral received from derivative counterparties as our living benefits hedge portfolio gained in value.
+Excluding the collateral balances, cash and cash equivalents were $4.4 billion and $3.6 billion at December 31, 2008 and 2007, respectively.
+We have additional liquidity available through an unsecured revolving credit facility for $750 million that expires in September 2010.
+Under the terms of the underlying credit agreement, we can increase this facility to $1.0 billion.
+Available borrowings under this facility are reduced by any outstanding letters of credit.
+We have had no borrowings under this credit facility and had $2 million of outstanding letters of credit at December 31, 2008.
+We believe cash flows from operating activities, available cash balances and our availability of revolver borrowings will be sufficient to fund our operating liquidity needs.
+The following table summarizes the ratings for Ameriprise Financial, Inc.  (‘‘Ameriprise Financial’’) and certain of its subsidiaries as of the date of this filing:
+## Table 0 ##
+[mhdev_0027_table_0.csv](mhdev_0027_table_0.csv)
+On January 29, 2009, Standard & Poor’s Ratings Services (‘‘S&P’’) and Moody’s Investors Service (‘‘Moody’s’’) affirmed the ratings of Ameriprise Financial, Inc.  and RiverSource Life citing excellent capitalization and solid financial flexibility.
+At the same time, both S&P and Moody’s revised their outlook on Ameriprise Financial, Inc.  and RiverSource Life from stable to negative citing diminished earnings power resulting from the challenging equity and credit markets.
+On July 10, 2008, S&P raised its counterparty credit rating on Ameriprise Financial, Inc.  to ‘A’ from ‘A-’ and indicated its ratings outlook on our company as stable, citing our strong balance sheet and strong cash coverage of our stable life insurance and asset management operations, supported by an innovative financial advisory distribution channel.
+These positive factors are somewhat offset by sensitivity to equity-market and debt-market volatility and competitive pressure in our key segments.
+At the same time, S&P affirmed its ‘AA-’ counterparty credit and financial strength ratings on our life insurance subsidiaries, RiverSource Life and RiverSource Life of NY.
+Our capital transactions in 2008 and 2007 primarily related to the repurchase of our common stock, dividends paid to our shareholders and the repurchase of debt.
+Dividends from Subsidiaries Ameriprise Financial is primarily a parent holding company for the operations carried out by our wholly owned subsidiaries.
+Because of our holding company structure, our ability to meet our cash requirements, including the payment of dividends on our common stock, substantially depends upon the receipt of dividends or return of capital from our subsidiaries, particularly our life insurance subsidiary, RiverSource Life, our face-amount certificate subsidiary, Ameriprise Certificate Company (‘‘ACC’’), our retail introducing broker-dealer subsidiary, Ameriprise Financial Services, Inc.  (‘‘AFSI’’), our clearing brokerdealer subsidiary, American Enterprise Investment Services, Inc.  (‘‘AEIS’’), our auto and home insurance subsidiary, IDS Property Casualty Insurance Company (‘‘IDS Property Casualty’’), doing business as Ameriprise Auto & Home Insurance, Threadneedle, RiverSource Service Corporation and our investment advisory company, RiverSource Investments.
+The
+home business reflecting the impact of growth in exposures from an 11% increase in policies in force, an increase in catastrophe losses reflecting the growth in exposures and the extremely severe winter and spring weather during 2014, and adverse development in the 2013 and prior accident years auto liability coverage observed during the first quarter of 2014 resulting in a $30 million increase to prior accident year loss reserves.
+Later in 2014, further adverse loss development was observed primarily in the 2014 auto book of business which resulted in a $60 million increase to loss reserves for estimated losses including IBNR.
+Catastrophe losses were $66 million for the year ended December 31, 2014 compared to $42 million for the prior year.
+Corporate & Other The following table presents the results of operations of our Corporate & Other segment on an operating basis:
+## Table 1 ##
+[mhdev_0027_table_1.csv](mhdev_0027_table_1.csv)
+NM Not Meaningful.
+Our Corporate & Other segment pretax operating loss excludes net realized investment gains or losses and the impact of consolidating CIEs.
+Our Corporate & Other segment pretax operating loss was $230 million for the year ended December 31, 2014 compared to $229 million for the prior year.
+Net investment income (loss) was a loss of $6 million for the year ended December 31, 2014 compared to income of $8 million for the prior year due to a $13 million increase in losses associated with affordable housing partnerships.
+Interest and debt expense decreased $12 million, or 36%, to $21 million for the year ended December 31, 2014 compared to $33 million for the prior year primarily due to $19 million in costs in 2013 related to the early redemption of our senior notes due 2015, partially offset by expenses in 2014 related to the early redemption of our senior notes due 2039.
+General and administrative expense for the year ended December 31, 2014 included a provision for potential resolution of a regulatory matter regarding certain historical events and processes at one of our ongoing lines of business, which was partially offset by lower investment spending compared to the prior year.
+Fair Value Measurements We report certain assets and liabilities at fair value; specifically, separate account assets, derivatives, embedded derivatives, properties held by our consolidated property funds, and most investments and cash equivalents.
+Fair value assumes the exchange of assets or liabilities occurs in orderly transactions and is not the result of a forced liquidation or distressed sale.
+We include actual market prices, or observable inputs, in our fair value measurements to the extent available.
+Broker quotes are obtained when quotes from pricing services are not available.
+We validate prices obtained from third parties through a variety of means such as: price variance analysis, subsequent sales testing, stale price review, price comparison across pricing vendors and due diligence reviews of vendors.
+See Note 14 to the Consolidated Financial Statements for additional information on our fair value measurements.
+Fair Value of Liabilities and Nonperformance Risk Companies are required to measure the fair value of liabilities at the price that would be received to transfer the liability to a market participant (an exit price).
+Since there is not a market for our obligations of our variable annuity riders and indexed universal life insurance, we consider the assumptions participants in a hypothetical market would make to reflect an exit price.
+As a result, we adjust the valuation of variable annuity riders and indexed universal life insurance by updating certain contractholder assumptions, adding explicit margins to provide for profit, risk and expenses, and adjusting the rates used to discount expected cash flows to reflect a current market estimate of our nonperformance risk.
+The
+20.
+Regulatory Requirements Restrictions on the transfer of funds exist under regulatory requirements applicable to certain of the Company’s subsidiaries.
+At December 31, 2016, the aggregate amount of unrestricted net assets was approximately $1.4 billion.
+The National Association of Insurance Commissioners (‘‘NAIC’’) defines Risk-Based Capital (‘‘RBC’’) requirements for insurance companies.
+The RBC requirements are used by the NAIC and state insurance regulators to identify companies that merit regulatory actions designed to protect policyholders.
+These requirements apply to both the Company’s life and property casualty insurance companies.
+In addition, IDS Property Casualty is subject to the statutory surplus requirements of the State of Wisconsin.
+The Company’s life and property casualty companies each met their respective minimum RBC requirements.
+The Company’s life and property casualty insurance companies are required to prepare statutory financial statements in accordance with the accounting practices prescribed or permitted by the insurance departments of their respective states of domicile, which vary materially from GAAP.
+Prescribed statutory accounting practices include publications of the NAIC, as well as state laws, regulations and general administrative rules.
+The more significant differences from GAAP include charging policy acquisition costs to expense as incurred, establishing annuity and insurance reserves using different actuarial methods and assumptions, valuing investments on a different basis and excluding certain assets from the balance sheet by charging them directly to surplus, such as a portion of the net deferred income tax assets.
+State insurance statutes contain limitations as to the amount of dividends or distributions that insurers may make without providing prior notification to state regulators.
+For RiverSource Life, dividends or distributions in excess of unassigned surplus, as determined in accordance with accounting practices prescribed by the State of Minnesota, require advance notice to the Minnesota Department of Commerce, RiverSource Life’s primary regulator, and are subject to potential disapproval.
+RiverSource Life’s statutory unassigned surplus aggregated $275 million and $954 million as of December 31, 2016 and 2015, respectively.
+In addition, dividends or distributions, whose fair market value, together with that of other dividends or distributions made within the preceding 12 months, exceeds the greater of the previous year’s statutory net gain from operations or 10% of the previous year-end statutory capital and surplus are referred to as ‘‘extraordinary dividends.
+’’ Extraordinary dividends also require advance notice to the Minnesota Department of Commerce, and are subject to potential disapproval.
+Statutory capital and surplus for RiverSource Life was $3.0 billion and $3.7 billion at December 31, 2016 and 2015, respectively.
+Statutory capital and surplus for IDS Property Casualty was $800 million and $684 million at December 31, 2016 and 2015, respectively.
+Statutory net gain from operations and net income (loss) are summarized as follows:
+## Table 2 ##
+[mhdev_0027_table_2.csv](mhdev_0027_table_2.csv)
+(1) Statutory net gain (loss) from operations and statutory net income (loss) are significantly impacted by changes in reserves for variable annuity guaranteed benefits, however, these impacts are substantially offset by unrealized gains (losses) on derivatives which are not included in statutory income but are recorded directly to surplus.
+Government debt securities of $4 million and $5 million at December 31, 2016 and 2015, respectively, held by the Company’s life insurance subsidiaries were on deposit with various states as required by law.
+Ameriprise Certificate Company (‘‘ACC’’) is registered as an investment company under the Investment Company Act of 1940 (the ‘‘1940 Act’’).
+ACC markets and sells investment certificates to clients.
+ACC is subject to various capital requirements under the 1940 Act, laws of the State of Minnesota and understandings with the Securities and Exchange Commission (‘‘SEC’’) and the Minnesota Department of Commerce.
+The terms of the investment certificates issued by ACC and the provisions of the 1940 Act also require the maintenance by ACC of qualified assets.
+Under the provisions of its certificates and the 1940 Act, ACC was required to have qualified assets (as that term is defined in Section 28(b) of the 1940 Act) in the amount of $5.9 billion and $4.8 billion at December 31, 2016 and 2015, respectively.
+ACC had qualified assets of $6.3 billion and $5.1 billion at December 31, 2016 and 2015, respectively.
+Ameriprise Financial and ACC entered into a Capital Support Agreement on March 2, 2009, pursuant to which Ameriprise Financial agrees to commit such capital to ACC as is necessary to satisfy applicable minimum capital requirements.
+Effective April 30, 2014, this agreement was amended to revise the maximum commitment to $50 million.
+For the years
+Management anticipates that the effective tax rate in 2017 will be between 32% and 35%.
+However, business portfolio actions, changes in the current economic environment, tax legislation or rate changes, currency fluctuations, ability to realize deferred tax assets, movements in stock price impacting tax benefits or deficiencies on stock-based payment awards, and the results of operations in certain taxing jurisdictions may cause this estimated rate to fluctuate.
+Segment Information Arconic’s operations consist of three worldwide reportable segments: Global Rolled Products, Engineered Products and Solutions, and Transportation and Construction Solutions (see below).
+Segment performance under Arconic’s management reporting system is evaluated based on a number of factors; however, the primary measure of performance is the after-tax operating income (ATOI) of each segment.
+Certain items such as the impact of LIFO inventory accounting; metal price lag (the timing difference created when the average price of metal sold differs from the average cost of the metal when purchased by the respective segment—generally when the price of metal increases, metal lag is favorable and when the price of metal decreases, metal lag is unfavorable); interest expense; noncontrolling interests; corporate expense (general administrative and selling expenses of operating the corporate headquarters and other global administrative facilities, along with depreciation and amortization on corporate-owned assets); restructuring and other charges; and other items, including intersegment profit eliminations, differences between tax rates applicable to the segments and the consolidated effective tax rate, and other nonoperating items such as foreign currency transaction gains/losses and interest income are excluded from segment ATOI.
+ATOI for all reportable segments totaled $1,087 in 2016, $986 in 2015, and $983 in 2014.
+The following information provides shipment, sales and ATOI data for each reportable segment, as well as certain realized price data, for each of the three years in the period ended December 31, 2016.
+See Note O to the Consolidated Financial Statements in Part II Item 8 of this Form 10-K for additional information.
+Beginning in the first quarter of 2017, Arconic’s segment reporting metric will change from ATOI to Adjusted EBITDA.
+Global Rolled Products(1)
+## Table 3 ##
+[mhdev_0027_table_3.csv](mhdev_0027_table_3.csv)
+Excludes the Warrick, IN rolling operations and the equity interest in the rolling mill at the joint venture in Saudi Arabia, both of which were previously part of the Global Rolled Products segment but became part of Alcoa Corporation effective November 1, 2016.
+(2) Generally, average realized price per metric ton of aluminum includes two elements: a) the price of metal (the underlying base metal component based on quoted prices from the LME, plus a regional premium which represents the incremental price over the base LME component that is associated with physical delivery of metal to a particular region), and b) the conversion price, which represents the incremental price over the metal price component that is associated with converting primary aluminum into sheet and plate.
+In this circumstance, the metal price component is a pass-through to this segment’s customers with limited exception (e. g. , fixed-priced contracts, certain regional premiums).
+The Global Rolled Products segment produces aluminum sheet and plate for a variety of end markets.
+Sheet and plate is sold directly to customers and through distributors related to the aerospace, automotive, commercial transportation, packaging, building and construction, and industrial products (mainly used in the production of machinery and equipment and consumer durables) end markets.
+A small portion of this segment also produces aseptic foil for the packaging end market.
+While the customer base for flat-rolled products is large, a significant amount of sales of sheet
+PART II ITEM 5.
+MARKET FOR REGISTRANT’S COMMON EQUITY, RELATED STOCKHOLDER MATTERS AND ISSUER PURCHASES OF EQUITY SECURITIES The following table presents reported quarterly high and low per share sale prices of our common stock on the NYSE for the years 2015 and 2014.
+## Table 0 ##
+[mhdev_0028_table_0.csv](mhdev_0028_table_0.csv)
+On February 19, 2016, the closing price of our common stock was $87.32 per share as reported on the NYSE.
+As of February 19, 2016, we had 423,897,556 outstanding shares of common stock and 159 registered holders.
+Dividends As a REIT, we must annually distribute to our stockholders an amount equal to at least 90% of our REIT taxable income (determined before the deduction for distributed earnings and excluding any net capital gain).
+Generally, we have distributed and expect to continue to distribute all or substantially all of our REIT taxable income after taking into consideration our utilization of net operating losses (“NOLs”).
+We have two series of preferred stock outstanding, 5.25% Mandatory Convertible Preferred Stock, Series A, issued in May 2014 (the “Series A Preferred Stock”), with a dividend rate of 5.25%, and the 5.50% Mandatory Convertible Preferred Stock, Series B (the “Series B Preferred Stock”), issued in March 2015, with a dividend rate of 5.50%.
+Dividends are payable quarterly in arrears, subject to declaration by our Board of Directors.
+The amount, timing and frequency of future distributions will be at the sole discretion of our Board of Directors and will be dependent upon various factors, a number of which may be beyond our control, including our financial condition and operating cash flows, the amount required to maintain our qualification for taxation as a REIT and reduce any income and excise taxes that we otherwise would be required to pay, limitations on distributions in our existing and future debt and preferred equity instruments, our ability to utilize NOLs to offset our distribution requirements, limitations on our ability to fund distributions using cash generated through our TRSs and other factors that our Board of Directors may deem relevant.
+We have distributed an aggregate of approximately $2.3 billion to our common stockholders, including the dividend paid in January 2016, primarily subject to taxation as ordinary income.
+During the year ended December 31, 2015, we declared the following cash distributions:
+Our total non-U.
+S.  exposure was $232.6 billion at December 31, 2011, a decrease of $29.4 billion from December 31, 2010.
+Our non-U.
+S.  exposure remained concentrated in Europe which accounted for $115.9 billion, or 50 percent, of total non-U.
+S.  exposure.
+The European exposure was mostly in Western Europe and was distributed across a variety of industries.
+The decrease of $32.2 billion in Europe was primarily driven by our efforts to reduce risk in countries affected by the ongoing debt crisis in the Eurozone.
+Select European countries are further detailed in Table 54.
+Asia Pacific was our second largest non-U.
+S.  exposure at $74.6 billion, or 32 percent.
+The $1.3 billion increase in Asia Pacific was driven by increases in securities and local exposure in Japan and increases in the emerging markets, predominately in local exposure, loans and securities offset by the sale of CCB shares.
+For more information on our CCB investment, see Note 5 – Securities to the Consolidated Financial Statements.
+Latin America accounted for $17.4 billion, or seven percent, of total non-U.
+S.  exposure.
+The $2.6 billion increase in Latin America was primarily driven by an increase in Brazil in securities and local country exposure.
+Middle East and Africa increased $926 million to $4.6 billion, representing two percent of total non-U.
+S.  exposure.
+Other non-U.
+S.  exposure was $20.1 billion at December 31, 2011, a decrease of $2.1 billion in 2011 resulting primarily from a decrease in local exposure as a result of the sale of our Canadian consumer card business.
+For more information on our Asia Pacific and Latin America exposure, see non-U.
+S.  exposure to selected countries defined as emerging markets on page 100.
+Table 52 presents countries where total cross-border exposure exceeded one percent of our total assets.
+At December 31, 2011, the United Kingdom and Japan were the only countries where total cross-border exposure exceeded one percent of our total assets.
+At December 31, 2011, Canada and France had total cross-border exposure of $16.9 billion and $16.1 billion representing 0.79 percent and 0.75 percent of total assets.
+Canada and France were the only other countries that had total cross-border exposure that exceeded 0.75 percent of our total assets at December 31, 2011.
+Exposure includes cross-border claims by our non-U.
+S.  offices including loans, acceptances, time deposits placed, trading account assets, securities, derivative assets, other interestearning investments and other monetary assets.
+Amounts also include unused commitments, SBLCs, commercial letters of credit and formal guarantees.
+Sector definitions are consistent with FFIEC reporting requirements for preparing the Country Exposure Report.
+## Table 1 ##
+[mhdev_0028_table_1.csv](mhdev_0028_table_1.csv)
+(1) Total cross-border exposure for the United Kingdom and Japan included derivatives exposure of $5.9 billion and $3.5 billion at December 31, 2011 and $2.3 billion and $2.8 billion at December 31, 2010 which has been reduced by the amount of cash collateral applied of $9.3 billion and $1.2 billion at December 31, 2011 and $13.0 billion and $1.6 billion at December 31, 2010.
+Derivative assets were collateralized by other marketable securities of $242 million and $1.7 billion at December 31, 2011 and $96 million and $743 million at December 31, 2010.
+(2) At December 31, 2010, total cross-border exposure for Japan was $17.0 billion, representing 0.75 percent of total assets.
+Tables 43 and 44 present commercial real estate credit quality data by non-homebuilder and homebuilder property types.
+The homebuilder portfolio presented in Tables 42, 43 and 44 includes condominiums and other residential real estate.
+Other property types in Tables 42, 43 and 44 primarily include special purpose, nursing/retirement homes, medical facilities and restaurants, as well as unsecured loans to borrowers whose primary business is commercial real estate.
+Table 43 Commercial Real Estate Credit Quality Data
+## Table 2 ##
+[mhdev_0028_table_2.csv](mhdev_0028_table_2.csv)
+Table 44 Commercial Real Estate Net Charge-offs and Related Ratios
+## Table 3 ##
+[mhdev_0028_table_3.csv](mhdev_0028_table_3.csv)
+(1) Net charge-off ratios are calculated as net charge-offs divided by average outstanding loans excluding loans accounted for under the fair value option.
+At December 31, 2011, total committed non-homebuilder exposure was $53.1 billion compared to $64.2 billion at December 31, 2010, with the decrease due to exposure reductions in all non-homebuilder property types.
+Non-homebuilder nonperforming loans and foreclosed properties were $3.5 billion and $4.6 billion at December 31, 2011 and 2010, which represented 9.29 percent and 10.08 percent of total nonhomebuilder loans and foreclosed properties.
+Non-homebuilder utilized reservable criticized exposure decreased to $10.1 billion, or 25.34 percent of non-homebuilder utilized reservable exposure, at December 31, 2011 compared to $17.1 billion, or 35.55 percent, at December 31, 2010.
+The decrease in reservable criticized exposure was driven primarily by office, shopping centers/retail and multi-family rental property types.
+For the nonhomebuilder portfolio, net charge-offs decreased $862 million in 2011 due in part to resolution of criticized assets through payoffs and sales.
+At December 31, 2011, we had committed homebuilder exposure of $3.9 billion compared to $6.0 billion at December 31, 2010, of which $2.4 billion and $4.3 billion were funded secured loans.
+The decline in homebuilder committed exposure was due to repayments, net charge-offs, reductions in new home construction and continued risk mitigation initiatives with market conditions providing fewer origination opportunities to offset the reductions.
+Homebuilder nonperforming loans and foreclosed properties decreased $970 million due to repayments, a decline in the volume of loans being downgraded to nonaccrual status and net charge-offs.
+Homebuilder utilized reservable criticized exposure decreased $2.0 billion to $1.4 billion due to repayments and net charge-offs.
+The nonperforming loans, leases and foreclosed properties and the utilized reservable criticized ratios for the homebuilder portfolio were 38.89 percent and 54.65 percent at December 31, 2011 compared to 42.80 percent and 74.27 percent at December 31, 2010.
+Net charge-offs for the homebuilder portfolio decreased $208 million in 2011.
+Capital Management During 2015, we repurchased approximately $2.4 billion of common stock, with an average price of $16.92 per share, in connection with our 2015 Comprehensive Capital Analysis and Review (CCAR) capital plan, which included a request to repurchase $4.0 billion of common stock over five quarters beginning in the second quarter of 2015, and to maintain the quarterly common stock dividend at the current rate of $0.05 per share.
+Based on the conditional non-objection we received from the Federal Reserve on our 2015 CCAR submission, we were required to resubmit our CCAR capital plan by September 30, 2015 and address certain weaknesses the Federal Reserve identified in our capital planning process.
+We have established plans and taken actions which addressed the identified weaknesses, and we resubmitted our CCAR capital plan on September 30, 2015.
+The Federal Reserve announced that it did not object to our resubmitted CCAR capital plan on December 10, 2015.
+As an Advanced approaches institution, under Basel 3, we were required to complete a qualification period (parallel run) to demonstrate compliance with the Basel 3 Advanced approaches capital framework to the satisfaction of U. S.  banking regulators.
+We received approval to begin using the Advanced approaches capital framework to determine risk-based capital requirements beginning in the fourth quarter of 2015.
+As previously disclosed, with the approval to exit parallel run, U. S.  banking regulators requested modifications to certain internal analytical models including the wholesale (e. g. , commercial) credit models.
+All requested modifications were incorporated, which increased our risk-weighted assets, and are reflected in the risk-based ratios in the fourth quarter of 2015.
+Having exited parallel run on October 1, 2015, we are required to report regulatory risk-based capital ratios and risk-weighted assets under both the Standardized and Advanced approaches.
+The approach that yields the lower ratio is used to assess capital adequacy including under the Prompt Corrective Action (PCA) framework and was the Advanced approaches in the fourth quarter of 2015.
+For additional information, see Capital Management on page 51.
+Trust Preferred Securities On December 29, 2015, the Corporation provided notice of the redemption on January 29, 2016 of all trust preferred securities of Merrill Lynch Preferred Capital Trust III, Merrill Lynch Preferred Capital Trust IV and Merrill Lynch Preferred Capital Trust V (the Trust Preferred Securities).
+In connection with the Corporation’s acquisition of Merrill Lynch & Co. , Inc.  in 2009, the Corporation recorded a discount to par value as purchase accounting adjustments associated with the Trust Preferred Securities.
+The Corporation recorded a $612 million charge to net interest income related to the discount on these securities.
+New Accounting Guidance on Recognition and Measurement of Financial Instruments In January 2016, the Financial Accounting Standards Board (FASB) issued new accounting guidance on recognition and measurement of financial instruments.
+The Corporation has early adopted, retrospective to January 1, 2015, the provision that requires the Corporation to present unrealized gains and losses resulting from changes in the Corporation’s own credit spreads on liabilities accounted for under the fair value option (referred to as debit valuation adjustments, or DVA) in accumulated other comprehensive income (OCI).
+The impact of the adoption was to reclassify, as of January 1, 2015, unrealized DVA losses of $2.0 billion pretax ($1.2 billion after tax) from retained earnings to accumulated OCI.
+Further, pretax unrealized DVA gains of $301 million, $301 million and $420 million were reclassified from other income to accumulated OCI for the third, second and first quarters of 2015, respectively.
+This had the effect of reducing net income as previously reported for the aforementioned quarters by $187 million, $186 million and $260 million, or approximately $0.02 per share in each quarter.
+This change is reflected in consolidated results and the Global Markets segment results.
+Results for 2014 were not subject to restatement under the provisions of the new accounting guidance.
+Selected Financial Data Table 1 provides selected consolidated financial data for 2015 and 2014.
+Citigroup’s repurchases are primarily from Government Sponsored Entities.
+The specific representations and warranties made by the Company depend on the nature of the transaction and the requirements of the buyer.
+Market conditions and credit-ratings agency requirements may also affect representations and warranties and the other provisions the Company may agree to in loan sales.
+In the event of a breach of the representations and warranties, the Company may be required to either repurchase the mortgage loans (generally at unpaid principal balance plus accrued interest) with the identified defects or indemnify (“make-whole”) the investor or insurer.
+The Company has recorded a repurchase reserve that is included in Other liabilities in the Consolidated Balance Sheet.
+In the case of a repurchase, the Company will bear any subsequent credit loss on the mortgage loans.
+The Company’s representations and warranties are generally not subject to stated limits in amount or time of coverage.
+However, contractual liability arises only when the representations and warranties are breached and generally only when a loss results from the breach.
+In the case of a repurchase, the loan is typically considered a creditimpaired loan and accounted for under SOP 03-3, “Accounting for Certain Loans and Debt Securities, Acquired in a Transfer” (now incorporated into ASC 310-30, Receivables—Loans and Debt Securities Acquired with Deteriorated Credit Quality).
+These repurchases have not had a material impact on nonperforming loan statistics, because credit-impaired purchased SOP 03-3 loans are not included in nonaccrual loans.
+The Company estimates its exposure to losses from its obligation to repurchase previously sold loans based on the probability of repurchase or make-whole and an estimated loss given repurchase or make-whole.
+This estimate is calculated separately by sales vintage (i. e. , the year the loans were sold) based on a combination of historical trends and forecasted repurchases and losses considering the: (1) trends in requests by investors for loan documentation packages to be reviewed; (2) trends in recent repurchases and make-wholes; (3) historical percentage of claims made as a percentage of loan documentation package requests; (4) success rate in appealing claims; (5) inventory of unresolved claims; and (6) estimated loss given repurchase or make-whole, including the loss of principal, accrued interest, and foreclosure costs.
+The Company does not change its estimation methodology by counterparty, but the historical experience and trends are considered when evaluating the overall reserve.
+The request for loan documentation packages is an early indicator of a potential claim.
+During 2009, loan documentation package requests and the level of outstanding claims increased.
+In addition, our loss severity estimates increased during 2009 due to the impact of macroeconomic factors and recent experience.
+These factors contributed to a $493 million change in estimate for this reserve in 2009.
+As indicated above, the repurchase reserve is calculated by sales vintage.
+The majority of the repurchases in 2009 were from the 2006 and 2007 sales vintages, which also represent the vintages with the largest lossgiven-repurchase.
+An insignificant percentage of 2009 repurchases were from vintages prior to 2006, and this is expected to decrease, because those vintages are later in the credit cycle.
+Although early in the credit cycle, the Company has experienced improved repurchase and loss-given-repurchase statistics from the 2008 and 2009 vintages.
+In the case of a repurchase of a credit-impaired SOP 03-3 loan (now incorporated into ASC 310-30), the difference between the loan’s fair value and unpaid principal balance at the time of the repurchase is recorded as a utilization of the repurchase reserve.
+Payments to make the investor whole are also treated as utilizations and charged directly against the reserve.
+The provision for estimated probable losses arising from loan sales is recorded as an adjustment to the gain on sale, which is included in Other revenue in the Consolidated Statement of Income.
+A liability for representations and warranties is estimated when the Company sells loans and is updated quarterly.
+Any subsequent adjustment to the provision is recorded in Other revenue in the Consolidated Statement of Income.
+The activity in the repurchase reserve for the years ended December 31, 2009 and 2008 is as follows:
+## Table 0 ##
+[mhdev_0029_table_0.csv](mhdev_0029_table_0.csv)
+Goodwill Goodwill represents an acquired company’s acquisition cost over the fair value of net tangible and intangible assets acquired.
+Goodwill is subject to annual impairment tests, whereby Goodwill is allocated to the Company’s reporting units and an impairment is deemed to exist if the carrying value of a reporting unit exceeds its estimated fair value.
+Furthermore, on any business dispositions, Goodwill is allocated to the business disposed of based on the ratio of the fair value of the business disposed of to the fair value of the reporting unit.
+Intangible Assets Intangible assets—including core deposit intangibles, present value of future profits, purchased credit card relationships, other customer relationships, and other intangible assets, but excluding MSRs—are amortized over their estimated useful lives.
+Intangible assets deemed to have indefinite useful lives, primarily certain asset management contracts and trade names, are not amortized and are subject to annual impairment tests.
+An impairment exists if the carrying value of the indefinite-lived intangible asset exceeds its fair value.
+For other Intangible assets subject to amortization, an impairment is recognized if the carrying amount is not recoverable and exceeds the fair value of the Intangible asset.
+Other Assets and Other Liabilities Other assets include, among other items, loans held-for-sale, deferred tax assets, equity-method investments, interest and fees receivable, premises and equipment, end-user derivatives in a net receivable position, repossessed assets, and other receivables.
+This table does not include: ?
+certain venture capital investments made by some of the Company’s private equity subsidiaries, as the Company accounts for these investments in accordance with the Investment Company Audit Guide; ?
+certain limited partnerships where the Company is the general partner and the limited partners have the right to replace the general partner or liquidate the funds; ?
+certain investment funds for which the Company provides investment management services and personal estate trusts for which the Company provides administrative, trustee and/or investment management services; ?
+VIEs structured by third parties where the Company holds securities in inventory.
+These investments are made on arm’s-length terms; and ?
+transferred assets to a VIE where the transfer did not qualify as a sale and where the Company did not have any other involvement that is deemed to be a variable interest with the VIE.
+These transfers are accounted for as secured borrowings by the Company.
+The asset balances for consolidated VIEs represent the carrying amounts of the assets consolidated by the Company.
+The carrying amount may represent the amortized cost or the current fair value of the assets depending on the legal form of the asset (e. g. , security or loan) and the Company’s standard accounting policies for the asset type and line of business.
+he asset balances for unconsolidated VIEs where the Company has significant involvement represent the most current information available to the Company.
+In most cases, the asset balances represent an amortized cost basis without regard to impairments in fair value, unless fair value information is readily available to the Company.
+For VIEs that obtain asset exposures synthetically through derivative instruments (for example, synthetic CDOs), the table includes the full original notional amount of the derivative as an asset.
+The maximum funded exposure represents the balance sheet carrying amount of the Company’s investment in the VIE.
+It reflects the initial amount of cash invested in the VIE plus any accrued interest and is adjusted for any impairments in value recognized in earnings and any cash principal payments received.
+The maximum exposure of unfunded positions represents the remaining undrawn committed amount, including liquidity and credit facilities provided by the Company, or the notional amount of a derivative instrument considered to be a variable interest, adjusted for any declines in fair value recognized in earnings.
+In certain transactions, the Company has entered into derivative instruments or other arrangements that are not considered variable interests in the VIE (e. g. , interest rate swaps, crosscurrency swaps, or where the Company is the purchaser of credit protection under a credit default swap or total return swap where the Company pays the total return on certain assets to the SPE).
+Receivables under such arrangements are not included in the maximum exposure amounts.
+Funding Commitments for Significant Unconsolidated VIEs— Liquidity Facilities and Loan Commitments The following table presents the notional amount of liquidity facilities and loan commitments that are classified as funding commitments in the SPE table as of December 31, 2009:
+## Table 1 ##
+[mhdev_0029_table_1.csv](mhdev_0029_table_1.csv)
+TRANSACTION SERVICES Transaction Services is composed of Treasury and Trade Solutions (TTS) and Securities and Fund Services (SFS).
+TTS provides comprehensive cash management and trade finance for corporations, financial institutions and public sector entities worldwide.
+SFS provides custody and funds services to investors such as insurance companies and mutual funds, clearing services to intermediaries such as broker-dealers, and depository and agency/trust services to multinational corporations and governments globally.
+Revenue is generated from net interest revenue on deposits in TTS and SFS, as well as trade loans and from fees for transaction processing and fees on assets under custody in SFS.
+## Table 2 ##
+[mhdev_0029_table_2.csv](mhdev_0029_table_2.csv)
+2009 vs.  2008 Revenues, net of interest expense declined 2% compared to 2008 as strong growth in balances was more than offset by lower spreads driven by low interest rates globally.
+Average deposits and other customer liability balances grew 8%, driven by strong growth in all regions.
+Treasury and Trade Solutions revenues grew 7% as a result of strong growth in balances and higher trade revenues.
+Securities and Funds Services revenues declined 18%, attributable to reductions in asset valuations and volumes.
+Operating expenses declined 12%, mainly as a result of headcount reductions and successful execution of reengineering initiatives.
+Cost of credit declined 80%, which was primarily attributable to overall portfolio management.
+Net income increased 12%, leading to a record net income, with growth across all regions reflecting benefits of continued re-engineering and expense management efforts.2008 vs.  2007 Revenues, net of interest expense grew 23% driven by new business and implementations, growth in customer liability balances, increased transaction volumes and the impact of acquisitions.
+Average deposits and other customer liability balances grew 14% driven by success of new business growth and implementations.
+Treasury and Trade Solutions revenues grew 26% as a result of strong liability and fee growth as well as increased client penetration.
+Securities and Funds Services revenues grew 17% as a result of increased assets under custody, volumes and liability balances.2010 Outlook Transaction Services business performance will continue to be impacted in 2010 by levels of interest rates, economic activity, volatility in global capital markets, foreign exchange and market valuations globally.
+Levels of client activity and client cash and security flows are key factors dependent on macroeconomic conditions.
+Transaction Services intends to continue to invest in technology to support its global network, as well as investments to build out its investor services suite of products aimed at large, underpenetrated markets for middle and back office outsourcing among a range of investors.
+These and similar investments could lead to increasing operating expenses.
+BROKERAGE AND ASSET MANAGEMENT Brokerage and Asset Management (BAM), which constituted approximately 6% of Citi Holdings by assets as of December 31, 2009, consists of Citi’s global retail brokerage and asset management businesses.
+This segment was substantially affected and reduced in size in 2009 due to the divestitures of Smith Barney (to the Morgan Stanley Smith Barney joint venture (MSSB JV)) and Nikko Cordial Securities.
+At December 31, 2009, BAM had approximately $35 billion of assets, which included $26 billion of assets from the 49% interest in the MSSB JV ($13 billion investment and $13 billion in loans associated with the clients of the MSSB JV) and $9 billion of assets from a diverse set of asset management and insurance businesses of which approximately half will be transferred into the LATAM RCB during the first quarter of 2010, as discussed under “Citi Holdings” above.
+Morgan Stanley has options to purchase Citi’s remaining stake in the MSSB JV over three years starting in 2012.
+The 2009 results include an $11.1 billion gain ($6.7 billion after-tax) on the sale of Smith Barney.
+Table of Contents NOTES TO CONSOLIDATED FINANCIAL STATEMENTS OF AMERICAN AIRLINES, INC.  the asset.
+Projected cash flows are discounted at a required market rate of return that reflects the relative risk of achieving the cash flows and the time value of money.
+The cost approach, which estimates value by determining the current cost of replacing an asset with another of equivalent economic utility, was used, as appropriate, for certain assets for which the market and income approaches could not be applied due to the nature of the asset.
+The cost to replace a given asset reflects the estimated reproduction or replacement cost for the asset, less an allowance for loss in value due to depreciation.
+The fair value of US Airways’ Dividend Miles loyalty program liability was determined based on the weighted average equivalent ticket value of outstanding miles which were expected to be redeemed for future travel at December 9, 2013.
+The weighted average equivalent ticket value contemplates differing classes of service, domestic and international itineraries and the carrier providing the award travel.
+Pro-forma Impact of the Merger American’s unaudited pro-forma results presented below include the effects of the Merger as if it had been consummated as of January 1, 2012.
+The pro- forma results include the depreciation and amortization associated with the acquired tangible and intangible assets, lease and debt fair value adjustments, the elimination of any deferred gains or losses, adjustments relating to reflecting the fair value of the loyalty program liability and the impact of income changes on profit sharing expense, among others.
+In addition, the pro-forma results below reflect the impact of higher wage rates related to memorandums of understanding with US Airways’ pilots that became effective upon closing of the Merger, as well as the elimination of American’s reorganization items, net and Merger transition costs.
+However, the pro-forma results do not include any anticipated synergies or other expected benefits of the Merger.
+Accordingly, the unaudited pro-forma financial information below is not necessarily indicative of either future results of operations or results that might have been achieved had the acquisition been consummated as of January 1, 2012.
+## Table 0 ##
+[mhdev_0030_table_0.csv](mhdev_0030_table_0.csv)
+5.
+Basis of Presentation and Summary of Significant Accounting Policies (a) Basis of Presentation On December 30, 2015, US Airways merged with and into American, which is reflected in American’s consolidated financial statements as though the transaction had occurred on December 9, 2013, when a subsidiary of AMR merged with and into US Airways Group.
+Thus, the full years of 2015 and 2014 and the period from December 9, 2013 to December 31, 2013 are comprised of the consolidated financial data of American and US Airways.
+For the periods prior to December 9, 2013, the financial data reflects the results of American only.
+For financial reporting purposes, the transaction constituted a transfer of assets between entities under common control and was accounted for in a manner similar to the pooling of interests method of accounting.
+Under this method, the carrying amount of net assets recognized in the balance sheets of each combining entity are carried forward to the balance sheet of the combined entity and no other assets or liabilities are recognized.
+The preparation of financial statements in accordance with accounting principles generally accepted in the United States (GAAP) requires management to make certain estimates and assumptions that affect the reported amounts of assets and liabilities, revenues and expenses, and the disclosure of contingent assets and liabilities at the date of the financial statements.
+Actual results could differ from those estimates.
+The most significant areas of judgment relate to passenger revenue recognition, impairment of goodwill, impairment of long-lived and
+The following tables set forth the income yield and investment income, excluding realized investment gains (losses) and non-hedge accounting derivative results, for each major investment category of our Japanese operations’ general account for the periods indicated.
+## Table 1 ##
+[mhdev_0030_table_1.csv](mhdev_0030_table_1.csv)
+(1) Yields are based on quarterly average carrying values except for fixed maturities, equity securities and securities lending activity.
+Yields for fixed maturities are based on amortized cost.
+Yields for equity securities are based on cost.
+Yields for fixed maturities and short-term investments and cash equivalents are calculated net of liabilities and rebate expenses corresponding to securities lending activity.
+Yields exclude investment income on assets other than those included in invested assets.
+Prior periods yields are presented on a basis consistent with the current period presentation.
+The decrease in yield on the Japanese insurance portfolio for 2009 compared to 2008 is primarily attributable to lower fixed maturity reinvestment rates, including the reinvestment of proceeds realized from certain capital actions and a lower short-term interest rate environment both in the U. S.  and Japan.
+The U. S.  dollar denominated fixed maturities that are not hedged to yen through third party derivative contracts provide a yield that is substantially higher than the yield on comparable Japanese fixed maturities.
+The average value of U. S.  dollar denominated fixed maturities that are not hedged to yen through third party derivative contracts for 2009 and 2008 was approximately $10.1 billion and $9.9 billion, respectively, based on amortized cost.
+For additional information regarding U. S.  dollar investments held in our Japanese insurance operations see, “—Results of Operations for Financial Services Businesses by Segment— International Insurance and Investments Division.
+” Fixed Maturity Securities Investment Mix Our fixed maturity securities portfolio consists of publicly-traded and privately-placed debt securities across an array of industry categories.
+The fixed maturity securities relating to our international insurance operations are primarily comprised of foreign government securities.
+We manage our public portfolio to a risk profile directed or overseen by the Asset Liability Management and Risk Management groups and, in the case of our international insurance portfolios, to a profile that also reflects the local market environment.
+The investment objectives for fixed maturity securities are consistent with those described above.
+The total return that we earn on the portfolio will be reflected both as investment income and also as realized gains or losses on investments.
+We use our private placement and asset-backed portfolios to enhance the diversification and yield of our overall fixed maturity portfolio.
+Within our domestic portfolios, we maintain a private fixed income portfolio that is larger than the industry average as a percentage of total fixed income holdings.
+Over the last several years, our investment staff has directly originated more than half of our annual private placement originations.
+Our origination capability offers the opportunity to lead transactions and gives us the opportunity for better terms, including covenants and call protection, and to take advantage of innovative deal structures.
+(1) Represents net shares issued from treasury pursuant to the Company’s stock-based compensation programs.
+In the event of a liquidation, dissolution or winding-up of the Company, holders of Common Stock would be entitled to receive a proportionate share of the net assets of the Company that remain after paying all liabilities and the liquidation preferences of any preferred stock.
+Common Stock Held in Treasury Common Stock held in treasury is accounted for at average cost.
+Gains resulting from the reissuance of “Common Stock held in treasury” are credited to “Additional paid-in capital.
+” Losses resulting from the reissuance of “Common Stock held in treasury” are charged first to “Additional paid-in capital” to the extent the Company has previously recorded gains on treasury share transactions, then to “Retained earnings.
+”
+## Table 2 ##
+[mhdev_0030_table_2.csv](mhdev_0030_table_2.csv)
+Plan Assets The investment goal of the domestic pension plan assets is to generate an above benchmark return on a diversified portfolio of stocks, bonds and other investments.
+The cash requirements of the pension obligation, which include a traditional formula principally representing payments to annuitants and a cash balance formula that allows lump sum payments and annuity payments, are designed to be met by the bonds and short-term investments in the portfolio.
+The pension plan risk management practices include guidelines for asset concentration, credit rating and liquidity.
+The pension plan does not invest in leveraged derivatives.
+Derivatives such as futures contracts are used to reduce transaction costs and change asset concentration, while interest rate swaps and futures are used to adjust duration.
+The investment goal of the domestic postretirement plan assets is to generate an above benchmark return on a diversified portfolio of stocks, bonds, and other investments, while meeting the cash requirements for the postretirement obligation that includes a medical benefit including prescription drugs, a dental benefit and a life benefit.
+The postretirement plan risk management practices include guidelines for asset concentration, credit rating, liquidity and tax efficiency.
+The postretirement plan does not invest in leveraged derivatives.
+Derivatives such as futures contracts are used to reduce transaction costs and change asset concentration, while interest rate swaps and futures are used to adjust duration.
+The plan fiduciaries for the Company’s pension and postretirement plans have developed guidelines for asset allocations reflecting a percentage of total assets by asset class, which are reviewed on an annual basis.
+Asset allocation targets as of December 31, 2015 are as follows:
+## Table 3 ##
+[mhdev_0030_table_3.csv](mhdev_0030_table_3.csv)
+To implement the investment strategy, plan assets are invested in funds that primarily invest in securities that correspond to one of the asset categories under the investment guidelines.
+However, at any point in time, some of the assets in a fund may be of a different nature than the specified asset category
+PRUDENTIAL FINANCIAL, INC.  Notes to Consolidated Financial Statements 14.
+SHORT-TERM AND LONG-TERM DEBT Short-term Debt The table below presents the Company’s short-term debt at December 31, for the years indicated as follows:
+During 2010, we granted 3.8 million RSUs and 1.1 million Employee SARs.
+See Footnote No.4, “Share-Based Compensation,” of the Notes to our Financial Statements for additional information.
+NEW ACCOUNTING STANDARDS See Footnote No.1, “Summary of Significant Accounting Policies,” of the Notes to our Financial Statements for information related to our adoption of new accounting standards in 2010 and for information on our anticipated adoption of recently issued accounting standards.
+LIQUIDITY AND CAPITAL RESOURCES Cash Requirements and Our Credit Facilities Our Credit Facility, which expires on May 14, 2012, and associated letters of credit, provide for $2.4 billion of aggregate effective borrowings.
+Borrowings under the Credit Facility bear interest at the London Interbank Offered Rate (LIBOR) plus a fixed spread based on the credit ratings for our public debt.
+We also pay quarterly fees on the Credit Facility at a rate based on our public debt rating.
+For additional information on our Credit Facility, including participating financial institutions, see Exhibit 10, “Amended and Restated Credit Agreement,” to our Current Report on Form 8-K filed with the SEC on May 16, 2007.
+Although our Credit Facility does not expire until 2012, we expect that we may extend or replace it during 2011.
+The Credit Facility contains certain covenants, including a single financial covenant that limits our maximum leverage (consisting of Adjusted Total Debt to Consolidated EBITDA, each as defined in the Credit Facility) to not more than 4 to 1.
+Our outstanding public debt does not contain a corresponding financial covenant or a requirement that we maintain certain financial ratios.
+We currently satisfy the covenants in our Credit Facility and public debt instruments, including the leverage covenant under the Credit Facility, and do not expect the covenants to restrict our ability to meet our anticipated borrowing and guarantee levels or increase those levels should we need to do so in the future.
+We believe the Credit Facility, together with cash we expect to generate from operations and our ability to raise capital, remains adequate to meet our short-term and long-term liquidity requirements, finance our long-term growth plans, meet debt service, and fulfill other cash requirements.
+At year-end 2010, our available borrowing capacity amounted to $2.831 billion and reflected borrowing capacity of $2.326 billion under our Credit Facility and our cash balance of $505 million.
+We calculate that borrowing capacity by taking $2.404 billion of effective aggregate bank commitments under our Credit Facility and subtracting $78 million of outstanding letters of credit under our Credit Facility.
+During 2010, we repaid our outstanding Credit Facility borrowings and had no outstanding balance at year-end.
+As noted in the previous paragraphs, we anticipate that this available capacity will be adequate to fund our liquidity needs.
+Since we continue to have ample flexibility under the Credit Facility’s covenants, we also expect that undrawn bank commitments under the Credit Facility will remain available to us even if business conditions were to deteriorate markedly.
+Cash from Operations Cash from operations, depreciation expense, and amortization expense for the last three fiscal years are as follows:
+## Table 0 ##
+[mhdev_0031_table_0.csv](mhdev_0031_table_0.csv)
+Our ratio of current assets to current liabilities was roughly 1.4 to 1.0 at year-end 2010 and 1.2 to 1.0 at year-end 2009.
+We minimize working capital through cash management, strict credit-granting policies, and aggressive collection efforts.
+We also have significant borrowing capacity under our Credit Facility should we need additional working capital.
+Principal Financial Group, Inc.  Notes to Consolidated Financial Statements — (continued) 4.
+Variable Interest Entities — (continued) the credit-linked note if cumulative losses exceeded the subordination of a synthetic reference portfolio.
+As of December 31, 2008, the credit default swap entered into by the trust had an outstanding notional amount of $130.0 million.
+The credit default swap counterparties of the grantor trusts had no recourse to our assets.
+In October 2009, the grantor trust was terminated and we received $122.2 million in cash.
+We determined that this grantor trust was a VIE and that we were the primary beneficiary of the trust as we were the sole investor in the trust and the manager of the synthetic reference portfolios.
+Upon consolidation of the trust, as of December 31, 2008, our consolidated statements of financial position included $93.5 million of available-for-sale fixed maturity securities, which represented the collateral held by the trust.
+The assets of the trust were held by a trustee and could only be liquidated to settle obligations of the trust.
+These obligations included losses on the synthetic reference portfolio and the return of investments due to maturity or termination of the trust.
+As of December 31, 2008, our consolidated statements of financial position included $53.4 million of other liabilities representing derivative market values of the trust.
+During the year December 31, 2008 and 2007, the credit default swaps had a change in fair value that resulted in a $54.5 million pre-tax loss and $3.2 million pre-tax loss, respectively.
+During the year ended December 31, 2009, we recognized a pre-tax gain of $49.8 million related to the change in fair value and termination of the credit default swaps.
+Grantor Trusts.
+We contributed undated subordinated floating rate notes to three grantor trusts.
+The trusts separated the cash flows of the underlying $425.9 million par value notes by issuing an interest-only certificate and a residual certificate related to each note contributed.
+Each interest-only certificate entitles the holder to interest on the stated note for a specified term while the residual certificate entitles the holder to interest payments subsequent to the term of the interest-only certificate and to all principal payments.
+We retained the interest-only certificate and the residual certificates were subsequently sold to a third party.
+We have determined that these grantor trusts are VIEs as our interest-only certificates are exposed to the majority of the risk of loss due to interest rate risk.
+The restricted interest periods end between 2016 and 2020 and, at that time, the residual certificate holders’ certificates are redeemed by the trust in return for the notes.
+We have determined that it will be necessary for us to consolidate these entities until the expiration of the interest-only period.
+As of December 31, 2009 and 2008, our consolidated statements of financial position include $226.6 million and $212.2 million, respectively, of undated subordinated floating rate notes of the grantor trusts, which are classified as available-for-sale fixed maturity securities and represent the collateral held by the trust.
+The obligation to deliver the underlying securities to the residual certificate holders of $89.1 million and $103.8 million as of December 31, 2009 and 2008, respectively, is classified as an other liability and contains an embedded derivative of the forecasted transaction to deliver the underlying securities.
+The creditors of the grantor trusts have no recourse to our assets.
+Other.
+In addition to the entities above, we have a number of relationships with a disparate group of entities, which meet the criteria for VIEs.
+Due to the nature of our direct investment in the equity and/or debt of these VIEs, we are the primary beneficiary of such entities, which requires us to consolidate them.
+These entities include five private investment vehicles and several hedge funds.
+The consolidation of these VIEs did not have a material effect on either our consolidated statements of financial position as of December 31, 2009 or 2008, or results of operations for the years ended December 31, 2009, 2008 and 2007.
+For these entities, the creditors have no recourse to our assets.
+The carrying amount and classification of other consolidated VIE assets that are pledged as collateral that the VIEs have designated for their other obligations and the debt of the VIEs are as follows:
+## Table 1 ##
+[mhdev_0031_table_1.csv](mhdev_0031_table_1.csv)
+The assets of the trusts are held by a trustee and can only be liquidated to settle obligations of the trusts.
+These obligations primarily include unrealized losses on derivatives, the synthetic reference portfolios or financial guarantees and the return of investments due to maturity or termination of the trusts.
+As of December 31, 2009 and 2008, these
+Principal Financial Group, Inc.  Notes to Consolidated Financial Statements — (continued) 5.
+Investments — (continued) Each reporting period, all securities are reviewed to determine whether an other-than-temporary decline in value exists and whether losses should be recognized.
+We consider relevant facts and circumstances in evaluating whether a credit or interest rate-related impairment of a security is other than temporary.
+Relevant facts and circumstances considered include: (1) the extent and length of time the fair value has been below cost; (2) the reasons for the decline in value; (3) the financial position and access to capital of the issuer, including the current and future impact of any specific events and (4) for fixed maturity securities, our intent to sell a security or whether it is more likely than not we will be required to sell the security before the recovery of its amortized cost which, in some cases, may extend to maturity and for equity securities, our ability and intent to hold the security for a period of time that allows for the recovery in value.
+Prior to 2009, our ability and intent to hold fixed maturity securities for a period of time that allowed for a recovery in value was considered rather than our intent to sell these securities.
+To the extent we determine that a security is deemed to be other than temporarily impaired, an impairment loss is recognized.
+Impairment losses on equity securities are recognized in net income and are measured as the difference between amortized cost and fair value.
+The way in which impairment losses on fixed maturity securities are now recognized in the financial statements is dependent on the facts and circumstances related to the specific security.
+If we intend to sell a security or it is more likely than not that we would be required to sell a security before the recovery of its amortized cost, less any current period credit loss, we recognize an other-than-temporary impairment in net income for the difference between amortized cost and fair value.
+If we do not expect to recover the amortized cost basis, we do not plan to sell the security and if it is not more likely than not that we would be required to sell a security before the recovery of its amortized cost, less any current period credit loss, the recognition of the other-than-temporary impairment is bifurcated.
+We recognize the credit loss portion in net income and the noncredit loss portion in OCI.
+Prior to 2009, other-than-temporary impairments on fixed maturity securities were recorded in net income in their entirety and the amount recognized was the difference between amortized cost and fair value.
+We estimate the amount of the credit loss component of a fixed maturity security impairment as the difference between amortized cost and the present value of the expected cash flows of the security.
+The present value is determined using the best estimate cash flows discounted at the effective interest rate implicit to the security at the date of purchase or the current yield to accrete an asset-backed or floating rate security.
+The methodology and assumptions for establishing the best estimate cash flows vary depending on the type of security.
+The asset-backed securities cash flow estimates are based on bond specific facts and circumstances that may include collateral characteristics, expectations of delinquency and default rates, loss severity and prepayment speeds and structural support, including subordination and guarantees.
+The corporate bond cash flow estimates are derived from scenario-based outcomes of expected corporate restructurings or liquidations using bond specific facts and circumstances including timing, security interests and loss severity.
+Total other-than-temporary impairment losses, net of recoveries from the sale of previously impaired securities, were as follows:
+## Table 2 ##
+[mhdev_0031_table_2.csv](mhdev_0031_table_2.csv)
+Principal Financial Group, Inc.  Notes to Consolidated Financial Statements — (continued) 10.
+Debt — (continued) Long-Term Debt The components of long-term debt as of December 31, 2009 and 2008, were as follows:
+## Table 3 ##
+[mhdev_0031_table_3.csv](mhdev_0031_table_3.csv)
+The amounts included above are net of the discount and premium associated with issuing these notes, which are being amortized to expense over their respective terms using the interest method.
+On May 18, 2009, we issued $750.0 million of senior notes.
+We issued a $400.0 million series of notes that bear interest at 7.875% and will mature on May 15, 2014, and a $350.0 million series of notes that bear interest at 8.875% and will mature on May 15, 2019.
+Interest on the notes is payable semi-annually on May 15 and November 15 each year, beginning on November 15, 2009.
+The proceeds were primarily used to refinance $440.9 million of notes that matured on August 15, 2009, with the remaining proceeds being used for general corporate purposes.
+On October 16 and December 5, 2006, we issued $500.0 million and $100.0 million, respectively, of senior notes.
+The notes bear interest at a rate of 6.05% per year.
+Interest on the notes is payable semi-annually on April 15 and October 15 each year and began on April 15, 2007.
+The notes will mature on October 15, 2036.
+A portion of the proceeds were used to fund the 2006 acquisition of WM Advisors, Inc. , with the remaining proceeds being used for general corporate purposes.
+On November 3, 2005, Principal International de Chile S. A. , a wholly owned indirect subsidiary, entered into long-term borrowing agreements with two Chilean banks in the amount of US $93.9 million.
+This debt is denominated in Unidades de Formento (‘‘UF’’), a Chilean inflation-indexed, peso-denominated monetary unit.
+Of this amount, US $49.0 million of UF +3.31% notes, which was refinanced from +4.59% during 2007, and US $44.9 million of UF +3.63% notes, which was refinanced from +4.93% in 2007, mature on November 3, 2011.
+Interest on the notes is payable semi-annually on May 3 and November 3 each year.
+The debt outstanding and interest expense will vary due to fluctuations in the Chilean peso to US dollar exchange rates and Chilean inflation.
+On August 25, 1999, Principal Financial Group (Australia) Holdings Pty.
+Limited, a wholly owned indirect subsidiary, issued $665.0 million of unsecured redeemable long-term debt.
+Principal Financial Group (Australia) Holdings Pty.
+Limited used the net proceeds from the notes to partially fund the purchase of the outstanding stock of several companies affiliated with Bankers Trust Australia Group.
+On December 28, 2001, all of the long-term debt obligations of Principal Financial Group (Australia) Holdings Pty.
+Limited were assumed by its parent, Principal Financial Services, Inc.  Of the original amount issued, $200.0 million of 7.95% notes matured on August 15, 2004, with the remaining $465.0 million in 8.2% notes maturing on August 15, 2009.
+The note was paid in full during 2009.
+On March 10, 1994, Principal Life issued $100.0 million of surplus notes due March 1, 2044, at an 8% annual interest rate.
+None of our affiliates hold any portion of the notes.
+Each payment of interest and principal on the notes, however, may be made only with the prior approval of the Commissioner of Insurance of the State of Iowa (the ‘‘Commissioner’’) and only to the extent that Principal Life has sufficient surplus earnings to make such payments.
+Interest of $8.0 million for each of the years ended December 31, 2009, 2008 and 2007 was approved by the Commissioner, and charged to expense.
+Subject to Commissioner approval, the notes due March 1, 2044, may be redeemed at Principal Life’s election on or after March 1, 2014, in whole or in part at a redemption price of approximately 102.3% of par.
+The approximate 2.3% premium is scheduled to gradually diminish over the following ten years.
+These notes may be redeemed on or after March 1, 2024, at a redemption price of 100% of the principal amount plus interest accrued to the date of redemption.
+The non-recourse mortgages, other mortgages and notes payable are primarily financings for real estate developments.
+Outstanding principal balances as of December 31, 2009, ranged from $5.9 million to $9.1 million per
+## Table 4 ##
+[mhdev_0031_table_4.csv](mhdev_0031_table_4.csv)
+The following tables present the carrying amount and the gross unrealized losses, including other-than-temporary impairment losses reported in OCI, on below investment grade fixed maturity securities available-for-sale by aging category for the time periods indicated.
+## Table 5 ##
+[mhdev_0031_table_5.csv](mhdev_0031_table_5.csv)
+December 31, 2008
+## Table 6 ##
+[mhdev_0031_table_6.csv](mhdev_0031_table_6.csv)
+The following tables present the carrying amount and the gross unrealized losses, including other-than-temporary impairment losses reported in OCI, on fixed maturity securities available-for-sale where the estimated fair value has declined and remained below amortized cost by 20% or more as the time periods indicate.
+Other Liquidity Items Cash payments required for long-term debt maturities, rental payments under noncancellable operating leases, purchase obligations and other commitments in effect at December 31, 2010, are summarized in the following table:
+## Table 0 ##
+[mhdev_0032_table_0.csv](mhdev_0032_table_0.csv)
+(a) Amounts reported in local currencies have been translated at the year-end 2010 exchange rates.
+(b) For variable rate facilities, amounts are based on interest rates in effect at year end and do not contemplate the effects of hedging instruments.
+(c) The company’s purchase obligations include contracted amounts for aluminum, steel and other direct materials.
+Also included are commitments for purchases of natural gas and electricity, aerospace and technologies contracts and other less significant items.
+In cases where variable prices and/or usage are involved, management’s best estimates have been used.
+Depending on the circumstances, early termination of the contracts may or may not result in penalties and, therefore, actual payments could vary significantly.
+The table above does not include $60.1 million of uncertain tax positions, the timing of which is uncertain.
+Contributions to the company’s defined benefit pension plans, not including the unfunded German plans, are expected to be in the range of $30 million in 2011.
+This estimate may change based on changes in the Pension Protection Act and actual plan asset performance, among other factors.
+Benefit payments related to these plans are expected to be $71.4 million, $74.0 million, $77.1 million, $80.3 million and $84.9 million for the years ending December 31, 2011 through 2015, respectively, and a total of $483.1 million for the years 2016 through 2020.
+Payments to participants in the unfunded Other Liquidity Items Cash payments required for long-term debt maturities, rental payments under noncancellable operating leases, purchase obligations and other commitments in effect at December 31, 2010, are summarized in the following table:
+(a) Amounts reported in local currencies have been translated at the year-end 2010 exchange rates.
+(b) For variable rate facilities, amounts are based on interest rates in effect at year end and do not contemplate the effects of hedging instruments.
+(c) The company¡¯s purchase obligations include contracted amounts for aluminum, steel and other direct materials.
+Also included are commitments for purchases of natural gas and electricity, aerospace and technologies contracts and other less significant items.
+In cases where variable prices and/or usage are involved, management¡¯s best estimates have been used.
+Depending on the circumstances, early termination of the contracts may or may not result in penalties and, therefore, actual payments could vary significantly.
+The table above does not include $60.1 million of uncertain tax positions, the timing of which is uncertain.
+Contributions to the company¡¯s defined benefit pension plans, not including the unfunded German plans, are expected to be in the range of $30 million in 2011.
+This estimate may change based on changes in the Pension Protection Act and actual plan asset performance, among other factors.
+Benefit payments related to these plans are expected to be $71.4 million, $74.0 million, $77.1 million, $80.3 million and $84.9 million for the years ending December 31, 2011 through 2015, respectively, and a total of $483.1 million for the years 2016 through 2020.
+Payments to participants in the unfunded German plans are expected to be between $21.8 million (€16.5 million) to $23.2 million (€17.5 million) in each of the years 2011 through 2015 and a total of $102.7 million (€77.5 million) for the years 2016 through 2020.
+For the U. S.  pension plans in 2011, we changed our return on asset assumption to 8.00 percent (from 8.25 percent in 2010) and our discount rate assumption to an average of 5.55 percent (from 6.00 percent in 2010).
+Based on the changes in assumptions, pension expense in 2011 is anticipated to be relatively flat compared to 2010.
+A reduction of the expected return on pension assets assumption by a quarter of a percentage point would result in an estimated $2.9 million increase in the 2011 global pension expense, while a quarter of a percentage point reduction in the discount rate applied to the pension liability would result in an estimated $3.5 million of additional pension expense in 2011.
+Additional information regarding the company¡¯s pension plans is provided in Note 14 accompanying the consolidated financial statements within Item 8 of this report.
+Annual cash dividends paid on common stock were 20 cents per share in 2010, 2009 and 2008.
+Total dividends paid were $35.8 million in 2010, $37.4 million in 2009 and $37.5 million in 2008.
+On January 26, 2011, the company¡¯s board of directors approved an increase in the quarterly dividends to 7 cents per share.
+Share Repurchases Our share repurchases, net of issuances, totaled $506.7 million in 2010, $5.1 million in 2009 and $299.6 million in 2008.
+On November 2, 2010, we acquired 2,775,408 shares of our publicly held common stock in a private transaction for $88.8 million.
+On February 17, 2010, we entered into an accelerated share repurchase agreement to buy $125.0 million of our common shares using cash on hand and available borrowings.
+We advanced the $125.0 million on February 22, 2010, and received 4,323,598 shares, which represented 90 percent of the total shares as calculated using the previous day¡¯s closing price.
+The agreement was settled on May 20, 2010, and the company received an additional 398,206 shares.
+Net repurchases in 2008 included a $31 million settlement on January 7, 2008, of a forward contract entered into in December 2007 for the repurchase of 1,350,000 shares.
+From January 1 through February 24, 2011, Ball repurchased an additional $143.3 million of its common stock.
+Table of Contents into U. S.  Dollars using the spot foreign exchange rate in effect on the exercise date.
+Upon the exercise of share options, the company either issues new shares or can utilize shares held in treasury (see Note 10, “Share Capital”) to satisfy the exercise.
+The share option plans provided for a grant price equal to the quoted market price of the company's shares on the date of grant.
+If the options remain unexercised after a period of 10 years from the date of grant, the options expire.
+Furthermore, options are forfeited if the employee leaves the company before the options vest.
+All options outstanding at December 31, 2011were exercisable and had a range of exercise prices from ￡6.39 to ￡19.19, and weighted average remaining contractual life of 2.62 years.
+The total intrinsic value of options exercised during the years ended December 31, 2011, 2010, and 2009, was $9.2 million, $18.5 million, and $20.7 million, respectively.
+At December 31, 2011, the aggregate intrinsic value of options outstanding and options exercisable was $36.3 million.
+The market price of the company's common stock at December 31, 2011 was $20.09 (December 31, 2010: $24.06).
+Changes in outstanding share option awards are as follows:
+## Table 1 ##
+[mhdev_0032_table_1.csv](mhdev_0032_table_1.csv)
+13.
+RETIREMENT BENEFIT PLANS Defined Contribution Plans The company operates defined contribution retirement benefit plans for all qualifying employees.
+The assets of the plans are held separately from those of the company in funds under the control of trustees.
+When employees leave the plans prior to vesting fully in the contributions, the contributions payable by the company are reduced by the amount of forfeited contributions.
+The total amounts charged to the Consolidated Statements of Income for the year ended December 31, 2011, of $53.2 million (December 31, 2010: $47.0 million, 2009: $43.6 million) represent contributions paid or payable to these plans by the company at rates specified in the rules of the plans.
+As of December 31, 2011, accrued contributions of $20.0 million (December 31, 2010: $18.9 million) for the current year will be paid to the plans.
+Defined Benefit Plans The company maintains legacy defined benefit pension plans for qualifying employees of its subsidiaries in the U. K. , Ireland, Germany and Taiwan.
+All defined benefit plans are closed to new participants.
+The company also maintains a postretirement medical plan in the U. S. , which was closed to new participants in 2005.
+In 2006, the plan was amended to eliminate benefits for all participants who will not meet retirement eligibility by 2008.
+The assets of all defined benefit schemes are held in separate trustee-administered funds.
+Under the plans, the employees are generally entitled to retirement benefits based on final salary at retirement.
+The most recent actuarial valuations of plan assets and the present value of the defined benefit obligation were valued as of December 31, 2011.
+The benefit obligation, related current service cost and prior service cost were measured using the projected unit credit method.
+## Table 2 ##
+[mhdev_0032_table_2.csv](mhdev_0032_table_2.csv)
+(1) The Before Consolidation column includes Invesco's equity interests in the investment products accounted for as equity method (private equity and real estate partnership funds) and available-for-sale investments (CLOs).
+Upon consolidation of the CLOs, the company's and the CLOs' accounting policies are effectively aligned, resulting in the reclassification of the company's gain for the year ended December 31, 2011 of $20.3 million (representing the increase in the market value of the company's holding in the consolidated CLOs) from other comprehensive income into other gains/losses (year ended December 31, 2010: $6.4 million).
+The company's gain on its investment in the CLOs (before consolidation) eliminates with the company's share of the offsetting loss on the CLOs' debt.
+The net income arising from consolidation of CLOs is therefore completely attributed to other investors in these CLOs, as the company's share has been eliminated through consolidation.
+The Before Consolidation column does not include any other adjustments related to non-GAAPfinancial measure presentation.
+(2) Adjustments include the elimination of intercompany transactions between the company and its consolidated investment products, primarily the elimination of management fees expensed by the funds and recorded as operating revenues (before consolidation) by the company.
+Operating Revenues and Net Revenues The main categories of revenues, and the dollar and percentage change between the periods, are as follows:
+## Table 3 ##
+[mhdev_0032_table_3.csv](mhdev_0032_table_3.csv)
+Operating revenues increased by 17.3% in the year ended December 31, 2011 to $4,092.2 million (year ended December 31, 2010: $3,487.7 million).
+Net revenues increased by 15.0% in in the year ended December 31, 2011 to $2,898.4 million (year ended December 31, 2010: $2,521.1 million).
+Net revenues are operating revenues less third-party distribution, service and advisory expenses, plus our proportional share of net revenues from joint venture arrangements, plus management and performance fees
+Table of Contents both probable and reasonably estimable.
+We must from time to time make material estimates with respect to legal and other contingencies.
+The nature of our business requires compliance with various state and federal statutes, as well as various contractual obligations, and exposes us to a variety of legal proceedings and matters in the ordinary course of business.
+While the outcomes of matters such as these are inherently uncertain and difficult to predict, we maintain reserves reflected in other current and other non-current liabilities, as appropriate, for identified losses that are, in our judgment, probable and reasonably estimable.
+Management's judgment is based on the advice of legal counsel, ruling on various motions by the applicable court, review of the outcome of similar matters, if applicable, and review of guidance from state or federal agencies, if applicable.
+Contingent consideration payable in relation to a business acquisition is recorded as of the acquisition date as part of the fair value transferred in exchange for the acquired business.
+Recent Accounting Standards See Item 8, Financial Statements and Supplementary Data - Note 1, “Accounting Policies - Accounting Pronouncements Recently Adopted and Pending Accounting Pronouncements.
+” Item 7A.
+Quantitative and Qualitative Disclosures About Market Risk In the normal course of its business, the company is primarily exposed to market risk in the form of securities market risk, interest rate risk, and foreign exchange rate risk.
+AUM Market Price Risk The company's investment management revenues are comprised of fees based on a percentage of the value of AUM.
+Declines in equity or fixed income security market prices could cause revenues to decline because of lower investment management fees by: ?
+Causing the value of AUM to decrease.  ?
+Causing the returns realized on AUM to decrease (impacting performance fees).  ?
+Causing clients to withdraw funds in favor of investments in markets that they perceive to offer greater opportunity and that the company does not serve.  ?
+Causing clients to rebalance assets away from investments that the company manages into investments that the company does not manage.  ?
+Causing clients to reallocate assets away from products that earn higher revenues into products that earn lower revenues.
+Underperformance of client accounts relative to competing products could exacerbate these factors.
+Securities Market Risk The company has investments in sponsored investment products that invest in a variety of asset classes.
+Investments are generally made to establish a track record or to hedge economically exposure to certain deferred compensation plans.
+The company's exposure to market risk arises from its investments.
+The following table summarizes the fair values of the investments exposed to market risk and provides a sensitivity analysis of the estimated fair values of those investments, assuming a 20% increase or decrease in fair values:
+The following table sets forth information concerning increases in the total number of our AAP stores during the past five years:
+## Table 0 ##
+[mhdev_0033_table_0.csv](mhdev_0033_table_0.csv)
+(1) Does not include stores that opened as relocations of previously existing stores within the same general market area or substantial renovations of stores.6WRUH7HFKQRORJ\ Our store-based information systems, which are designed to improve the efficiency of our operations and enhance customer service, are comprised of a proprietary POS system and electronic parts catalog, or EPC, system.
+Information maintained by our POS system is used to formulate pricing, marketing and merchandising strategies and to replenish inventory accurately and rapidly.
+Our POS system is fully integrated with our EPC system and enables our store Team Members to assist our customers in their parts selection and ordering based on the year, make, model and engine type of their vehicles.
+Our centrally-based EPC data management system enables us to reduce the time needed to (i) exchange data with our vendors and (ii) catalog and deliver updated, accurate parts information.
+Our EPC system also contains enhanced search engines and user-friendly navigation tools that enhance our Team Members' ability to look up any needed parts as well as additional products the customer needs to complete an automotive repair project.
+If a hard-to-find part or accessory is not available at one of our stores, the EPC system can determine whether the part is carried and in-stock through our HUB or PDQ?
+networks or can be ordered directly from one of our vendors.
+Available parts and accessories are then ordered electronically from another store, HUB, PDQ?
+or directly from the vendor with immediate confirmation of price, availability and estimated delivery time.
+We also support our store operations with additional proprietary systems and customer driven labor scheduling capabilities.
+Our store-level inventory management system provides real-time inventory tracking at the store level.
+With the store-level system, store Team Members can check the quantity of on-hand inventory for any SKU, adjust stock levels for select items for store specific events, automatically process returns and defective merchandise, designate SKUs for cycle counts and track merchandise transfers.
+Our stores use radio frequency hand-held devices to help ensure the accuracy of our inventory.
+Our standard operating procedure, or SOP, system is a web-based, electronic data management system that provides our Team Members with instant access to any of our standard operating procedures through a comprehensive on-line search function.
+All of these systems are tightly integrated and provide real-time, comprehensive information to store personnel, resulting in improved customer service levels, Team Member productivity and in-stock availability.6WRUH6XSSRUW&HQWHU 0HUFKDQGLVLQJ Purchasing for virtually all of the merchandise for our stores is handled by our merchandise teams located in three primary locations: ?
+Store support center in Roanoke, Virginia; ?
+Regional office in Minneapolis, Minnesota; and ?
+Global sourcing office in Taipei, Taiwan.
+Our Roanoke team is primarily responsible for the parts categories and our Minnesota team is primarily responsible for accessories, oil and chemicals.
+Our global sourcing team works closely with both teams.
+In Fiscal 2011, we purchased merchandise from approximately 500 vendors, with no single vendor accounting for more than 9% of purchases.
+Our purchasing strategy involves negotiating agreements with most of our vendors to purchase merchandise over a specified period of time along with other terms, including pricing, payment terms and volume.
+The merchandising team has developed strong vendor relationships in the industry and, in a collaborative effort with our vendor partners, utilizes a category management process where we manage the mix of our product offerings to meet customer demand.
+We believe this process, which develops a customer-focused business plan for each merchandise category, and our global sourcing operation are critical to improving comparable store sales, gross margin and inventory productivity.
+There were no new securitizations of home equity loans during 2009 and 2008.
+The following table summarizes selected information related to home equity and automobile loan securitizations at and for the year ended December 31, 2009 and 2008.
+## Table 1 ##
+[mhdev_0033_table_1.csv](mhdev_0033_table_1.csv)
+(1) Net of hedges (2) Repurchases of loans from the trust for home equity loans are typically a result of the Corporation’s representations and warranties, modifications or the exercise of an optional clean-up call.
+In addition, during 2009 and 2008, the Corporation paid $141 million and $34 million to indemnify the investor or insurer under the representations and warranties, and corporate guarantees.
+For further information regarding representations and warranties, and corporate guarantees, see the First Lien Mortgage-related Securitizations discussion.
+Repurchases of automobile loans during 2009 and 2008 were due to the exercise of an optional clean-up call.
+(3) As a holder of these securities, the Corporation receives scheduled interest and principal payments.
+During 2009, there were no other-than-temporary impairment losses recorded on those securities classified as AFS debt securities.
+(4) At December 31, 2009, all of the held senior securities issued by the home equity securitization trusts were valued using quoted market prices and classified as trading account assets.
+At December 31, 2009 and 2008, substantially all of the held senior securities issued by the automobile securitization trusts were valued using quoted market prices and classified as AFS debt securities.
+(5) At December 31, 2009 and 2008, substantially all of the held subordinated securities issued by the home equity securitization trusts were valued using model valuations and classified as AFS debt securities.
+At December 31, 2009 and 2008, substantially all of the held subordinated securities issued by the automobile securitization trusts were valued using quoted market prices and classified as AFS debt securities.
+(6) Residual interests include the residual asset, overcollateralization and cash reserve accounts, which are carried at fair value or amounts that approximate fair value.
+The residual interests were derived using model valuations and substantially all are classified in other assets.
+Under the terms of the Corporation’s home equity securitizations, advances are made to borrowers when they draw on their lines of credit and the Corporation is reimbursed for those advances from the cash flows in the securitization.
+During the revolving period of the securitization, this reimbursement normally occurs within a short period after the advance.
+However, when the securitization transaction has begun a rapid amortization period, reimbursement of the Corporation’s advance occurs only after other parties in the securitization have received all of the cash flows to which they are entitled.
+This has the effect of extending the time period for which the Corporation’s advances are outstanding.
+In particular, if loan losses requiring draws on monoline insurers’ policies, which protect the bondholders in the securitization, exceed a specified threshold or duration, the Corporation may not receive reimbursement for all of the funds advanced to borrowers, as the senior bondholders and the monoline insurers have priority for repayment.
+The Corporation evaluates all of its home equity securitizations for their potential to experience a rapid amortization event by estimating the amount and timing of future losses on the underlying loans, the excess spread available to cover such losses and by evaluating any estimated shortfalls in relation to contractually defined triggers.
+A maximum funding obligation attributable to rapid amortization cannot be calculated as a home equity borrower has the ability to pay down and redraw balances.
+At December 31, 2009 and 2008, home equity securitization transactions in rapid amortization had $14.1 billion and $13.1 billion of trust certificates outstanding.
+This amount is significantly greater than the amount the Corporation expects to fund.
+At December 31, 2009, an additional $1.1 billion of trust certificates outstanding pertain to home equity securitization transactions that are expected to enter rapid amortization during the next 24 months.
+The charges that will ultimately be recorded as a result of the rapid amortization events are dependent on the performance of the loans, the amount of subsequent draws, and the timing of related cash flows.
+At December 31, 2009 and 2008, the reserve for losses on expected future draw obligations on the home equity securitizations in or expected to be in rapid amortization was $178 million and $345 million.
+The Corporation has consumer MSRs from the sale or securitization of home equity loans.
+The Corporation recorded $128 million and $78 million of servicing fee income related to home equity securitizations during 2009 and 2008.
+For more information on MSRs, see Note 22 – Mortgage Servicing Rights.
+At December 31, 2009 and 2008, there were no recognized servicing assets or liabilities associated with any of the automobile securitization transactions.
+The Corporation recorded $43 million and $30 million in servicing fees related to automobile securitizations during 2009 and 2008.
+The Corporation provides financing to certain entities under assetbacked financing arrangements.
+These entities are controlled and consolidated by third parties.
+At December 31, 2009, the principal balance outstanding for these asset-backed financing arrangements was $10.4 billion, the maximum loss exposure was $6.8 billion, and on-balance sheet assets were $6.7 billion which are primarily recorded in loans and leases.
+The total cash flows for 2009 were $491 million and are primarily related to principal and interest payments received.
+NOTE 9 – Variable Interest Entities The Corporation utilizes SPEs in the ordinary course of business to support its own and its customers’ financing and investing needs.
+These SPEs are typically structured as VIEs and are thus subject to consolidation by the reporting enterprise that absorbs the majority of the economic risks and rewards of the VIE.
+To determine whether it must consolidate a VIE, the Corporation qualitatively analyzes the design of the VIE to identify the creators of variability within the VIE, including an assessment as to the nature of the risks that are created by the assets and other contractual arrangements of the VIE, and identifies whether it will absorb a majority of that variability.
+In addition, the Corporation uses VIEs such as trust preferred securities trusts in connection with its funding activities, as described in more detail in Note 13 – Long-term Debt.
+The Corporation also uses VIEs in the form of synthetic securitization vehicles to mitigate a portion of the credit risk on its residential mortgage loan portfolio as described in
+Item 7.
+MANAGEMENT’S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERATIONS - Continued 54 LIQUIDITY AND CAPITAL RESOURCES Cash, cash equivalents and marketable investment securities.
+We consider all liquid investments purchased within 90 days of their maturity to be cash equivalents.
+See “Item 7A.
+– Quantitative and Qualitative Disclosures About Market Risk” for further discussion regarding our marketable investment securities.
+As of December 31, 2008, our cash, cash equivalents and current marketable investment securities totaled $559 million compared to $2.788 billion as of December 31, 2007, a decrease of $2.229 billion.
+Our principal source of liquidity during 2008 was cash generated by operating activities of $2.188 billion, approximately $750 million raised in issuing our 7 ?% Senior Notes due 2015 and the net sales of marketable and strategic investments of $166 million.
+Our primary uses of cash during 2008 were for the redemption of $1.5 billion of debt, the purchases of property and equipment of $1.130 billion, the acquisition of 700 MHz wireless spectrum for $712 million, the distribution of $1.532 billion to EchoStar related to the Spin-off, and the repurchase of 3.1 million shares of our common stock for $83 million.
+In addition, we reclassified $240 million of marketable investment securities on hand at December 31, 2007 to noncurrent assets during 2008 as recent events in the credit markets have reduced or eliminated current liquidity for these investments.
+The following discussion highlights our free cash flow and cash flow activities during the years ended December 31, 2008, 2007 and 2006.
+Free cash flow.
+We define free cash flow as “Net cash flows from operating activities” less “Purchases of property and equipment,” as shown on our Consolidated Statements of Cash Flows.
+We believe free cash flow is an important liquidity metric because it measures, during a given period, the amount of cash generated that is available to repay debt obligations, make investments, fund acquisitions and for certain other activities.
+Free cash flow is not a measure determined in accordance with GAAP and should not be considered a substitute for “Operating income,” “Net income,” “Net cash flows from operating activities” or any other measure determined in accordance with GAAP.
+Since free cash flow includes investments in operating assets, we believe this non-GAAP liquidity measure is useful in addition to the most directly comparable GAAP measure - “Net cash flows from operating activities.
+” During the years ended December 31, 2008, 2007 and 2006, free cash flow was significantly impacted by changes in operating assets and liabilities as shown in the “Net cash flows from operating activities” section of our Consolidated Statements of Cash Flows included herein.
+Operating asset and liability balances can fluctuate significantly from period to period and there can be no assurance that free cash flow will not be negatively impacted by material changes in operating assets and liabilities in future periods, since these changes depend upon, among other things, management’s timing of payments and control of inventory levels, and cash receipts.
+In addition to fluctuations resulting from changes in operating assets and liabilities, free cash flow can vary significantly from period to period depending upon, among other things, subscriber growth, subscriber revenue, subscriber churn, subscriber acquisition costs including amounts capitalized under our equipment lease programs, operating efficiencies, increases or decreases in purchases of property and equipment and other factors.
+The following table reconciles free cash flow to “Net cash flows from operating activities.
+”
+## Table 2 ##
+[mhdev_0033_table_2.csv](mhdev_0033_table_2.csv)
+The decline in free cash flow from 2007 to 2008 of $114 million resulted from a decrease in “Net cash flows from operating activities” of $429 million, or 16.4%, partially offset by a decrease in “Purchases of property and equipment” of $315 million, or 21.8%.
+The decrease in “Net cash flows from operating activities” was primarily attributable to a $351 million decrease in cash resulting from changes in operating assets and liabilities and a $59 million decrease in net income, adjusted to exclude non-cash changes in “Depreciation and amortization” expense and “Realized and
+Notes to Consolidated Financial Statements Note 16.
+Statutory Accounting Practices (Unaudited) CNA’s domestic insurance subsidiaries maintain their accounts in conformity with accounting practices prescribed or permitted by insurance regulatory authorities, which vary in certain respects from GAAP.
+In converting from statutory accounting principles to GAAP, typical adjustments include deferral of policy acquisition costs and the inclusion of net unrealized holding gains or losses in shareholders’ equity relating to certain fixed maturity securities.
+CNA’s insurance subsidiaries are domiciled in various jurisdictions.
+These subsidiaries prepare statutory financial statements in accordance with accounting practices prescribed or permitted by the respective jurisdictions’ insurance regulators.
+Prescribed statutory accounting practices are set forth in a variety of publications of the National Association of Insurance Commissioners (“NAIC”) as well as state laws, regulations and general administrative rules.
+CCC follows a permitted practice related to the statutory provision for reinsurance, or the uncollectible reinsurance reserve.
+This permitted practice allows CCC to record an additional uncollectible reinsurance reserve amount through a different financial statement line item than the prescribed statutory convention.
+This permitted practice had no effect on CCC’s statutory surplus at December 31, 2007 or 2006.
+CNA’s ability to pay dividends and other credit obligations is significantly dependent on receipt of dividends from its subsidiaries.
+The payment of dividends to CNA by its insurance subsidiaries without prior approval of the insurance department of each subsidiary’s domiciliary jurisdiction is limited by formula.
+Dividends in excess of these amounts are subject to prior approval by the respective state insurance departments.
+Dividends from CCC are subject to the insurance holding company laws of the State of Illinois, the domiciliary state of CCC.
+Under these laws, ordinary dividends, or dividends that do not require prior approval of the Illinois Department of Financial and Professional Regulation – Division of Insurance (the “Department”), may be paid only from earned surplus, which is calculated by removing unrealized gains from unassigned surplus.
+As of December 31, 2007, CCC is in a positive earned surplus position, enabling CCC to pay approximately $630 million of dividend payments during 2008 that would not be subject to the Department’s prior approval.
+The actual level of dividends paid in any year is determined after an assessment of available dividend capacity, holding company liquidity and cash needs as well as the impact the dividends will have on the statutory surplus of the applicable insurance company.
+CNA’s domestic insurance subsidiaries are subject to risk-based capital requirements.
+Risk-based capital is a method developed by the NAIC to determine the minimum amount of statutory capital appropriate for an insurance company to support its overall business operations in consideration of its size and risk profile.
+The formula for determining the amount of risk-based capital specifies various factors, weighted based on the perceived degree of risk, which are applied to certain financial balances and financial activity.
+The adequacy of a company’s actual capital is evaluated by a comparison to the risk-based capital results, as determined by the formula.
+Companies below minimum risk-based capital requirements are classified within certain levels, each of which requires specified corrective action.
+As of December 31, 2007 and 2006, all of CNA’s domestic insurance subsidiaries exceeded the minimum risk-based capital requirements.
+Combined statutory capital and surplus and net income, determined in accordance with accounting practices prescribed or permitted by insurance regulatory authorities for the property and casualty and the life insurance subsidiaries, were as follows:
+The Company does not believe that any individual unrealized loss in the available-for-sale or unrecognized loss in the held-to-maturity portfolio as of December 31, 2011 represents a credit loss.
+The credit loss component is the difference between the security’s amortized cost basis and the present value of its expected future cash flows, and is recognized in earnings.
+The noncredit loss component is the difference between the present value of its expected future cash flows and the fair value and is recognized through other comprehensive income (loss).
+The Company assessed whether it intends to sell, or whether it is more likely than not that the Company will be required to sell a security before recovery of its amortized cost basis.
+For debt securities that are considered other-than-temporarily impaired and that the Company does not intend to sell and will not be required to sell prior to recovery of its amortized cost basis, the Company determines the amount of the impairment that is related to credit and the amount due to all other factors.
+The majority of the unrealized or unrecognized losses on mortgage-backed securities are attributable to changes in interest rates and a re-pricing of risk in the market.
+The majority of agency mortgage-backed securities and CMOs, other agency debt securities and agency debentures are AAA-rated.
+Municipal bonds and corporate bonds are evaluated by reviewing the credit-worthiness of the issuer and general market conditions.
+The Company does not intend to sell the securities in an unrealized loss position and it is not more likely than not that the Company will be required to sell the debt securities before the anticipated recovery of its remaining amortized cost of the securities in an unrealized loss position at December 31, 2011.
+The majority of the Company’s available-for-sale and held-to-maturity portfolio consists of residential mortgage-backed securities.
+For residential mortgage-backed securities, the Company calculates the credit portion of OTTI by comparing the present value of the expected future cash flows with the amortized cost basis of the security.
+The expected future cash flows are determined using the remaining contractual cash flows adjusted for future credit losses.
+The estimate of expected future credit losses includes the following assumptions: 1) expected default rates based on current delinquency trends, foreclosure statistics of the underlying mortgages and loan documentation type; 2) expected loss severity based on the underlying loan characteristics, including loan-to-value, origination vintage and geography; and 3) expected loan prepayments and principal reduction based on current experience and existing market conditions that may impact the future rate of prepayments.
+The expected cash flows of the security are then discounted at the interest rate used to recognize interest income on the security to arrive at the present value amount.
+The following table presents a summary of the significant inputs considered for securities that were other-than-temporarily impaired as of December 31, 2011:
+## Table 0 ##
+[mhdev_0034_table_0.csv](mhdev_0034_table_0.csv)
+The following table presents a roll-forward of the credit loss component of the amortized cost of debt securities that have noncredit loss recognized in other comprehensive income (loss) and credit loss recognized in earnings for the periods presented (dollars in thousands):
+## Table 1 ##
+[mhdev_0034_table_1.csv](mhdev_0034_table_1.csv)
+(1) The Company adopted the amended guidance for the recognition and presentation of OTTI for debt securities on April 1, 2009
+EARNINGS OVERVIEW 2012 Compared to 2011 We incurred a net loss of $112.6 million, or $(0.39) per diluted share, on total net revenue of $1.9 billion for the year ended December 31, 2012.
+The net loss for the year ended December 31, 2012 was primarily the result of losses of $256.9 million from the early extinguishment of all the 12 1 ?2 % Springing lien notes and 7 7 ?8 % Notes during 2012.
+Net operating interest income decreased 11% to $1.1 billion for the year ended December 31, 2012 compared to 2011, which was driven primarily by a decrease in enterprise net interest spread during 2012.
+Commissions, fees and service charges, principal transactions and other revenue decreased 11% to $630.9 million for the year ended December 31, 2012, compared to 2011, which was driven primarily by a decrease in trading activity during 2012.
+In addition, gains on loans and securities, net increased 67% to $200.4 million for the year ended December 31, 2012 compared to 2011.
+We recognized additional gains from securities sold as a result of our continued deleveraging efforts, primarily related to a reduction in wholesale funding obligations, which resulted in losses on early extinguishment of debt of $78.3 million during the year ended December 31, 2012.
+Provision for loan losses declined 20% to $354.6 million for the year ended December 31, 2012 compared to 2011.
+The decline was driven primarily by improving credit trends and loan portfolio run-off, offset by an increase of $50 million related to charge-offs associated with newly identified bankruptcy filings during the third quarter of 2012.
+Total operating expenses decreased 6% to $1.2 billion for the year ended December 31, 2012 compared to 2011.
+This decrease was driven primarily by decreases in clearing and servicing and other operating expenses, partially offset by an increase in compensation and benefits expense for the year ended December 31, 2012.
+The following sections describe in detail the changes in key operating factors and other changes and events that affected net revenue, provision for loan losses, operating expense, other income (expense) and income tax expense (benefit).
+Revenue The components of revenue and the resulting variances are as follows (dollars in millions):
+## Table 2 ##
+[mhdev_0034_table_2.csv](mhdev_0034_table_2.csv)
+* Percentage not meaningful.
+Net Operating Interest Income Net operating interest income decreased 11% to $1.1 billion for the year ended December 31, 2012 compared to 2011.
+Net operating interest income is earned primarily through investing customer cash and deposits in enterprise interest-earning assets, which include: real estate loans, margin receivables, available-for- sale securities and held-to-maturity securitie
+Net Impairment We recognized $16.9 million and $14.9 million of net impairment during the years ended December 31, 2012 and 2011, respectively, on certain securities in our non-agency CMO portfolio due to continued deterioration in the expected credit performance of the underlying loans in those specific securities.
+The gross other-than-temporary impairment (“OTTI”) and the noncredit portion of OTTI, which was or had been previously recorded through other comprehensive income (loss), are shown in the table below (dollars in millions):
+## Table 3 ##
+[mhdev_0034_table_3.csv](mhdev_0034_table_3.csv)
+Provision for Loan Losses Provision for loan losses decreased 20% to $354.6 million for the year ended December 31, 2012 compared to 2011.
+The decrease in provision for loan losses was driven primarily by improving credit trends, as evidenced by the lower levels of delinquent loans in the one- to four-family and home equity loan portfolios, and loan portfolio run-off.
+The decrease was partially offset by $50 million in charge-offs associated with newly identified bankruptcy filings during the third quarter of 2012, with approximately 80% related to prior years.
+We utilize third party loan servicers to obtain bankruptcy data on our borrowers and during the third quarter of 2012, we identified an increase in bankruptcies reported by one specific servicer.
+In researching this increase, we discovered that the servicer had not been reporting historical bankruptcy data on a timely basis.
+As a result, we implemented an enhanced procedure around all servicer reporting to corroborate bankruptcy reporting with independent third party data.
+Through this additional process, approximately $90 million of loans were identified in which servicers failed to report the bankruptcy filing to us, approximately 90% of which were current at the end of the third quarter of 2012.
+As a result, these loans were written down to the estimated current value of the underlying property less estimated selling costs, or approximately $40 million, during the third quarter of 2012.
+These charge-offs resulted in an increase to provision for loan losses of $50 million for the year ended December 31, 2012.
+The provision for loan losses has declined four consecutive years, down 78% from its peak of $1.6 billion for the year ended December 31, 2008.
+We expect provision for loan losses to continue to decline over the long term, although it is subject to variability in any given quarter.
+capital strength.
+The Tier 1 common ratio is defined as Tier 1 capital less elements of Tier 1 capital that are not in the form of common equity, such as trust preferred securities, divided by total risk-weighted assets.
+The following table shows the calculation of the Tier 1 common ratio (dollars in millions):
+## Table 4 ##
+[mhdev_0034_table_4.csv](mhdev_0034_table_4.csv)
+In July 2013, the U. S.  Federal banking agencies finalized a rule to implement Basel III in the U. S. , a framework for the calculation and components of a banking organization’s regulatory capital and for calculating a banking organization’s risk-weighted assets.
+Among other things, the Basel III rule raises the minimum thresholds for required capital and revises certain aspects of the definitions and elements of the capital that can be used to satisfy these required minimum thresholds.
+While the rules became effective on January 1, 2014 for certain large banking organizations, most U. S.  banking organizations, including the Company and E*TRADE Bank, have until January 1, 2015 to begin complying with this new framework, with the fully phased-in Basel III capital standards becoming effective in 2019.
+We expect to be compliant with the Basel III framework, as it is phased-in.
+We believe the most relevant elements of the final rule to us relate to the risk-weighting of mortgage loans, which will remain unchanged from current rules, and margin receivables, which will qualify for 0% riskweighting.
+In addition, the final rule gives the option for a one-time permanent election for the inclusion or exclusion in the calculation of Common Tier 1 capital of unrealized gains (losses) on all available-for-sale debt securities; we currently intend to elect to exclude unrealized gains (losses).
+We believe the incorporation of these elements will have a favorable impact on our current capital ratios.
+On October 9, 2012, regulators issued final rules implementing provisions of the Dodd-Frank Act that require banking organizations with total consolidated assets of more than $10 billion but less than $50 billion to conduct annual company-run stress tests, report the results to their primary federal regulator and the Federal Reserve and publish a summary of the results.
+Under the rules, stress tests must be conducted using certain scenarios (baseline, adverse and severely adverse), which the Federal Reserve will publish by November 15 of each year.
+Under the OCC and the Federal Reserve stress test regulations, E*TRADE Bank and the Company, respectively, will be required to conduct stress-testing using the prescribed stress-testing methodologies.
+The final regulations require E*TRADE Bank to conduct its first stress test using financial statement data as of September 30, 2013, and it will be required to report results to the OCC on or before March 31, 2014.
+The Company will be required to conduct its first stress test using financial statement data as of September 30, 2016, and it will be required to disclose a summary of its stress test results to the Federal Reserve on or before March 31, 2017.
+We conducted a company-run stress test for E*TRADE Bank and the Company, which we believe is consistent with the OCC’s and Federal Reserve’s methodologies, respectively, and provided the results to the OCC and the Federal Reserve with the submission of the long-term capital plan in February 2013.
+We believe that E*TRADE Bank is on schedule to provide the data from its first stress test to the OCC on or before March 31, 2014, as required.
+The Company has also encountered various quality issues on its aircraft carrier construction and overhaul programs and its Virginia-class submarine construction program at its Newport News location.
+These primarily involve matters related to filler metal used in pipe welds identified in 2007, and issues associated with non-nuclear weld inspection and the installation of weapons handling equipment on certain submarines, and certain purchased material quality issues identified in 2009.
+The Company does not believe that resolution of these issues will have a material effect upon its consolidated financial position, results of operations or cash flows.
+Environmental Matters—The estimated cost to complete environmental remediation has been accrued where it is probable that the Company will incur such costs in the future to address environmental conditions at currently or formerly owned or leased operating facilities, or at sites where it has been named a Potentially Responsible Party (“PRP”) by the Environmental Protection Agency, or similarly designated by another environmental agency, and these costs can be estimated by management.
+These accruals do not include any litigation costs related to environmental matters, nor do they include amounts recorded as asset retirement obligations.
+To assess the potential impact on the Company’s consolidated financial statements, management estimates the range of reasonably possible remediation costs that could be incurred by the Company, taking into account currently available facts on each site as well as the current state of technology and prior experience in remediating contaminated sites.
+These estimates are reviewed periodically and adjusted to reflect changes in facts and technical and legal circumstances.
+Management estimates that as of December 31, 2011, the probable future costs for environmental remediation is $3 million, which is accrued in other current liabilities.
+Factors that could result in changes to the Company’s estimates include: modification of planned remedial actions, increases or decreases in the estimated time required to remediate, changes to the determination of legally responsible parties, discovery of more extensive contamination than anticipated, changes in laws and regulations affecting remediation requirements, and improvements in remediation technology.
+Should other PRPs not pay their allocable share of remediation costs, the Company may have to incur costs exceeding those already estimated and accrued.
+In addition, there are certain potential remediation sites where the costs of remediation cannot be reasonably estimated.
+Although management cannot predict whether new information gained as projects progress will materially affect the estimated liability accrued, management does not believe that future remediation expenditures will have a material effect on the Company’s consolidated financial position, results of operations or cash flows.
+Financial Arrangements—In the ordinary course of business, HII uses standby letters of credit issued by commercial banks and surety bonds issued by insurance companies principally to support the Company’s self-insured workers’ compensation plans.
+At December 31, 2011, there were $121 million of standby letters of credit issued but undrawn and $297 million of surety bonds outstanding related to HII.
+U. S.  Government Claims—From time to time, the U. S.  Government advises the Company of claims and penalties concerning certain potential disallowed costs.
+When such findings are presented, the Company and U. S.  Government representatives engage in discussions to enable HII to evaluate the merits of these claims as well as to assess the amounts being claimed.
+The Company does not believe that the outcome of any such matters will have a material effect on its consolidated financial position, results of operations or cash flows.
+Collective Bargaining Agreements—The Company believes that it maintains good relations with its approximately 38,000 employees of which approximately 50% are covered by a total of 10 collective bargaining agreements.
+The Company expects to renegotiate renewals of each of its collective bargaining agreements between 2013 and 2015 as they approach expiration.
+Collective bargaining agreements generally expire after three to five years and are subject to renegotiation at that time.
+It is not expected that the results of these negotiations, either individually or in the aggregate, will have a material effect on the Company’s consolidated results of operations.
+Operating Leases—Rental expense for operating leases was $44 million in 2011, $44 million in 2010, and $48 million in 2009.
+These amounts are net of immaterial amounts of sublease rental income.
+Minimum rental commitments under longterm non-cancellable operating leases for the next five years and thereafter are:
+## Table 0 ##
+[mhdev_0035_table_0.csv](mhdev_0035_table_0.csv)
+10.
+GOODWILL AND OTHER PURCHASED INTANGIBLE ASSETS Goodwill HII performs impairment tests for goodwill as of November 30 of each year, or when evidence of potential impairment exists.
+Goodwill is tested for impairment between annual impairment tests if an event occurs or circumstances change that would more likely than not reduce the fair value of the Company’s reporting units below their carrying value.
+In light of the adverse equity market conditions that began in the second quarter of 2011 and the resultant decline in industry market multiples and its market capitalization, the Company performed an interim goodwill impairment analysis as of September 30, 2011.
+The analysis resulted in a $290 million non-cash goodwill impairment charge recorded in the Company’s Ingalls segment in 2011.
+Due to the complexities involved in determining the implied fair value of the goodwill of each reporting unit, the Company initially recorded a preliminary goodwill impairment charge of $300 million in the third quarter of 2011, which represented its best estimate of the impairment amount at the time of the filing of the Company’s third quarter report.
+The goodwill impairment charge was later adjusted to $290 million in the fourth quarter of 2011, based on the final impairment analysis.
+The goodwill at these businesses has no tax basis, and, accordingly, there was no tax benefit associated with recording the impairment charge.
+No goodwill impairment was recognized at the Newport News segment, as the Company’s analysis indicated its fair value was in excess of its carrying value as of September 30, 2011.
+The Company performed its annual goodwill impairment testing as of November 30, 2011, and determined that no further impairment was necessary, as the testing indicated the fair value of each reporting unit exceeded its corresponding carrying value.
+Accumulated goodwill impairment losses at December 31, 2011 and 2010, were $2,780 million and $2,490 million, respectively.
+The accumulated goodwill impairment losses at December 31, 2011 and 2010, for Ingalls were $1,568 million and $1,278 million, respectively.
+The accumulated goodwill impairment losses at both December 31, 2011 and 2010, for Newport News were $1,212 million.
+Prior to completing the second step related to the goodwill impairment charge in 2011, HII tested its purchased intangible assets and other long-lived assets for impairment, and the carrying values of these assets were determined not to be impaired.
+The changes in the carrying amounts of goodwill during 2011 and 2010 were as follows:
+## Table 1 ##
+[mhdev_0035_table_1.csv](mhdev_0035_table_1.csv)
+Purchased Intangible Assets The following table summarizes the Company’s aggregate purchased intangible assets, all of which are contract or program related intangible assets:
+## Table 2 ##
+[mhdev_0035_table_2.csv](mhdev_0035_table_2.csv)
+The Company’s purchased intangible assets other than goodwill are subject to amortization on a straight-line basis over an aggregate weighted-average period of 40 years.
+Remaining unamortized intangible assets consist principally of amounts pertaining to nuclear-powered aircraft carrier and submarine intangibles whose useful lives have been estimated based on the long life cycle of the related programs.
+Amortization expense for the years ended December 31, 2011, 2010 and 2009, was $20 million, $23 million and $30 million, respectively.
+## Table 3 ##
+[mhdev_0035_table_3.csv](mhdev_0035_table_3.csv)
+(a) U. S.  and international equity securities include investments in small, medium, and large capitalization stocks of public companies held in commingled trust funds.
+(b) Cash and cash equivalents are liquid short-term investment funds and include net receivables and payables of the trust.
+These funds are available for immediate use to fund daily operations, execute investment policies, and serve as a temporary investment vehicle.
+The master trust limits the use of derivatives through direct or separate account investments, such that the derivatives used are liquid and able to be readily valued in the market.
+Derivative usage in separate account structures is primarily for gaining market exposure in an unlevered manner or hedging investment risks.
+The fair market value of the pension master trust's derivatives through direct or separate account investments resulted in a net asset of approximately $4 million and a net liability of $1 million as of December 31, 2018 and 2017, respectively.
+There was no activity attributable to Level 3 retirement plan assets during the years ended December 31, 2018 and 2017.18.
+STOCK COMPENSATION PLANS As of December 31, 2018, HII had stock-based compensation awards outstanding under the following plans: the Huntington Ingalls Industries, Inc.  2011 Long-Term Incentive Stock Plan (the "2011 Plan") and the Huntington Ingalls Industries, Inc.  2012 Long-Term Incentive Stock Plan (the "2012 Plan").
+Stock Compensation Plans On March 23, 2012, the Company's board of directors adopted the 2012 Plan, subject to stockholder approval, and the Company's stockholders approved the 2012 Plan on May 2, 2012.
+Award grants made on or after May 2, 2012, were made under the 2012 Plan.
+Award grants made prior to May 2, 2012, were made under the 2011 Plan.
+No future grants will be made under the 2011 Plan.
+Investments Prior to our acquisition of Keystone on October 12, 2007, we held common shares of Keystone, which were classified as an available-for-sale investment security.
+Accordingly, the investment was included in other assets at its fair value, with the unrealized gain excluded from earnings and included in accumulated other comprehensive income, net of applicable taxes.
+Upon our acquisition of Keystone on October 12, 2007, the unrealized gain was removed from accumulated other comprehensive income, net of applicable taxes, and the original cost of the common shares was considered a component of the purchase price.
+Fair Value of Financial Instruments Our debt is reflected on the balance sheet at cost.
+Based on current market conditions, our interest rate margins are below the rate available in the market, which causes the fair value of our debt to fall below the carrying value.
+The fair value of our term loans (see Note 6, “Long-Term Obligations”) is approximately $570 million at December 31, 2009, as compared to the carrying value of $596 million.
+We estimated the fair value of our term loans by calculating the upfront cash payment a market participant would require to assume our obligations.
+The upfront cash payment, excluding any issuance costs, is the amount that a market participant would be able to lend at December 31, 2009 to an entity with a credit rating similar to ours and achieve sufficient cash inflows to cover the scheduled cash outflows under our term loans.
+The carrying amounts of our cash and equivalents, net trade receivables and accounts payable approximate fair value.
+We apply the market approach to value our financial assets and liabilities, which include the cash surrender value of life insurance, deferred compensation liabilities and interest rate swaps.
+The market approach utilizes available market information to estimate fair value.
+Required fair value disclosures are included in Note 8, “Fair Value Measurements.
+” Accrued Expenses We self-insure a portion of employee medical benefits under the terms of our employee health insurance program.
+We purchase certain stop-loss insurance to limit our liability exposure.
+We also self-insure a portion of our property and casualty risk, which includes automobile liability, general liability, workers’ compensation and property under deductible insurance programs.
+The insurance premium costs are expensed over the contract periods.
+A reserve for liabilities associated with these losses is established for claims filed and claims incurred but not yet reported based upon our estimate of ultimate cost, which is calculated using analyses of historical data.
+We monitor new claims and claim development as well as trends related to the claims incurred but not reported in order to assess the adequacy of our insurance reserves.
+Self-insurance reserves on the Consolidated Balance Sheets are net of claims deposits of $0.7 million and $0.8 million, at December 31, 2009 and 2008, respectively.
+While we do not expect the amounts ultimately paid to differ significantly from our estimates, our insurance reserves and corresponding expenses could be affected if future claim experience differs significantly from historical trends and assumptions.
+Product Warranties Some of our mechanical products are sold with a standard six-month warranty against defects.
+We record the estimated warranty costs at the time of sale using historical warranty claim information to project future warranty claims activity and related expenses.
+The changes in the warranty reserve are as follows (in thousands):
+## Table 0 ##
+[mhdev_0036_table_0.csv](mhdev_0036_table_0.csv)
+requirements.
+See additional information included in Critical Accounting Policies – Commodity Derivative Instruments and Item 7A.
+Quantitative and Qualitative Disclosures About Market Risk.
+Certain of our commodity contracts were executed in connection with the Patina Merger, prior to the global crude oil and natural gas price escalations which began in early 2005.
+The settlements of these contracts have reduced our cash flows.
+However, these contracts expired in December 2008.
+Our remaining commodity contracts were executed in more favorable price environments.
+Although we cannot predict market prices, our remaining commodity contract positions should result in more favorable cash flows as compared to our commodity contract positions in prior periods.
+See Item 8.
+Financial Statements and Supplementary Data – Note 6 – Derivative Instruments and Hedging Activities for our current hedge positions.
+Cash Flows Summary cash flow information is as follows:
+## Table 1 ##
+[mhdev_0036_table_1.csv](mhdev_0036_table_1.csv)
+Operating Activities—Net cash provided by operating activities totaled $2.3 billion in 2008, an increase of $268 million, or 13%, as compared with 2007.
+The increase was primarily due to a significant increase in oil, gas and NGL sales resulting from higher average realized crude oil and natural gas prices during the first nine months of 2008.
+The revenue increase was slightly offset by higher production costs and G&A expense.
+Net cash provided by operating activities includes dividends received from equity method investees.
+Net cash provided by operating activities was $2.0 billion in 2007, an increase of $287 million, or 17% as compared with 2006.
+The increase was due primarily to increased sales resulting from higher average realized crude oil prices and higher average realized US natural gas prices.
+These increases were partially offset by higher exploration expense and G&A expense.
+In addition, cash flows from operating activities in 2007 included dividends from equity method investees.
+Cash distributions from equity method investees received in 2006 were repayments of loans and were included in investing activities.
+See Results of Operations—Income from Equity Method Investees.
+Investing Activities—The primary use of cash in investing activities is for capital spending, which may be offset by proceeds from property sales or distributions from equity method investees.
+Net cash used in investing activities totaled $2.1 billion in 2008, as compared with $1.4 billion in 2007.
+In 2008 we had an expanded capital budget, with increased acquisition, development and exploratory activity in onshore US and deepwater Gulf of Mexico areas as well as increased exploratory activity in international locations including Equatorial Guinea and Israel.
+Our total additions to property, plant and equipment plus acquisitions ($2.3 billion) were minimally offset by proceeds from property sales ($131 million).
+In comparison, in 2007, we had additions to property, plant and equipment ($1.4 billion) primarily due to development activity in the US and North Sea and acquisition and exploratory activities in the US and West Africa.
+Expenditures were minimally offset by proceeds from property sales of $9 million.
+In comparison, in 2006 cash flows from investing activities totaled $1.1 billion.
+We had acquisitions and additions to property, plant and equipment ($1.8 billion) due to the acquisition of U. S.  Exploration plus additional development and exploratory activity in the US and development activity in the North Sea.
+These expenditures were offset by proceeds from the sale of our significant Gulf of Mexico shelf properties ($520 million) and net distributions received from equity method investees ($151 million).
+The distributions from equity method investees were the result of repayment of loans and therefore were included in cash flows from investing activities.
+See Results of Operations—Income from Equity Method Investees.
+(4) Includes production through November 24, 2010.
+Our Block 3 PSC was terminated by the Ecuadorian government on November 25, 2010.
+Intercompany natural gas sales were eliminated for accounting purposes.
+Electricity sales are included in other revenues.
+See Termination of Ecuador PSC above.
+(5) Volumes represent sales of condensate and LPG from the LPG plant in Equatorial Guinea.
+Revenues from sales of crude oil and natural gas have accounted for 90% or more of consolidated revenues for each of the last three fiscal years.
+At December 31, 2010, our operated properties accounted for approximately 64% of our total production.
+Being the operator of a property improves our ability to directly influence production levels and the timing of projects, while also enhancing our control over operating expenses and capital expenditures.
+Productive Wells The number of productive crude oil and natural gas wells in which we held an interest at December 31, 2010 was as follows:
+## Table 2 ##
+[mhdev_0036_table_2.csv](mhdev_0036_table_2.csv)
+Productive wells are producing wells and wells mechanically capable of production.
+A gross well is a well in which a working interest is owned.
+The number of gross wells is the total number of wells in which a working interest is owned.
+The number of net wells is the sum of the fractional working interests owned in gross wells expressed as whole numbers and fractions thereof.
+Wells with multiple completions are counted as one well in the table above.
+Developed and Undeveloped Acreage Developed and undeveloped acreage (including both leases and concessions) held at December 31, 2010 was as follows:
+## Table 3 ##
+[mhdev_0036_table_3.csv](mhdev_0036_table_3.csv)
+(1) The North Sea includes acreage in the UK and the Netherlands.
+(2) We are currently funding a 2-D seismic survey over the acreage in return for a working interest in the concession.
+(3) A portion of the acreage has been assigned to a partner and the agreement is awaiting government approval.
+Developed acreage is comprised of leased acres that are within an area spaced by or assignable to a productive well.
+Undeveloped acreage is comprised of leased acres with defined remaining terms and not within an area spaced by or assignable to a productive well.
+A gross acre is any leased acre in which a working interest is owned.
+A net acre is comprised of the total of the owned working interest(s) in a gross acre expressed in a fractional format.
+Noble Energy, Inc.  Index to Financial Statements Notes to Consolidated Financial Statements 135 crude oil and natural gas production, commodity prices based on sales contract terms or commodity price curves as of the date of the estimate, estimated operating and development costs, and a risk-adjusted discount rate of 10%.
+The fair values of assets held for sale were based on anticipated sales proceeds less costs to sell.
+See Note 5.
+Asset Impairments.
+Additional Fair Value Disclosures Debt The fair value of fixed-rate, public debt is estimated based on the published market prices for the same or similar issues.
+As such, we consider the fair value of our public fixed rate debt to be a Level 1 measurement on the fair value hierarchy.
+See Note 10.
+Long-Term Debt.
+Fair value information regarding our debt is as follows:
+## Table 4 ##
+[mhdev_0036_table_4.csv](mhdev_0036_table_4.csv)
+(1) Net of unamortized discount, premium and debt issuance costs and excludes capital lease and other obligations.
+No floating rate debt was outstanding at December 31, 2015 or December 31, 2014.
+Note 14.
+Earnings (Loss) Per Share Basic earnings (loss) per share of common stock is computed using the weighted average number of shares of common stock outstanding during each period.
+The diluted earnings (loss) per share of common stock include the effect of outstanding stock options, shares of restricted stock, or shares of our common stock held in a rabbi trust (when dilutive).
+The following table summarizes the calculation of basic and diluted earnings (loss) per share:
+Management’s Discussion and Analysis The table below presents a reconciliation of our common shareholders’ equity to the estimated Basel III Advanced CET1 on a fully phased-in basis.
+## Table 0 ##
+[mhdev_0037_table_0.csv](mhdev_0037_table_0.csv)
+1.
+This deduction, which represents the fully phased-in requirement, is the amount by which our investments in the capital of nonconsolidated financial institutions exceed certain prescribed thresholds.
+During both the transitional period and thereafter, no deduction will be required if the applicable proportion of our investments in the capital of nonconsolidated financial institutions falls below the prescribed thresholds.2.
+Principally includes credit valuation adjustments on derivative liabilities and debt valuation adjustments, as well as other required credit riskbased deductions.
+In addition, beginning with the first quarter of 2015, subject to transitional provisions, we will also be required to disclose ratios calculated under the Standardized approach.
+Our estimated CET1 ratio under the Standardized approach (Standardized CET1 ratio) on a fully phased-in basis was approximately 60 basis points lower than our estimated Basel III Advanced CET1 ratio in the table above.
+Both the Basel III Advanced CET1 ratio and the Standardized CET1 ratio are subject to transitional provisions.
+Reflecting the transitional provisions that became effective January 1, 2014, our estimated Basel III Advanced CET1 ratio and our estimated Standardized CET1 ratio are approximately 150 basis points higher than the respective CET1 ratios on a fully phased-in basis as of December 2013.
+Effective January 1, 2014, Group Inc. ’s capital and leverage ratios are calculated under, and subject to the minimums as defined in, the Revised Capital Framework.
+The changes to the definition of capital and minimum ratios, subject to transitional provisions, were effective beginning January 1, 2014.
+RWAs are based on Basel I Adjusted, as defined in Note 20 to the consolidated financial statements.
+The firm will transition to Basel III beginning on April 1, 2014.
+Including the impact of the changes to the definition of regulatory capital and reflecting the transitional provisions effective in 2014, our estimated CET1 ratio (CET1 to RWAs on a Basel I Adjusted basis) as of December 2013 would have been essentially unchanged as compared to our Tier 1 common ratio under Basel I.
+Regulatory Leverage Ratios.
+The Revised Capital Framework increased the minimum Tier 1 leverage ratio applicable to us from 3% to 4% effective January 1, 2014.
+In addition, the Revised Capital Framework will introduce a new Tier 1 supplementary leverage ratio (supplementary leverage ratio) for Advanced approach banking organizations.
+The supplementary leverage ratio compares Tier 1 capital (as defined under the Revised Capital Framework) to a measure of leverage exposure, defined as the sum of the firm’s assets less certain CET1 deductions plus certain off-balance-sheet exposures, including a measure of derivatives exposures and commitments.
+The Revised Capital Framework requires a minimum supplementary leverage ratio of 3%, effective January 1, 2018, but with disclosure required beginning in the first quarter of 2015.
+In addition, subsequent to the approval of the Revised Capital Framework, the Agencies issued a proposal to increase the minimum supplementary leverage ratio requirement for the largest U. S.  banks (those deemed to be global systemically important banking institutions (G-SIBs) under the Basel G-SIB framework).
+These proposals would require the firm and other G-SIBs to meet a 5% supplementary leverage ratio (comprised of the minimum requirement of 3% plus a 2% buffer).
+As of December 2013, our estimated supplementary leverage ratio based on the Revised Capital Framework approximates this proposed minimum.
+In addition, the Basel Committee recently finalized revisions that would increase the size of the leverage exposure for purposes of the supplementary leverage ratio, but would retain a minimum supplementary leverage ratio requirement of 3%.
+It is not known with certainty at this point whether the U. S.  regulators will adopt this revised definition of leverage into their rules and proposals for the supplementary leverage ratio.
+THE GOLDMAN SACHS GROUP, INC.  AND SUBSIDIARIES Notes to Consolidated Financial Statements Gains and Losses on Financial Assets and Financial Liabilities Accounted for at Fair Value Under the Fair Value Option The table below presents the gains and losses recognized in earnings as a result of the firm electing to apply the fair value option to certain financial assets and financial liabilities.
+These gains and losses are included in “Market making” and “Other principal transactions.
+” The table below also includes gains and losses on the embedded derivative component of hybrid financial instruments included in unsecured short-term borrowings, unsecured long-term borrowings and deposits.
+These gains and losses would have been recognized under other U. S.  GAAP even if the firm had not elected to account for the entire hybrid financial instrument at fair value.
+## Table 1 ##
+[mhdev_0037_table_1.csv](mhdev_0037_table_1.csv)
+In the table above: ‰ Gains/(losses) exclude contractual interest, which is included in “Interest income” and “Interest expense,” for all instruments other than hybrid financial instruments.
+See Note 23 for further information about interest income and interest expense.
+‰ Unsecured short-term borrowings includes gains/(losses) on the embedded derivative component of hybrid financial instruments of $(1.05) billion for 2016, $339 million for 2015 and $(1.22) billion for 2014, respectively.
+‰ Unsecured long-term borrowings includes gains/(losses) on the embedded derivative component of hybrid financial instruments of $737 million for 2016, $653 million for 2015 and $(697) million for 2014, respectively.
+‰ Other liabilities and accrued expenses includes gains/ (losses) on certain subordinated liabilities of consolidated VIEs.
+‰ Other primarily consists of gains/(losses) on receivables from customers and counterparties, deposits and other secured financings.
+Excluding the gains and losses on the instruments accounted for under the fair value option described above, “Market making” and “Other principal transactions” primarily represent gains and losses on “Financial instruments owned, at fair value” and “Financial instruments sold, but not yet purchased, at fair value.
+” Loans and Lending Commitments The table below presents the difference between the aggregate fair value and the aggregate contractual principal amount for loans and long-term receivables for which the fair value option was elected.
+In the table below, the aggregate contractual principal amount of loans on nonaccrual status and/or more than 90 days past due (which excludes loans carried at zero fair value and considered uncollectible) exceeds the related fair value primarily because the firm regularly purchases loans, such as distressed loans, at values significantly below the contractual principal amounts.
+## Table 2 ##
+[mhdev_0037_table_2.csv](mhdev_0037_table_2.csv)
+As of December 2016 and December 2015, the fair value of unfunded lending commitments for which the fair value option was elected was a liability of $80 million and $211 million, respectively, and the related total contractual amount of these lending commitments was $7.19 billion and $14.01 billion, respectively.
+See Note 18 for further information about lending commitments.
+THE GOLDMAN SACHS GROUP, INC.  AND SUBSIDIARIES Management’s Discussion and Analysis Funding Sources Our primary sources of funding are deposits, collateralized financings, unsecured short-term and long-term borrowings, and shareholders’ equity.
+We seek to maintain broad and diversified funding sources globally across products, programs, markets, currencies and creditors to avoid funding concentrations.
+The table below presents information about our funding sources.
+## Table 3 ##
+[mhdev_0037_table_3.csv](mhdev_0037_table_3.csv)
+Our funding is primarily raised in U. S.  dollar, Euro, British pound and Japanese yen.
+We generally distribute our funding products through our own sales force and thirdparty distributors to a large, diverse creditor base in a variety of markets in the Americas, Europe and Asia.
+We believe that our relationships with our creditors are critical to our liquidity.
+Our creditors include banks, governments, securities lenders, corporations, pension funds, insurance companies, mutual funds and individuals.
+We have imposed various internal guidelines to monitor creditor concentration across our funding programs.
+Deposits.
+Our deposits provide us with a diversified source of funding and reduce our reliance on wholesale funding.
+A growing portion of our deposit base consists of consumer deposits.
+Deposits are primarily used to finance lending activity, other inventory and a portion of our GCLA.
+We raise deposits, including savings, demand and time deposits, through internal and third-party broker-dealers, and from consumers and institutional clients, and primarily through Goldman Sachs Bank USA (GS Bank USA) and Goldman Sachs International Bank (GSIB).
+In September 2018, we launched Marcus: by Goldman Sachs in the U. K.  to accept deposits.
+See Note 14 to the consolidated financial statements for further information about our deposits.
+Secured Funding.
+We fund a significant amount of inventory on a secured basis.
+Secured funding includes collateralized financings in the consolidated statements of financial condition.
+We may also pledge our inventory as collateral for securities borrowed under a securities lending agreement.
+We also use our own inventory to cover transactions in which we or our clients have sold securities that have not yet been purchased.
+Secured funding is less sensitive to changes in our credit quality than unsecured funding, due to our posting of collateral to our lenders.
+Nonetheless, we continually analyze the refinancing risk of our secured funding activities, taking into account trade tenors, maturity profiles, counterparty concentrations, collateral eligibility and counterparty roll over probabilities.
+We seek to mitigate our refinancing risk by executing term trades with staggered maturities, diversifying counterparties, raising excess secured funding, and pre-funding residual risk through our GCLA.
+We seek to raise secured funding with a term appropriate for the liquidity of the assets that are being financed, and we seek longer maturities for secured funding collateralized by asset classes that may be harder to fund on a secured basis, especially during times of market stress.
+Our secured funding, excluding funding collateralized by liquid government and agency obligations, is primarily executed for tenors of one month or greater and is primarily executed through term repurchase agreements and securities loaned contracts.
+The weighted average maturity of our secured funding included in collateralized financings in the consolidated statements of financial condition, excluding funding that can only be collateralized by liquid government and agency obligations, exceeded 120 days as of December 2018.
+Assets that may be harder to fund on a secured basis during times of market stress include certain financial instruments in the following categories: mortgage and other assetbacked loans and securities, non-investment-grade corporate debt securities, equity securities and emerging market securities.
+Assets that are classified in level 3 of the fair value hierarchy are generally funded on an unsecured basis.
+See Notes 5 and 6 to the consolidated financial statements for further information about the classification of financial instruments in the fair value hierarchy and “Unsecured Long-Term Borrowings” below for further information about the use of unsecured long-term borrowings as a source of funding.
+We also raise financing through other types of collateralized financings, such as secured loans and notes.
+GS Bank USA has access to funding from the Federal Home Loan Bank.
+Our outstanding borrowings against the Federal Home Loan Bank were $528 million as of December 2018 and $3.40 billion as of December 2017.
+Rupture" in Note H to the financial statements in Item 8) ($14 million), offset in part by surcharges for assessments and fees that are collected in revenues from customers ($4 million) and lower municipal infrastructure support costs ($2 million).
+Depreciation and amortization increased $2 million in 2018 compared with 2017 due primarily to higher steam utility plant balances.
+Taxes, other than income taxes increased $14 million in 2018 compared with 2017 due primarily to higher property taxes ($13 million) and state and local taxes ($2 million), offset in part by a sales and use tax refund ($1 million).
+Taxes, Other Than Income Taxes At $2,156 million, taxes other than income taxes remain one of CECONY’s largest operating expenses.
+The principal components of, and variations in, taxes other than income taxes were:
+## Table 0 ##
+[mhdev_0038_table_0.csv](mhdev_0038_table_0.csv)
+(a) Including sales tax on customers’ bills, total taxes other than income taxes in 2018 and 2017 were $2,628 and $2,495 million, respectively.
+Other Income (Deductions) Other income (deductions) decreased $6 million in 2018 compared with 2017 due primarily to an increase in non- service costs related to pension and other postretirement benefits.
+Net Interest Expense Net interest expense increased $66 million in 2018 compared with 2017 due primarily to higher debt balances in 2018.
+Income Tax Expense Income taxes decreased $359 million in 2018 compared with 2017 due primarily to lower income before income tax expense ($56 million), a decrease in the corporate federal income tax rate due to the TCJA ($250 million), a decrease in tax benefits for plant-related flow items ($9 million) and an increase in the amortization of excess deferred federal income taxes due to the TCJA ($52 million), offset in part by non-deductible business expenses ($3 million) and a decrease in bad debt write-offs ($4 million).
+CECONY deferred as a regulatory liability its estimated net benefits for the 2018 period under the TCJA.
+See “Other Regulatory Matters” in Note B to the financial statements in Item 8.
+O&R
+## Table 1 ##
+[mhdev_0038_table_1.csv](mhdev_0038_table_1.csv)
+fund’s third-party administrator based upon the valuation of the underlying securities and instruments and primarily by applying a market or income valuation methodology as appropriate depending on the specific type of security or instrument held.
+Funds-of-funds are valued based upon the net asset values of the underlying investments in hedge funds.
+Private equity consists of interests in partnerships that invest in U. S.  and non-U.
+S.  debt and equity securities.
+Partnership interests are valued using the most recent general partner statement of fair value, updated for any subsequent partnership interest cash flows.
+Real estate includes commercial properties, land and timberland, and generally includes, but is not limited to, retail, office, industrial, multifamily and hotel properties.
+Real estate fund values are primarily reported by the fund manager and are based on valuation of the underlying investments which include inputs such as cost, discounted cash flows, independent appraisals and market based comparable data.
+Risk Parity Funds are defined as engineered beta exposure to a wide range of asset classes and risk premia, including equity, interest rates, credit, and commodities.
+Risk parity funds seek to provide high risk-adjusted returns while providing a high level of diversification relative to a traditional equity/fixed income portfolio.
+These funds seek to achieve this objective with the use of modest leverage applied to lower-risk, more diverse asset classes.
+Investments in Risk parity funds are valued using monthly reported net asset values.
+Also included in these funds are related derivative instruments which are generally employed as asset class substitutes for managing asset/liability mismatches, or bona fide hedging or other appropriate risk management purposes.
+Derivative instruments are generally valued by the investment managers or in certain instances by third-party pricing sources.
+The fair value measurements using significant unobservable inputs (Level 3) at December 31, 2015 were as follows: Fair Value Measurements Using Significant Unobservable Inputs (Level 3)
+## Table 2 ##
+[mhdev_0038_table_2.csv](mhdev_0038_table_2.csv)
+FUNDING AND CASH FLOWS The Company’s funding policy for the Pension Plan is to contribute amounts sufficient to meet legal funding requirements, plus any additional amounts that the Company may determine to be appropriate considering the funded status of the plans, tax deductibility, cash flow generated by the Company, and other factors.
+The Company continually reassesses the amount and timing of any discretionary contributions.
+Contributions to the qualified plan totaling $750 million, $353 million and $31 million were made by the Company in 2015, 2014 and 2013, respectively.
+Generally, International Paper’s non-U.
+S.  pension plans are funded using the projected benefit as a target, except in certain countries where funding of benefit plans is not required.
+At December 31, 2015, projected future pension benefit payments, excluding any termination benefits, were as follows:
+## Table 3 ##
+[mhdev_0038_table_3.csv](mhdev_0038_table_3.csv)
+OTHER U. S.  PLANS International Paper sponsors the International Paper Company Salaried Savings Plan and the International Paper Company Hourly Savings Plan, both of which are tax-qualified defined contribution 401(k) savings plans.
+The following table presents information related to the major classes of assets and liabilities that were classified as held for sale in our consolidated balance sheet (in millions):
+## Table 4 ##
+[mhdev_0038_table_4.csv](mhdev_0038_table_4.csv)
+1 Consists of total assets relating to North America refranchising of $9 million and Latin America bottling operations of $210 million, which are included in the Bottling Investments operating segment.2 Consists of total liabilities relating to North America refranchising of $5 million and Latin America bottling operations of $32 million, which are included in the Bottling Investments operating segment.
+We determined that the operations included in the table above did not meet the criteria to be classified as discontinued operations under the applicable guidance.
+Discontinued Operations In October 2017, the Company and ABI completed the transition of ABI’s controlling interest in CCBA to the Company for $3,150 million.
+We plan to hold a controlling interest in CCBA temporarily.
+We anticipate that we will divest a portion of our ownership interest in 2019, which will result in the Company no longer having a controlling interest in CCBA.
+Accordingly, we have presented the financial position and results of operations of CCBA as discontinued operations in the accompanying consolidated financial statements.
+As CCBA met the criteria to be classified as held for sale, we were required to record their assets and liabilities at the lower of carrying value or fair value less any costs to sell and present the related assets and liabilities as separate line items in our consolidated balance sheet.
+During the year ended December 31, 2018, we recorded an impairment charge of $554 million, reflecting management’s view of the proceeds that are expected to be received based on revised projections of future operating results and foreign currency exchange rate fluctuations.
+Refer to Note 17.
+Upon consolidation of CCBA, we remeasured our previously held equity interests in CCBA and its South African subsidiary to fair value and recorded a gain on the remeasurement of $150 million.
+The fair values in our previously held equity investments in CCBA and its South African subsidiary were determined using income approaches, including discounted cash flow models (a Level 3 measurement), and the Company believes the inputs and assumptions used are consistent with those hypothetical marketplace participants would use.
+We recorded $1,805 million for the noncontrolling interests of CCBA.
+The fair value of the noncontrolling interests was determined in a manner similar to our previously held equity investments.
+The preliminary goodwill recorded at the time of the transaction was $4,262 million, none of which is tax deductible.
+This goodwill is in part due to the significant synergies that are expected from the consolidation of the bottling system in Southern and East Africa, especially within the country of South Africa.
+As a result, upon finalization of purchase accounting $411 million of the final goodwill balance of $4,186 million was allocated to other reporting units expected to benefit from this transaction.
+During 2018, the Company acquired additional bottling operations in Zambia and Botswana, which have also been included in assets held for sale — discontinued operations and liabilities held for sale — discontinued operations.
+Notes to Consolidated Financial Statements Note 1.
+Summary of Significant Accounting Policies – (Continued) accounted for under the previous accounting guidance, FTB No.85-4, where the carrying value of life settlement contracts was the cash surrender value, and revenue was recognized and included in Other revenues on the Consolidated Statements of Income when the life insurance policy underlying the life settlement contract matured.
+Under the previous accounting guidance, maintenance expenses were expensed as incurred and included in Other operating expenses on the Consolidated Statements of Income.
+CNA’s investments in life settlement contracts were $129 million and $115 million at December 31, 2008 and 2007 and are included in Other assets on the Consolidated Balance Sheets.
+The cash receipts and payments related to life settlement contracts are included in Cash flows from operating activities on the Consolidated Statements of Cash Flows for all periods presented.
+The fair value of each life insurance policy is determined as the present value of the anticipated death benefits less anticipated premium payments for that policy.
+These anticipated values are determined using mortality rates and policy terms that are distinct for each insured.
+The discount rate used reflects current risk-free rates at applicable durations and the risks associated with assessing the current medical condition of the insured, the potential volatility of mortality experience for the portfolio and longevity risk.
+CNA used its own experience to determine the fair value of its portfolio of life settlement contracts.
+The mortality experience of this portfolio of life insurance policies may vary by quarter due to its relatively small size.
+The following table details the values for life settlement contracts as of December 31, 2008.
+NOTE 3 Trading Account Assets and Liabilities The table below presents the components of trading account assets and liabilities at December 31, 2010 and 2009.
+## Table 0 ##
+[mhdev_0039_table_0.csv](mhdev_0039_table_0.csv)
+(1) Includes $29.7 billion and $23.5 billion at December 31, 2010 and 2009 of GSE obligations.
+NOTE 4 Derivatives Derivative Balances Derivatives are entered into on behalf of customers, for trading, as economic hedges or as qualifying accounting hedges.
+The Corporation enters into derivatives to facilitate client transactions, for principal trading purposes and to manage risk exposures.
+For additional information on the Corporation’s derivatives and hedging activities, see Note 1 – Summary of Significant Accounting Principles.
+The table below identifies derivative instruments included on the Corporation’s Consolidated Balance Sheet in derivative assets and liabilities at December 31, 2010 and 2009.
+Balances are presented on a gross basis, prior to the application of counterparty and collateral netting.
+Total derivative assets and liabilities are adjusted on an aggregate basis to take into consideration the effects of legally enforceable master netting agreements and have been reduced by the cash collateral applied.
+## Table 1 ##
+[mhdev_0039_table_1.csv](mhdev_0039_table_1.csv)
+(1) Represents the total contract/notional amount of derivative assets and liabilities outstanding.
+(2) Excludes $4.1 billion of long-term debt designated as a hedge of foreign currency risk.
+Core Net Interest Income We manage core net interest income which is reported net interest income on a FTE basis adjusted for the impact of market-based activities.
+As discussed in the GBAM business segment section beginning on page 49, we evaluate our market-based results and strategies on a total market-based revenue approach by combining net interest income and noninterest income for GBAM.
+In addition, 2009 is presented on a managed basis which is adjusted for loans that we originated and subsequently sold into credit card securitizations.
+Noninterest income, rather than net interest income and provision for credit losses, was recorded for securitized assets as we are compensated for servicing the securitized assets and we recorded servicing income and gains or losses on securitizations, where appropriate.2010 is presented in accordance with new consolidation guidance.
+An analysis of core net interest income, core average earning assets and core net interest yield on earning assets, all of which adjust for the impact of these two non-core items from reported net interest income on a FTE basis, is shown below.
+We believe the use of this non-GAAP presentation provides additional clarity in assessing our results.
+## Table 2 ##
+[mhdev_0039_table_2.csv](mhdev_0039_table_2.csv)
+(1) FTE basis (2) Balance and calculation include fees earned on overnight deposits placed with the Federal Reserve of $368 million and $379 million for 2010 and 2009.
+(3) Represents the impact of market-based amounts included in GBAM.
+(4) Represents the impact of securitizations utilizing actual bond costs which is different from the business segment view which utilizes funds transfer pricing methodologies.
+(5) Represents average securitized loans less accrued interest receivable and certain securitized bonds retained.
+n/a = not applicable Core net interest income decreased $4.6 billion to $48.3 billion for 2010 compared to 2009.
+The decrease was driven by lower loan levels compared to managed loan levels in 2009, and lower yields for the discretionary and credit card portfolios.
+These impacts were partially offset by lower rates on deposits.
+Core average earning assets decreased $39.2 billion to $1.4 trillion for 2010 compared to 2009.
+The decrease was primarily due to lower commercial loan levels and lower consumer loan levels compared to managed consumer loan levels in 2009.
+The impact was partially offset by increased securities levels in 2010.
+Core net interest yield decreased 23 bps to 3.46 percent for 2010 compared to 2009 due to the factors noted above.
+The fair value of variable rate debt approximates the carrying value since interest rates are variable and, thus, approximate current market rates.
+Free Cash Flow We define free cash flow, which is not a measure determined in accordance with Generally Accepted Accounting Principles in the United States, as cash provided by operating activities less purchases of property and equipment plus proceeds from sales of property and equipment as presented in our Consolidated Statements of Cash Flows.
+Our free cash flow for the years ended December 31, 2005, 2004 and 2003 is calculated as follows (in millions):
+## Table 0 ##
+[mhdev_0040_table_0.csv](mhdev_0040_table_0.csv)
+Our computation of expected volatility for 2011 , 2010 and 2009 was based on a combination of historical and market-based implied volatility from traded options on our stock.
+Our computation of expected life was determined based on historical experience of similar awards, giving consideration to the contractual terms of the stock-based awards, vesting schedules and expectations of future employee behavior.
+The interest rate for periods within the contractual life of the award was based on the U. S.  Treasury yield curve in effect at the time of grant.
+The estimation of awards that will ultimately vest requires judgment, and to the extent actual results or updated estimates differ from our current estimates, such amounts will be recorded as a cumulative adjustment in the period estimates are revised.
+We consider many factors when estimating forfeitures, including employee class and historical experience.
+Recent Accounting Pronouncements See “Note 1 - The Company and Summary of Significant Accounting Policies” to the consolidated financial statements included in this report, regarding the impact of certain recent accounting pronouncements on our consolidated financial statements.
+Item 7A: Quantitative and Qualitative Disclosures About Market Risk Foreign Currency Exposure We have significant operations internationally that are denominated in foreign currencies, primarily the Euro, British pound, Korean won, Australian dollar and Canadian dollar, subjecting us to foreign currency risk which may adversely impact our financial results.
+We transact business in various foreign currencies and have significant international revenues as well as costs.
+In addition, we charge our international subsidiaries for their use of intellectual property and technology and for certain corporate services provided by eBay and by PayPal.
+Our cash flow, results of operations and certain of our intercompany balances that are exposed to foreign exchange rate fluctuations may differ materially from expectations and we may record significant gains or losses due to foreign currency fluctuations and related hedging activities.
+We have a foreign exchange exposure management program that aims to identify material foreign currency exposures, to manage these exposures, and to minimize the potential effects of currency fluctuations on our reported consolidated cash flows and results of operations through the purchase of foreign currency exchange contracts.
+These foreign currency exchange contracts are accounted for as derivative instruments.
+For additional details related to our derivative instruments, please see “Note 9 - Derivative Instruments” to the consolidated financial statements included in this report.
+Interest Rate Risk The primary objective of our investment activities is to preserve principal while at the same time maximizing yields without significantly increasing risk.
+To achieve this objective, we maintain our portfolio of cash equivalents and short-term and long-term investments in a variety of available for sale securities, including money market funds and government and corporate securities.
+As of December 31, 2011 , approximately 56% of our total cash and investment portfolio was held in bank deposits and money market funds.
+As such, changes in interest rates will impact our interest income.
+In addition, we regularly issue new commercial paper notes to repay outstanding commercial paper notes as they mature, and those new commercial paper notes bear interest at rates prevailing at the time of issuance.
+Accordingly, changes in interest rates will impact interest expense or cost of net revenues.
+As of December 31, 2011 , we held no direct investments in auction rate securities, collateralized debt obligations, structured investment vehicles or mortgage-backed securities.
+For additional details related to our investment activities, please see "Note 7 - Investments" to the consolidated financial statements included in this report.
+Investments in both fixed-rate and floating-rate interest-earning instruments carry varying degrees of interest rate risk.
+The fair market value of our fixed-rate securities may be adversely impacted due to a rise in interest rates.
+In general, securities with longer maturities are subject to greater interest-rate risk than those with shorter maturities.
+While floating rate securities generally are subject to less interest-rate risk than fixedrate securities, floating-rate securities may produce less income than expected if interest rates decrease.
+Due in part to these factors, our investment income may fall short of expectations or we may suffer losses in principal if securities are sold that have declined in market value due to changes in interest rates.
+As of
+## Table 1 ##
+[mhdev_0040_table_1.csv](mhdev_0040_table_1.csv)
+The decrease in the other postretirement benefit plan obligation (due primarily to increased discount rates) was the primary cause of the decreased liability for other postretirement benefits at Con Edison and CECONY of $34 million and $30 million, respectively, compared with December 31, 2014.
+For Con Edison, this decreased liability corresponds with an increase to regulatory liabilities of $30 million for unrecognized net losses and unrecognized prior service costs associated with the Utilities consistent with the accounting rules for regulated operations, and an immaterial change to OCI (net of taxes) for the unrecognized net losses and a credit to OCI of $1 million (net of taxes) for the unrecognized prior service costs associated with the competitive energy businesses and O&R’s New Jersey subsidiary.
+For CECONY, the decrease in liability corresponds with an increase to regulatory liabilities of $27 million for unrecognized net losses and unrecognized prior service costs associated with the company consistent with the accounting rules for regulated operations, and an immaterial change to OCI (net of taxes) for the unrecognized net losses and unrecognized prior service costs associated with the competitive energy businesses.
+A portion of the unrecognized net losses and prior service costs for the other postretirement benefits, equal to $12 million and $(20) million, respectively, will be recognized from accumulated OCI and the regulatory asset into net periodic benefit cost over the next year for Con Edison.
+Included in these amounts are $10 million and $(14) million, respectively, for CECONY.
+Assumptions The actuarial assumptions were as follows:
+FIDELITY NATIONAL INFORMATION SERVICES, INC.  AND SUBSIDIARIES NOTES TO CONSOLIDATED FINANCIAL STATEMENTS — (Continued) Future minimum operating lease payments for leases with remaining terms greater than one year for each of the years in the five years ending December 31, 2015, and thereafter in the aggregate, are as follows (in millions):
+## Table 2 ##
+[mhdev_0040_table_2.csv](mhdev_0040_table_2.csv)
+In addition, the Company has operating lease commitments relating to office equipment and computer hardware with annual lease payments of approximately $16.3 million per year which renew on a short-term basis.
+Rent expense incurred under all operating leases during the years ended December 31, 2010, 2009 and 2008 was $116.1 million, $100.2 million and $117.0 million, respectively.
+Included in discontinued operations in the Consolidated Statements of Earnings was rent expense of $2.0 million, $1.8 million and $17.0 million for the years ended December 31, 2010, 2009 and 2008, respectively.
+Data Processing and Maintenance Services Agreements.
+The Company has agreements with various vendors, which expire between 2011 and 2017, for portions of its computer data processing operations and related functions.
+The Company’s estimated aggregate contractual obligation remaining under these agreements was approximately $554.3 million as of December 31, 2010.
+However, this amount could be more or less depending on various factors such as the inflation rate, foreign exchange rates, the introduction of significant new technologies, or changes in the Company’s data processing needs.
+(16) Employee Benefit Plans Stock Purchase Plan FIS employees participate in an Employee Stock Purchase Plan (ESPP).
+Eligible employees may voluntarily purchase, at current market prices, shares of FIS’ common stock through payroll deductions.
+Pursuant to the ESPP, employees may contribute an amount between 3% and 15% of their base salary and certain commissions.
+Shares purchased are allocated to employees based upon their contributions.
+The Company contributes varying matching amounts as specified in the ESPP.
+The Company recorded an expense of $14.3 million, $12.4 million and $14.3 million, respectively, for the years ended December 31, 2010, 2009 and 2008, relating to the participation of FIS employees in the ESPP.
+Included in discontinued operations in the Consolidated Statements of Earnings was expense of $0.1 million and $3.0 million for the years ended December 31, 2009 and 2008, respectively.401(k) Profit Sharing Plan The Company’s employees are covered by a qualified 401(k) plan.
+Eligible employees may contribute up to 40% of their pretax annual compensation, up to the amount allowed pursuant to the Internal Revenue Code.
+The Company generally matches 50% of each dollar of employee contribution up to 6% of the employee’s total eligible compensation.
+The Company recorded expense of $23.1 million, $16.6 million and $18.5 million, respectively, for the years ended December 31, 2010, 2009 and 2008, relating to the participation of FIS employees in the 401(k) plan.
+Included in discontinued operations in the Consolidated Statements of Earnings was expense of $0.1 million and $3.9 million for the years ended December 31, 2009 and 2008, respectively
+The following table presents a reconciliation of net cash provided by operating activities to free cash flow available to News Corporation:
+The table below sets forth information on our share repurchases and dividends paid in 2015, 2014 and 2013.
+## Table 0 ##
+[mhdev_0041_table_0.csv](mhdev_0041_table_0.csv)
+Refer to Note 10 and Note 17 to Comcast’s consolidated financial statements.
+(a) Excludes interest payments.
+(b) Purchase obligations consist of agreements to purchase goods and services that are legally binding on us and specify all significant terms, including fixed or minimum quantities to be purchased and price provisions.
+Our purchase obligations related to our Cable Communications segment include programming contracts with cable networks and local broadcast television stations; contracts with customer premise equipment manufacturers, communications vendors and multichannel video providers for which we provide advertising sales representation; and other contracts entered into in the normal course of business.
+Cable Communications programming contracts in the table above include amounts payable under fixed or minimum guaranteed commitments and do not represent the total fees that are expected to be paid under programming contracts, which we expect to be significantly higher because these contracts are generally based on the number of subscribers receiving the programming.
+Our purchase obligations related to our NBCUniversal segments consist primarily of commitments to acquire film and television programming, including U. S.  television rights to future Olympic Games through 2032, Sunday Night Football on the NBC network through the 2022-23 season, including the Super Bowl in 2018 and 2021, NHL games through the 2020-21 season, Spanish-language U. S.  television rights to FIFA World Cup games through 2022, U.
+S television rights to English Premier League soccer games through the 2021-22 season, certain PGA TOUR and other golf events through 2030 and certain NASCAR events through 2024, as well as obligations under various creative talent and employment agreements, including obligations to actors, producers, television personalities and executives, and various other television commitments.
+Purchase obligations do not include contracts with immaterial future commitments.
+(c) Other long-term liabilities reflected on the balance sheet consist primarily of subsidiary preferred shares; deferred compensation obligations; and pension, postretirement and postemployment benefit obligations.
+A contractual obligation with a carrying value of $1.1 billion is not included in the table above because it is uncertain if the arrangement will be settled.
+The contractual obligation involves an interest held by a third party in the revenue of certain theme parks.
+The arrangement provides the counterparty with the right to periodic payments associated with current period revenue and, beginning in 2017, the option to require NBCUniversal to purchase the interest for cash in an amount based on a contractually specified formula, which amount could be significantly higher than our current carrying value.
+See Note 11 to Comcast’s consolidated financial statements for additional information related to this arrangement.
+Reserves for uncertain tax positions of $1.1 billion are not included in the table above because it is uncertain if and when these reserves will become payable.
+Payments of $2.1 billion of participations and residuals are also not included in the table above because we cannot make a reliable estimate of the period in which these obligations will be settled.
+(d) Our contractual obligations do not include the commitment to invest up to $4 billion at any one time as an investor in Atairos due to our inability to estimate the timing of this funding.
+In addition, we do not include any future expenditures related to the construction and development of the proposed Universal Studios theme park in Beijing, China as we are not currently obligated to make such funding.
+PRUDENTIAL FINANCIAL, INC.  Notes to Consolidated Financial Statements 21.
+COMMITMENTS AND GUARANTEES, CONTINGENT LIABILITIES AND LITIGATION AND REGULATORY MATTERS (continued) Summary The Company’s litigation and regulatory matters are subject to many uncertainties, and given their complexity and scope, their outcome cannot be predicted.
+It is possible that the results of operations or the cash flow of the Company in a particular quarterly or annual period could be materially affected by an ultimate unfavorable resolution of pending litigation and regulatory matters depending, in part, upon the results of operations or cash flow for such period.
+Management believes, however, that the ultimate outcome of all pending litigation and regulatory matters, after consideration of applicable reserves and rights to indemnification, should not have a material adverse effect on the Company’s financial position.22.
+QUARTERLY RESULTS OF OPERATIONS (UNAUDITED) The unaudited quarterly results of operations for the years ended December 31, 2005 and 2004 are summarized in the table below:
+## Table 1 ##
+[mhdev_0041_table_1.csv](mhdev_0041_table_1.csv)
+(1) Quarterly earnings per share amounts may not add to the full year amounts due to the averaging of shares.
+Results for the second and fourth quarters of 2005 include pre-tax expenses of $136 million and $267 million, respectively, related to obligations and costs we retained in connection with businesses contributed to the retail securities brokerage joint venture with Wachovia, including accruals for estimated settlement costs related to market timing issues under active negotiation with state and federal authorities.
+Results for the third quarter of 2005 include an income tax benefit of $720 million, as discussed further in Note 17.
+As discussed in Note 2, the Company adopted SOP 03-1 effective January 1, 2004.
+Results for the first quarter of 2004 include a loss from the cumulative effect of accounting changes, net of taxes, of $79 million related to the adoption of SOP 03-1.
+In the fourth quarter of 2004 the Company committed to the sale or exit of its Dryden Wealth Management Business and results for the fourth quarter include a charge of $53 million for the impairment of goodwill associated with this business.
+TELEFLEX INCORPORATED NOTES?TO CONSOLIDATED FINANCIAL STATEMENTS — (Continued) The effective income tax rate for 2016 was impacted by a tax benefit associated with U. S.  federal tax return filings, a benefit resulting from the reduction of our German reserves as a result of the conclusion of an audit, a benefit resulting from the expiration of various statutes of limitation, and a benefit associated with the IP R&D asset impairment referenced in Note 4.
+The Company and its subsidiaries are routinely subject to examinations by various taxing authorities.
+In conjunction with these examinations and as a regular practice, the Company establishes and adjusts reserves with respect to its uncertain tax positions to address developments related to those positions.
+The Company realized a net benefit of approximately $5.2 million in 2017 as a result of reducing its reserves with respect to uncertain tax positions, principally due to the expiration of a number of applicable statutes of limitations.
+The Company realized a net benefit of approximately $8.8 million in 2016, as a result of reducing its reserves with respect to uncertain tax positions, principally due to the conclusion of a tax audit in Germany and the expiration of various statutes of limitations.
+The Company realized a net benefit of approximately $4.6 million in 2015, which resulted from a reduction in the Company's U. S.  reserves due to the conclusion of a tax audit, offset by an increase in the Company's foreign reserves with respect to developments in the tax audit in Germany discussed above.
+The following table summarizes significant components of the Company’s deferred tax assets and liabilities at December?31, 2017 and?2016:
+## Table 2 ##
+[mhdev_0041_table_2.csv](mhdev_0041_table_2.csv)
+As a result of the TCJA, the Company reassessed and revalued its deferred tax positions at December 31, 2017.
+As a result, the Company recognized a $46.1 million decrease in the net deferred tax liability in 2017.
+Under the tax laws of various jurisdictions in which the Company operates, deductions or credits that cannot be fully utilized for tax purposes during the current year may be carried forward, subject to statutory limitations, to reduce taxable income or taxes payable in a future tax year.
+At December?31, 2017, the tax effect of such carryforwards approximated $210.1 million.
+Of this amount, $11.5 million has no expiration date, $2.0 million expires after 2017 but before the end of 2022 and $196.6 million expires after 2022.
+A portion of these carryforwards consists of tax losses and credits obtained by the Company as a result of acquisitions; the utilization of these carryforwards are subject to an annual limitation imposed by Section?382 of the Internal Revenue Code, which limits a company’s ability to deduct prior net operating losses following a more than 50 percent change in ownership.
+It is not expected that the Section?382 limitation will prevent the Company ultimately from utilizing the applicable loss carryforwards.
+The determination of state net operating loss carryforwards is dependent upon the United States?subsidiaries’ taxable income or loss, the state’s proportion of each subsidiary's taxable net income and the application of state laws, which can change from year to year and impact the amount of such carryforward.
+The valuation allowance for deferred tax assets of $104.8 million and $104.5 million at December?31, 2017 and?2016, respectively, relates principally to the uncertainty of the Company’s ability to utilize certain deferred tax
+$3.8 bllin at the end of fiscal 2007.
+Working capital, the excess of current assets over current liabilities, was $0.6 bllion at the end of fiscal 2008, down from $2.8 bllin at the end of fiscal 2007.
+The decreases in cosh and cash equivolents, short-term investments and working capital were due primarily to the liquidation of a substantial portion of our investment portfolio to repay debt and to fund our ASR program.
+In addition, at March 1, 2008, we ecassified $4 17 miion (par value) of our short-term investments in auction-rate securities to non-current assets within equity and other investments in our consolidoted balance sheet given the uncertainty of when these investments can be successfully liquidated at par as a result of the current market failures for auction-rate securities as described below.
+In accordance with our investment policy, we invest with issuers who have high-quality credit and limit the amount of investment exposure to any one ssuer.
+The primary objective of our investment activities is to preserve principal and maintain a desired level of liquidity to meet working capital needs.
+We seek to preserve principal and minimize exposure to interest- rate fluctuations by limiting default risk, market risk and reinvestment risk.
+All investment debt securities we own are investment grade.
+We do not have any investments in securities that are collateralized by assets that include mortgages or subprime debt.
+The vast majority of our investments in auction-rate securities are AAA/Aaa-rated and collateralized by student loans, which are guaranteed 95% to 100% by the U. S.  government.
+Until February 2008, the market for auction-rate securities was highly liquid.
+Begining February 11, 2008, a substantial number of auctions began to fail as the amount of securities submitted for sale in those auctions exceeded the aggregate amount of the bids.
+Substantially all of our auction-rate securities portfolio at March 1, 2008, has been subject to failed audions.
+For each unsuccessful audion, the interest rate moves to a maximum rate defined for each security.
+To date, we have collected all interest due on our audion-rate securities and expect to continue to do so in the future.
+Since March 1, 2008 and through April 25, 2008, we have liquidated $20 million of auction-rate securities at par value.
+At April 25, 2008, our auction-rate securities portfolio was $397 million (par value).
+The principal associated with failed auctions will not be accessible until successful auctions occur, a buyer is found outside of the auction process, the issuers establish a different form of financing to replace these securities, or final payments come due according to the contractual maturities of the debt issues, which range from 8 to 40 years.
+We believe that the credit quality of our auction-rote securities is high and that we will ultimately recover all amounts invested in these securities.
+We do not believe the current iliquidity of these investments will have a material impact on our ability to execute our business plans as described below in the Outlook for Fiscal 2009 section of this MD&A.
+Our liquidity is also ffected by restricted cash and investments in debt securities that are pledged as collateral or restricted to use for vendor payables, general liability insurance, workers' compensation insurance and warranty programs.
+Restrided cash and investments in debt securities totaled $ 408 million and $382 million at March 1, 2008, and March 3, 2007, respectively, and were included in other current assets or equity and other invest ments.
+Cash Flows The following table summarizes our cash flows from operating, investing and financing activities for each of the past three fiscal years ($ in millions):
+## Table 3 ##
+[mhdev_0041_table_3.csv](mhdev_0041_table_3.csv)
+ITEM 2.
+PROPERTIES Our worldwide headquarters is located on a 35-acre office complex in Atlanta, Georgia.
+The complex includes our 621,000 square foot headquarters building and an 870,000 square foot building in which our North America group’s main offices are located.
+The complex also includes several other buildings, including our 264,000 square foot Coca-Cola Plaza building, technical and engineering facilities and a reception center.
+We also own an office and retail building at 711 Fifth Avenue in New York, New York.
+These properties, except for the North America group’s main offices, are included in Corporate.
+The North America group’s main offices are included in the North America operating segment.
+We own or lease additional facilities, real estate and office space throughout the world which we use for administrative, manufacturing, processing, packaging, storage, warehousing, distribution and retail operations.
+These properties are generally included in the geographic operating segment in which they are located.
+The following table summarizes our principal production, distribution and storage facilities by operating segment and Corporate as of December 31, 2018:
+## Table 4 ##
+[mhdev_0041_table_4.csv](mhdev_0041_table_4.csv)
+1 Does not include 36 owned and 2 leased principal beverage manufacturing/bottling plants and 23 owned and 30 leased distribution and storage warehouses related to our discontinued operations.
+Management believes that our Company’s facilities for the production of our products are suitable and adequate, that they are being appropriately utilized in line with past experience, and that they have sufficient production capacity for their present intended purposes.
+The extent of utilization of such facilities varies based upon seasonal demand for our products.
+However, management believes that additional production can be achieved at the existing facilities by adding personnel and capital equipment and, at some facilities, by adding shifts of personnel or expanding the facilities.
+We continuously review our anticipated requirements for facilities and, on the basis of that review, may from time to time acquire or lease additional facilities and/or dispose of existing facilities.
+ITEM 3.
+LEGAL PROCEEDINGS The Company is involved in various legal proceedings, including the proceedings specifically discussed below.
+Management believes that, except as disclosed in U. S.  Federal Income Tax Dispute below, the total liabilities of the Company that may arise as a result of currently pending legal proceedings will not have a material adverse effect on the Company taken as a whole.
+Aqua-Chem Litigation On December 20, 2002, the Company filed a lawsuit (The Coca-Cola Company v.  Aqua-Chem, Inc. , Civil Action No.2002CV631-50) in the Superior Court of Fulton County, Georgia (“Georgia Case”), seeking a declaratory judgment that the Company has no obligation to its former subsidiary, Aqua-Chem, Inc. , now known as Cleaver-Brooks, Inc.  (“Aqua-Chem”), for any past, present or future liabilities or expenses in connection with any claims or lawsuits against Aqua-Chem.
+Subsequent to the Company’s filing but on the same day, Aqua-Chem filed a lawsuit (Aqua-Chem, Inc.  v.  The Coca-Cola Company, Civil Action No.02CV012179) in the Circuit Court, Civil Division of Milwaukee County, Wisconsin (“Wisconsin Case”).
+In the Wisconsin Case, Aqua-Chem sought a declaratory judgment that the Company is responsible for all liabilities and expenses not covered by insurance in connection with certain of Aqua-Chem’s general and product liability claims arising from occurrences prior to the Company’s sale of Aqua-Chem in 1981, and a judgment for breach of contract in an amount exceeding $9 million for costs incurred by Aqua-Chem to date in connection with such claims.
+The Wisconsin Case initially was stayed, pending final resolution of the Georgia Case, and later was voluntarily dismissed without prejudice by Aqua-Chem.
+The Company owned Aqua-Chem from 1970 to 1981.
+During that time, the Company purchased over $400 million of insurance coverage, which also insures Aqua-Chem for some of its prior and future costs for certain product liability and other claims.
+The Company sold Aqua-Chem to Lyonnaise American Holding, Inc. , in 1981 under the terms of a stock sale agreement.
+The 1981 agreement, and a subsequent 1983 settlement agreement, outlined the parties’ rights and obligations concerning past and future
+In addition to the consolidated operating results shown on the previous page, consolidated results for 2007 and adjusted growth rates for 2008 and 2007 are presented in the following table excluding the impact of the Latam transaction.
+These results include the effect of foreign currency translation further discussed in the section titled Impact of foreign currency translation on reported results.
+While the Company has converted certain other markets to a developmental license arrangement, management believes the Latam transaction and the associated charge are not indicative of ongoing operations due to the size and scope of the transaction.
+Management believes that the adjusted operating results better reflect the underlying business trends relevant to the periods presented.
+## Table 5 ##
+[mhdev_0041_table_5.csv](mhdev_0041_table_5.csv)
+nm Not meaningful.
+(1) The results for the full year 2007 included impairment and other charges of $1,665 million, partly offset by a benefit of $24 million due to eliminating depreciation on the assets in Latam in mid-April 2007, and a tax benefit of $62 million.
+(2) The following items impact the comparison of adjusted growth in diluted income per share from continuing operations and diluted net income per share for the year ended December 31, 2008 compared with 2007.
+On a net basis, these items negatively impact the comparison by 7 and 6 percentage points, respectively: 2008 ?
+$0.09 per share gain on the sale of the Company’s minority interest in Pret A Manger.2007 ?
+$0.26 per share of income tax benefit resulting from the completion of an Internal Revenue Service (IRS) examination of the Company’s 2003-2004 U. S.  federal income tax returns; partly offset by ?
+$0.02 per share of income tax expense related to the impact of a tax law change in Canada.
+(3) The following items impact the comparison of adjusted growth in diluted income per share from continuing operations and diluted net income per share for the year ended December 31, 2007 compared with 2006.
+On a net basis, these items positively impact the comparison by 15 and 12 percentage points, respectively: 2007 ?
+$0.26 per share of income tax benefit resulting from the completion of an IRS examination of the Company’s 2003-2004 U. S.  federal income tax returns; partly offset by ?
+$0.02 per share of income tax expense related to the impact of a tax law change in Canada.2006 ?
+$0.08 per share of operating expenses primarily related to strategic actions taken to enhance overall profitability and improve returns; and ?
+$0.01 per share of incremental income tax expense primarily related to the impact of a tax law change in Canada.
+Net income and diluted net income per common share In 2008, net income and diluted net income per common share were $4.3 billion and $3.76.
+Results benefited by a $109 million, or $0.09 per share, gain on the sale of the Company’s minority interest in Pret A Manger.
+In 2007, net income and diluted net income per common share were $2.4 billion and $1.98.
+Income from continuing operations was $2.3 billion or $1.93 per share, which included $1.6 billion or $1.30 per share of net expense related to the Latam transaction.
+This reflects an impairment charge of $1.32 per share, partly offset by a $0.02 per share benefit due to eliminating depreciation on the assets in Latam in mid-April 2007 in accordance with accounting rules.
+In addition, 2007 results included a net tax benefit of $288 million or $0.24 per share resulting from the completion of an IRS examination of the Company’s 2003-2004 U. S.  federal income tax returns, partly offset by the impact of a tax law change in Canada.
+Income from discontinued operations was $60 million or $0.05 per share.
+In 2006, net income and diluted net income per common share were $3.5 billion and $2.83.
+Income from continuing operations was $2.9 billion or $2.29 per share, which included $134 million ($98 million after tax or $0.08 per share) of impairment and other charges primarily related to strategic actions taken to enhance overall profitability and improve returns, as well as $0.01 per share of net incremental income tax expense primarily related to the impact of a tax law change in Canada.
+Income from discontinued operations was $678 million or $0.54 per share.
+Refer to the Impairment and other charges, net and Discontinued operations sections for further discussion.
+The Company repurchased 69.7 million shares of its stock for $4.0 billion in 2008 and 77.1 million shares for $3.9 billion in 2007, driving reductions of over 4% and 3% of total shares outstanding, respectively, net of stock option exercises.
+maintenance and contract expenses incurred by our subsidiaries for external transportation services); materials used to maintain the Railroad’s lines, structures, and equipment; costs of operating facilities jointly used by UPRR and other railroads; transportation and lodging for train crew employees; trucking and contracting costs for intermodal containers; leased automobile maintenance expenses; and tools and supplies.
+Expenses for contract services increased $103 million in 2012 versus 2011, primarily due to increased demand for transportation services purchased by our logistics subsidiaries for their customers and additional costs for repair and maintenance of locomotives and freight cars.
+Expenses for contract services increased $106 million in 2011 versus 2010, driven by volume-related external transportation services incurred by our subsidiaries, and various other types of contractual services, including flood-related repairs, mitigation and improvements.
+Volume-related crew transportation and lodging costs, as well as expenses associated with jointly owned operating facilities, also increased costs compared to 2010.
+In addition, an increase in locomotive maintenance materials used to prepare a portion of our locomotive fleet for return to active service due to increased volume and additional capacity for weather related issues and warranty expirations increased expenses in 2011.
+Depreciation – The majority of depreciation relates to road property, including rail, ties, ballast, and other track material.
+A higher depreciable asset base, reflecting ongoing capital spending, increased depreciation expense in 2012 compared to 2011.
+A higher depreciable asset base, reflecting ongoing capital spending, increased depreciation expense in 2011 compared to 2010.
+Higher depreciation rates for rail and other track material also contributed to the increase.
+The higher rates, which became effective January 1, 2011, resulted primarily from increased track usage (based on higher gross ton-miles in 2010).
+Equipment and Other Rents – Equipment and other rents expense primarily includes rental expense that the Railroad pays for freight cars owned by other railroads or private companies; freight car, intermodal, and locomotive leases; and office and other rent expenses.
+Increased automotive and intermodal shipments, partially offset by improved car-cycle times, drove an increase in our short-term freight car rental expense in 2012.
+Conversely, lower locomotive lease expense partially offset the higher freight car rental expense.
+Costs increased in 2011 versus 2010 as higher short-term freight car rental expense and container lease expense offset lower freight car and locomotive lease expense.
+Other – Other expenses include personal injury, freight and property damage, destruction of equipment, insurance, environmental, bad debt, state and local taxes, utilities, telephone and cellular, employee travel, computer software, and other general expenses.
+Other costs in 2012 were slightly higher than 2011 primarily due to higher property taxes.
+Despite continual improvement in our safety experience and lower estimated annual costs, personal injury expense increased in 2012 compared to 2011, as the liability reduction resulting from historical claim experience was less than the reduction in 2011.
+Higher property taxes, casualty costs associated with destroyed equipment, damaged freight and property and environmental costs increased other costs in 2011 compared to 2010.
+A one-time payment of $45 million in the first quarter of 2010 related to a transaction with CSXI and continued improvement in our safety performance and lower estimated liability for personal injury, which reduced our personal injury expense year-over-year, partially offset increases in other costs.
+In recent years, the Michigan legislature has conducted hearings on the subject of energy competition.
+If the ROA limit were increased or if electric generation service in Michigan were deregulated, Consumers’ financial results and operations could be materially adversely affected.
+Electric Transmission: In 2012, ReliabilityFirst Corporation informed Consumers that Consumers may not be properly registered to meet certain NERC electric reliability standards.
+Consumers assessed its registration status, taking into consideration FERC’s December 2012 order on the definition of a bulk electric system, and in 2013 notified ReliabilityFirst Corporation that it was preparing to register as a transmission owner, transmission planner, and transmission operator.
+In light of this order, Consumers reviewed the classification of certain electric distribution assets and, in April 2014, filed an application for reclassification with the MPSC.
+In October 2014, the MPSC approved a settlement agreement that will allow Consumers to reclassify $34 million of net plant assets from distribution to transmission, subject to FERC approval.
+In January 2015, Consumers filed an application for reclassification with FERC.
+Electric Rate Matters: Rate matters are critical to Consumers’ electric utility business.
+For additional details on rate matters, see Note 3, Regulatory Matters.
+Electric Rate Design: In June 2014, Michigan’s governor signed legislation requiring the MPSC to explore alternative cost allocation and rate design methods that would promote affordable and competitive rates for all electric customers.
+In conjunction with this legislation, Consumers submitted to the MPSC a proposal for a new electric rate design in October 2014.
+This proposed new design will better ensure that rates are equal to the cost of service and will have the effect of making rates for energyintensive industrial customers more competitive, while keeping residential bills affordable.
+Consumers incorporated its proposed new rate design into the rate case it filed in December 2014.
+Electric Rate Case: In December 2014, Consumers filed an application with the MPSC seeking an annual rate increase of $163 million, based on a 10.7 percent authorized return on equity.
+The filing requested authority to recover new investment in system reliability, environmental compliance, and technology enhancements.
+Presented in the following table are the components of the requested increase in revenue:
+## Table 0 ##
+[mhdev_0042_table_0.csv](mhdev_0042_table_0.csv)
+The filing also seeks approval of an investment recovery mechanism that would allow recovery of an additional $163 million in total for incremental investments that Consumers plans to make in 2016 and 2017 and $78 million for incremental investments planned in 2018, subject to reconciliation.
+Depreciation Rate Case: In June 2014, Consumers filed a depreciation case related to its electric and common utility property.
+In this case, Consumers requested an increase in depreciation expense, and its recovery of that expense, of $28 million annually.
+PSCR Plan: Consumers submitted its 2015 PSCR plan to the MPSC in September 2014 and, in accordance with its proposed plan, self-implemented the 2015 PSCR charge beginning in January 2015.
+In 2013, the U. S.  Court of Appeals for the Ninth Circuit reversed the district court decision.
+The appellate court found that FERC preemption does not apply under the facts of these cases.
+The appellate court affirmed the district court’s denial of leave to amend to add federal antitrust claims.
+The matter was appealed to the U. S.  Supreme Court, which in 2015 upheld the Ninth Circuit’s decision.
+The cases were remanded back to the federal district court.
+In May 2016, the federal district court granted the defendants’ motion for summary judgment in the individual lawsuit based on a release in a prior settlement involving similar allegations and reinstated CMS Energy as a defendant in one of the class action lawsuits.
+The order of summary judgment has been appealed.
+In December 2016, CMS Energy entities reached a tentative settlement with the plaintiffs in the three Kansas and Missouri cases for an amount that was not material to CMS Energy.
+Notice of the tentative settlement has been filed in the federal district court.
+The settlement will be subject to court approval.
+Other CMS Energy entities remain as defendants in the two Wisconsin class action lawsuits.
+These cases involve complex facts, a large number of similarly situated defendants with different factual positions, and multiple jurisdictions.
+Presently, any estimate of liability would be highly speculative; the amount of CMS Energy’s reasonably possible loss would be based on widely varying models previously untested in this context.
+If the outcome after appeals is unfavorable, these cases could negatively affect CMS Energy’s liquidity, financial condition, and results of operations.
+Bay Harbor: CMS Land retained environmental remediation obligations for the collection and treatment of leachate, a liquid consisting of water and other substances, at Bay Harbor after selling its interests in the development in 2002.
+Leachate is produced when water enters into cement kiln dust piles left over from former cement plant operations at the site.
+In 2012, CMS Land and the MDEQ finalized an agreement that established the final remedies and the future water quality criteria at the site.
+CMS Land completed all construction necessary to implement the remedies required by the agreement and will continue to maintain and operate a system to discharge treated leachate into Little Traverse Bay under an NPDES permit issued in 2010 and renewed in October 2016.
+The renewed NPDES permit is valid through September 2020.
+Various claims have been brought against CMS Land or its affiliates, including CMS Energy, alleging environmental damage to property, loss of property value, insufficient disclosure of environmental matters, breach of agreement relating to access, or other matters.
+CMS Land and other parties have received a demand for payment from the EPA in the amount of $8 million, plus interest.
+The EPA is seeking recovery under CERCLA of response costs allegedly incurred at Bay Harbor.
+These costs exceed what was agreed to in a 2005 order between CMS Land and the EPA, and CMS Land has communicated to the EPA that it does not believe that this is a valid claim.
+The EPA has filed a lawsuit to collect these costs.
+At December 31, 2016, CMS Energy had a recorded liability of $51 million for its remaining obligations for environmental remediation.
+CMS Energy calculated this liability based on discounted projected costs, using a discount rate of 4.34 percent and an inflation rate of one percent on annual operating and maintenance costs.
+The undiscounted amount of the remaining obligation is $65 million.
+CMS Energy expects to pay the following amounts for long-term liquid disposal and operating and maintenance in each of the next five years:
+## Table 1 ##
+[mhdev_0042_table_1.csv](mhdev_0042_table_1.csv)
+CMS Energy’s estimate of response activity costs and the timing of expenditures could change if there are changes in circumstances or assumptions used in calculating the liability.
+Although a liability for its present estimate of remaining response activity costs has been recorded, CMS Energy cannot predict the ultimate financial impact or outcome of this matter.
+CMS Energy and Consumers also have recognized non-current liabilities for which the timing of payments cannot be reasonably estimated.
+These items, which are excluded from the table above, include regulatory liabilities, deferred income taxes, workers compensation liabilities, accrued liabilities under renewable energy programs, and other liabilities.
+Retirement benefits are also excluded from the table above.
+For details related to benefit payments, see Note 12, Retirement Benefits.
+Off-Balance-Sheet Arrangements: CMS Energy, Consumers, and certain of their subsidiaries enter into various arrangements in the normal course of business to facilitate commercial transactions with third parties.
+These arrangements include indemnities, surety bonds, letters of credit, and financial and performance guarantees.
+Indemnities are usually agreements to reimburse a counterparty that may incur losses due to outside claims or breach of contract terms.
+The maximum payment that could be required under a number of these indemnity obligations is not estimable; the maximum obligation under indemnities for which such amounts were estimable was $153 million at December 31, 2016.
+While CMS Energy and Consumers believe it is unlikely that they will incur any material losses related to indemnities they have not recorded as liabilities, they cannot predict the impact of these contingent obligations on their liquidity and financial condition.
+For additional details on these and other guarantee arrangements, see Note 4, Contingencies and Commitments—Guarantees.
+For additional details on operating leases, see Note 10, Leases and Palisades Financing.
+Capital Expenditures: Over the next five years, CMS Energy and Consumers expect to make substantial capital investments.
+CMS Energy and Consumers may revise their forecasts of capital expenditures periodically due to a number of factors, including environmental regulations, business opportunities, market volatility, economic trends, and the ability to access capital.
+Presented in the following table are CMS Energy’s and Consumers’ estimated capital expenditures, including lease commitments, for 2017 through 2021:
+## Table 2 ##
+[mhdev_0042_table_2.csv](mhdev_0042_table_2.csv)
+OUTLOOK Several business trends and uncertainties may affect CMS Energy’s and Consumers’ financial condition and results of operations.
+These trends and uncertainties could have a material impact on CMS Energy’s and Consumers’ consolidated income, cash flows, or financial position.
+For additional details regarding these and other uncertainties, see Forward-Looking Statements and Information; Item 1A.
+Risk Factors; Note 3, Regulatory Matters; and Note 4, Contingencies and Commitments.
+Table of Contents The following table discloses purchases of shares of our common stock made by us or on our behalf during the fourth quarter of 2017.
+## Table 3 ##
+[mhdev_0042_table_3.csv](mhdev_0042_table_3.csv)
+(a) The shares reported in this column represent purchases settled in the fourth quarter of 2017 relating to (i) our purchases of shares in open-market transactions to meet our obligations under stock-based compensation plans, and (ii) our purchases of shares from our employees and non-employee directors in connection with the exercise of stock options, the vesting of restricted stock, and other stock compensation transactions in accordance with the terms of our stock-based compensation plans.
+(b) On September 21, 2016, we announced that our board of directors authorized our purchase of up to $2.5 billion of our outstanding common stock (the 2016 program) with no expiration date.
+As of December 31, 2017, we had $1.2 billion remaining available for purchase under the 2016 program.
+On January 23, 2018, we announced that our board of directors authorized our purchase of up to an additional $2.5 billion of our outstanding common stock with no expiration date.
+Part II, Item 7 The following table summarizes the activity under these share repurchase programs during 2008, 2007 and 2006:
+## Table 0 ##
+[mhdev_0043_table_0.csv](mhdev_0043_table_0.csv)
+Given the current credit and economic environment, Schlumberger anticipates that the total dollar amount of stock repurchases in 2009 may be significantly less than the $1.8 billion spent during 2008.
+This anticipated reduction will serve to increase Schlumberger’s financial flexibility during these uncertain times.
+Stock buy-back activity during 2009 will continue to be targeted to offset any dilution caused by the Schlumberger stock-based compensation programs.  ?
+Cash flow provided by operations was $6.9 billion in 2008, $6.3 billion in 2007 and $4.7 billion in 2006.
+These improvements were driven by the revenue and net income increases experienced in 2008 and 2007 offset by required investments in working capital.  ?
+During 2008, 2007 and 2006, Schlumberger announced that its Board of Directors had approved increases in the quarterly dividend of 20%, 40% and 19%, respectively.
+Total dividends paid during 2008, 2007 and 2006 were $964 million, $771 million and $568 million, respectively.  ?
+Capital expenditures were $3.7 billion in 2008, $2.9 billion in 2007 and $2.5 billion in 2006.
+These increases were a result of the increased activity levels experienced in recent years.
+Capital expenditures are expected to approach $3.0 billion in 2009, including $385 million relating to the construction of seismic vessels.  ?
+During 2008, 2007 and 2006 Schlumberger made $290 million, $250 million and $251 million, respectively, of contributions to its defined benefit pension plans.
+The US qualified pension plan was 71% funded at December 31, 2008 based on the projected benefit obligation.
+This compares to 109% funded at December 31, 2007.
+Outside of the US, Schlumberger’s International Staff Pension Plan, which was converted to a defined benefit pension plan during the fourth quarter of 2008 (and therefore accounts for approximately half of the increase in the Postretirement Benefits liability on the Consolidated Balance Sheet at December 31, 2008), and UK pension plan are a combined 69% funded at December 31, 2008 based on the projected benefit obligation.
+The UK pension plan was 92% funded at December 31, 2007.
+Schlumberger currently anticipates contributing approximately $400 million to $500 million to its defined benefit pension plans in 2009, subject to market and business conditions.  ?
+During 2008 and 2007, certain holders of Schlumberger Limited 1.5% Series A Convertible Debentures due June 1, 2023 and 2.125% Series B Convertible Debentures due June 1, 2023 converted their debentures into Schlumberger common stock.
+The following table summarizes these conversions:
+## Table 1 ##
+[mhdev_0043_table_1.csv](mhdev_0043_table_1.csv)
+Part II, Item 7A The following table represents principal amounts of Schlumberger’s debt at December 31, 2008 by year of maturity:
+## Table 2 ##
+[mhdev_0043_table_2.csv](mhdev_0043_table_2.csv)
+The fair market value of the outstanding fixed rate debt was approximately $2.4 billion as of December 31, 2008.
+The weighted average interest rate on the variable rate debt as of December 31, 2008 was approximately 4.5%.
+Schlumberger does not enter into foreign currency or interest rate derivatives for speculative purposes.
+Forward-looking Statements This Report and other statements we make contain “forward-looking statements” within the meaning of the federal securities laws, which include any statements that are not historical facts, such as our forecasts or expectations regarding business outlook; growth for Schlumberger as a whole and for each of Oilfield Services and WesternGeco (and for specified products or geographic areas within each segment); oil and natural gas demand and production growth; operating margins; operating and capital expenditures as well as research & development spending, by Schlumberger and the oil and gas industry; the business strategies of Schlumberger’s customers; the Schlumberger effective tax rate; Schlumberger’s stock repurchase program; expected pension and post-retirement funding; expected stock compensation costs; exploitation and integration of technology; and future results of operations.
+These statements are subject to risks and uncertainties, including, but not limited to, the current global economic downturn; changes in exploration and production spending by Schlumberger’s customers and changes in the level of oil and natural gas exploration and development; general economic and business conditions in key regions of the world; the financial condition of our suppliers and customers in light of current global economic conditions; operational and project modifications, delays or cancellations; political and economic uncertainty and socio-political unrest; and other risks and uncertainties described elsewhere in this Report, including under “Item 1A.
+Risk Factors”.
+If one or more of these risks or uncertainties materialize (or the consequences of such a development changes), or should underlying assumptions prove incorrect, actual outcomes may vary materially from those forecasted or expected.
+Schlumberger disclaims any intention or obligation to update publicly or revise such statements, whether as a result of new information, future events or otherwise.
+Part II, Item 8 Allowance for doubtful accounts is as follows:
+## Table 3 ##
+[mhdev_0043_table_3.csv](mhdev_0043_table_3.csv)
+Discontinued Operations During the fourth quarter of 2009, Schlumberger recorded a net $22 million charge related to the resolution of a customs assessment pertaining to its former offshore contract drilling business, as well as the resolution of certain contingencies associated with other previously disposed of businesses.
+This amount is included in Income (Loss) from Discontinued Operations in the Consolidated Statement of Income.
+During the first quarter of 2008, Schlumberger recorded a gain of $38 million related to the resolution of a contingency associated with a previously disposed of business.
+This gain is included in Income (Loss) from Discontinued Operations in the Consolidated Statement of Income.
+The following table illustrates the effect that a 10% unfavorable or favorable movement in foreign currency exchange rates, relative to the U. S.  dollar, would have on the fair value of our forward exchange contracts as of October 30, 2010 and October 31, 2009:
+## Table 0 ##
+[mhdev_0044_table_0.csv](mhdev_0044_table_0.csv)
+The calculation assumes that each exchange rate would change in the same direction relative to the U. S.  dollar.
+In addition to the direct effects of changes in exchange rates, such changes typically affect the volume of sales or the foreign currency sales price as competitors’ products become more or less attractive.
+Our sensitivity analysis of the effects of changes in foreign currency exchange rates does not factor in a potential change in sales levels or local currency selling prices.
+NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS (continued) ACE Limited and Subsidiaries Under Swiss corporate law, the Company may not generally issue Common Shares below their par value.
+In the event there is a need to raise common equity at a time when the trading price of the Company’s Common Shares is below par value, the Company will need to obtain shareholder approval to decrease the par value of the Common Shares.
+b) Shares issued, outstanding, authorized, and conditional Following is a table of changes in Common Shares issued and outstanding for the years ended December 31, 2009, 2008, and 2007:
+## Table 1 ##
+[mhdev_0044_table_1.csv](mhdev_0044_table_1.csv)
+In July 2008, prior to the Continuation, the Company issued and placed 2,000,000 Common Shares in treasury principally for issuance upon the exercise of employee stock options.
+At December 31, 2009, 1,316,959 Common Shares remain in treasury after net shares redeemed under employee share-based compensation plans.
+Common Shares issued to employee trust are the shares issued by the Company to a rabbi trust for deferred compensation obligations as discussed in Note 12 f) below.
+Shares authorized The Board is currently authorized to increase the share capital from time to time through the issuance of up to 99,750,000 fully paid up Common Shares with a par value of CHF 31.88 each.
+Conditional share capital for bonds and similar debt instruments The share capital of the Company may be increased through the issuance of a maximum of 33,000,000 Common Shares with a par value of CHF 31.88 each, payable in full, through the exercise of conversion and/or option or warrant rights granted in connection with bonds, notes, or similar instruments, issued or to be issued by the Company, including convertible debt instruments.
+Conditional share capital for employee benefit plans The share capital of the Company may be increased through the issuance of a maximum of 30,401,725 Common Shares with a par value of CHF 31.88 each, payable in full, in connection with the exercise of option rights granted to any employee of the Company, and any consultant, director, or other person providing services to the Company.
+c) ACE Limited securities repurchase authorization In November 2001, the Board authorized the repurchase of any ACE issued debt or capital securities, which includes ACE’s Common Shares, up to an aggregate total of $250 million.
+These purchases may take place from time to time in the open market or in private purchase transactions.
+At December 31, 2009, this authorization had not been utilized.
+d) General restrictions The holders of the Common Shares are entitled to receive dividends as proposed by the Board and approved by the shareholders.
+Holders of Common Shares are allowed one vote per share provided that, if the controlled shares of any shareholder constitute ten percent or more of the outstanding Common Shares of the Company, only a fraction of the vote will be allowed
+The process of establishing loss reserves for property and casualty claims can be complex and is subject to considerable uncertainty as it requires the use of informed estimates and judgments based on circumstances known at the date of accrual.
+The following table shows our total reserves segregated between case reserves (including loss expense reserves) and IBNR reserves at December 31, 2009 and 2008.
+## Table 2 ##
+[mhdev_0044_table_2.csv](mhdev_0044_table_2.csv)
+The following table segregates loss reserves by line of business including property and all other, casualty, and personal accident (A&H) at December 31, 2009 and 2008.
+In the table, loss expenses are defined to include unallocated and allocated loss adjustment expenses.
+For certain lines, in particular ACE International and ACE Bermuda products, loss adjustment expenses are partially included in IBNR and partially included in loss expenses.
+## Table 3 ##
+[mhdev_0044_table_3.csv](mhdev_0044_table_3.csv)
+The judgments used to estimate unpaid loss and loss expense reserves require different considerations depending upon the individual circumstances underlying the insured loss.
+For example, the reserves established for high excess casualty claims, A&E claims, claims from major catastrophic events, or the IBNR for our various product lines each require different assumptions and judgments to be made.
+Necessary judgments are based on numerous factors and may be revised as additional experience and other data become available and are reviewed, as new or improved methods are developed, or as laws change.
+Hence, ultimate loss payments may differ from the estimate of the ultimate liabilities made at the balance sheet date.
+Changes to our previous estimates of prior period loss reserves impact the reported calendar year underwriting results by worsening our reported results if the prior year reserves prove to be deficient or improving our reported results if the prior year reserves prove to be redundant.
+The potential for variation in loss reserves is impacted by numerous factors, which we discuss below.
+We establish loss and loss expense reserves for our liabilities from claims for all of the insurance and reinsurance business that we write.
+For those claims reported by insureds or ceding companies to us prior to the balance sheet date, and
+American International Group, Inc.  and Subsidiaries Survival Ratios-Asbestos and Environmental The following table presents AlG's survival ratios for asbestos and environmental claims for year-end 2006,2005 and 2004.
+The survival ratio is derived by dividing the year end carried loss reserve by the average payments for the three most recent calendar years for these claims.
+Therefore, the survival ratio is a simplistic measure estimating the number of years it would be before the current ending loss reser ves for these claims would be paid off using recent year average payments.
+The December 31, 2006 survival ratio is lower than the ratio at December 31,2005because the more recent periods included in the rolling average reflect higher claims payments.
+Many factors, such as aggressive settlement procedures, mix of business and level of coverage provided, have a significant effect on the amount of asbestos and environmental reserves and payments and the resultant survivalratio.
+Thus, caution should be exercised in attempting to deter- mine reserve adequacy for these claims based simply on this survival ratio.
+AlG's survival ratios for asbestos and environmental claims, separately and combined were based upon a three-year average payment.
+These ratios for the years ended December 31,2006,2005 and 2004 were as follows:
+## Table 0 ##
+[mhdev_0045_table_0.csv](mhdev_0045_table_0.csv)
+Life Insurance & Retirement Services Operations AIG's Life Insurance & Retirement Services subsidiaries offer a wide range of insurance and retirement savings products both domestically and abroad.
+Domestically, AlG's Life Insurance & Retirement Services operations offer a broad range of protection products, such as life insurance and group life and health products, including disability income products and payout annuities, which include single premium immediate annuities, structured settlements and termi- nal funding annuities.
+Home service operations include an array of life insurance, accident and health and annuity products soldprimarily through career agents.
+In addition, home service in- cludes a small block of runoff property and casualty coverage.
+Retirement services include group retirement products, individual fixed and variable annuities sold through banks, broker-dealers and exclusive sales representatives, and annuity runoff opera- tions, which include previously acquired"closed blocks"and other fixed and variable annuities largely sold through distribution relationships that have been discontinued.
+Overseas, AlG's Life Insurance & Retirement Services opera- tions include insurance and investment-oriented products such as whole and term life, investment linked, universal life and endo- ments, personal accident and health products, group products including pension, life and health, and fixed and variable annuities.
+AlG's Life Insurance & Retirement Ser vices subsidiaries reporttheir operations through the following major internal reporting units and business units: Foreign Life Insurance & Retirement Services Japan and Other* ·ALICO ·AlG Star Life ·AIG Edison Life Asia·AIA ·Nan Shan ·AlRCO ·Philamlife Domestic Life Insurance ·AlG American General ·USLIFE ·AGLA Domestic Retirement Services ·VALIC ·AlG Annuity ·AlG SunAmerica *Japan and Other consists of all operations in Japan and the operations of ALICO and its subsidi aries worldwide.
+American International Group, Inc.  and Subsidiaries 15.
+Employee Benefits Continued (i) Components of net periodic benefit cost and other amounts recognized in other comprehensive income: The following table presents the components of net periodic benefit cost recognized in income and other amounts recognized in other comprehensive income with respect to the defined benefit pension plans and other postretirement benefit plans for the year ended December 31, 2006 (no amounts were recognized in other comprehensive income for the years ended 2005 and 2004):
+## Table 1 ##
+[mhdev_0045_table_1.csv](mhdev_0045_table_1.csv)
+* The reduction resulted from transferring to the Japanese government certain Japanese plan obligations approximating $50 million reduced by approximately $26 million loss incurred with respect to the settlement of those obligations.
+For the U. S.  plans, the estimated net loss, prior service credit and transition obligation for the defined benefit pension plans that will be amortized from Accumulated other comprehensive income into net periodic benefit cost over the next fiscal year are $37 million, $3 million and $0 million, respectively.
+For the non-U.
+S.  plans, the estimated net loss, prior service credit and transition obligation for the defined benefit pension plans that will be amortized from Accumulated other comprehensive income into net periodic benefit cost over the next fiscal year are $11 million, $10 million and $1 million, respectively.
+The estimated net loss, prior service credit and transition obligation for the other defined benefit postretirement plans that will be amortized from Accumulated other comprehensive income into net periodic benefit cost over the next fiscal year will be less than $5 million in the aggregate.
+PART?III 59 ITEM?10.
+DIRECTORS, EXECUTIVE OFFICERS AND CORPORATE GOVERNANCE For the information required by this Item?10 with respect to our Executive Officers, see Part?I, Item 1.  of this report.
+For the other information required by this Item?10, see “Election Of Directors,” “Nominees for Election to the Board of Directors,” “Corporate Governance” and “Section?16(a) Beneficial Ownership Reporting Compliance,” in the Proxy Statement for our 2019 Annual Meeting, which information is incorporated herein by reference.
+The Proxy Statement for our 2019 Annual Meeting will be filed within 120?days after the end of the fiscal year covered by this Annual Report on Form 10-K.
+ITEM?11.
+EXECUTIVE COMPENSATION For the information required by this Item?11, see “Compensation Discussion and Analysis,” “Compensation Committee Report,” and “Executive Compensation” in the Proxy Statement for our 2019 Annual Meeting, which information is incorporated herein by reference.
+ITEM?12.
+SECURITY OWNERSHIP OF CERTAIN BENEFICIAL OWNERS AND MANAGEMENT AND RELATED STOCKHOLDER MATTERS For the information required by this Item?12 with respect to beneficial ownership of our common stock, see “Security Ownership of Certain Beneficial Owners and Management” in the Proxy Statement for our 2019 Annual Meeting, which information is incorporated herein by reference.
+The following table sets forth certain information as of December?31, 2018 regarding our equity plans :
+## Table 2 ##
+[mhdev_0045_table_2.csv](mhdev_0045_table_2.csv)
+(1) The number of securities in column (A) include 22,290 shares of common stock underlying performance stock units if maximum performance levels are achieved; the actual number of shares, if any, to be issued with respect to the performance stock units will be based on performance with respect to specified financial and relative stock price measures.
+ITEM?13.
+CERTAIN RELATIONSHIPS AND RELATED TRANSACTIONS, AND DIRECTOR INDEPENDENCE For the information required by this Item?13, see “Certain Transactions” and “Corporate Governance” in the Proxy Statement for our 2019 Annual Meeting, which information is incorporated herein by reference.
+ITEM?14.
+PRINCIPAL ACCOUNTING FEES AND SERVICES For the information required by this Item?14, see “Audit and Non-Audit Fees” and “Audit Committee Pre-Approval Procedures” in the Proxy Statement for our 2019 Annual Meeting, which information is incorporated herein by reference.
+American International Group, Inc.  and Subsidiaries Management’s Discussion and Analysis of Financial Condition and Results of Operations Continued Domestic Retirement Services Results Domestic Retirement Services results, presented on a sub-product basis for 2007, 2006 and 2005 were as follows:
+## Table 0 ##
+[mhdev_0046_table_0.csv](mhdev_0046_table_0.csv)
+* Primarily represents runoff annuity business sold through discontinued distribution relationships.2007 and 2006 Comparison Total revenues and operating income for Domestic Retirement Services declined in 2007 compared to 2006 primarily due to increased net realized capital losses.
+Net realized capital losses for Domestic Retirement Services increased due to higher other- than-temporary impairmentcharges of$1.2 billion in 2007 compared to $368 million in 2006 and sales to reposition assets in certain investment portfolios for both group retirement products and individual ?xed annuities, as well as from changes in the value of certain individual variable annuity product guarantees and related hedges associated with living bene?t features.
+Changes in actuarial estimates, including DAC unlockingsand re?nements to estimates resulting from actuarial valuation system enhance- ments, resulted in a net decrease to operating income of $112 million in 2007.
+Group retirement products operating income in 2007 de- creased compared to 2006 primarily as a result of increased net realized capital losses due to higher other-than-temporary impair- mentcharges and an increase in DAC amortization related to both an increase in surrenders and to policy changes adding guaran- teed minimum withdrawal bene?t riders to existing contracts.
+Operating income was also negatively affected in 2007 by an $18 million adjustment,primarily re?ecting changes in actuarial estimates from the conversion to a new valuation system.
+These were partially offset by higher variable annuity fees which resulted from an increase in separate account assets compared to 2006.
+Individual ?xed annuities operating income in 2007 decreased compared to 2006 as a result of net realized capital losses due to higher other-than-temporary impairmentcharges partially offset by increases in partnership income.
+The decline in operating income also re?ected higher DAC amortization and sales induce-ment costs related to increased surrenders and a $33 million charge re?ecting changes in actuarial estimates from the conver-
+American International Group, Inc. , and Subsidiaries Expected Loss Models — Under this mechanism, the amount of collateral to be posted is determined based on the amount of expected credit losses, generally determined using a rating-agency model.
+Negotiated Amount — Under this mechanism, the amount of collateral to be posted is determined based on terms negotiated between AIGFP and the counterparty, which could be a fixed percentage of the notional amount or present value of premiums to be earned by AIGFP.
+The following table presents the amount of collateral postings by underlying mechanism as described above with respect to the regulatory capital relief portfolio (prior to consideration of transactions other than the Capital Markets super senior credit default swaps subject to the same Master Agreements) as of the periods ended:
+## Table 1 ##
+[mhdev_0046_table_1.csv](mhdev_0046_table_1.csv)
+Arbitrage Portfolio — Multi-Sector CDOs In the CDS transactions with physical settlement provisions, in respect of multi-sector CDOs, the standard CSA provisions for the calculation of exposure have been modified, with the exposure amount determined pursuant to an agreed formula that is based on the difference between the net notional amount of such transaction and the market value of the relevant underlying CDO security, rather than the replacement value of the transaction.
+As of any date, the ‘‘market value’’ of the relevant CDO security is the price at which a marketplace participant would be willing to purchase such CDO security in a market transaction on such date, while the ‘‘replacement value of the transaction’’ is the cost on such date of entering into a credit default swap transaction with substantially the same terms on the same referenced obligation (e. g. , the CDO security).
+In cases where a formula is utilized, a transaction-specific threshold is generally factored into the calculation of exposure, which reduces the amount of collateral required to be posted.
+These thresholds typically vary based on the credit ratings of AIG and/or the reference obligations, with greater posting obligations arising in the context of lower ratings.
+For the large majority of counterparties to these transactions, the Master Agreement and CSA cover non-CDS transactions (e. g. , interest rate and cross currency swap transactions) as well as CDS transactions.
+As a result, the amount of collateral to be posted by AIGFP in relation to the CDS transactions will be added to or offset by the amount, if any, of the exposure AIG has to the counterparty on the non-CDS transactions.
+Arbitrage Portfolio — Corporate Debt/CLOs All of the Capital Markets corporate arbitrage-CLO transactions are subject to CSAs.
+These transactions are treated the same as other transactions subject to the same Master Agreement and CSA, with the calculation of collateral in accordance with the standard CSA procedures outlined above.
+The vast majority of corporate debt transactions are no longer subject to future collateral postings.
+In exchange for an upfront payment to an intermediary counterparty, AIGFP has eliminated all future obligations to post collateral on corporate debt transactions that mature after 2011.
+Collateral Calls AIGFP has received collateral calls from counterparties in respect of certain super senior credit default swaps, of which a large majority relate to multi-sector CDOs.
+To a lesser extent, AIGFP has also received collateral calls in respect of certain super senior credit default swaps entered into by counterparties for regulatory capital relief purposes and in respect of corporate arbitrage.
+From time to time, valuation methodologies used and estimates made by counterparties with respect to certain super senior credit default swaps or the underlying reference CDO securities, for purposes of determining the
+ITEM 7 / LIQUIDITY AND CAPITAL RESOURCES The following table presents a summary of AIG’s Consolidated Statement of Cash Flows:
+## Table 2 ##
+[mhdev_0046_table_2.csv](mhdev_0046_table_2.csv)
+Operating Cash Flow Activities Interest payments totaled $4.0 billion in 2012 compared to $9.0 billion in 2011.
+Cash paid for interest in 2011 includes the payment of FRBNY Credit Facility accrued compounded interest totaling $6.4 billion.
+Excluding interest payments, AIG generated positive operating cash flow of $7.7 billion and $8.9 billion in 2012 and 2011, respectively.
+Insurance companies generally receive most premiums in advance of the payment of claims or policy benefits.
+The ability of insurance companies to generate positive cash flow is affected by the frequency and severity of losses under their insurance policies, policy retention rates and operating expenses.
+Cash provided by AIG Property Casualty operating activities was $1.1 billion in 2012 compared to $1.9 billion in 2011, primarily reflecting the decrease in net premiums written as a result of the continued execution of strategic initiatives to improve business mix and the timing of the cash flows used to pay claims and claims adjustment expenses and the related reinsurance recoveries.
+Cash provided by operating activities by AIG Life and Retirement was $2.9 billion in 2012 compared to $2.4 billion in 2011, primarily reflecting efforts to actively manage spread income.
+Cash provided by operating activities of discontinued operations of $2.9 billion in 2012 compared to $6.2 billion in 2011, includes ILFC, and in 2011 and 2010, foreign life insurance subsidiaries that were divested in 2011, including Nan Shan, AIG Star and AIG Edison.
+Net cash provided by operating activities declined in 2011 compared to 2010, principally due to the following: ?
+the cash payment by AIG Parent of $6.4 billion in accrued compounded interest and fees under the FRBNY Credit Facility.
+In prior periods, these payments were paid in-kind and did not affect operating cash flows; ?
+cash provided by operating activities of foreign life subsidiaries declined by $10.4 billion due to the sale of those subsidiaries (AIA, ALICO, AIG Star, AIG Edison and Nan Shan).
+The subsidiaries generated operational cash inflows of $3.4 billion and $13.8 billion in 2011 and 2010, respectively; and ?
+the effect of catastrophes and the cession of a large portion of AIG Property Casualty’s net asbestos liabilities in the U. S.  to NICO.
+Excluding the impact of the NICO cession and catastrophes, cash provided by AIG’s reportable segments in 2011 is consistent with 2010, as increases in claims paid were offset by increases in premiums collected at the insurance subsidiaries.
+Investing Cash Flow Activities Net cash provided by investing activities for 2012 includes the following items: ?
+payments received relating to the sale of the underlying assets held by ML II of approximately $1.6 billion; ?
+payments of approximately $8.5 billion received in connection with the dispositions of ML III assets by the FRBNY;
+ITEM 7 / RESULTS OF OPERATIONS / COMMERCIAL INSURANCE low interest rate environment, partially offset by growth in average assets.
+See MD&A – Investments – Life Insurance Companies for additional information on the investment strategy, asset-liability management process and invested assets of our Life Insurance Companies, which include the invested assets of the Institutional Markets business.
+General operating expenses in 2014 increased slightly compared to 2013, primarily due to investments in technology.2013 and 2012 Comparison Pre-tax operating income for 2013 increased compared to 2012, due in part to higher net investment income from alternative investments, partially offset by lower base net investment income.
+Interest credited to policyholder account balances in 2012 included $110 million of expense resulting from a comprehensive review of reserves for the GIC portfolio.
+Results for 2013 included a full year of the growing stable value wrap business, which contributed $31 million to the increase in pre-tax operating income compared to 2012.
+Stable value wrap notional assets under management grew to $24.6 billion at December 31, 2013 from $10.4 billion at December 31, 2012, including the notional amount of contracts transferred from an AIG affiliate.
+Net investment income for 2013 increased slightly compared to 2012, primarily due to higher net investment income from alternative investments, largely offset by lower income from the base portfolio.
+The increase in alternative investment income in 2013 compared to 2012 reflected higher hedge fund income due to favorable equity market conditions.
+The decrease in base net income was primarily due to investment of available cash, including proceeds from sales of securities made during 2013 to utilize capital loss carryforwards, at rates below the weighted average yield of the overall portfolio.
+General operating expenses in 2013 increased compared to 2012, primarily to support increased volume in the stable value wrap business.
+Institutional Markets Premiums, Deposits and Net Flows For Institutional Markets, premiums represent amounts received on traditional life insurance policies and life-contingent payout annuities or structured settlements.
+Premiums and deposits is a non-GAAP financial measure that includes direct and assumed premiums as well as deposits received on universal life insurance and investment-type annuity contracts, including GICs and stable value wrap funding agreements.
+The following table presents a reconciliation of Institutional Markets premiums and deposits to GAAP premiums:
+## Table 3 ##
+[mhdev_0046_table_3.csv](mhdev_0046_table_3.csv)
+The decrease in premiums in 2014 compared to 2013 was primarily due to a high volume of single-premium products sold in 2013, including life-contingent payout annuities.
+Sales of these products decreased in 2014 compared to 2013 due to a more competitive environment as well as continued low interest rates.
+The increase in deposits in 2014 compared to 2013 included a $2.5 billion deposit to the separate accounts of one of the Life Insurance Companies for a stable value wrap funding agreement.
+The majority of stable value wrap sales are measured based on the notional amount included in assets under management, but do not include the receipt of funds that would be included in premiums and deposits.
+The increase in deposits in 2014 compared to 2013 also reflected a $450 million GIC issued in 2014.
+The increase in premiums in 2013 compared to 2012 reflected a high volume of single-premium product sales in 2013, including structured settlements with life contingencies and terminal funding annuities.
+The increase in deposits in 2013 compared to 2012 reflected strong sales of high net worth products, primarily private placement variable annuities.
+PART II ITEM 5.
+MARKET FOR REGISTRANT’S COMMON EQUITY, RELATED STOCKHOLDER MATTERS AND ISSUER PURCHASES OF EQUITY SECURITIES The following table presents reported quarterly high and low per share sale prices of our common stock on the NYSE for the years 2015 and 2014.
+## Table 0 ##
+[mhdev_0047_table_0.csv](mhdev_0047_table_0.csv)
+On February 19, 2016, the closing price of our common stock was $87.32 per share as reported on the NYSE.
+As of February 19, 2016, we had 423,897,556 outstanding shares of common stock and 159 registered holders.
+Dividends As a REIT, we must annually distribute to our stockholders an amount equal to at least 90% of our REIT taxable income (determined before the deduction for distributed earnings and excluding any net capital gain).
+Generally, we have distributed and expect to continue to distribute all or substantially all of our REIT taxable income after taking into consideration our utilization of net operating losses (“NOLs”).
+We have two series of preferred stock outstanding, 5.25% Mandatory Convertible Preferred Stock, Series A, issued in May 2014 (the “Series A Preferred Stock”), with a dividend rate of 5.25%, and the 5.50% Mandatory Convertible Preferred Stock, Series B (the “Series B Preferred Stock”), issued in March 2015, with a dividend rate of 5.50%.
+Dividends are payable quarterly in arrears, subject to declaration by our Board of Directors.
+The amount, timing and frequency of future distributions will be at the sole discretion of our Board of Directors and will be dependent upon various factors, a number of which may be beyond our control, including our financial condition and operating cash flows, the amount required to maintain our qualification for taxation as a REIT and reduce any income and excise taxes that we otherwise would be required to pay, limitations on distributions in our existing and future debt and preferred equity instruments, our ability to utilize NOLs to offset our distribution requirements, limitations on our ability to fund distributions using cash generated through our TRSs and other factors that our Board of Directors may deem relevant.
+We have distributed an aggregate of approximately $2.3 billion to our common stockholders, including the dividend paid in January 2016, primarily subject to taxation as ordinary income.
+During the year ended December 31, 2015, we declared the following cash distributions:
+Our total non-U.
+S.  exposure was $232.6 billion at December 31, 2011, a decrease of $29.4 billion from December 31, 2010.
+Our non-U.
+S.  exposure remained concentrated in Europe which accounted for $115.9 billion, or 50 percent, of total non-U.
+S.  exposure.
+The European exposure was mostly in Western Europe and was distributed across a variety of industries.
+The decrease of $32.2 billion in Europe was primarily driven by our efforts to reduce risk in countries affected by the ongoing debt crisis in the Eurozone.
+Select European countries are further detailed in Table 54.
+Asia Pacific was our second largest non-U.
+S.  exposure at $74.6 billion, or 32 percent.
+The $1.3 billion increase in Asia Pacific was driven by increases in securities and local exposure in Japan and increases in the emerging markets, predominately in local exposure, loans and securities offset by the sale of CCB shares.
+For more information on our CCB investment, see Note 5 – Securities to the Consolidated Financial Statements.
+Latin America accounted for $17.4 billion, or seven percent, of total non-U.
+S.  exposure.
+The $2.6 billion increase in Latin America was primarily driven by an increase in Brazil in securities and local country exposure.
+Middle East and Africa increased $926 million to $4.6 billion, representing two percent of total non-U.
+S.  exposure.
+Other non-U.
+S.  exposure was $20.1 billion at December 31, 2011, a decrease of $2.1 billion in 2011 resulting primarily from a decrease in local exposure as a result of the sale of our Canadian consumer card business.
+For more information on our Asia Pacific and Latin America exposure, see non-U.
+S.  exposure to selected countries defined as emerging markets on page 100.
+Table 52 presents countries where total cross-border exposure exceeded one percent of our total assets.
+At December 31, 2011, the United Kingdom and Japan were the only countries where total cross-border exposure exceeded one percent of our total assets.
+At December 31, 2011, Canada and France had total cross-border exposure of $16.9 billion and $16.1 billion representing 0.79 percent and 0.75 percent of total assets.
+Canada and France were the only other countries that had total cross-border exposure that exceeded 0.75 percent of our total assets at December 31, 2011.
+Exposure includes cross-border claims by our non-U.
+S.  offices including loans, acceptances, time deposits placed, trading account assets, securities, derivative assets, other interestearning investments and other monetary assets.
+Amounts also include unused commitments, SBLCs, commercial letters of credit and formal guarantees.
+Sector definitions are consistent with FFIEC reporting requirements for preparing the Country Exposure Report.
+## Table 1 ##
+[mhdev_0047_table_1.csv](mhdev_0047_table_1.csv)
+(1) Total cross-border exposure for the United Kingdom and Japan included derivatives exposure of $5.9 billion and $3.5 billion at December 31, 2011 and $2.3 billion and $2.8 billion at December 31, 2010 which has been reduced by the amount of cash collateral applied of $9.3 billion and $1.2 billion at December 31, 2011 and $13.0 billion and $1.6 billion at December 31, 2010.
+Derivative assets were collateralized by other marketable securities of $242 million and $1.7 billion at December 31, 2011 and $96 million and $743 million at December 31, 2010.
+(2) At December 31, 2010, total cross-border exposure for Japan was $17.0 billion, representing 0.75 percent of total assets.
+Tables 43 and 44 present commercial real estate credit quality data by non-homebuilder and homebuilder property types.
+The homebuilder portfolio presented in Tables 42, 43 and 44 includes condominiums and other residential real estate.
+Other property types in Tables 42, 43 and 44 primarily include special purpose, nursing/retirement homes, medical facilities and restaurants, as well as unsecured loans to borrowers whose primary business is commercial real estate.
+Table 43 Commercial Real Estate Credit Quality Data
+## Table 2 ##
+[mhdev_0047_table_2.csv](mhdev_0047_table_2.csv)
+Table 44 Commercial Real Estate Net Charge-offs and Related Ratios
+## Table 3 ##
+[mhdev_0047_table_3.csv](mhdev_0047_table_3.csv)
+(1) Net charge-off ratios are calculated as net charge-offs divided by average outstanding loans excluding loans accounted for under the fair value option.
+At December 31, 2011, total committed non-homebuilder exposure was $53.1 billion compared to $64.2 billion at December 31, 2010, with the decrease due to exposure reductions in all non-homebuilder property types.
+Non-homebuilder nonperforming loans and foreclosed properties were $3.5 billion and $4.6 billion at December 31, 2011 and 2010, which represented 9.29 percent and 10.08 percent of total nonhomebuilder loans and foreclosed properties.
+Non-homebuilder utilized reservable criticized exposure decreased to $10.1 billion, or 25.34 percent of non-homebuilder utilized reservable exposure, at December 31, 2011 compared to $17.1 billion, or 35.55 percent, at December 31, 2010.
+The decrease in reservable criticized exposure was driven primarily by office, shopping centers/retail and multi-family rental property types.
+For the nonhomebuilder portfolio, net charge-offs decreased $862 million in 2011 due in part to resolution of criticized assets through payoffs and sales.
+At December 31, 2011, we had committed homebuilder exposure of $3.9 billion compared to $6.0 billion at December 31, 2010, of which $2.4 billion and $4.3 billion were funded secured loans.
+The decline in homebuilder committed exposure was due to repayments, net charge-offs, reductions in new home construction and continued risk mitigation initiatives with market conditions providing fewer origination opportunities to offset the reductions.
+Homebuilder nonperforming loans and foreclosed properties decreased $970 million due to repayments, a decline in the volume of loans being downgraded to nonaccrual status and net charge-offs.
+Homebuilder utilized reservable criticized exposure decreased $2.0 billion to $1.4 billion due to repayments and net charge-offs.
+The nonperforming loans, leases and foreclosed properties and the utilized reservable criticized ratios for the homebuilder portfolio were 38.89 percent and 54.65 percent at December 31, 2011 compared to 42.80 percent and 74.27 percent at December 31, 2010.
+Net charge-offs for the homebuilder portfolio decreased $208 million in 2011.
+Capital Management During 2015, we repurchased approximately $2.4 billion of common stock, with an average price of $16.92 per share, in connection with our 2015 Comprehensive Capital Analysis and Review (CCAR) capital plan, which included a request to repurchase $4.0 billion of common stock over five quarters beginning in the second quarter of 2015, and to maintain the quarterly common stock dividend at the current rate of $0.05 per share.
+Based on the conditional non-objection we received from the Federal Reserve on our 2015 CCAR submission, we were required to resubmit our CCAR capital plan by September 30, 2015 and address certain weaknesses the Federal Reserve identified in our capital planning process.
+We have established plans and taken actions which addressed the identified weaknesses, and we resubmitted our CCAR capital plan on September 30, 2015.
+The Federal Reserve announced that it did not object to our resubmitted CCAR capital plan on December 10, 2015.
+As an Advanced approaches institution, under Basel 3, we were required to complete a qualification period (parallel run) to demonstrate compliance with the Basel 3 Advanced approaches capital framework to the satisfaction of U. S.  banking regulators.
+We received approval to begin using the Advanced approaches capital framework to determine risk-based capital requirements beginning in the fourth quarter of 2015.
+As previously disclosed, with the approval to exit parallel run, U. S.  banking regulators requested modifications to certain internal analytical models including the wholesale (e. g. , commercial) credit models.
+All requested modifications were incorporated, which increased our risk-weighted assets, and are reflected in the risk-based ratios in the fourth quarter of 2015.
+Having exited parallel run on October 1, 2015, we are required to report regulatory risk-based capital ratios and risk-weighted assets under both the Standardized and Advanced approaches.
+The approach that yields the lower ratio is used to assess capital adequacy including under the Prompt Corrective Action (PCA) framework and was the Advanced approaches in the fourth quarter of 2015.
+For additional information, see Capital Management on page 51.
+Trust Preferred Securities On December 29, 2015, the Corporation provided notice of the redemption on January 29, 2016 of all trust preferred securities of Merrill Lynch Preferred Capital Trust III, Merrill Lynch Preferred Capital Trust IV and Merrill Lynch Preferred Capital Trust V (the Trust Preferred Securities).
+In connection with the Corporation’s acquisition of Merrill Lynch & Co. , Inc.  in 2009, the Corporation recorded a discount to par value as purchase accounting adjustments associated with the Trust Preferred Securities.
+The Corporation recorded a $612 million charge to net interest income related to the discount on these securities.
+New Accounting Guidance on Recognition and Measurement of Financial Instruments In January 2016, the Financial Accounting Standards Board (FASB) issued new accounting guidance on recognition and measurement of financial instruments.
+The Corporation has early adopted, retrospective to January 1, 2015, the provision that requires the Corporation to present unrealized gains and losses resulting from changes in the Corporation’s own credit spreads on liabilities accounted for under the fair value option (referred to as debit valuation adjustments, or DVA) in accumulated other comprehensive income (OCI).
+The impact of the adoption was to reclassify, as of January 1, 2015, unrealized DVA losses of $2.0 billion pretax ($1.2 billion after tax) from retained earnings to accumulated OCI.
+Further, pretax unrealized DVA gains of $301 million, $301 million and $420 million were reclassified from other income to accumulated OCI for the third, second and first quarters of 2015, respectively.
+This had the effect of reducing net income as previously reported for the aforementioned quarters by $187 million, $186 million and $260 million, or approximately $0.02 per share in each quarter.
+This change is reflected in consolidated results and the Global Markets segment results.
+Results for 2014 were not subject to restatement under the provisions of the new accounting guidance.
+Selected Financial Data Table 1 provides selected consolidated financial data for 2015 and 2014.
+CONSUMER INSURANCE Consumer Insurance Results The following table presents Consumer Insurance results:
+## Table 0 ##
+[mhdev_0048_table_0.csv](mhdev_0048_table_0.csv)
+* Includes general operating expenses, non deferrable commissions, other acquisition expenses, advisory fee expenses and other expenses.
+Consumer Insurance Results by Operating Segment Consumer Insurance presents its operating results in three operating segments – Retirement, Life and Personal Insurance.
+The following section provides a comparative discussion of Consumer Insurance Results of Operations for 2015, 2014 and 2013 by operating segment.
+Retirement Results The following table presents Retirement results:
+## Table 1 ##
+[mhdev_0048_table_1.csv](mhdev_0048_table_1.csv)
+ITEM 7 / RESULTS OF OPERATIONS / CONSUMER INSURANCE * Severe losses are defined as non-catastrophe individual first party losses and surety losses greater than $10 million, net of related reinsurance and salvage and subrogation.2015 and 2014 Comparison The combined ratio increased by 1.4 points in 2015 compared to 2014, reflecting an increase in the loss ratio and acquisition ratio, partially offset by a decrease in the general operating expense ratio.
+The accident year combined ratio, as adjusted, increased by 0.7 points in 2015 compared to 2014.
+The accident year loss ratio, as adjusted, increased by 0.2 points in 2015, compared to 2014, due to higher large but not severe losses in automobile and personal property businesses, partially offset by a decrease in losses in warranty service programs and lower severe losses.
+The loss ratio improvement in warranty service programs was offset by an increase in the acquisition ratio due to a related profit sharing arrangement.
+The acquisition ratio increased by 1.1 points in 2015 compared to 2014, primarily due to increases in acquisition costs in warranty service programs and in the automobile business, partially offset by lower direct marketing expenses in the Accident and Health business.
+The general operating expense ratio decreased by 0.6 points in 2015 compared to 2014, reflecting an ongoing focus on cost efficiency.2014 and 2013 Comparison The combined ratio decreased by 1.6 points in 2014 compared to 2013, primarily due to a lower loss ratio, partially offset by a higher acquisition ratio as discussed below.
+The accident year combined ratio, as adjusted, decreased by 2.6 points in 2014 compared to 2013, primarily due to an improved accident year loss ratio, as adjusted.
+The accident year loss ratio, as adjusted, decreased by 3.6 points in 2014 compared to 2013, as a result of improvements across all lines of business.
+The lower losses associated with a warranty retail program were largely offset by an increase in the related profit sharing arrangement, which increased the acquisition ratio in 2014 compared to 2013.
+The severe losses of $54 million, resulting largely from four fire claims, accounted for 0.5 points of the accident year loss ratio, as adjusted, in 2014.
+The general operating expense ratio remained unchanged in 2014 compared to 2013, reflecting the impact of efficiencies from organizational realignment initiatives, offset by increased technology-related expenses.
+CORPORATE AND OTHER Corporate and Other Results The following table presents AIG’s Corporate and Other results:
+## Table 2 ##
+[mhdev_0048_table_2.csv](mhdev_0048_table_2.csv)
+ITEM 8 / NOTE 6.
+LENDING ACTIVITIES the troubled debtor, the modification is a troubled debt restructuring (TDR).
+We assess whether a borrower is experiencing financial difficulty based on a variety of factors, including the borrower’s current default on any of its outstanding debt, the probability of a default on any of its debt in the foreseeable future without the modification, the insufficiency of the borrower’s forecasted cash flows to service any of its outstanding debt (including both principal and interest), and the borrower’s inability to access alternative third-party financing at an interest rate that would be reflective of current market conditions for a nontroubled debtor.
+Concessions granted may include extended maturity dates, interest rate changes, principal or interest forgiveness, payment deferrals and easing of loan covenants.
+During 2015 and 2014, loans with a carrying value of $36 million and $218 million were modified in TDRs, respectively.7.
+REINSURANCE In the ordinary course of business, our insurance companies may use both treaty and facultative reinsurance to minimize their net loss exposure to any single catastrophic loss event or to an accumulation of losses from a number of smaller events or to provide greater diversification of our businesses.
+In addition, our general insurance subsidiaries assume reinsurance from other insurance companies.
+We determine the portion of the incurred but not reported (IBNR) loss that will be recoverable under our reinsurance contracts by reference to the terms of the reinsurance protection purchased.
+This determination is necessarily based on the estimate of IBNR and accordingly, is subject to the same uncertainties as the estimate of IBNR.
+Reinsurance assets include the balances due from reinsurance and insurance companies under the terms of our reinsurance agreements for paid and unpaid losses and loss adjustment expenses incurred, ceded unearned premiums and ceded future policy benefits for life and accident and health insurance contracts and benefits paid and unpaid.
+Amounts related to paid and unpaid losses and benefits and loss expenses with respect to these reinsurance agreements are substantially collateralized.
+We remain liable to the extent that our reinsurers do not meet their obligation under the reinsurance contracts, and as such, we regularly evaluate the financial condition of our reinsurers and monitor concentration of our credit risk.
+The estimation of the allowance for doubtful accounts requires judgment for which key inputs typically include historical trends regarding uncollectible balances, disputes and credit events as well as specific reviews of balances in dispute or subject to credit impairment.
+The allowance for doubtful accounts on reinsurance assets was $272 million and $258 million at December 31, 2015 and 2014, respectively.
+Changes in the allowance for doubtful accounts on reinsurance assets are reflected in Policyholder benefits and losses incurred within the Consolidated Statements of Income.
+The following table provides supplemental information for loss and benefit reserves, gross and net of ceded reinsurance:
+## Table 3 ##
+[mhdev_0048_table_3.csv](mhdev_0048_table_3.csv)
+(a) In 2015 and 2014, the Net of Reinsurance amount reflects the cession under the June 17, 2011 transaction with National Indemnity Company (NICO) of $1.8 billion and $1.5 billion, respectively.
+(b) Represents gross reinsurance assets, excluding allowances and reinsurance recoverable on paid losses.
+Short-Duration Reinsurance Short-duration reinsurance is effected under reinsurance treaties and by negotiation on individual risks.
+Certain of these reinsurance arrangements consist of excess of loss contracts that protect us against losses above stipulated amounts.
+Ceded premiums are considered prepaid reinsurance premiums and are recognized as a reduction of premiums earned over the contract period in proportion to the protection received.
+Amounts recoverable from reinsurers on short-duration contracts are estimated in a manner consistent with the claims liabilities associated with the reinsurance and presented as a component of Reinsurance assets.
+Assumed reinsurance premiums are earned primarily on a pro-rata basis over the terms of the
+ITEM 8 / NOTE 19.
+SHARE-BASED AND OTHER COMPENSATION PLANS Our non-employee directors, who serve on our Board of Directors, receive share-based compensation in the form of fully vested deferred stock units (DSUs) with delivery deferred until retirement from the Board.
+DSUs granted in 2015, 2014 and 2013 accrue DEUs equal to the amount of any regular quarterly dividend that would have been paid by AIG if the shares of AIG Common Stock underlying the DSUs had been outstanding.
+In 2015, 2014 and 2013, we granted to non-employee directors 32,342, 28,477 and 25,735 DSUs, respectively, under the 2013 Plan, and recognized expense of $1.9 million, $1.5 million and $1.2 million, respectively.
+Stock Options Options granted under the AIG 2007 Stock Incentive Plan and the 1999 Stock Option Plan generally vested over four years (25 percent vesting per year) and expire 10 years from the date of grant.
+All outstanding options are vested and out of the money at December 31, 2015.
+There were no stock options granted since 2008.
+The aggregate intrinsic value for all unexercised options is zero.
+The following table provides a roll forward of stock option activity:
+## Table 4 ##
+[mhdev_0048_table_4.csv](mhdev_0048_table_4.csv)
+Cash-settled Awards Share-based cash-settled awards are recorded as liabilities until the final payout is made or the award is replaced with a stocksettled award.
+Compensation expense is recognized over the vesting periods, unless the award is fully vested on the grant date in which case the entire award value is immediately recognized as expense.
+Unlike stock-settled awards, which generally have a fixed grant-date fair value (unless the award is subsequently modified), the fair value of unsettled or unvested cash-settled awards is remeasured at the end of each reporting period based on the change in fair value of one share of AIG Common Stock.
+The liability and corresponding expense are adjusted accordingly until the award is settled.
+During the period we were subject to Troubled Asset Relief Program (TARP) restrictions, we issued various cash-settled sharebased grants, including Stock Salary, TARP RSU awards, and other cash-settled RSU awards, to certain of our most highly compensated employees and executive officers in the form of restricted stock units that were either fully vested with payment deferred, or subject to specified service and performance conditions.
+After the repayment of our TARP obligations in December 2012, all performance conditions were satisfied; as a result, we no longer issue awards that are subject to TARP restrictions.
+Restricted Stock Units Stock Salary was earned and accrued at the same time or times as the salary would otherwise be paid in cash and is generally settled in installments on the first, second or third anniversary of grant in accordance with the terms of an employee’s award.
+Stock Salary grants were generally issued in the form of fully vested RSUs and are settled in cash based on the value of AIG
+The performance units granted to certain executives in fiscal 2014 were based on a one-year performance period.
+After the Compensation Committee certified the performance results, 25% of the performance units converted to unrestricted shares.
+The remaining 75% converted to restricted shares that vest in equal installments on each of the first three anniversaries of the conversion date.
+The performance units granted to certain executives during fiscal 2015 were based on a three-year performance period.
+After the Compensation Committee certifies the performance results for the three-year period, performance units earned will convert into unrestricted common stock.
+The Compensation Committee may set a range of possible performance-based outcomes for performance units.
+Depending on the achievement of the performance measures, the grantee may earn up to 200% of the target number of shares.
+For awards with only performance conditions, we recognize compensation expense over the performance period using the grant date fair value of the award, which is based on the number of shares expected to be earned according to the level of achievement of performance goals.
+If the number of shares expected to be earned were to change at any time during the performance period, we would make a cumulative adjustment to share-based compensation expense based on the revised number of shares expected to be earned.
+During fiscal 2015, certain executives were granted performance units that we refer to as leveraged performance units, or LPUs.
+LPUs contain a market condition based on our relative stock price growth over a three-year performance period.
+The LPUs contain a minimum threshold performance which, if not met, would result in no payout.
+The LPUs also contain a maximum award opportunity set as a fixed dollar and fixed number of shares.
+After the three-year performance period, one-third of any earned units converts to unrestricted common stock.
+The remaining two-thirds convert to restricted stock that will vest in equal installments on each of the first two anniversaries of the conversion date.
+We recognize share-based compensation expense based on the grant date fair value of the LPUs, as determined by use of a Monte Carlo model, on a straight-line basis over the requisite service period for each separately vesting portion of the LPU award.
+Total Shareholder Return Units Before fiscal 2015, certain of our executives were granted total shareholder return (“TSR”) units, which are performance-based restricted stock units that are earned based on our total shareholder return over a three-year performance period compared to companies in the S&P 500.
+Once the performance results are certified, TSR units convert into unrestricted common stock.
+Depending on our performance, the grantee may earn up to 200% of the target number of shares.
+The target number of TSR units for each executive is set by the Compensation Committee.
+We recognize share-based compensation expense based on the grant date fair value of the TSR units, as determined by use of a Monte Carlo model, on a straight-line basis over the vesting period.
+The following table summarizes the changes in unvested share-based awards for the years ended May 31, 2015 and 2014 (shares in thousands):
+THE GOLDMAN SACHS GROUP, INC.  AND SUBSIDIARIES Management’s Discussion and Analysis 2018 versus 2017.
+Provision for credit losses in the consolidated statements of earnings was $674 million for 2018, compared with $657 million for 2017, as the higher provision for credit losses primarily related to consumer loan growth in 2018 was partially offset by an impairment of approximately $130 million on a secured loan in 2017.2017 versus 2016.
+Provision for credit losses in the consolidated statements of earnings was $657 million for 2017, compared with $182 million for 2016, reflecting an increase in impairments, which included an impairment of approximately $130 million on a secured loan in 2017, and higher provision for credit losses primarily related to consumer loan growth.
+Operating Expenses Our operating expenses are primarily influenced by compensation, headcount and levels of business activity.
+Compensation and benefits includes salaries, discretionary compensation, amortization of equity awards and other items such as benefits.
+Discretionary compensation is significantly impacted by, among other factors, the level of net revenues, overall financial performance, prevailing labor markets, business mix, the structure of our share-based compensation programs and the external environment.
+In addition, see “Use of Estimates” for further information about expenses that may arise from litigation and regulatory proceedings.
+The table below presents operating expenses by line item and headcount.
+## Table 0 ##
+[mhdev_0049_table_0.csv](mhdev_0049_table_0.csv)
+In the table above, the following reclassifications have been made to previously reported amounts to conform to the current presentation: ‰ Regulatory-related fees that are paid to exchanges are now reported in brokerage, clearing, exchange and distribution fees.
+Previously such amounts were reported in other expenses.
+‰ Headcount consists of our employees, and excludes consultants and temporary staff previously reported as part of total staff.
+As a result, expenses related to these consultants and temporary staff are now reported in professional fees.
+Previously such amounts were reported in compensation and benefits expenses.2018 versus 2017.
+Operating expenses in the consolidated statements of earnings were $23.46 billion for 2018, 12% higher than 2017.
+Our efficiency ratio (total operating expenses divided by total net revenues) for 2018 was 64.1%, compared with 64.0% for 2017.
+The increase in operating expenses compared with 2017 was primarily due to higher compensation and benefits expenses, reflecting improved operating performance, and significantly higher net provisions for litigation and regulatory proceedings.
+Brokerage, clearing, exchange and distribution fees were also higher, reflecting an increase in activity levels, and technology expenses increased, reflecting higher expenses related to computing services.
+In addition, expenses related to consolidated investments and our digital lending and deposit platform increased, with the increases primarily in depreciation and amortization expenses, market development expenses and other expenses.
+The increase compared with 2017 also included $297 million related to the recently adopted revenue recognition standard.
+See Note 3 to the consolidated financial statements for further information about ASU No.2014-09, “Revenue from Contracts with Customers (Topic 606).
+” Net provisions for litigation and regulatory proceedings for 2018 were $844 million compared with $188 million for 2017.2018 included a $132 million charitable contribution to Goldman Sachs Gives, our donor-advised fund.
+Compensation was reduced to fund this charitable contribution to Goldman Sachs Gives.
+We ask our participating managing directors to make recommendations regarding potential charitable recipients for this contribution.
+As of December 2018, headcount increased 9% compared with December 2017, reflecting an increase in technology professionals and investments in new business initiatives.2017 versus 2016.
+Operating expenses in the consolidated statements of earnings were $20.94 billion for 2017, 3% higher than 2016.
+Our efficiency ratio for 2017 was 64.0% compared with 65.9% for 2016.
+The increase in operating expenses compared with 2016 was primarily driven by slightly higher compensation and benefits expenses and our investments to fund growth.
+Higher expenses related to consolidated investments and our digital lending and deposit platform were primarily included in depreciation and amortization expenses, market development expenses and other expenses.
+In addition, technology expenses increased, reflecting higher expenses related to cloud-based services and software depreciation, and professional fees increased, primarily related to consulting costs.
+These increases were partially offset by lower net provisions for litigation and regulatory proceedings, and lower occupancy expenses (primarily related to exit costs in 2016).
+Note 26 – Regulatory capital The Federal Reserve establishes capital requirements, including well-capitalized standards, for the consolidated financial holding company.
+The OCC establishes similar minimum capital requirements and standards for the Firm’s IDI, including JPMorgan Chase Bank, N. A.  and Chase Bank USA, N. A.
+Capital rules under Basel III establish minimum capital ratios and overall capital adequacy standards for large and internationally active U. S.  bank holding companies and banks, including the Firm and its IDI subsidiaries.
+Basel III set forth two comprehensive approaches for calculating RWA: a standardized approach (“Basel III Standardized”) and an advanced approach (“Basel III Advanced”).
+Certain of the requirements of Basel III are subject to phase-in periods that began on January 1, 2014 and continue through the end of 2018 (“transitional period”).
+The three categories of risk-based capital and their predominant components under the Basel III Transitional rules are illustrated below:
+## Table 1 ##
+[mhdev_0049_table_1.csv](mhdev_0049_table_1.csv)
+The following tables present the regulatory capital, assets and risk-based capital ratios for JPMorgan Chase and its significant IDI subsidiaries under both Basel III Standardized Transitional and Basel III Advanced Transitional at December 31, 2017 and 2016.
+## Table 2 ##
+[mhdev_0049_table_2.csv](mhdev_0049_table_2.csv)
+Notes to consolidated financial statements Securities lending indemnifications Through the Firm’s securities lending program, counterparties’ securities, via custodial and non-custodial arrangements, may be lent to third parties.
+As part of this program, the Firm provides an indemnification in the lending agreements which protects the lender against the failure of the borrower to return the lent securities.
+To minimize its liability under these indemnification agreements, the Firm obtains cash or other highly liquid collateral with a market value exceeding 100% of the value of the securities on loan from the borrower.
+Collateral is marked to market daily to help assure that collateralization is adequate.
+Additional collateral is called from the borrower if a shortfall exists, or collateral may be released to the borrower in the event of overcollateralization.
+If a borrower defaults, the Firm would use the collateral held to purchase replacement securities in the market or to credit the lending client or counterparty with the cash equivalent thereof.
+Derivatives qualifying as guarantees The Firm transacts certain derivative contracts that have the characteristics of a guarantee under U. S.  GAAP.
+These contracts include written put options that require the Firm to purchase assets upon exercise by the option holder at a specified price by a specified date in the future.
+The Firm may enter into written put option contracts in order to meet client needs, or for other trading purposes.
+The terms of written put options are typically five years or less.
+Derivatives deemed to be guarantees also includes stable value contracts, commonly referred to as “stable value products”, that require the Firm to make a payment of the difference between the market value and the book value of a counterparty’s reference portfolio of assets in the event that market value is less than book value and certain other conditions have been met.
+Stable value products are transacted in order to allow investors to realize investment returns with less volatility than an unprotected portfolio.
+These contracts are typically longer-term or may have no stated maturity, but allow the Firm to elect to terminate the contract under certain conditions.
+The notional value of derivatives guarantees generally represents the Firm’s maximum exposure.
+However, exposure to certain stable value products is contractually limited to a substantially lower percentage of the notional amount.
+The fair value of derivative guarantees reflects the probability, in the Firm’s view, of whether the Firm will be required to perform under the contract.
+The Firm reduces exposures to these contracts by entering into offsetting transactions, or by entering into contracts that hedge the market risk related to the derivative guarantees.
+The following table summarizes the derivatives qualifying as guarantees as of December 31, 2017, and 2016.
+Table of Contents Mac The following table presents Mac net sales and unit sales information for 2014, 2013 and 2012 (dollars in millions and units in thousands):
+## Table 0 ##
+[mhdev_0050_table_0.csv](mhdev_0050_table_0.csv)
+The year-over-year growth in Mac net sales and unit sales for 2014 was primarily driven by increased sales of MacBook Air, MacBook Pro and Mac Pro.
+Mac net sales and unit sales increased in all of the Company’s operating segments.
+Mac ASPs decreased during 2014 compared to 2013 primarily due to price reductions on certain Mac models and a shift in mix towards Mac portable systems.
+Mac net sales and unit sales for 2013 were down or relatively flat in all of the Company’s operating segments.
+Mac ASPs increased slightly partially offsetting the impact of lower unit sales on net sales.
+The decline in Mac unit sales and net sales reflected the overall weakness in the market for personal computers.
+iTunes, Software and Services The following table presents net sales information of iTunes, Software and Services for 2014, 2013 and 2012 (dollars in millions):
+## Table 1 ##
+[mhdev_0050_table_1.csv](mhdev_0050_table_1.csv)
+The increase in net sales of iTunes, Software and Services in 2014 compared to 2013 was primarily due to growth in net sales from the iTunes Store, AppleCare and licensing.
+The iTunes Store generated a total of $10.2 billion in net sales during 2014 compared to $9.3 billion during 2013.
+Growth in net sales from the iTunes Store was driven by increases in revenue from app sales reflecting continued growth in the installed base of iOS devices and the expanded offerings of iOS Apps and related in-App purchases.
+This was partially offset by a decline in sales of digital music.
+The increase in net sales of iTunes, Software and Services in 2013 compared to 2012 was primarily due to growth in net sales from the iTunes Store, AppleCare and licensing.
+The iTunes Store generated a total of $9.3 billion in net sales during 2013, a 24% increase from 2012.
+Growth in the iTunes Store, which includes the App Store, the Mac App Store and the iBooks Store, reflected continued growth in the installed base of iOS devices, expanded offerings of iOS Apps and related in-App purchases, and expanded offerings of iTunes digital content.
+Segment Operating Performance The Company manages its business primarily on a geographic basis.
+Accordingly, the Company determined its reportable operating segments, which are generally based on the nature and location of its customers, to be the Americas, Europe, Greater China, Japan, Rest of Asia Pacific and Retail.
+The Americas segment includes both North and South America.
+The Europe segment includes European countries, as well as India, the Middle East and Africa.
+The Greater China segment includes China, Hong Kong and Taiwan.
+The Rest of Asia Pacific segment includes Australia and Asian countries, other than those countries included in the Company’s other operating segments.
+The results of the Company’s geographic segments do not include results of the Retail segment.
+Each operating segment provides similar hardware and software products and similar services.
+Further information regarding the Company’s operating segments may be found in Part II, Item 8 of this Form 10-K in the Notes to Consolidated Financial Statements in Note 11, “Segment Information and Geographic Data.
+”
+KIMCO REALTY CORPORATION AND SUBSIDIARIES NOTES TO CONSOLIDATED FINANCIAL STATEMENTS, CONTINUED Noncontrolling interests also includes 138,015 convertible units issued during 2006, by the Company, which are valued at approximately $5.3 million, including a fair market value adjustment of $0.3 million, related to an interest acquired in an office building located in Albany, NY.
+These units are redeemable at the option of the holder after one year for cash or at the option of the Company for the Company’s common stock at a ratio of 1:1.
+The holder is entitled to a distribution equal to the dividend rate of the Company’s common stock.
+The Company is restricted from disposing of these assets, other than through a tax free transaction, until January 2017.
+The following table presents the change in the redemption value of the Redeemable noncontrolling interests for the year ended December 31, 2009 and December 31, 2008 (amounts in thousands):
+## Table 2 ##
+[mhdev_0050_table_2.csv](mhdev_0050_table_2.csv)
+16.
+Fair Value Disclosure of Financial Instruments: All financial instruments of the Company are reflected in the accompanying Consolidated Balance Sheets at amounts which, in management’s estimation based upon an interpretation of available market information and valuation methodologies, reasonably approximate their fair values except those listed below, for which fair values are reflected.
+The valuation method used to estimate fair value for fixed-rate and variable-rate debt and noncontrolling interests relating to mandatorily redeemable noncontrolling interests associated with finite-lived subsidiaries of the Company is based on discounted cash flow analyses, with assumptions that include credit spreads, loan amounts and debt maturities.
+The fair values for marketable securities are based on published or securities dealers’ estimated market values.
+Such fair value estimates are not necessarily indicative of the amounts that would be realized upon disposition.
+The following are financial instruments for which the Company’s estimate of fair value differs from the carrying amounts (in thousands):
+## Table 3 ##
+[mhdev_0050_table_3.csv](mhdev_0050_table_3.csv)
+The Company has certain financial instruments that must be measured under the FASB’s Fair Value Measurements and Disclosures guidance, including: available for sale securities, convertible notes and derivatives.
+The Company currently does not have non-financial assets and non-financial liabilities that are required to be measured at fair value on a recurring basis.
+As a basis for considering market participant assumptions in fair value measurements, the FASB’s Fair Value Measurements and Disclosures guidance establishes a fair value hierarchy that distinguishes between market participant assumptions based on market data obtained from sources independent of the reporting entity (observable inputs that are classified within Levels 1 and 2 of the hierarchy) and the reporting entity’s own assumptions about market participant assumptions (unobservable inputs classified within Level 3 of the hierarchy).
+Net interest on the stock loan/borrow business decreased 38% due to decreased rates and balances despite a focus on hard-to-locate securities.
+Other interest revenue and expense include earnings on corporate cash and inventory balances, and interest expense on overnight borrowings, our senior notes issued in August, 2009 and the mortgage on our headquarters facility.
+Results of Operations - Private Client Group The following table presents consolidated financial information for our PCG segment for the years indicated:
+## Table 4 ##
+[mhdev_0050_table_4.csv](mhdev_0050_table_4.csv)
+Year ended September 30, 2009 Compared with the Year ended September 30, 2008 - Private Client Group PCG revenues were 22% below the prior year, reflecting the impact of the extremely challenging economic and market conditions.
+Commission revenue decreased $269 million, or 18%, from the prior year, with the majority of that decrease experienced by our domestic independent contractor operation.
+Commissions in RJ&A PCG declined only $45 million, or 9%, due to the recruitment of 219 employee financial advisors in fiscal 2009 (for a net increase of 94) and 184 in fiscal 2008 (for a net increase of 114).
+It generally takes newly recruited financial advisors up to two years to reach their previous production levels.
+Average production per employee financial advisor decreased to $417,000 in fiscal 2009, down 19% from the $515,000 attained in fiscal 2008.
+The recruitment of above-average producers did not overcome the negative impact that the steep market decline had on our private clients’ investing activities.
+RJFS and RJFSA recruited 559 independent contractor financial advisors in fiscal 2009 (for a net increase of 129).
+Independent contractor financial advisor average production decreased from $330,000 in fiscal 2008 to $273,000 in fiscal 2009, impacted, like RJ&A, by the challenging economic and market conditions.

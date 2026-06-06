@@ -1,0 +1,159 @@
+{
+  "row_count": 9,
+  "max_column_count": 4,
+  "candidate_header_rows": [
+    0,
+    1
+  ],
+  "non_empty_cells_by_row": [
+    1,
+    3,
+    1,
+    1,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "numeric_cell_count": 18,
+  "numeric_cells": [
+    {
+      "row_index": 1,
+      "col_index": 1
+    },
+    {
+      "row_index": 1,
+      "col_index": 2
+    },
+    {
+      "row_index": 1,
+      "col_index": 3
+    },
+    {
+      "row_index": 4,
+      "col_index": 1
+    },
+    {
+      "row_index": 4,
+      "col_index": 2
+    },
+    {
+      "row_index": 4,
+      "col_index": 3
+    },
+    {
+      "row_index": 5,
+      "col_index": 1
+    },
+    {
+      "row_index": 5,
+      "col_index": 2
+    },
+    {
+      "row_index": 5,
+      "col_index": 3
+    },
+    {
+      "row_index": 6,
+      "col_index": 1
+    },
+    {
+      "row_index": 6,
+      "col_index": 2
+    },
+    {
+      "row_index": 6,
+      "col_index": 3
+    },
+    {
+      "row_index": 7,
+      "col_index": 1
+    },
+    {
+      "row_index": 7,
+      "col_index": 2
+    },
+    {
+      "row_index": 7,
+      "col_index": 3
+    },
+    {
+      "row_index": 8,
+      "col_index": 1
+    },
+    {
+      "row_index": 8,
+      "col_index": 2
+    },
+    {
+      "row_index": 8,
+      "col_index": 3
+    }
+  ],
+  "row_label_preview": [
+    {
+      "row_index": 0,
+      "left_cells": [
+        "Year ended December 31,"
+      ]
+    },
+    {
+      "row_index": 1,
+      "left_cells": [
+        "2007"
+      ]
+    },
+    {
+      "row_index": 2,
+      "left_cells": [
+        "(in millions)"
+      ]
+    },
+    {
+      "row_index": 3,
+      "left_cells": [
+        "Operating results:"
+      ]
+    },
+    {
+      "row_index": 4,
+      "left_cells": [
+        "Revenues",
+        "$373"
+      ]
+    },
+    {
+      "row_index": 5,
+      "left_cells": [
+        "Expenses",
+        "76"
+      ]
+    },
+    {
+      "row_index": 6,
+      "left_cells": [
+        "Adjusted operating income",
+        "297"
+      ]
+    },
+    {
+      "row_index": 7,
+      "left_cells": [
+        "Equity in earnings of operating joint ventures-1",
+        "-370"
+      ]
+    },
+    {
+      "row_index": 8,
+      "left_cells": [
+        "Income (loss) from continuing operations before income taxes and equity in earnings of operating joint ventures",
+        "$-73"
+      ]
+    }
+  ],
+  "notes": [
+    "Coordinates are zero-based.",
+    "Numeric-cell coordinates are navigation hints only; inspect the source table before calculating."
+  ]
+}

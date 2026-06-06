@@ -1,0 +1,205 @@
+{
+  "row_count": 10,
+  "max_column_count": 4,
+  "candidate_header_rows": [
+    0
+  ],
+  "non_empty_cells_by_row": [
+    4,
+    1,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "numeric_cell_count": 27,
+  "numeric_cells": [
+    {
+      "row_index": 0,
+      "col_index": 1
+    },
+    {
+      "row_index": 0,
+      "col_index": 2
+    },
+    {
+      "row_index": 0,
+      "col_index": 3
+    },
+    {
+      "row_index": 2,
+      "col_index": 1
+    },
+    {
+      "row_index": 2,
+      "col_index": 2
+    },
+    {
+      "row_index": 2,
+      "col_index": 3
+    },
+    {
+      "row_index": 3,
+      "col_index": 1
+    },
+    {
+      "row_index": 3,
+      "col_index": 2
+    },
+    {
+      "row_index": 3,
+      "col_index": 3
+    },
+    {
+      "row_index": 4,
+      "col_index": 1
+    },
+    {
+      "row_index": 4,
+      "col_index": 2
+    },
+    {
+      "row_index": 4,
+      "col_index": 3
+    },
+    {
+      "row_index": 5,
+      "col_index": 1
+    },
+    {
+      "row_index": 5,
+      "col_index": 2
+    },
+    {
+      "row_index": 5,
+      "col_index": 3
+    },
+    {
+      "row_index": 6,
+      "col_index": 1
+    },
+    {
+      "row_index": 6,
+      "col_index": 2
+    },
+    {
+      "row_index": 6,
+      "col_index": 3
+    },
+    {
+      "row_index": 7,
+      "col_index": 1
+    },
+    {
+      "row_index": 7,
+      "col_index": 2
+    },
+    {
+      "row_index": 7,
+      "col_index": 3
+    },
+    {
+      "row_index": 8,
+      "col_index": 1
+    },
+    {
+      "row_index": 8,
+      "col_index": 2
+    },
+    {
+      "row_index": 8,
+      "col_index": 3
+    },
+    {
+      "row_index": 9,
+      "col_index": 1
+    },
+    {
+      "row_index": 9,
+      "col_index": 2
+    },
+    {
+      "row_index": 9,
+      "col_index": 3
+    }
+  ],
+  "row_label_preview": [
+    {
+      "row_index": 0,
+      "left_cells": [
+        "Years Ended December 31, (in millions)",
+        "2012"
+      ]
+    },
+    {
+      "row_index": 1,
+      "left_cells": [
+        "Summary:"
+      ]
+    },
+    {
+      "row_index": 2,
+      "left_cells": [
+        "Net cash provided by (used in) operating activities",
+        "$3,676"
+      ]
+    },
+    {
+      "row_index": 3,
+      "left_cells": [
+        "Net cash provided by (used in) investing activities",
+        "16,612"
+      ]
+    },
+    {
+      "row_index": 4,
+      "left_cells": [
+        "Net cash used in financing activities",
+        "-20,564"
+      ]
+    },
+    {
+      "row_index": 5,
+      "left_cells": [
+        "Effect of exchange rate changes on cash",
+        "16"
+      ]
+    },
+    {
+      "row_index": 6,
+      "left_cells": [
+        "Decrease in cash",
+        "-260"
+      ]
+    },
+    {
+      "row_index": 7,
+      "left_cells": [
+        "Cash at beginning of year",
+        "1,474"
+      ]
+    },
+    {
+      "row_index": 8,
+      "left_cells": [
+        "Change in cash of businesses held for sale",
+        "-63"
+      ]
+    },
+    {
+      "row_index": 9,
+      "left_cells": [
+        "Cash at end of year",
+        "$1,151"
+      ]
+    }
+  ],
+  "notes": [
+    "Coordinates are zero-based.",
+    "Numeric-cell coordinates are navigation hints only; inspect the source table before calculating."
+  ]
+}

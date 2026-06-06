@@ -1,0 +1,318 @@
+{
+  "row_count": 16,
+  "max_column_count": 5,
+  "candidate_header_rows": [
+    0,
+    1
+  ],
+  "non_empty_cells_by_row": [
+    1,
+    3,
+    1,
+    1,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    1,
+    5,
+    5,
+    5,
+    5
+  ],
+  "numeric_cell_count": 44,
+  "numeric_cells": [
+    {
+      "row_index": 1,
+      "col_index": 1
+    },
+    {
+      "row_index": 1,
+      "col_index": 2
+    },
+    {
+      "row_index": 4,
+      "col_index": 1
+    },
+    {
+      "row_index": 4,
+      "col_index": 2
+    },
+    {
+      "row_index": 4,
+      "col_index": 3
+    },
+    {
+      "row_index": 4,
+      "col_index": 4
+    },
+    {
+      "row_index": 5,
+      "col_index": 1
+    },
+    {
+      "row_index": 5,
+      "col_index": 2
+    },
+    {
+      "row_index": 5,
+      "col_index": 3
+    },
+    {
+      "row_index": 5,
+      "col_index": 4
+    },
+    {
+      "row_index": 6,
+      "col_index": 1
+    },
+    {
+      "row_index": 6,
+      "col_index": 2
+    },
+    {
+      "row_index": 6,
+      "col_index": 3
+    },
+    {
+      "row_index": 7,
+      "col_index": 1
+    },
+    {
+      "row_index": 7,
+      "col_index": 2
+    },
+    {
+      "row_index": 7,
+      "col_index": 3
+    },
+    {
+      "row_index": 7,
+      "col_index": 4
+    },
+    {
+      "row_index": 8,
+      "col_index": 1
+    },
+    {
+      "row_index": 8,
+      "col_index": 2
+    },
+    {
+      "row_index": 8,
+      "col_index": 3
+    },
+    {
+      "row_index": 8,
+      "col_index": 4
+    },
+    {
+      "row_index": 9,
+      "col_index": 1
+    },
+    {
+      "row_index": 9,
+      "col_index": 2
+    },
+    {
+      "row_index": 9,
+      "col_index": 3
+    },
+    {
+      "row_index": 9,
+      "col_index": 4
+    },
+    {
+      "row_index": 10,
+      "col_index": 1
+    },
+    {
+      "row_index": 10,
+      "col_index": 2
+    },
+    {
+      "row_index": 10,
+      "col_index": 3
+    },
+    {
+      "row_index": 10,
+      "col_index": 4
+    },
+    {
+      "row_index": 12,
+      "col_index": 1
+    },
+    {
+      "row_index": 12,
+      "col_index": 2
+    },
+    {
+      "row_index": 12,
+      "col_index": 3
+    },
+    {
+      "row_index": 12,
+      "col_index": 4
+    },
+    {
+      "row_index": 13,
+      "col_index": 1
+    },
+    {
+      "row_index": 13,
+      "col_index": 2
+    },
+    {
+      "row_index": 13,
+      "col_index": 3
+    },
+    {
+      "row_index": 13,
+      "col_index": 4
+    },
+    {
+      "row_index": 14,
+      "col_index": 1
+    },
+    {
+      "row_index": 14,
+      "col_index": 2
+    },
+    {
+      "row_index": 14,
+      "col_index": 3
+    },
+    {
+      "row_index": 15,
+      "col_index": 1
+    },
+    {
+      "row_index": 15,
+      "col_index": 2
+    },
+    {
+      "row_index": 15,
+      "col_index": 3
+    },
+    {
+      "row_index": 15,
+      "col_index": 4
+    }
+  ],
+  "row_label_preview": [
+    {
+      "row_index": 0,
+      "left_cells": [
+        "Years Ended December 31,"
+      ]
+    },
+    {
+      "row_index": 1,
+      "left_cells": [
+        "2009"
+      ]
+    },
+    {
+      "row_index": 2,
+      "left_cells": [
+        "(in millions, except percentages)"
+      ]
+    },
+    {
+      "row_index": 3,
+      "left_cells": [
+        "Revenues"
+      ]
+    },
+    {
+      "row_index": 4,
+      "left_cells": [
+        "Management and financial advice fees",
+        "$1,234"
+      ]
+    },
+    {
+      "row_index": 5,
+      "left_cells": [
+        "Distribution fees",
+        "1,733"
+      ]
+    },
+    {
+      "row_index": 6,
+      "left_cells": [
+        "Net investment income",
+        "297"
+      ]
+    },
+    {
+      "row_index": 7,
+      "left_cells": [
+        "Other revenues",
+        "85"
+      ]
+    },
+    {
+      "row_index": 8,
+      "left_cells": [
+        "Total revenues",
+        "3,349"
+      ]
+    },
+    {
+      "row_index": 9,
+      "left_cells": [
+        "Banking and deposit interest expense",
+        "133"
+      ]
+    },
+    {
+      "row_index": 10,
+      "left_cells": [
+        "Total net revenues",
+        "3,216"
+      ]
+    },
+    {
+      "row_index": 11,
+      "left_cells": [
+        "Expenses"
+      ]
+    },
+    {
+      "row_index": 12,
+      "left_cells": [
+        "Distribution expenses",
+        "1,968"
+      ]
+    },
+    {
+      "row_index": 13,
+      "left_cells": [
+        "General and administrative expense",
+        "1,282"
+      ]
+    },
+    {
+      "row_index": 14,
+      "left_cells": [
+        "Total expenses",
+        "3,250"
+      ]
+    },
+    {
+      "row_index": 15,
+      "left_cells": [
+        "Pretax loss",
+        "$-34"
+      ]
+    }
+  ],
+  "notes": [
+    "Coordinates are zero-based.",
+    "Numeric-cell coordinates are navigation hints only; inspect the source table before calculating."
+  ]
+}

@@ -1,0 +1,544 @@
+{
+  "question_keywords": [
+    "distribution",
+    "fees",
+    "2010",
+    "grow",
+    "rate",
+    "millions"
+  ],
+  "paragraph_hits": [
+    {
+      "paragraph_index": 4,
+      "matched_terms": [
+        "rate"
+      ]
+    },
+    {
+      "paragraph_index": 5,
+      "matched_terms": [
+        "rate"
+      ]
+    },
+    {
+      "paragraph_index": 6,
+      "matched_terms": [
+        "rate"
+      ]
+    },
+    {
+      "paragraph_index": 11,
+      "matched_terms": [
+        "rate"
+      ]
+    },
+    {
+      "paragraph_index": 22,
+      "matched_terms": [
+        "2010"
+      ]
+    },
+    {
+      "paragraph_index": 24,
+      "matched_terms": [
+        "rate"
+      ]
+    },
+    {
+      "paragraph_index": 35,
+      "matched_terms": [
+        "distribution",
+        "fees"
+      ]
+    },
+    {
+      "paragraph_index": 36,
+      "matched_terms": [
+        "fees"
+      ]
+    },
+    {
+      "paragraph_index": 38,
+      "matched_terms": [
+        "fees",
+        "rate"
+      ]
+    },
+    {
+      "paragraph_index": 39,
+      "matched_terms": [
+        "distribution",
+        "fees"
+      ]
+    },
+    {
+      "paragraph_index": 43,
+      "matched_terms": [
+        "2010"
+      ]
+    },
+    {
+      "paragraph_index": 48,
+      "matched_terms": [
+        "2010"
+      ]
+    },
+    {
+      "paragraph_index": 50,
+      "matched_terms": [
+        "2010"
+      ]
+    },
+    {
+      "paragraph_index": 62,
+      "matched_terms": [
+        "2010"
+      ]
+    },
+    {
+      "paragraph_index": 63,
+      "matched_terms": [
+        "2010",
+        "rate"
+      ]
+    },
+    {
+      "paragraph_index": 64,
+      "matched_terms": [
+        "rate"
+      ]
+    },
+    {
+      "paragraph_index": 65,
+      "matched_terms": [
+        "2010"
+      ]
+    },
+    {
+      "paragraph_index": 70,
+      "matched_terms": [
+        "rate"
+      ]
+    },
+    {
+      "paragraph_index": 72,
+      "matched_terms": [
+        "rate"
+      ]
+    }
+  ],
+  "table_row_hits": [
+    {
+      "table_index": 0,
+      "row_index": 1,
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "table_index": 2,
+      "row_index": 2,
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "table_index": 2,
+      "row_index": 4,
+      "matched_terms": [
+        "fees"
+      ]
+    },
+    {
+      "table_index": 2,
+      "row_index": 5,
+      "matched_terms": [
+        "distribution",
+        "fees"
+      ]
+    },
+    {
+      "table_index": 2,
+      "row_index": 12,
+      "matched_terms": [
+        "distribution"
+      ]
+    }
+  ],
+  "table_description_hits": [
+    {
+      "cell_ref": "0-2-1",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "0-2-2",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "0-2-3",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "0-3-1",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "0-3-2",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "0-3-3",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "0-4-1",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "0-4-2",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "0-4-3",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "0-5-1",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "0-5-2",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "0-5-3",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "0-6-3",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "0-7-1",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "0-7-2",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "0-7-3",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-4-1",
+      "matched_terms": [
+        "fees",
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-4-2",
+      "matched_terms": [
+        "fees",
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-4-3",
+      "matched_terms": [
+        "fees",
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-4-4",
+      "matched_terms": [
+        "fees",
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-5-1",
+      "matched_terms": [
+        "distribution",
+        "fees",
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-5-2",
+      "matched_terms": [
+        "distribution",
+        "fees",
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-5-3",
+      "matched_terms": [
+        "distribution",
+        "fees",
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-5-4",
+      "matched_terms": [
+        "distribution",
+        "fees",
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-6-1",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-6-2",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-6-3",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-6-4",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-7-1",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-7-2",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-7-3",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-7-4",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-8-1",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-8-2",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-8-3",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-8-4",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-9-1",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-9-2",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-9-3",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-9-4",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-10-1",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-10-2",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-10-3",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-10-4",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-12-1",
+      "matched_terms": [
+        "distribution",
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-12-2",
+      "matched_terms": [
+        "distribution",
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-12-3",
+      "matched_terms": [
+        "distribution",
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-12-4",
+      "matched_terms": [
+        "distribution",
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-13-1",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-13-2",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-13-3",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-13-4",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-14-1",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-14-2",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-14-3",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-15-1",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-15-2",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-15-3",
+      "matched_terms": [
+        "millions"
+      ]
+    },
+    {
+      "cell_ref": "2-15-4",
+      "matched_terms": [
+        "millions"
+      ]
+    }
+  ],
+  "notes": [
+    "Hit lists show where question terms appear; they intentionally omit candidate answer values.",
+    "A missing hit does not mean the answer is absent, because synonyms and merged headers may be used."
+  ]
+}

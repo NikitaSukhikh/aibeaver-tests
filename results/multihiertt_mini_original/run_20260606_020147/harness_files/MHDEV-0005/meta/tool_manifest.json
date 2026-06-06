@@ -1,0 +1,62 @@
+{
+  "overview": {
+    "args": {},
+    "notes": "Return source counts, table inventory, compact metadata files, and question keyword hints."
+  },
+  "read_file": {
+    "args": {
+      "path": "metadata path from the harness file list",
+      "max_chars": "optional integer"
+    },
+    "notes": "Read a generated compact metadata file by relative path."
+  },
+  "search_text": {
+    "args": {
+      "query": "text",
+      "path": "optional harness file path",
+      "limit": "optional integer"
+    },
+    "notes": "Search generated compact metadata files and return line-level matches."
+  },
+  "paragraphs": {
+    "args": {
+      "indexes": "optional list of paragraph indexes",
+      "query": "optional text",
+      "limit": "optional integer"
+    },
+    "notes": "Read original paragraphs by index or substring search."
+  },
+  "table": {
+    "args": {
+      "table_index": "integer",
+      "start_row": "optional integer",
+      "limit": "optional integer"
+    },
+    "notes": "Read a row window from a parsed original HTML table. Coordinates are zero-based."
+  },
+  "find_rows": {
+    "args": {
+      "query": "text",
+      "table_index": "optional integer",
+      "limit": "optional integer"
+    },
+    "notes": "Find table rows whose cells contain a substring."
+  },
+  "cell_descriptions": {
+    "args": {
+      "cell_refs": "optional list like ['0-2-4']",
+      "query": "optional text",
+      "limit": "optional integer"
+    },
+    "notes": "Read original table_description entries by ref or text search."
+  },
+  "calculator": {
+    "args": {
+      "expression": "optional arithmetic expression such as '(2280 - 2100) / 2100'",
+      "operation": "optional add|subtract|multiply|divide|ratio|percent_change|max|min|round",
+      "values": "numbers or numeric strings used with operation",
+      "digits": "optional integer for round"
+    },
+    "notes": "Calculate with source numbers after they have been observed. Supports +, -, *, /, **, and parentheses."
+  }
+}

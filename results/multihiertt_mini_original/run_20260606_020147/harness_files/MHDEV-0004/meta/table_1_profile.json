@@ -1,0 +1,708 @@
+{
+  "row_count": 28,
+  "max_column_count": 8,
+  "candidate_header_rows": [
+    0
+  ],
+  "non_empty_cells_by_row": [
+    8,
+    1,
+    1,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    1,
+    1,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    1,
+    8,
+    1,
+    8
+  ],
+  "numeric_cell_count": 118,
+  "numeric_cells": [
+    {
+      "row_index": 0,
+      "col_index": 0
+    },
+    {
+      "row_index": 3,
+      "col_index": 1
+    },
+    {
+      "row_index": 3,
+      "col_index": 2
+    },
+    {
+      "row_index": 3,
+      "col_index": 3
+    },
+    {
+      "row_index": 3,
+      "col_index": 4
+    },
+    {
+      "row_index": 3,
+      "col_index": 5
+    },
+    {
+      "row_index": 3,
+      "col_index": 6
+    },
+    {
+      "row_index": 3,
+      "col_index": 7
+    },
+    {
+      "row_index": 4,
+      "col_index": 1
+    },
+    {
+      "row_index": 4,
+      "col_index": 2
+    },
+    {
+      "row_index": 4,
+      "col_index": 3
+    },
+    {
+      "row_index": 4,
+      "col_index": 4
+    },
+    {
+      "row_index": 4,
+      "col_index": 5
+    },
+    {
+      "row_index": 4,
+      "col_index": 6
+    },
+    {
+      "row_index": 4,
+      "col_index": 7
+    },
+    {
+      "row_index": 5,
+      "col_index": 1
+    },
+    {
+      "row_index": 5,
+      "col_index": 2
+    },
+    {
+      "row_index": 5,
+      "col_index": 3
+    },
+    {
+      "row_index": 5,
+      "col_index": 4
+    },
+    {
+      "row_index": 5,
+      "col_index": 5
+    },
+    {
+      "row_index": 5,
+      "col_index": 6
+    },
+    {
+      "row_index": 6,
+      "col_index": 1
+    },
+    {
+      "row_index": 6,
+      "col_index": 2
+    },
+    {
+      "row_index": 6,
+      "col_index": 3
+    },
+    {
+      "row_index": 6,
+      "col_index": 7
+    },
+    {
+      "row_index": 7,
+      "col_index": 1
+    },
+    {
+      "row_index": 7,
+      "col_index": 2
+    },
+    {
+      "row_index": 7,
+      "col_index": 3
+    },
+    {
+      "row_index": 7,
+      "col_index": 4
+    },
+    {
+      "row_index": 7,
+      "col_index": 5
+    },
+    {
+      "row_index": 7,
+      "col_index": 6
+    },
+    {
+      "row_index": 7,
+      "col_index": 7
+    },
+    {
+      "row_index": 8,
+      "col_index": 1
+    },
+    {
+      "row_index": 8,
+      "col_index": 2
+    },
+    {
+      "row_index": 8,
+      "col_index": 3
+    },
+    {
+      "row_index": 8,
+      "col_index": 4
+    },
+    {
+      "row_index": 8,
+      "col_index": 5
+    },
+    {
+      "row_index": 8,
+      "col_index": 6
+    },
+    {
+      "row_index": 8,
+      "col_index": 7
+    },
+    {
+      "row_index": 9,
+      "col_index": 1
+    },
+    {
+      "row_index": 9,
+      "col_index": 2
+    },
+    {
+      "row_index": 9,
+      "col_index": 3
+    },
+    {
+      "row_index": 9,
+      "col_index": 4
+    },
+    {
+      "row_index": 9,
+      "col_index": 5
+    },
+    {
+      "row_index": 9,
+      "col_index": 6
+    },
+    {
+      "row_index": 9,
+      "col_index": 7
+    },
+    {
+      "row_index": 12,
+      "col_index": 1
+    },
+    {
+      "row_index": 12,
+      "col_index": 2
+    },
+    {
+      "row_index": 12,
+      "col_index": 3
+    },
+    {
+      "row_index": 12,
+      "col_index": 4
+    },
+    {
+      "row_index": 12,
+      "col_index": 5
+    },
+    {
+      "row_index": 12,
+      "col_index": 6
+    },
+    {
+      "row_index": 12,
+      "col_index": 7
+    },
+    {
+      "row_index": 13,
+      "col_index": 1
+    },
+    {
+      "row_index": 13,
+      "col_index": 2
+    },
+    {
+      "row_index": 13,
+      "col_index": 3
+    },
+    {
+      "row_index": 13,
+      "col_index": 4
+    },
+    {
+      "row_index": 13,
+      "col_index": 5
+    },
+    {
+      "row_index": 13,
+      "col_index": 6
+    },
+    {
+      "row_index": 13,
+      "col_index": 7
+    },
+    {
+      "row_index": 14,
+      "col_index": 1
+    },
+    {
+      "row_index": 14,
+      "col_index": 2
+    },
+    {
+      "row_index": 14,
+      "col_index": 3
+    },
+    {
+      "row_index": 14,
+      "col_index": 7
+    },
+    {
+      "row_index": 15,
+      "col_index": 3
+    },
+    {
+      "row_index": 15,
+      "col_index": 7
+    },
+    {
+      "row_index": 16,
+      "col_index": 2
+    },
+    {
+      "row_index": 17,
+      "col_index": 1
+    },
+    {
+      "row_index": 17,
+      "col_index": 2
+    },
+    {
+      "row_index": 17,
+      "col_index": 3
+    },
+    {
+      "row_index": 17,
+      "col_index": 4
+    },
+    {
+      "row_index": 17,
+      "col_index": 5
+    },
+    {
+      "row_index": 17,
+      "col_index": 6
+    },
+    {
+      "row_index": 18,
+      "col_index": 1
+    },
+    {
+      "row_index": 18,
+      "col_index": 2
+    },
+    {
+      "row_index": 18,
+      "col_index": 3
+    },
+    {
+      "row_index": 18,
+      "col_index": 4
+    },
+    {
+      "row_index": 18,
+      "col_index": 5
+    },
+    {
+      "row_index": 18,
+      "col_index": 6
+    },
+    {
+      "row_index": 19,
+      "col_index": 1
+    },
+    {
+      "row_index": 19,
+      "col_index": 2
+    },
+    {
+      "row_index": 19,
+      "col_index": 3
+    },
+    {
+      "row_index": 19,
+      "col_index": 4
+    },
+    {
+      "row_index": 19,
+      "col_index": 5
+    },
+    {
+      "row_index": 20,
+      "col_index": 1
+    },
+    {
+      "row_index": 20,
+      "col_index": 3
+    },
+    {
+      "row_index": 20,
+      "col_index": 5
+    },
+    {
+      "row_index": 20,
+      "col_index": 6
+    },
+    {
+      "row_index": 21,
+      "col_index": 3
+    },
+    {
+      "row_index": 21,
+      "col_index": 6
+    },
+    {
+      "row_index": 22,
+      "col_index": 1
+    },
+    {
+      "row_index": 22,
+      "col_index": 2
+    },
+    {
+      "row_index": 22,
+      "col_index": 3
+    },
+    {
+      "row_index": 22,
+      "col_index": 4
+    },
+    {
+      "row_index": 22,
+      "col_index": 5
+    },
+    {
+      "row_index": 22,
+      "col_index": 6
+    },
+    {
+      "row_index": 22,
+      "col_index": 7
+    },
+    {
+      "row_index": 23,
+      "col_index": 1
+    },
+    {
+      "row_index": 23,
+      "col_index": 2
+    },
+    {
+      "row_index": 23,
+      "col_index": 3
+    },
+    {
+      "row_index": 23,
+      "col_index": 4
+    },
+    {
+      "row_index": 23,
+      "col_index": 5
+    },
+    {
+      "row_index": 23,
+      "col_index": 6
+    },
+    {
+      "row_index": 23,
+      "col_index": 7
+    },
+    {
+      "row_index": 25,
+      "col_index": 1
+    },
+    {
+      "row_index": 25,
+      "col_index": 2
+    },
+    {
+      "row_index": 25,
+      "col_index": 3
+    },
+    {
+      "row_index": 25,
+      "col_index": 4
+    },
+    {
+      "row_index": 25,
+      "col_index": 5
+    },
+    {
+      "row_index": 25,
+      "col_index": 6
+    },
+    {
+      "row_index": 25,
+      "col_index": 7
+    },
+    {
+      "row_index": 27,
+      "col_index": 1
+    },
+    {
+      "row_index": 27,
+      "col_index": 2
+    },
+    {
+      "row_index": 27,
+      "col_index": 3
+    },
+    {
+      "row_index": 27,
+      "col_index": 4
+    },
+    {
+      "row_index": 27,
+      "col_index": 5
+    },
+    {
+      "row_index": 27,
+      "col_index": 6
+    },
+    {
+      "row_index": 27,
+      "col_index": 7
+    }
+  ],
+  "row_label_preview": [
+    {
+      "row_index": 0,
+      "left_cells": [
+        "2011",
+        "Entergy Arkansas"
+      ]
+    },
+    {
+      "row_index": 1,
+      "left_cells": [
+        "(In Thousands)"
+      ]
+    },
+    {
+      "row_index": 2,
+      "left_cells": [
+        "Deferred tax liabilities:"
+      ]
+    },
+    {
+      "row_index": 3,
+      "left_cells": [
+        "Plant basis differences - net",
+        "-$1,375,502"
+      ]
+    },
+    {
+      "row_index": 4,
+      "left_cells": [
+        "Regulatory asset for income taxes - net",
+        "-64,204"
+      ]
+    },
+    {
+      "row_index": 5,
+      "left_cells": [
+        "Power purchase agreements",
+        "94"
+      ]
+    },
+    {
+      "row_index": 6,
+      "left_cells": [
+        "Nuclear decommissioning trusts",
+        "-53,789"
+      ]
+    },
+    {
+      "row_index": 7,
+      "left_cells": [
+        "Deferred fuel",
+        "-82,452"
+      ]
+    },
+    {
+      "row_index": 8,
+      "left_cells": [
+        "Other",
+        "-107,558"
+      ]
+    },
+    {
+      "row_index": 9,
+      "left_cells": [
+        "Total",
+        "-$1,683,411"
+      ]
+    },
+    {
+      "row_index": 10,
+      "left_cells": [
+        "Deferred tax assets:"
+      ]
+    },
+    {
+      "row_index": 11,
+      "left_cells": [
+        "Accumulated deferred investment"
+      ]
+    },
+    {
+      "row_index": 12,
+      "left_cells": [
+        "tax credits",
+        "16,843"
+      ]
+    },
+    {
+      "row_index": 13,
+      "left_cells": [
+        "Pension and OPEB",
+        "-75,399"
+      ]
+    },
+    {
+      "row_index": 14,
+      "left_cells": [
+        "Nuclear decommissioning liabilities",
+        "-104,862"
+      ]
+    },
+    {
+      "row_index": 15,
+      "left_cells": [
+        "Sale and leaseback",
+        "-"
+      ]
+    },
+    {
+      "row_index": 16,
+      "left_cells": [
+        "Provision for regulatory adjustments",
+        "-"
+      ]
+    },
+    {
+      "row_index": 17,
+      "left_cells": [
+        "Provision for contingencies",
+        "4,167"
+      ]
+    },
+    {
+      "row_index": 18,
+      "left_cells": [
+        "Unbilled/deferred revenues",
+        "15,222"
+      ]
+    },
+    {
+      "row_index": 19,
+      "left_cells": [
+        "Customer deposits",
+        "7,019"
+      ]
+    },
+    {
+      "row_index": 20,
+      "left_cells": [
+        "Rate refund",
+        "11,627"
+      ]
+    },
+    {
+      "row_index": 21,
+      "left_cells": [
+        "Net operating loss carryforwards",
+        "-"
+      ]
+    },
+    {
+      "row_index": 22,
+      "left_cells": [
+        "Other",
+        "3,485"
+      ]
+    },
+    {
+      "row_index": 23,
+      "left_cells": [
+        "Total",
+        "-121,898"
+      ]
+    },
+    {
+      "row_index": 24,
+      "left_cells": [
+        "Noncurrent accrued taxes (including"
+      ]
+    },
+    {
+      "row_index": 25,
+      "left_cells": [
+        "unrecognized tax benefits)",
+        "-27,718"
+      ]
+    },
+    {
+      "row_index": 26,
+      "left_cells": [
+        "Accumulated deferred income"
+      ]
+    },
+    {
+      "row_index": 27,
+      "left_cells": [
+        "taxes and taxes accrued",
+        "-$1,833,027"
+      ]
+    }
+  ],
+  "notes": [
+    "Coordinates are zero-based.",
+    "Numeric-cell coordinates are navigation hints only; inspect the source table before calculating."
+  ]
+}

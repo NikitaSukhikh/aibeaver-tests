@@ -1,0 +1,116 @@
+{
+  "created_at": "2026-06-06T02:01:47",
+  "providers": [
+    {
+      "name": "openai",
+      "model": "gpt-5.4",
+      "api_key_env": "OPENAI_API_KEY"
+    },
+    {
+      "name": "anthropic",
+      "model": "claude-opus-4-5",
+      "api_key_env": "ANTHROPIC_API_KEY"
+    }
+  ],
+  "modes": [
+    "plain_source",
+    "harnessed_plain",
+    "harnessed_tools"
+  ],
+  "original_dir": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\original_disconnected",
+  "original_json": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\original_disconnected\\dev_50.json",
+  "questions_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\qa_questions_50.jsonl",
+  "answers_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\answers.json",
+  "question_count": 7,
+  "scoring_mode": "llm_judge",
+  "judge_provider": "same",
+  "judge_model": null,
+  "max_tool_steps": 20,
+  "max_observation_chars": 60000,
+  "max_output_tokens": 12000,
+  "temperature": 0.0,
+  "dry_run": false,
+  "prompt_profile": "multihiertt_original_plain_source_with_neutral_harness",
+  "mcd_usage": "none",
+  "harness_files_root": "D:\\aibeaver-tests\\results\\multihiertt_mini_original\\run_20260606_020147\\harness_files",
+  "mode_profiles": {
+    "plain_source": "single model call over sanitized original JSON source",
+    "harnessed_plain": "single model call over compact generated metadata only; no duplicated full-source files",
+    "harnessed_tools": "multi-step JSON tool loop over compact metadata, parsed tables, source paragraphs, cell descriptions, and calculator"
+  },
+  "harness_tool_docs": {
+    "overview": {
+      "args": {},
+      "notes": "Return source counts, table inventory, compact metadata files, and question keyword hints."
+    },
+    "read_file": {
+      "args": {
+        "path": "metadata path from the harness file list",
+        "max_chars": "optional integer"
+      },
+      "notes": "Read a generated compact metadata file by relative path."
+    },
+    "search_text": {
+      "args": {
+        "query": "text",
+        "path": "optional harness file path",
+        "limit": "optional integer"
+      },
+      "notes": "Search generated compact metadata files and return line-level matches."
+    },
+    "paragraphs": {
+      "args": {
+        "indexes": "optional list of paragraph indexes",
+        "query": "optional text",
+        "limit": "optional integer"
+      },
+      "notes": "Read original paragraphs by index or substring search."
+    },
+    "table": {
+      "args": {
+        "table_index": "integer",
+        "start_row": "optional integer",
+        "limit": "optional integer"
+      },
+      "notes": "Read a row window from a parsed original HTML table. Coordinates are zero-based."
+    },
+    "find_rows": {
+      "args": {
+        "query": "text",
+        "table_index": "optional integer",
+        "limit": "optional integer"
+      },
+      "notes": "Find table rows whose cells contain a substring."
+    },
+    "cell_descriptions": {
+      "args": {
+        "cell_refs": "optional list like ['0-2-4']",
+        "query": "optional text",
+        "limit": "optional integer"
+      },
+      "notes": "Read original table_description entries by ref or text search."
+    },
+    "calculator": {
+      "args": {
+        "expression": "optional arithmetic expression such as '(2280 - 2100) / 2100'",
+        "operation": "optional add|subtract|multiply|divide|ratio|percent_change|max|min|round",
+        "values": "numbers or numeric strings used with operation",
+        "digits": "optional integer for round"
+      },
+      "notes": "Calculate with source numbers after they have been observed. Supports +, -, *, /, **, and parentheses."
+    }
+  },
+  "shared_evaluator": {
+    "answers_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\answers.json",
+    "evaluation_hashes": {
+      "multihiertt_mini_0001": "5ef68f16dd99297f50a9c73642e89e4976fd3051824eeeb906419099501137b8",
+      "multihiertt_mini_0002": "be0975ce0298d44231cb40297f8510798d3d773601593233f8146a55908b525c",
+      "multihiertt_mini_0003": "e3556178f5df8e717a47b2983bc9ee407eb0b66b113e81fbad7ef8a299e5e441",
+      "multihiertt_mini_0004": "c5847f2e9c5435eef41da89e7d3ae6420e65d04609569b997ae1389b30082450",
+      "multihiertt_mini_0005": "13100b1c9c25f4ee31ff2fd7f94ad5f9f7f087a9836b38ed780f194a3a6bdca0",
+      "multihiertt_mini_0006": "a09fb7754effcb320ce7fb8318ff17b251d864efa1a905c780465679e7301aea",
+      "multihiertt_mini_0007": "d0935c5b01a781e81e1a89db3272b0d064fd0466b75b6c21d96841daed2c2049"
+    },
+    "note": "Evaluator labels are used only after provider answers are returned."
+  }
+}

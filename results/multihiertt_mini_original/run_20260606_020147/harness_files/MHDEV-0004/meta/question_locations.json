@@ -1,0 +1,965 @@
+{
+  "question_keywords": [
+    "average",
+    "value",
+    "power",
+    "purchase",
+    "agreements",
+    "entergy",
+    "arkansas",
+    "greater",
+    "than",
+    "that",
+    "louisiana"
+  ],
+  "paragraph_hits": [
+    {
+      "paragraph_index": 0,
+      "matched_terms": [
+        "value",
+        "entergy"
+      ]
+    },
+    {
+      "paragraph_index": 4,
+      "matched_terms": [
+        "entergy",
+        "than"
+      ]
+    },
+    {
+      "paragraph_index": 5,
+      "matched_terms": [
+        "entergy",
+        "than"
+      ]
+    },
+    {
+      "paragraph_index": 6,
+      "matched_terms": [
+        "entergy",
+        "than"
+      ]
+    },
+    {
+      "paragraph_index": 7,
+      "matched_terms": [
+        "value",
+        "entergy",
+        "than"
+      ]
+    },
+    {
+      "paragraph_index": 8,
+      "matched_terms": [
+        "entergy",
+        "than"
+      ]
+    },
+    {
+      "paragraph_index": 9,
+      "matched_terms": [
+        "entergy",
+        "than"
+      ]
+    },
+    {
+      "paragraph_index": 10,
+      "matched_terms": [
+        "value",
+        "entergy",
+        "than",
+        "that"
+      ]
+    },
+    {
+      "paragraph_index": 11,
+      "matched_terms": [
+        "purchase",
+        "agreements",
+        "entergy",
+        "that"
+      ]
+    },
+    {
+      "paragraph_index": 12,
+      "matched_terms": [
+        "than"
+      ]
+    },
+    {
+      "paragraph_index": 14,
+      "matched_terms": [
+        "entergy",
+        "that"
+      ]
+    },
+    {
+      "paragraph_index": 15,
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "paragraph_index": 16,
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "paragraph_index": 17,
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "paragraph_index": 18,
+      "matched_terms": [
+        "than"
+      ]
+    },
+    {
+      "paragraph_index": 19,
+      "matched_terms": [
+        "than",
+        "that"
+      ]
+    },
+    {
+      "paragraph_index": 22,
+      "matched_terms": [
+        "power",
+        "purchase",
+        "entergy"
+      ]
+    },
+    {
+      "paragraph_index": 26,
+      "matched_terms": [
+        "power",
+        "purchase"
+      ]
+    },
+    {
+      "paragraph_index": 27,
+      "matched_terms": [
+        "average",
+        "power",
+        "purchase"
+      ]
+    },
+    {
+      "paragraph_index": 28,
+      "matched_terms": [
+        "power"
+      ]
+    },
+    {
+      "paragraph_index": 31,
+      "matched_terms": [
+        "than"
+      ]
+    },
+    {
+      "paragraph_index": 33,
+      "matched_terms": [
+        "power"
+      ]
+    },
+    {
+      "paragraph_index": 34,
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "paragraph_index": 36,
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "paragraph_index": 39,
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "paragraph_index": 40,
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "paragraph_index": 41,
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "paragraph_index": 42,
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "paragraph_index": 43,
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "paragraph_index": 46,
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "paragraph_index": 47,
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "paragraph_index": 48,
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "paragraph_index": 49,
+      "matched_terms": [
+        "entergy",
+        "that",
+        "louisiana"
+      ]
+    },
+    {
+      "paragraph_index": 50,
+      "matched_terms": [
+        "that"
+      ]
+    },
+    {
+      "paragraph_index": 51,
+      "matched_terms": [
+        "power",
+        "purchase",
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "paragraph_index": 52,
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "paragraph_index": 53,
+      "matched_terms": [
+        "purchase",
+        "entergy"
+      ]
+    }
+  ],
+  "table_row_hits": [
+    {
+      "table_index": 0,
+      "row_index": 2,
+      "matched_terms": [
+        "than"
+      ]
+    },
+    {
+      "table_index": 1,
+      "row_index": 0,
+      "matched_terms": [
+        "entergy",
+        "arkansas",
+        "louisiana"
+      ]
+    },
+    {
+      "table_index": 1,
+      "row_index": 5,
+      "matched_terms": [
+        "power",
+        "purchase",
+        "agreements"
+      ]
+    }
+  ],
+  "table_description_hits": [
+    {
+      "cell_ref": "0-2-1",
+      "matched_terms": [
+        "than"
+      ]
+    },
+    {
+      "cell_ref": "0-2-2",
+      "matched_terms": [
+        "than"
+      ]
+    },
+    {
+      "cell_ref": "1-4-1",
+      "matched_terms": [
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-4-2",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-4-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-4-4",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-4-5",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-4-6",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-5-1",
+      "matched_terms": [
+        "power",
+        "purchase",
+        "agreements",
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-5-2",
+      "matched_terms": [
+        "power",
+        "purchase",
+        "agreements",
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-5-3",
+      "matched_terms": [
+        "power",
+        "purchase",
+        "agreements",
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-5-4",
+      "matched_terms": [
+        "power",
+        "purchase",
+        "agreements",
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-5-5",
+      "matched_terms": [
+        "power",
+        "purchase",
+        "agreements",
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-5-6",
+      "matched_terms": [
+        "power",
+        "purchase",
+        "agreements",
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-6-1",
+      "matched_terms": [
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-6-2",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-6-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-7-1",
+      "matched_terms": [
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-7-2",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-7-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-7-4",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-7-5",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-7-6",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-8-1",
+      "matched_terms": [
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-8-2",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-8-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-8-4",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-8-5",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-8-6",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-9-1",
+      "matched_terms": [
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-9-2",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-9-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-9-4",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-9-5",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-9-6",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-12-1",
+      "matched_terms": [
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-12-2",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-12-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-12-4",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-12-5",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-12-6",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-13-1",
+      "matched_terms": [
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-13-2",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-13-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-13-4",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-13-5",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-13-6",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-14-1",
+      "matched_terms": [
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-14-2",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-14-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-15-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-16-2",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-17-1",
+      "matched_terms": [
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-17-2",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-17-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-17-4",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-17-5",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-17-6",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-18-1",
+      "matched_terms": [
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-18-2",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-18-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-18-4",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-18-5",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-18-6",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-19-1",
+      "matched_terms": [
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-19-2",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-19-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-19-4",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-19-5",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-20-1",
+      "matched_terms": [
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-20-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-20-5",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-20-6",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-21-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-21-6",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-22-1",
+      "matched_terms": [
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-22-2",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-22-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-22-4",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-22-5",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-22-6",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-23-1",
+      "matched_terms": [
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-23-2",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-23-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-23-4",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-23-5",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-23-6",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-25-1",
+      "matched_terms": [
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-25-2",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-25-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-25-4",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-25-5",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-25-6",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-27-1",
+      "matched_terms": [
+        "entergy",
+        "arkansas"
+      ]
+    },
+    {
+      "cell_ref": "1-27-2",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-27-3",
+      "matched_terms": [
+        "entergy",
+        "louisiana"
+      ]
+    },
+    {
+      "cell_ref": "1-27-4",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-27-5",
+      "matched_terms": [
+        "entergy"
+      ]
+    },
+    {
+      "cell_ref": "1-27-6",
+      "matched_terms": [
+        "entergy"
+      ]
+    }
+  ],
+  "notes": [
+    "Hit lists show where question terms appear; they intentionally omit candidate answer values.",
+    "A missing hit does not mean the answer is absent, because synonyms and merged headers may be used."
+  ]
+}

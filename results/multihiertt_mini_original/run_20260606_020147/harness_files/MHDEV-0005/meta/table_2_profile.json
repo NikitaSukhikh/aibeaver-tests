@@ -1,0 +1,356 @@
+{
+  "row_count": 13,
+  "max_column_count": 6,
+  "candidate_header_rows": [
+    0,
+    1,
+    4
+  ],
+  "non_empty_cells_by_row": [
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6
+  ],
+  "numeric_cell_count": 58,
+  "numeric_cells": [
+    {
+      "row_index": 1,
+      "col_index": 1
+    },
+    {
+      "row_index": 1,
+      "col_index": 2
+    },
+    {
+      "row_index": 1,
+      "col_index": 3
+    },
+    {
+      "row_index": 1,
+      "col_index": 4
+    },
+    {
+      "row_index": 1,
+      "col_index": 5
+    },
+    {
+      "row_index": 2,
+      "col_index": 1
+    },
+    {
+      "row_index": 2,
+      "col_index": 2
+    },
+    {
+      "row_index": 2,
+      "col_index": 3
+    },
+    {
+      "row_index": 2,
+      "col_index": 4
+    },
+    {
+      "row_index": 2,
+      "col_index": 5
+    },
+    {
+      "row_index": 3,
+      "col_index": 1
+    },
+    {
+      "row_index": 3,
+      "col_index": 2
+    },
+    {
+      "row_index": 3,
+      "col_index": 3
+    },
+    {
+      "row_index": 3,
+      "col_index": 5
+    },
+    {
+      "row_index": 4,
+      "col_index": 1
+    },
+    {
+      "row_index": 4,
+      "col_index": 2
+    },
+    {
+      "row_index": 4,
+      "col_index": 3
+    },
+    {
+      "row_index": 4,
+      "col_index": 4
+    },
+    {
+      "row_index": 4,
+      "col_index": 5
+    },
+    {
+      "row_index": 5,
+      "col_index": 1
+    },
+    {
+      "row_index": 5,
+      "col_index": 2
+    },
+    {
+      "row_index": 5,
+      "col_index": 3
+    },
+    {
+      "row_index": 5,
+      "col_index": 4
+    },
+    {
+      "row_index": 5,
+      "col_index": 5
+    },
+    {
+      "row_index": 6,
+      "col_index": 1
+    },
+    {
+      "row_index": 6,
+      "col_index": 2
+    },
+    {
+      "row_index": 6,
+      "col_index": 3
+    },
+    {
+      "row_index": 6,
+      "col_index": 4
+    },
+    {
+      "row_index": 6,
+      "col_index": 5
+    },
+    {
+      "row_index": 7,
+      "col_index": 1
+    },
+    {
+      "row_index": 7,
+      "col_index": 2
+    },
+    {
+      "row_index": 7,
+      "col_index": 3
+    },
+    {
+      "row_index": 7,
+      "col_index": 4
+    },
+    {
+      "row_index": 7,
+      "col_index": 5
+    },
+    {
+      "row_index": 8,
+      "col_index": 1
+    },
+    {
+      "row_index": 8,
+      "col_index": 2
+    },
+    {
+      "row_index": 8,
+      "col_index": 3
+    },
+    {
+      "row_index": 8,
+      "col_index": 4
+    },
+    {
+      "row_index": 8,
+      "col_index": 5
+    },
+    {
+      "row_index": 9,
+      "col_index": 1
+    },
+    {
+      "row_index": 9,
+      "col_index": 2
+    },
+    {
+      "row_index": 9,
+      "col_index": 3
+    },
+    {
+      "row_index": 9,
+      "col_index": 4
+    },
+    {
+      "row_index": 9,
+      "col_index": 5
+    },
+    {
+      "row_index": 10,
+      "col_index": 1
+    },
+    {
+      "row_index": 10,
+      "col_index": 2
+    },
+    {
+      "row_index": 10,
+      "col_index": 3
+    },
+    {
+      "row_index": 10,
+      "col_index": 4
+    },
+    {
+      "row_index": 10,
+      "col_index": 5
+    },
+    {
+      "row_index": 11,
+      "col_index": 1
+    },
+    {
+      "row_index": 11,
+      "col_index": 2
+    },
+    {
+      "row_index": 11,
+      "col_index": 4
+    },
+    {
+      "row_index": 11,
+      "col_index": 5
+    },
+    {
+      "row_index": 12,
+      "col_index": 1
+    },
+    {
+      "row_index": 12,
+      "col_index": 2
+    },
+    {
+      "row_index": 12,
+      "col_index": 3
+    },
+    {
+      "row_index": 12,
+      "col_index": 4
+    },
+    {
+      "row_index": 12,
+      "col_index": 5
+    }
+  ],
+  "row_label_preview": [
+    {
+      "row_index": 0,
+      "left_cells": [
+        "(Dollars in millions)",
+        "Securities -1"
+      ]
+    },
+    {
+      "row_index": 1,
+      "left_cells": [
+        "Balance, December 31, 2007",
+        "$6,536"
+      ]
+    },
+    {
+      "row_index": 2,
+      "left_cells": [
+        "Net change in fair value recorded in accumulated OCI-5",
+        "-10,354"
+      ]
+    },
+    {
+      "row_index": 3,
+      "left_cells": [
+        "Net realized losses reclassified into earnings-6",
+        "1,797"
+      ]
+    },
+    {
+      "row_index": 4,
+      "left_cells": [
+        "Balance, December 31, 2008",
+        "$-2,021"
+      ]
+    },
+    {
+      "row_index": 5,
+      "left_cells": [
+        "Balance, December 31, 2006",
+        "$-2,733"
+      ]
+    },
+    {
+      "row_index": 6,
+      "left_cells": [
+        "Net change in fair value recorded in accumulated OCI-5",
+        "9,416"
+      ]
+    },
+    {
+      "row_index": 7,
+      "left_cells": [
+        "Net realized (gains) losses reclassified into earnings(6)",
+        "-147"
+      ]
+    },
+    {
+      "row_index": 8,
+      "left_cells": [
+        "Balance, December 31, 2007",
+        "$6,536"
+      ]
+    },
+    {
+      "row_index": 9,
+      "left_cells": [
+        "Balance, December 31, 2005",
+        "$-2,978"
+      ]
+    },
+    {
+      "row_index": 10,
+      "left_cells": [
+        "Net change in fair value recorded in accumulated OCI",
+        "465"
+      ]
+    },
+    {
+      "row_index": 11,
+      "left_cells": [
+        "Net realized (gains) losses reclassified into earnings(6)",
+        "-220"
+      ]
+    },
+    {
+      "row_index": 12,
+      "left_cells": [
+        "Balance, December 31, 2006",
+        "$-2,733"
+      ]
+    }
+  ],
+  "notes": [
+    "Coordinates are zero-based.",
+    "Numeric-cell coordinates are navigation hints only; inspect the source table before calculating."
+  ]
+}

@@ -1,0 +1,711 @@
+{
+  "row_count": 31,
+  "max_column_count": 6,
+  "candidate_header_rows": [
+    0,
+    1
+  ],
+  "non_empty_cells_by_row": [
+    6,
+    1,
+    6,
+    6,
+    6,
+    6,
+    6,
+    1,
+    6,
+    6,
+    6,
+    6,
+    6,
+    1,
+    6,
+    6,
+    6,
+    6,
+    6,
+    1,
+    6,
+    6,
+    6,
+    6,
+    6,
+    1,
+    6,
+    6,
+    6,
+    6,
+    6
+  ],
+  "numeric_cell_count": 114,
+  "numeric_cells": [
+    {
+      "row_index": 1,
+      "col_index": 0
+    },
+    {
+      "row_index": 2,
+      "col_index": 1
+    },
+    {
+      "row_index": 2,
+      "col_index": 2
+    },
+    {
+      "row_index": 2,
+      "col_index": 3
+    },
+    {
+      "row_index": 2,
+      "col_index": 4
+    },
+    {
+      "row_index": 2,
+      "col_index": 5
+    },
+    {
+      "row_index": 3,
+      "col_index": 1
+    },
+    {
+      "row_index": 3,
+      "col_index": 2
+    },
+    {
+      "row_index": 3,
+      "col_index": 3
+    },
+    {
+      "row_index": 3,
+      "col_index": 4
+    },
+    {
+      "row_index": 3,
+      "col_index": 5
+    },
+    {
+      "row_index": 4,
+      "col_index": 1
+    },
+    {
+      "row_index": 4,
+      "col_index": 2
+    },
+    {
+      "row_index": 4,
+      "col_index": 3
+    },
+    {
+      "row_index": 4,
+      "col_index": 4
+    },
+    {
+      "row_index": 4,
+      "col_index": 5
+    },
+    {
+      "row_index": 5,
+      "col_index": 1
+    },
+    {
+      "row_index": 5,
+      "col_index": 2
+    },
+    {
+      "row_index": 5,
+      "col_index": 3
+    },
+    {
+      "row_index": 5,
+      "col_index": 4
+    },
+    {
+      "row_index": 5,
+      "col_index": 5
+    },
+    {
+      "row_index": 6,
+      "col_index": 1
+    },
+    {
+      "row_index": 6,
+      "col_index": 2
+    },
+    {
+      "row_index": 6,
+      "col_index": 3
+    },
+    {
+      "row_index": 6,
+      "col_index": 4
+    },
+    {
+      "row_index": 6,
+      "col_index": 5
+    },
+    {
+      "row_index": 7,
+      "col_index": 0
+    },
+    {
+      "row_index": 8,
+      "col_index": 1
+    },
+    {
+      "row_index": 8,
+      "col_index": 2
+    },
+    {
+      "row_index": 8,
+      "col_index": 3
+    },
+    {
+      "row_index": 8,
+      "col_index": 4
+    },
+    {
+      "row_index": 8,
+      "col_index": 5
+    },
+    {
+      "row_index": 9,
+      "col_index": 1
+    },
+    {
+      "row_index": 9,
+      "col_index": 2
+    },
+    {
+      "row_index": 9,
+      "col_index": 3
+    },
+    {
+      "row_index": 9,
+      "col_index": 4
+    },
+    {
+      "row_index": 9,
+      "col_index": 5
+    },
+    {
+      "row_index": 10,
+      "col_index": 1
+    },
+    {
+      "row_index": 10,
+      "col_index": 2
+    },
+    {
+      "row_index": 10,
+      "col_index": 3
+    },
+    {
+      "row_index": 10,
+      "col_index": 4
+    },
+    {
+      "row_index": 10,
+      "col_index": 5
+    },
+    {
+      "row_index": 11,
+      "col_index": 1
+    },
+    {
+      "row_index": 11,
+      "col_index": 2
+    },
+    {
+      "row_index": 11,
+      "col_index": 3
+    },
+    {
+      "row_index": 11,
+      "col_index": 4
+    },
+    {
+      "row_index": 11,
+      "col_index": 5
+    },
+    {
+      "row_index": 12,
+      "col_index": 1
+    },
+    {
+      "row_index": 12,
+      "col_index": 2
+    },
+    {
+      "row_index": 12,
+      "col_index": 3
+    },
+    {
+      "row_index": 12,
+      "col_index": 4
+    },
+    {
+      "row_index": 12,
+      "col_index": 5
+    },
+    {
+      "row_index": 13,
+      "col_index": 0
+    },
+    {
+      "row_index": 14,
+      "col_index": 1
+    },
+    {
+      "row_index": 14,
+      "col_index": 2
+    },
+    {
+      "row_index": 14,
+      "col_index": 3
+    },
+    {
+      "row_index": 14,
+      "col_index": 4
+    },
+    {
+      "row_index": 14,
+      "col_index": 5
+    },
+    {
+      "row_index": 15,
+      "col_index": 1
+    },
+    {
+      "row_index": 15,
+      "col_index": 2
+    },
+    {
+      "row_index": 15,
+      "col_index": 3
+    },
+    {
+      "row_index": 15,
+      "col_index": 4
+    },
+    {
+      "row_index": 15,
+      "col_index": 5
+    },
+    {
+      "row_index": 16,
+      "col_index": 1
+    },
+    {
+      "row_index": 16,
+      "col_index": 2
+    },
+    {
+      "row_index": 16,
+      "col_index": 3
+    },
+    {
+      "row_index": 16,
+      "col_index": 4
+    },
+    {
+      "row_index": 16,
+      "col_index": 5
+    },
+    {
+      "row_index": 17,
+      "col_index": 1
+    },
+    {
+      "row_index": 17,
+      "col_index": 2
+    },
+    {
+      "row_index": 17,
+      "col_index": 4
+    },
+    {
+      "row_index": 17,
+      "col_index": 5
+    },
+    {
+      "row_index": 18,
+      "col_index": 1
+    },
+    {
+      "row_index": 18,
+      "col_index": 2
+    },
+    {
+      "row_index": 18,
+      "col_index": 3
+    },
+    {
+      "row_index": 18,
+      "col_index": 4
+    },
+    {
+      "row_index": 18,
+      "col_index": 5
+    },
+    {
+      "row_index": 20,
+      "col_index": 1
+    },
+    {
+      "row_index": 20,
+      "col_index": 4
+    },
+    {
+      "row_index": 20,
+      "col_index": 5
+    },
+    {
+      "row_index": 21,
+      "col_index": 1
+    },
+    {
+      "row_index": 21,
+      "col_index": 2
+    },
+    {
+      "row_index": 21,
+      "col_index": 4
+    },
+    {
+      "row_index": 21,
+      "col_index": 5
+    },
+    {
+      "row_index": 22,
+      "col_index": 1
+    },
+    {
+      "row_index": 22,
+      "col_index": 2
+    },
+    {
+      "row_index": 22,
+      "col_index": 4
+    },
+    {
+      "row_index": 22,
+      "col_index": 5
+    },
+    {
+      "row_index": 23,
+      "col_index": 1
+    },
+    {
+      "row_index": 23,
+      "col_index": 2
+    },
+    {
+      "row_index": 23,
+      "col_index": 4
+    },
+    {
+      "row_index": 24,
+      "col_index": 1
+    },
+    {
+      "row_index": 24,
+      "col_index": 4
+    },
+    {
+      "row_index": 24,
+      "col_index": 5
+    },
+    {
+      "row_index": 26,
+      "col_index": 1
+    },
+    {
+      "row_index": 26,
+      "col_index": 2
+    },
+    {
+      "row_index": 26,
+      "col_index": 5
+    },
+    {
+      "row_index": 27,
+      "col_index": 1
+    },
+    {
+      "row_index": 27,
+      "col_index": 2
+    },
+    {
+      "row_index": 27,
+      "col_index": 4
+    },
+    {
+      "row_index": 27,
+      "col_index": 5
+    },
+    {
+      "row_index": 28,
+      "col_index": 1
+    },
+    {
+      "row_index": 28,
+      "col_index": 2
+    },
+    {
+      "row_index": 28,
+      "col_index": 3
+    },
+    {
+      "row_index": 28,
+      "col_index": 4
+    },
+    {
+      "row_index": 28,
+      "col_index": 5
+    },
+    {
+      "row_index": 29,
+      "col_index": 1
+    },
+    {
+      "row_index": 29,
+      "col_index": 2
+    },
+    {
+      "row_index": 29,
+      "col_index": 4
+    },
+    {
+      "row_index": 29,
+      "col_index": 5
+    },
+    {
+      "row_index": 30,
+      "col_index": 1
+    },
+    {
+      "row_index": 30,
+      "col_index": 2
+    },
+    {
+      "row_index": 30,
+      "col_index": 4
+    },
+    {
+      "row_index": 30,
+      "col_index": 5
+    }
+  ],
+  "row_label_preview": [
+    {
+      "row_index": 0,
+      "left_cells": [
+        "(in millions)",
+        "Premiums and Other Considerations"
+      ]
+    },
+    {
+      "row_index": 1,
+      "left_cells": [
+        "2007"
+      ]
+    },
+    {
+      "row_index": 2,
+      "left_cells": [
+        "Group retirement products",
+        "$446"
+      ]
+    },
+    {
+      "row_index": 3,
+      "left_cells": [
+        "Individual fixed annuities",
+        "96"
+      ]
+    },
+    {
+      "row_index": 4,
+      "left_cells": [
+        "Individual variable annuities",
+        "627"
+      ]
+    },
+    {
+      "row_index": 5,
+      "left_cells": [
+        "Individual annuities — runoff*",
+        "21"
+      ]
+    },
+    {
+      "row_index": 6,
+      "left_cells": [
+        "Total",
+        "$1,190"
+      ]
+    },
+    {
+      "row_index": 7,
+      "left_cells": [
+        "2006"
+      ]
+    },
+    {
+      "row_index": 8,
+      "left_cells": [
+        "Group retirement products",
+        "$386"
+      ]
+    },
+    {
+      "row_index": 9,
+      "left_cells": [
+        "Individual fixed annuities",
+        "122"
+      ]
+    },
+    {
+      "row_index": 10,
+      "left_cells": [
+        "Individual variable annuities",
+        "531"
+      ]
+    },
+    {
+      "row_index": 11,
+      "left_cells": [
+        "Individual annuities — runoff*",
+        "18"
+      ]
+    },
+    {
+      "row_index": 12,
+      "left_cells": [
+        "Total",
+        "$1,057"
+      ]
+    },
+    {
+      "row_index": 13,
+      "left_cells": [
+        "2005"
+      ]
+    },
+    {
+      "row_index": 14,
+      "left_cells": [
+        "Group retirement products",
+        "$351"
+      ]
+    },
+    {
+      "row_index": 15,
+      "left_cells": [
+        "Individual fixed annuities",
+        "97"
+      ]
+    },
+    {
+      "row_index": 16,
+      "left_cells": [
+        "Individual variable annuities",
+        "467"
+      ]
+    },
+    {
+      "row_index": 17,
+      "left_cells": [
+        "Individual annuities — runoff*",
+        "22"
+      ]
+    },
+    {
+      "row_index": 18,
+      "left_cells": [
+        "Total",
+        "$937"
+      ]
+    },
+    {
+      "row_index": 19,
+      "left_cells": [
+        "Percentage Increase/(Decrease) 2007 vs. 2006:"
+      ]
+    },
+    {
+      "row_index": 20,
+      "left_cells": [
+        "Group retirement products",
+        "16%"
+      ]
+    },
+    {
+      "row_index": 21,
+      "left_cells": [
+        "Individual fixed annuities",
+        "-21"
+      ]
+    },
+    {
+      "row_index": 22,
+      "left_cells": [
+        "Individual variable annuities",
+        "18"
+      ]
+    },
+    {
+      "row_index": 23,
+      "left_cells": [
+        "Individual annuities — runoff",
+        "17"
+      ]
+    },
+    {
+      "row_index": 24,
+      "left_cells": [
+        "Total",
+        "13%"
+      ]
+    },
+    {
+      "row_index": 25,
+      "left_cells": [
+        "Percentage Increase/(Decrease) 2006 vs. 2005:"
+      ]
+    },
+    {
+      "row_index": 26,
+      "left_cells": [
+        "Group retirement products",
+        "10%"
+      ]
+    },
+    {
+      "row_index": 27,
+      "left_cells": [
+        "Individual fixed annuities",
+        "26"
+      ]
+    },
+    {
+      "row_index": 28,
+      "left_cells": [
+        "Individual variable annuities",
+        "14"
+      ]
+    },
+    {
+      "row_index": 29,
+      "left_cells": [
+        "Individual annuities — runoff",
+        "-18"
+      ]
+    }
+  ],
+  "notes": [
+    "Coordinates are zero-based.",
+    "Numeric-cell coordinates are navigation hints only; inspect the source table before calculating."
+  ]
+}

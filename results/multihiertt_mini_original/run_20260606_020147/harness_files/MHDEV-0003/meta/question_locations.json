@@ -1,0 +1,1373 @@
+{
+  "question_keywords": [
+    "amount",
+    "2007",
+    "financial",
+    "services",
+    "businesses",
+    "million"
+  ],
+  "paragraph_hits": [
+    {
+      "paragraph_index": 0,
+      "matched_terms": [
+        "services"
+      ]
+    },
+    {
+      "paragraph_index": 3,
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "paragraph_index": 8,
+      "matched_terms": [
+        "services",
+        "million"
+      ]
+    },
+    {
+      "paragraph_index": 13,
+      "matched_terms": [
+        "services"
+      ]
+    },
+    {
+      "paragraph_index": 16,
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "paragraph_index": 20,
+      "matched_terms": [
+        "services",
+        "million"
+      ]
+    },
+    {
+      "paragraph_index": 25,
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "paragraph_index": 26,
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "paragraph_index": 29,
+      "matched_terms": [
+        "services"
+      ]
+    },
+    {
+      "paragraph_index": 37,
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "paragraph_index": 39,
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "paragraph_index": 40,
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "paragraph_index": 41,
+      "matched_terms": [
+        "2007"
+      ]
+    },
+    {
+      "paragraph_index": 42,
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "paragraph_index": 44,
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "paragraph_index": 46,
+      "matched_terms": [
+        "financial"
+      ]
+    },
+    {
+      "paragraph_index": 49,
+      "matched_terms": [
+        "financial"
+      ]
+    },
+    {
+      "paragraph_index": 50,
+      "matched_terms": [
+        "2007"
+      ]
+    },
+    {
+      "paragraph_index": 51,
+      "matched_terms": [
+        "businesses"
+      ]
+    },
+    {
+      "paragraph_index": 53,
+      "matched_terms": [
+        "2007"
+      ]
+    },
+    {
+      "paragraph_index": 54,
+      "matched_terms": [
+        "financial"
+      ]
+    },
+    {
+      "paragraph_index": 70,
+      "matched_terms": [
+        "financial",
+        "services",
+        "businesses"
+      ]
+    },
+    {
+      "paragraph_index": 72,
+      "matched_terms": [
+        "services"
+      ]
+    },
+    {
+      "paragraph_index": 73,
+      "matched_terms": [
+        "2007"
+      ]
+    },
+    {
+      "paragraph_index": 74,
+      "matched_terms": [
+        "2007",
+        "financial",
+        "services",
+        "businesses"
+      ]
+    },
+    {
+      "paragraph_index": 75,
+      "matched_terms": [
+        "financial",
+        "services",
+        "businesses"
+      ]
+    },
+    {
+      "paragraph_index": 76,
+      "matched_terms": [
+        "2007"
+      ]
+    }
+  ],
+  "table_row_hits": [
+    {
+      "table_index": 1,
+      "row_index": 1,
+      "matched_terms": [
+        "2007"
+      ]
+    },
+    {
+      "table_index": 1,
+      "row_index": 2,
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "table_index": 2,
+      "row_index": 0,
+      "matched_terms": [
+        "2007"
+      ]
+    },
+    {
+      "table_index": 2,
+      "row_index": 1,
+      "matched_terms": [
+        "financial",
+        "services",
+        "businesses"
+      ]
+    },
+    {
+      "table_index": 2,
+      "row_index": 2,
+      "matched_terms": [
+        "amount"
+      ]
+    },
+    {
+      "table_index": 2,
+      "row_index": 3,
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "table_index": 3,
+      "row_index": 1,
+      "matched_terms": [
+        "financial",
+        "services",
+        "businesses"
+      ]
+    },
+    {
+      "table_index": 3,
+      "row_index": 2,
+      "matched_terms": [
+        "amount"
+      ]
+    },
+    {
+      "table_index": 3,
+      "row_index": 3,
+      "matched_terms": [
+        "million"
+      ]
+    }
+  ],
+  "table_description_hits": [
+    {
+      "cell_ref": "1-4-1",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "1-4-2",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "1-4-3",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "1-5-1",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "1-5-2",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "1-5-3",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "1-6-1",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "1-6-2",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "1-6-3",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "1-7-1",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "1-7-2",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "1-7-3",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "1-8-1",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "1-8-2",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "1-8-3",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-4-1",
+      "matched_terms": [
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-4-2",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-4-3",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-4-4",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-4-5",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-4-6",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-5-1",
+      "matched_terms": [
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-5-2",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-5-5",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-5-6",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-6-1",
+      "matched_terms": [
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-6-2",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-6-3",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-6-4",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-6-5",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-6-6",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-7-1",
+      "matched_terms": [
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-7-2",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-7-3",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-7-4",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-7-5",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-7-6",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-8-1",
+      "matched_terms": [
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-8-2",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-8-3",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-8-4",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-8-5",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-8-6",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-9-1",
+      "matched_terms": [
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-9-2",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-9-3",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-9-4",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-9-5",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-9-6",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-10-1",
+      "matched_terms": [
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-10-2",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-10-3",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-10-4",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-10-5",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-10-6",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-11-1",
+      "matched_terms": [
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-11-2",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-11-3",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-11-4",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-11-5",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-11-6",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-12-1",
+      "matched_terms": [
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-12-2",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-12-3",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-12-4",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-12-5",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-12-6",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-13-1",
+      "matched_terms": [
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-13-2",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-13-3",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-13-4",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-13-5",
+      "matched_terms": [
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-13-6",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-14-2",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-14-6",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-15-2",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-15-4",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "2-15-6",
+      "matched_terms": [
+        "amount",
+        "2007",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-4-1",
+      "matched_terms": [
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-4-2",
+      "matched_terms": [
+        "amount",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-4-3",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-4-4",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-4-5",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-4-6",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-5-1",
+      "matched_terms": [
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-5-2",
+      "matched_terms": [
+        "amount",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-5-5",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-5-6",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-6-1",
+      "matched_terms": [
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-6-2",
+      "matched_terms": [
+        "amount",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-6-3",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-6-4",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-6-5",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-6-6",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-7-1",
+      "matched_terms": [
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-7-2",
+      "matched_terms": [
+        "amount",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-7-3",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-7-4",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-7-5",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-7-6",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-8-1",
+      "matched_terms": [
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-8-2",
+      "matched_terms": [
+        "amount",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-8-3",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-8-4",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-8-5",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-8-6",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-9-1",
+      "matched_terms": [
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-9-2",
+      "matched_terms": [
+        "amount",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-9-3",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-9-4",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-9-5",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-9-6",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-10-1",
+      "matched_terms": [
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-10-2",
+      "matched_terms": [
+        "amount",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-10-3",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-10-4",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-10-5",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-10-6",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-11-1",
+      "matched_terms": [
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-11-2",
+      "matched_terms": [
+        "amount",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-11-3",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-11-4",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-11-5",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-11-6",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-12-1",
+      "matched_terms": [
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-12-2",
+      "matched_terms": [
+        "amount",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-12-3",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-12-4",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-12-5",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-12-6",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-13-1",
+      "matched_terms": [
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-13-2",
+      "matched_terms": [
+        "amount",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-13-3",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-13-4",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-13-5",
+      "matched_terms": [
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-13-6",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-14-2",
+      "matched_terms": [
+        "amount",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-14-6",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-15-2",
+      "matched_terms": [
+        "amount",
+        "financial",
+        "services",
+        "businesses",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-15-4",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    },
+    {
+      "cell_ref": "3-15-6",
+      "matched_terms": [
+        "amount",
+        "million"
+      ]
+    }
+  ],
+  "notes": [
+    "Hit lists show where question terms appear; they intentionally omit candidate answer values.",
+    "A missing hit does not mean the answer is absent, because synonyms and merged headers may be used."
+  ]
+}

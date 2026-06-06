@@ -1,0 +1,416 @@
+{
+  "row_count": 13,
+  "max_column_count": 13,
+  "candidate_header_rows": [
+    0
+  ],
+  "non_empty_cells_by_row": [
+    1,
+    6,
+    6,
+    12,
+    12,
+    1,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13
+  ],
+  "numeric_cell_count": 75,
+  "numeric_cells": [
+    {
+      "row_index": 6,
+      "col_index": 1
+    },
+    {
+      "row_index": 6,
+      "col_index": 2
+    },
+    {
+      "row_index": 6,
+      "col_index": 3
+    },
+    {
+      "row_index": 6,
+      "col_index": 4
+    },
+    {
+      "row_index": 6,
+      "col_index": 5
+    },
+    {
+      "row_index": 6,
+      "col_index": 6
+    },
+    {
+      "row_index": 6,
+      "col_index": 7
+    },
+    {
+      "row_index": 6,
+      "col_index": 8
+    },
+    {
+      "row_index": 6,
+      "col_index": 9
+    },
+    {
+      "row_index": 6,
+      "col_index": 10
+    },
+    {
+      "row_index": 6,
+      "col_index": 11
+    },
+    {
+      "row_index": 6,
+      "col_index": 12
+    },
+    {
+      "row_index": 7,
+      "col_index": 0
+    },
+    {
+      "row_index": 7,
+      "col_index": 1
+    },
+    {
+      "row_index": 7,
+      "col_index": 2
+    },
+    {
+      "row_index": 7,
+      "col_index": 3
+    },
+    {
+      "row_index": 7,
+      "col_index": 4
+    },
+    {
+      "row_index": 7,
+      "col_index": 5
+    },
+    {
+      "row_index": 7,
+      "col_index": 6
+    },
+    {
+      "row_index": 7,
+      "col_index": 7
+    },
+    {
+      "row_index": 7,
+      "col_index": 8
+    },
+    {
+      "row_index": 7,
+      "col_index": 9
+    },
+    {
+      "row_index": 7,
+      "col_index": 10
+    },
+    {
+      "row_index": 7,
+      "col_index": 11
+    },
+    {
+      "row_index": 7,
+      "col_index": 12
+    },
+    {
+      "row_index": 8,
+      "col_index": 0
+    },
+    {
+      "row_index": 8,
+      "col_index": 1
+    },
+    {
+      "row_index": 8,
+      "col_index": 2
+    },
+    {
+      "row_index": 8,
+      "col_index": 3
+    },
+    {
+      "row_index": 8,
+      "col_index": 4
+    },
+    {
+      "row_index": 8,
+      "col_index": 5
+    },
+    {
+      "row_index": 8,
+      "col_index": 6
+    },
+    {
+      "row_index": 8,
+      "col_index": 7
+    },
+    {
+      "row_index": 8,
+      "col_index": 8
+    },
+    {
+      "row_index": 8,
+      "col_index": 9
+    },
+    {
+      "row_index": 8,
+      "col_index": 10
+    },
+    {
+      "row_index": 8,
+      "col_index": 11
+    },
+    {
+      "row_index": 8,
+      "col_index": 12
+    },
+    {
+      "row_index": 9,
+      "col_index": 0
+    },
+    {
+      "row_index": 9,
+      "col_index": 1
+    },
+    {
+      "row_index": 9,
+      "col_index": 2
+    },
+    {
+      "row_index": 9,
+      "col_index": 3
+    },
+    {
+      "row_index": 9,
+      "col_index": 4
+    },
+    {
+      "row_index": 9,
+      "col_index": 5
+    },
+    {
+      "row_index": 9,
+      "col_index": 6
+    },
+    {
+      "row_index": 9,
+      "col_index": 7
+    },
+    {
+      "row_index": 9,
+      "col_index": 8
+    },
+    {
+      "row_index": 9,
+      "col_index": 9
+    },
+    {
+      "row_index": 9,
+      "col_index": 10
+    },
+    {
+      "row_index": 9,
+      "col_index": 11
+    },
+    {
+      "row_index": 9,
+      "col_index": 12
+    },
+    {
+      "row_index": 10,
+      "col_index": 0
+    },
+    {
+      "row_index": 10,
+      "col_index": 3
+    },
+    {
+      "row_index": 10,
+      "col_index": 4
+    },
+    {
+      "row_index": 10,
+      "col_index": 5
+    },
+    {
+      "row_index": 10,
+      "col_index": 6
+    },
+    {
+      "row_index": 10,
+      "col_index": 7
+    },
+    {
+      "row_index": 10,
+      "col_index": 8
+    },
+    {
+      "row_index": 10,
+      "col_index": 9
+    },
+    {
+      "row_index": 10,
+      "col_index": 10
+    },
+    {
+      "row_index": 10,
+      "col_index": 11
+    },
+    {
+      "row_index": 10,
+      "col_index": 12
+    },
+    {
+      "row_index": 11,
+      "col_index": 0
+    },
+    {
+      "row_index": 12,
+      "col_index": 1
+    },
+    {
+      "row_index": 12,
+      "col_index": 2
+    },
+    {
+      "row_index": 12,
+      "col_index": 3
+    },
+    {
+      "row_index": 12,
+      "col_index": 4
+    },
+    {
+      "row_index": 12,
+      "col_index": 5
+    },
+    {
+      "row_index": 12,
+      "col_index": 6
+    },
+    {
+      "row_index": 12,
+      "col_index": 7
+    },
+    {
+      "row_index": 12,
+      "col_index": 8
+    },
+    {
+      "row_index": 12,
+      "col_index": 9
+    },
+    {
+      "row_index": 12,
+      "col_index": 10
+    },
+    {
+      "row_index": 12,
+      "col_index": 11
+    },
+    {
+      "row_index": 12,
+      "col_index": 12
+    }
+  ],
+  "row_label_preview": [
+    {
+      "row_index": 0,
+      "left_cells": [
+        "December 31, 2008"
+      ]
+    },
+    {
+      "row_index": 1,
+      "left_cells": [
+        "Aaa"
+      ]
+    },
+    {
+      "row_index": 2,
+      "left_cells": [
+        "Cost or"
+      ]
+    },
+    {
+      "row_index": 3,
+      "left_cells": [
+        "Amortized"
+      ]
+    },
+    {
+      "row_index": 4,
+      "left_cells": [
+        "Cost"
+      ]
+    },
+    {
+      "row_index": 5,
+      "left_cells": [
+        "(In millions)"
+      ]
+    },
+    {
+      "row_index": 6,
+      "left_cells": [
+        "2003 & Prior",
+        "$96"
+      ]
+    },
+    {
+      "row_index": 7,
+      "left_cells": [
+        "2004",
+        "129"
+      ]
+    },
+    {
+      "row_index": 8,
+      "left_cells": [
+        "2005",
+        "357"
+      ]
+    },
+    {
+      "row_index": 9,
+      "left_cells": [
+        "2006",
+        "146"
+      ]
+    },
+    {
+      "row_index": 10,
+      "left_cells": [
+        "2007",
+        "—"
+      ]
+    },
+    {
+      "row_index": 11,
+      "left_cells": [
+        "2008",
+        "—"
+      ]
+    },
+    {
+      "row_index": 12,
+      "left_cells": [
+        "Total",
+        "$728"
+      ]
+    }
+  ],
+  "notes": [
+    "Coordinates are zero-based.",
+    "Numeric-cell coordinates are navigation hints only; inspect the source table before calculating."
+  ]
+}

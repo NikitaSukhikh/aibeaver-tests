@@ -1,0 +1,18 @@
+{
+  "purpose": "Neutral navigation harness for the original MultiHierTT source.",
+  "forbidden_fields": [
+    "qa.answer",
+    "qa.program",
+    "qa.table_evidence",
+    "qa.text_evidence"
+  ],
+  "workflow": [
+    "Use question_keywords and location hits to choose candidate paragraphs/tables.",
+    "Use targeted source tools to recover actual headers, row labels, units, and values.",
+    "Use the calculator tool for arithmetic after copying values from source observations.",
+    "Confirm whether the question asks for a span, maximum/minimum, difference, ratio, percentage, or projection.",
+    "Do arithmetic only after checking signs, currency/percent markers, and missing-value conventions.",
+    "Return only the requested answer value in predicted_ans."
+  ],
+  "coordinate_convention": "All table row and column coordinates are zero-based."
+}

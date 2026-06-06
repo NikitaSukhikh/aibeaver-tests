@@ -1,0 +1,33 @@
+{
+  "example_id": "MHDEV-0006",
+  "source_uid": "1ca146715d8b4ed9a102b68af5bdd385",
+  "paragraph_count": 67,
+  "table_count": 4,
+  "tables": [
+    {
+      "table_index": 0,
+      "profile": "meta/table_0_profile.json",
+      "row_count": 14,
+      "max_column_count": 4
+    },
+    {
+      "table_index": 1,
+      "profile": "meta/table_1_profile.json",
+      "row_count": 13,
+      "max_column_count": 13
+    },
+    {
+      "table_index": 2,
+      "profile": "meta/table_2_profile.json",
+      "row_count": 12,
+      "max_column_count": 13
+    },
+    {
+      "table_index": 3,
+      "profile": "meta/table_3_profile.json",
+      "row_count": 5,
+      "max_column_count": 4
+    }
+  ],
+  "table_description_count": 160
+}

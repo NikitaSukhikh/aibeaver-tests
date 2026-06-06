@@ -1,0 +1,717 @@
+{
+  "question_keywords": [
+    "containerboards",
+    "net",
+    "sales",
+    "represented",
+    "percentage",
+    "industrial",
+    "packaging",
+    "2005"
+  ],
+  "paragraph_hits": [
+    {
+      "paragraph_index": 5,
+      "matched_terms": [
+        "percentage"
+      ]
+    },
+    {
+      "paragraph_index": 11,
+      "matched_terms": [
+        "net",
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 12,
+      "matched_terms": [
+        "net",
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 13,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "paragraph_index": 24,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "paragraph_index": 33,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "paragraph_index": 34,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "paragraph_index": 45,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "paragraph_index": 48,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "paragraph_index": 49,
+      "matched_terms": [
+        "sales"
+      ]
+    },
+    {
+      "paragraph_index": 52,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "paragraph_index": 53,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "paragraph_index": 54,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "paragraph_index": 57,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "paragraph_index": 86,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "paragraph_index": 88,
+      "matched_terms": [
+        "net",
+        "sales"
+      ]
+    },
+    {
+      "paragraph_index": 89,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "paragraph_index": 91,
+      "matched_terms": [
+        "net",
+        "represented"
+      ]
+    },
+    {
+      "paragraph_index": 92,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "paragraph_index": 97,
+      "matched_terms": [
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 99,
+      "matched_terms": [
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 100,
+      "matched_terms": [
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 103,
+      "matched_terms": [
+        "industrial",
+        "packaging"
+      ]
+    },
+    {
+      "paragraph_index": 104,
+      "matched_terms": [
+        "industrial",
+        "packaging"
+      ]
+    },
+    {
+      "paragraph_index": 105,
+      "matched_terms": [
+        "net",
+        "sales",
+        "industrial",
+        "packaging",
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 106,
+      "matched_terms": [
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 107,
+      "matched_terms": [
+        "sales"
+      ]
+    },
+    {
+      "paragraph_index": 108,
+      "matched_terms": [
+        "industrial",
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 109,
+      "matched_terms": [
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 111,
+      "matched_terms": [
+        "net",
+        "sales",
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 112,
+      "matched_terms": [
+        "sales"
+      ]
+    },
+    {
+      "paragraph_index": 114,
+      "matched_terms": [
+        "sales",
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 117,
+      "matched_terms": [
+        "sales"
+      ]
+    },
+    {
+      "paragraph_index": 118,
+      "matched_terms": [
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 119,
+      "matched_terms": [
+        "industrial",
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 120,
+      "matched_terms": [
+        "net",
+        "sales",
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 121,
+      "matched_terms": [
+        "industrial",
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 122,
+      "matched_terms": [
+        "net",
+        "sales",
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 123,
+      "matched_terms": [
+        "sales",
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 124,
+      "matched_terms": [
+        "sales",
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 125,
+      "matched_terms": [
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 126,
+      "matched_terms": [
+        "sales",
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 128,
+      "matched_terms": [
+        "sales",
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 129,
+      "matched_terms": [
+        "2005"
+      ]
+    },
+    {
+      "paragraph_index": 130,
+      "matched_terms": [
+        "sales",
+        "industrial",
+        "packaging",
+        "2005"
+      ]
+    }
+  ],
+  "table_row_hits": [
+    {
+      "table_index": 0,
+      "row_index": 2,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "table_index": 0,
+      "row_index": 4,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "table_index": 0,
+      "row_index": 8,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "table_index": 0,
+      "row_index": 10,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "table_index": 2,
+      "row_index": 2,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "table_index": 2,
+      "row_index": 3,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "table_index": 2,
+      "row_index": 6,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "table_index": 2,
+      "row_index": 7,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "table_index": 2,
+      "row_index": 9,
+      "matched_terms": [
+        "2005"
+      ]
+    },
+    {
+      "table_index": 2,
+      "row_index": 10,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "table_index": 2,
+      "row_index": 11,
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "table_index": 3,
+      "row_index": 0,
+      "matched_terms": [
+        "2005"
+      ]
+    },
+    {
+      "table_index": 3,
+      "row_index": 1,
+      "matched_terms": [
+        "sales"
+      ]
+    }
+  ],
+  "table_description_hits": [
+    {
+      "cell_ref": "0-2-1",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "0-2-2",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "0-2-3",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "0-4-1",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "0-4-2",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "0-4-3",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "0-8-1",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "0-8-2",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "0-8-3",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "0-10-1",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "0-10-2",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "0-10-3",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-2-1",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-2-2",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-2-3",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-2-4",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-2-5",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-3-1",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-3-2",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-3-3",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-3-4",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-3-5",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-6-1",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-6-2",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-6-3",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-6-4",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-6-5",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-7-1",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-7-2",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-7-3",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-7-4",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-7-5",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-9-1",
+      "matched_terms": [
+        "2005"
+      ]
+    },
+    {
+      "cell_ref": "2-9-2",
+      "matched_terms": [
+        "2005"
+      ]
+    },
+    {
+      "cell_ref": "2-9-3",
+      "matched_terms": [
+        "2005"
+      ]
+    },
+    {
+      "cell_ref": "2-9-4",
+      "matched_terms": [
+        "2005"
+      ]
+    },
+    {
+      "cell_ref": "2-9-5",
+      "matched_terms": [
+        "2005"
+      ]
+    },
+    {
+      "cell_ref": "2-10-1",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-10-2",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-10-3",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-10-4",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-10-5",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-11-1",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-11-2",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-11-3",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-11-4",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "2-11-5",
+      "matched_terms": [
+        "net"
+      ]
+    },
+    {
+      "cell_ref": "3-1-1",
+      "matched_terms": [
+        "sales",
+        "2005"
+      ]
+    },
+    {
+      "cell_ref": "3-1-2",
+      "matched_terms": [
+        "sales"
+      ]
+    },
+    {
+      "cell_ref": "3-1-3",
+      "matched_terms": [
+        "sales"
+      ]
+    },
+    {
+      "cell_ref": "3-2-1",
+      "matched_terms": [
+        "2005"
+      ]
+    }
+  ],
+  "notes": [
+    "Hit lists show where question terms appear; they intentionally omit candidate answer values.",
+    "A missing hit does not mean the answer is absent, because synonyms and merged headers may be used."
+  ]
+}

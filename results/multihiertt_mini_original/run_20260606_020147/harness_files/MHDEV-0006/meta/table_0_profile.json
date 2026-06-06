@@ -1,0 +1,246 @@
+{
+  "row_count": 14,
+  "max_column_count": 4,
+  "candidate_header_rows": [
+    0,
+    1
+  ],
+  "non_empty_cells_by_row": [
+    1,
+    3,
+    1,
+    1,
+    4,
+    4,
+    4,
+    4,
+    1,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "numeric_cell_count": 30,
+  "numeric_cells": [
+    {
+      "row_index": 1,
+      "col_index": 1
+    },
+    {
+      "row_index": 1,
+      "col_index": 2
+    },
+    {
+      "row_index": 1,
+      "col_index": 3
+    },
+    {
+      "row_index": 4,
+      "col_index": 1
+    },
+    {
+      "row_index": 4,
+      "col_index": 2
+    },
+    {
+      "row_index": 4,
+      "col_index": 3
+    },
+    {
+      "row_index": 5,
+      "col_index": 1
+    },
+    {
+      "row_index": 5,
+      "col_index": 2
+    },
+    {
+      "row_index": 5,
+      "col_index": 3
+    },
+    {
+      "row_index": 6,
+      "col_index": 1
+    },
+    {
+      "row_index": 6,
+      "col_index": 2
+    },
+    {
+      "row_index": 6,
+      "col_index": 3
+    },
+    {
+      "row_index": 7,
+      "col_index": 1
+    },
+    {
+      "row_index": 7,
+      "col_index": 2
+    },
+    {
+      "row_index": 7,
+      "col_index": 3
+    },
+    {
+      "row_index": 9,
+      "col_index": 1
+    },
+    {
+      "row_index": 9,
+      "col_index": 2
+    },
+    {
+      "row_index": 9,
+      "col_index": 3
+    },
+    {
+      "row_index": 10,
+      "col_index": 1
+    },
+    {
+      "row_index": 10,
+      "col_index": 2
+    },
+    {
+      "row_index": 10,
+      "col_index": 3
+    },
+    {
+      "row_index": 11,
+      "col_index": 1
+    },
+    {
+      "row_index": 11,
+      "col_index": 2
+    },
+    {
+      "row_index": 11,
+      "col_index": 3
+    },
+    {
+      "row_index": 12,
+      "col_index": 1
+    },
+    {
+      "row_index": 12,
+      "col_index": 2
+    },
+    {
+      "row_index": 12,
+      "col_index": 3
+    },
+    {
+      "row_index": 13,
+      "col_index": 1
+    },
+    {
+      "row_index": 13,
+      "col_index": 2
+    },
+    {
+      "row_index": 13,
+      "col_index": 3
+    }
+  ],
+  "row_label_preview": [
+    {
+      "row_index": 0,
+      "left_cells": [
+        "Years Ended December 31,"
+      ]
+    },
+    {
+      "row_index": 1,
+      "left_cells": [
+        "2008"
+      ]
+    },
+    {
+      "row_index": 2,
+      "left_cells": [
+        "(In millions)"
+      ]
+    },
+    {
+      "row_index": 3,
+      "left_cells": [
+        "Current:"
+      ]
+    },
+    {
+      "row_index": 4,
+      "left_cells": [
+        "Federal",
+        "$216"
+      ]
+    },
+    {
+      "row_index": 5,
+      "left_cells": [
+        "State and local",
+        "10"
+      ]
+    },
+    {
+      "row_index": 6,
+      "left_cells": [
+        "Foreign",
+        "372"
+      ]
+    },
+    {
+      "row_index": 7,
+      "left_cells": [
+        "Subtotal",
+        "598"
+      ]
+    },
+    {
+      "row_index": 8,
+      "left_cells": [
+        "Deferred:"
+      ]
+    },
+    {
+      "row_index": 9,
+      "left_cells": [
+        "Federal",
+        "1,078"
+      ]
+    },
+    {
+      "row_index": 10,
+      "left_cells": [
+        "State and local",
+        "-6"
+      ]
+    },
+    {
+      "row_index": 11,
+      "left_cells": [
+        "Foreign",
+        "-90"
+      ]
+    },
+    {
+      "row_index": 12,
+      "left_cells": [
+        "Subtotal",
+        "982"
+      ]
+    },
+    {
+      "row_index": 13,
+      "left_cells": [
+        "Provision for income tax",
+        "$1,580"
+      ]
+    }
+  ],
+  "notes": [
+    "Coordinates are zero-based.",
+    "Numeric-cell coordinates are navigation hints only; inspect the source table before calculating."
+  ]
+}

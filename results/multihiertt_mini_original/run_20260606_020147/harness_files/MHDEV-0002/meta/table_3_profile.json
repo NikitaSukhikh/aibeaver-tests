@@ -1,0 +1,62 @@
+{
+  "row_count": 6,
+  "max_column_count": 5,
+  "candidate_header_rows": [
+    0
+  ],
+  "non_empty_cells_by_row": [
+    4,
+    1,
+    5,
+    5,
+    1,
+    5
+  ],
+  "numeric_cell_count": 0,
+  "numeric_cells": [],
+  "row_label_preview": [
+    {
+      "row_index": 0,
+      "left_cells": [
+        "A.M. Best Company, Inc."
+      ]
+    },
+    {
+      "row_index": 1,
+      "left_cells": [
+        "Financial Strength Ratings"
+      ]
+    },
+    {
+      "row_index": 2,
+      "left_cells": [
+        "RiverSource Life",
+        "A+"
+      ]
+    },
+    {
+      "row_index": 3,
+      "left_cells": [
+        "IDS Property Casualty Insurance Company",
+        "A"
+      ]
+    },
+    {
+      "row_index": 4,
+      "left_cells": [
+        "Credit Ratings"
+      ]
+    },
+    {
+      "row_index": 5,
+      "left_cells": [
+        "Ameriprise Financial, Inc.",
+        "a-"
+      ]
+    }
+  ],
+  "notes": [
+    "Coordinates are zero-based.",
+    "Numeric-cell coordinates are navigation hints only; inspect the source table before calculating."
+  ]
+}

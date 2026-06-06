@@ -1,0 +1,98 @@
+{
+  "created_at": "2026-06-06T12:11:53",
+  "providers": [
+    {
+      "name": "openai",
+      "model": "gpt-5.4",
+      "api_key_env": "OPENAI_API_KEY"
+    }
+  ],
+  "modes": [
+    "plain_raw"
+  ],
+  "original_dir": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\original_disconnected",
+  "original_json": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\original_disconnected\\dev_50.json",
+  "original_md_csv_dir": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\original_md_csv",
+  "questions_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\qa_questions_50.jsonl",
+  "answers_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\answers.json",
+  "question_count": 1,
+  "scoring_mode": "programmatic",
+  "judge_provider": "same",
+  "judge_model": null,
+  "max_tool_steps": 20,
+  "tools_single_round": false,
+  "max_observation_chars": 60000,
+  "max_output_tokens": 12000,
+  "temperature": 0.0,
+  "dry_run": true,
+  "prompt_profile": "multihiertt_original_plain_raw_with_neutral_harness",
+  "mcd_usage": "none",
+  "harness_plain_files_root": null,
+  "harness_tool_files_root": null,
+  "mode_profiles": {
+    "plain_raw": "single model call over the full original raw JSON corpus with qa blocks removed and no selected-example prompt wrapper",
+    "plain_chunked": "single model call over a raw source.json file for the selected original record, containing only paragraphs and raw HTML tables",
+    "harness_plain_raw": "single model call over full raw original_md_csv main.md and all raw CSV files, without evaluator metadata",
+    "tools_plain_raw": "multi-step JSON tool loop over full raw original_md_csv main.md, raw CSV rows, ranked search, file listing, and calculator without a source index"
+  },
+  "harness_tool_docs": {
+    "list_files": {
+      "args": {
+        "query": "optional filename substring",
+        "limit": "optional integer"
+      },
+      "notes": "List raw file paths in the corpus. This is a directory listing only, not a source index."
+    },
+    "read_file": {
+      "args": {
+        "path": "main.md or a CSV filename found in raw text",
+        "max_chars": "optional integer",
+        "offset": "optional character offset",
+        "start_line": "optional 1-based line number",
+        "line_count": "optional integer"
+      },
+      "notes": "Read raw source file text or a line window."
+    },
+    "search_text": {
+      "args": {
+        "query": "text",
+        "path": "optional main.md or discovered CSV filename",
+        "limit": "optional integer",
+        "context_lines": "optional number of nearby lines"
+      },
+      "notes": "Rank-search raw source lines by exact match or overlapping content terms and return file paths plus context."
+    },
+    "table": {
+      "args": {
+        "path": "CSV filename found in raw text",
+        "start_row": "optional integer",
+        "limit": "optional integer"
+      },
+      "notes": "Read a raw CSV row window. Row coordinates are zero-based."
+    },
+    "find_rows": {
+      "args": {
+        "query": "text",
+        "path": "optional discovered CSV filename",
+        "limit": "optional integer"
+      },
+      "notes": "Find raw CSV rows whose cells contain a substring."
+    },
+    "calculator": {
+      "args": {
+        "expression": "optional arithmetic expression such as '(2280 - 2100) / 2100'",
+        "operation": "optional add|subtract|multiply|divide|ratio|percent_change|max|min|round",
+        "values": "numbers or numeric strings used with operation",
+        "digits": "optional integer for round"
+      },
+      "notes": "Calculate with source numbers after they have been observed. Supports +, -, *, /, **, and parentheses."
+    }
+  },
+  "shared_evaluator": {
+    "answers_path": "D:\\aibeaver-tests\\datasets\\multihiertt-mini\\answers.json",
+    "evaluation_hashes": {
+      "multihiertt_mini_0001": "5ef68f16dd99297f50a9c73642e89e4976fd3051824eeeb906419099501137b8"
+    },
+    "note": "Evaluator labels are used only after provider answers are returned."
+  }
+}

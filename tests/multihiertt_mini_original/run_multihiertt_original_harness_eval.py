@@ -32,6 +32,7 @@ from benchmark_validation import score_answer_llm_judge, score_answer_tolerant  
 
 
 DEFAULT_ORIGINAL_DIR = Path("datasets/multihiertt-mini/original_disconnected")
+DEFAULT_ORIGINAL_MD_CSV_DIR = Path("datasets/multihiertt-mini/original_md_csv")
 DEFAULT_QUESTIONS_PATH = Path("datasets/multihiertt-mini/qa_questions_50.jsonl")
 DEFAULT_ANSWERS_PATH = Path("datasets/multihiertt-mini/answers.json")
 DEFAULT_RESULTS_ROOT = Path("results/multihiertt_mini_original")
@@ -41,44 +42,16 @@ DEFAULT_XAI_MODEL = "grok-4.3"
 DEFAULT_MAX_OUTPUT_TOKENS = 12000
 DEFAULT_JUDGE_MAX_OUTPUT_TOKENS = 2000
 PROVIDERS = ["openai", "anthropic", "xai"]
-MODES = ["plain_source", "harnessed_plain", "harnessed_tools"]
-MULTIHIERTT_PROGRAM_OPS = {"add", "subtract", "multiply", "divide", "exp"}
-QUESTION_STOPWORDS = {
-    "a",
-    "an",
-    "and",
-    "answer",
-    "benchmark",
-    "by",
-    "continues",
-    "current",
-    "did",
-    "does",
-    "example",
-    "for",
-    "from",
-    "if",
-    "in",
-    "is",
-    "it",
-    "its",
-    "mini",
-    "most",
-    "multihiertt",
-    "of",
-    "on",
-    "or",
-    "question",
-    "reach",
-    "the",
-    "to",
-    "total",
-    "was",
-    "what",
-    "which",
-    "will",
-    "with",
+MODES = ["plain_raw", "plain_chunked", "harness_plain_raw", "tools_plain_raw"]
+MODE_ALIASES = {
+    "plain_source": "plain_raw",
+    "json_source": "plain_chunked",
+    "harnessed_plain": "harness_plain_raw",
+    "harnessed_tools": "tools_plain_raw",
+    "herness_plain_raw": "harness_plain_raw",
+    "tolls_plain_raw": "tools_plain_raw",
 }
+MULTIHIERTT_PROGRAM_OPS = {"add", "subtract", "multiply", "divide", "exp"}
 
 
 @dataclass(frozen=True)
@@ -139,11 +112,29 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Optional override for original MultiHierTT JSON. Defaults to --original-dir/dev_50.json.",
     )
+    parser.add_argument(
+        "--original-md-csv-dir",
+        type=Path,
+        default=DEFAULT_ORIGINAL_MD_CSV_DIR,
+        help="Prebuilt plain markdown/CSV source directory used by harness_plain_raw.",
+    )
     parser.add_argument("--questions-path", type=Path, default=DEFAULT_QUESTIONS_PATH)
     parser.add_argument("--answers-path", type=Path, default=DEFAULT_ANSWERS_PATH)
     parser.add_argument("--results-root", type=Path, default=DEFAULT_RESULTS_ROOT)
-    parser.add_argument("--modes", default="all", help="Comma-separated modes: all, plain_source, harnessed_plain, harnessed_tools.")
-    parser.add_argument("--providers", nargs="+", choices=PROVIDERS, default=["openai", "anthropic"])
+    parser.add_argument(
+        "--modes",
+        nargs="+",
+        default="all",
+        help="Comma-separated modes: all, plain_raw, plain_chunked, harness_plain_raw, tools_plain_raw.",
+    )
+    parser.add_argument(
+        "--providers",
+        nargs=1,
+        choices=PROVIDERS,
+        default=["openai"],
+        metavar="PROVIDER",
+        help="Provider to run. Run the script once per provider for cross-provider comparisons.",
+    )
     parser.add_argument("--openai-model", default=os.getenv("OPENAI_MODEL", DEFAULT_OPENAI_MODEL))
     parser.add_argument("--anthropic-model", default=os.getenv("ANTHROPIC_MODEL", DEFAULT_ANTHROPIC_MODEL))
     parser.add_argument("--xai-model", default=os.getenv("XAI_MODEL", DEFAULT_XAI_MODEL))
@@ -155,7 +146,7 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         dest="tools_single_round",
         help=(
-            "For harnessed_tools, make one batched tool-request call, execute all requested tools, "
+            "For tools_plain_raw, make one batched tool-request call, execute all requested tools, "
             "then make one final answer call. --max-tool-steps caps the batched tool-call count."
         ),
     )
@@ -167,8 +158,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--scoring-mode",
         choices=["multihiertt", "programmatic", "llm_judge"],
-        default="llm_judge",
-        help="llm_judge is semantic; multihiertt mirrors upstream answer/program scoring; programmatic uses expected_contains.",
+        default="programmatic",
+        help="programmatic uses deterministic expected_contains scoring; llm_judge is semantic; multihiertt mirrors upstream answer/program scoring.",
     )
     parser.add_argument("--judge-provider", choices=["same", "openai", "anthropic", "xai"], default=os.getenv("JUDGE_PROVIDER", "same"))
     parser.add_argument("--judge-model", default=os.getenv("JUDGE_MODEL"))
@@ -180,8 +171,13 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def parse_modes(value: str) -> list[str]:
-    requested = [item.strip().casefold() for item in value.split(",") if item.strip()]
+def parse_modes(value: str | list[str]) -> list[str]:
+    if isinstance(value, list):
+        value = ",".join(value)
+    value = value.strip()
+    if value.startswith("[") and value.endswith("]"):
+        value = value[1:-1]
+    requested = [MODE_ALIASES.get(item.strip().casefold(), item.strip().casefold()) for item in value.split(",") if item.strip()]
     if not requested or requested == ["all"]:
         return list(MODES)
     if "all" in requested:
@@ -189,10 +185,13 @@ def parse_modes(value: str) -> list[str]:
     invalid = [item for item in requested if item not in MODES]
     if invalid:
         raise ValueError(f"Unknown mode(s): {', '.join(invalid)}. Valid modes: all, {', '.join(MODES)}.")
-    return [mode for mode in MODES if mode in requested]
+    requested_set = set(requested)
+    return [mode for mode in MODES if mode in requested_set]
 
 
 def provider_configs(args: argparse.Namespace) -> list[ProviderConfig]:
+    if len(args.providers) != 1:
+        raise ValueError("--providers accepts exactly one provider. Run the script once per provider.")
     configs = {
         "openai": ProviderConfig("openai", args.openai_model, "OPENAI_API_KEY"),
         "anthropic": ProviderConfig("anthropic", args.anthropic_model, "ANTHROPIC_API_KEY"),
@@ -289,12 +288,24 @@ def sanitize_original_record(record: dict[str, Any]) -> dict[str, Any]:
     return sanitized
 
 
-def load_original_records(original_dir: Path, original_json: Path, questions: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+def load_original_json_array(original_dir: Path, original_json: Path) -> list[dict[str, Any]]:
     if original_json.resolve().parent != original_dir.resolve():
         raise ValueError(f"Original JSON must be inside the original package directory: {original_dir}")
     records = json.loads(original_json.read_text(encoding="utf-8"))
     if not isinstance(records, list):
         raise ValueError(f"Expected {original_json} to contain a JSON array.")
+    if not all(isinstance(record, dict) for record in records):
+        raise ValueError(f"Expected every item in {original_json} to be a JSON object.")
+    return records
+
+
+def load_original_corpus_payload(original_dir: Path, original_json: Path) -> dict[str, Any]:
+    records = load_original_json_array(original_dir, original_json)
+    return {"records": [sanitize_original_record(record) for record in records]}
+
+
+def load_original_records(original_dir: Path, original_json: Path, questions: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    records = load_original_json_array(original_dir, original_json)
 
     selection_map_path = original_dir / "selection_map.csv"
     if not selection_map_path.exists():
@@ -543,13 +554,22 @@ def parse_prediction_payload(parsed: dict[str, Any]) -> tuple[str, list[str]]:
     return str(answer_value).strip(), predicted_program
 
 
-def model_question(question: dict[str, Any]) -> dict[str, str]:
+def raw_benchmark_question(prompt: str) -> str:
+    match = re.fullmatch(
+        r"In MultiHiertt mini example MHDEV-\d+, answer the benchmark question:\s*(.+)",
+        prompt.strip(),
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    return match.group(1).strip() if match else prompt.strip()
+
+
+def model_question(question: dict[str, Any], *, raw_prompt: bool = False) -> dict[str, str]:
     return {
         "id": str(question["id"]),
         "family_id": str(question.get("family_id") or ""),
         "example_id": str(question["example_id"]),
         "source_uid": str(question["source_uid"]),
-        "prompt": str(question["prompt"]),
+        "prompt": raw_benchmark_question(str(question["prompt"])) if raw_prompt else str(question["prompt"]),
     }
 
 
@@ -634,23 +654,30 @@ def common_reasoning_rules() -> str:
 
 def plain_source_note() -> str:
     return (
-        "The payload is the original MultiHierTT JSON record after removing its `qa` evaluator object. HTML tables, "
-        "paragraphs, and table descriptions are otherwise preserved. This mode intentionally has no added harness."
+        "The payload contains the full original raw JSON corpus, with each record's raw paragraphs and raw HTML "
+        "tables preserved. It does not include evaluator answers, programs, evidence refs, selected-example excerpts, "
+        "source indexes, table inventories, or question-location metadata."
+    )
+
+
+def json_source_note() -> str:
+    return (
+        "The payload contains one raw JSON source file scoped to the selected original example. The JSON file "
+        "contains only paragraphs and raw HTML tables. It does not include source IDs, table descriptions, schemas, "
+        "profiles, evaluator answers, programs, evidence refs, or other metadata."
     )
 
 
 def harness_source_note() -> str:
     return (
-        "The payload is a neutral plain-file harness generated from the same original source record. It contains "
-        "source.md, parsed table CSVs, table dimensions, likely header rows, numeric-cell coordinates, question "
-        "keyword locations, and workflow guidance. It does not contain gold answers, programs, or evidence refs. "
-        "Use the harness to navigate and verify the answer against source.md or the table CSVs."
+        "The payload contains only raw prebuilt source files: the full main.md text and all raw CSV table files. "
+        "It does not include selected-example excerpts, source indexes, table inventories, paragraph mappings, "
+        "question locations, gold answers, programs, or evidence refs."
     )
 
 
 def make_prompt(question: dict[str, str], source_payload: dict[str, Any], source_access_note: str) -> str:
     payload = {
-        "example_id": question["example_id"],
         "question": question["prompt"],
         "source_payload": source_payload,
     }
@@ -661,7 +688,7 @@ def make_prompt(question: dict[str, str], source_payload: dict[str, Any], source
         "Source access:\n"
         f"{source_access_note}\n\n"
         "Return exactly one JSON object with this shape:\n"
-        '{"example_id":"the provided example id","predicted_ans":"requested answer value only","predicted_program":[]}\n\n'
+        '{"predicted_ans":"requested answer value only","predicted_program":[]}\n\n'
         "`predicted_program` may be a MultiHierTT program token list only if you are certain it exactly represents "
         "the computation; otherwise return an empty list and put the answer value in `predicted_ans`.\n\n"
         "Question and source payload:\n"
@@ -669,49 +696,11 @@ def make_prompt(question: dict[str, str], source_payload: dict[str, Any], source
     )
 
 
-def safe_filename(value: str) -> str:
-    return re.sub(r"[^A-Za-z0-9_.-]+", "_", value).strip("_") or "item"
-
-
 def normalize_for_match(text: Any) -> str:
     return re.sub(r"\s+", " ", str(text or "").casefold()).strip()
 
 
-def question_keywords(prompt: str) -> list[str]:
-    raw_tokens = re.findall(r"[A-Za-z][A-Za-z0-9&.-]*|\d{4}|\d+(?:\.\d+)?", prompt)
-    keywords: list[str] = []
-    seen: set[str] = set()
-    for token in raw_tokens:
-        normalized = token.casefold().strip(".")
-        if len(normalized) < 3 and not normalized.isdigit():
-            continue
-        if normalized in QUESTION_STOPWORDS or normalized.startswith("mhdev"):
-            continue
-        if normalized not in seen:
-            seen.add(normalized)
-            keywords.append(normalized)
-    return keywords[:24]
-
-
-def table_to_markdown(rows: list[list[str]]) -> str:
-    if not rows:
-        return "_Empty table._"
-    width = max(len(row) for row in rows)
-
-    def padded(row: list[str]) -> list[str]:
-        return [str(cell).replace("\n", " ").strip() for cell in [*row, *([""] * (width - len(row)))]]
-
-    header = padded(rows[0])
-    lines = [
-        "| " + " | ".join(header) + " |",
-        "| " + " | ".join("---" for _ in range(width)) + " |",
-    ]
-    for row in rows[1:]:
-        lines.append("| " + " | ".join(padded(row)) + " |")
-    return "\n".join(lines)
-
-
-def looks_numeric(text: Any) -> bool:
+def _unused_looks_numeric(text: Any) -> bool:
     cleaned = str(text or "").strip().replace(",", "").replace("$", "").replace("%", "")
     cleaned = cleaned.strip("()")
     if cleaned in {"", "-", "--", "—", "n/a", "N/A"}:
@@ -719,14 +708,14 @@ def looks_numeric(text: Any) -> bool:
     return bool(re.fullmatch(r"-?\d+(?:\.\d+)?", cleaned))
 
 
-def profile_table(rows: list[list[str]]) -> dict[str, Any]:
+def _unused_profile_table(rows: list[list[str]]) -> dict[str, Any]:
     width = max((len(row) for row in rows), default=0)
     numeric_cells = []
     non_empty_by_row = []
     for row_index, row in enumerate(rows):
         non_empty_by_row.append(sum(1 for cell in row if str(cell).strip()))
         for col_index, cell in enumerate(row):
-            if looks_numeric(cell):
+            if _unused_looks_numeric(cell):
                 numeric_cells.append({"row_index": row_index, "col_index": col_index})
     candidate_header_rows = [
         index
@@ -756,205 +745,107 @@ def profile_table(rows: list[list[str]]) -> dict[str, Any]:
     }
 
 
-def find_keyword_locations(
-    *,
-    keywords: list[str],
-    paragraphs: list[str],
-    tables: list[list[list[str]]],
-    table_description: dict[str, Any],
-) -> dict[str, Any]:
-    paragraph_hits = []
-    for paragraph_index, paragraph in enumerate(paragraphs):
-        text = normalize_for_match(paragraph)
-        matched = [keyword for keyword in keywords if keyword in text]
-        if matched:
-            paragraph_hits.append({"paragraph_index": paragraph_index, "matched_terms": matched})
-
-    table_hits = []
-    for table_index, rows in enumerate(tables):
-        for row_index, row in enumerate(rows):
-            row_text = normalize_for_match(" ".join(str(cell) for cell in row))
-            matched = [keyword for keyword in keywords if keyword in row_text]
-            if matched:
-                table_hits.append({"table_index": table_index, "row_index": row_index, "matched_terms": matched})
-
-    description_hits = []
-    for cell_ref, description in table_description.items():
-        text = normalize_for_match(description)
-        matched = [keyword for keyword in keywords if keyword in text]
-        if matched:
-            description_hits.append({"cell_ref": str(cell_ref), "matched_terms": matched})
-
-    return {
-        "question_keywords": keywords,
-        "paragraph_hits": paragraph_hits[:120],
-        "table_row_hits": table_hits[:200],
-        "table_description_hits": description_hits[:200],
-        "notes": [
-            "Hit lists show where question terms appear; they intentionally omit candidate answer values.",
-            "A missing hit does not mean the answer is absent, because synonyms and merged headers may be used.",
-        ],
-    }
-
-
 def write_json(path: Path, value: Any) -> None:
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def write_csv(path: Path, rows: list[list[str]]) -> None:
-    with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.writer(handle)
-        writer.writerows(rows)
+def read_prebuilt_csv_rows(csv_text: str) -> list[list[str]]:
+    return [[str(cell) for cell in row] for row in csv.reader(csv_text.splitlines())]
 
 
-def materialize_harness_bundle(
+def prebuilt_csv_table_index(path: Path) -> int:
+    match = re.search(r"_table_(\d+)\.csv$", path.name)
+    if not match:
+        raise ValueError(f"Unexpected prebuilt MultiHierTT CSV filename: {path.name}")
+    return int(match.group(1))
+
+
+def load_raw_md_csv_payload(md_csv_dir: Path) -> dict[str, Any]:
+    main_path = md_csv_dir / "main.md"
+    if not main_path.exists():
+        raise FileNotFoundError(main_path)
+    csv_paths = sorted(md_csv_dir.glob("*.csv"), key=lambda path: path.name)
+    if not csv_paths:
+        raise FileNotFoundError(f"No CSV files found in {md_csv_dir}.")
+    files = [{"path": "main.md", "content": main_path.read_text(encoding="utf-8")}]
+    files.extend({"path": path.name, "content": path.read_text(encoding="utf-8")} for path in csv_paths)
+    return {"files": files}
+
+
+def load_prebuilt_harness_payloads(
     *,
-    output_dir: Path,
-    question: dict[str, Any],
-    source_record: dict[str, Any],
-) -> dict[str, Any]:
-    example_dir = output_dir / "harness_files" / safe_filename(question["example_id"])
-    tables_dir = example_dir / "tables"
-    meta_dir = example_dir / "meta"
-    tables_dir.mkdir(parents=True, exist_ok=True)
-    meta_dir.mkdir(parents=True, exist_ok=True)
-
-    paragraphs = [str(item) for item in source_record.get("paragraphs", [])]
-    parsed_tables = [parse_html_table(str(markup)).rows for markup in source_record.get("tables", [])]
-    table_description = dict(source_record.get("table_description", {}))
-
-    source_lines = [
-        f"# {question['example_id']} Original Source",
-        "",
-        f"Question: {question['prompt']}",
-        "",
-        "## Paragraphs",
-        "",
-    ]
-    for paragraph_index, paragraph in enumerate(paragraphs):
-        source_lines.extend([f"### Paragraph {paragraph_index}", "", paragraph, ""])
-    source_lines.extend(["## Tables", ""])
-    for table_index, rows in enumerate(parsed_tables):
-        source_lines.extend([f"### Table {table_index}", "", table_to_markdown(rows), ""])
-        write_csv(tables_dir / f"table_{table_index}.csv", rows)
-        write_json(meta_dir / f"table_{table_index}_profile.json", profile_table(rows))
-
-    keywords = question_keywords(question["prompt"])
-    locations = find_keyword_locations(
-        keywords=keywords,
-        paragraphs=paragraphs,
-        tables=parsed_tables,
-        table_description=table_description,
-    )
-    guide = {
-        "purpose": "Neutral navigation harness for the original MultiHierTT source.",
-        "forbidden_fields": ["qa.answer", "qa.program", "qa.table_evidence", "qa.text_evidence"],
-        "workflow": [
-            "Use question_keywords and location hits to choose candidate paragraphs/tables.",
-            "Inspect source.md or table CSVs to recover actual headers, row labels, units, and values.",
-            "When running in harnessed_tools mode, prefer targeted source tools over reading the full source at once.",
-            "Use the calculator tool for arithmetic after copying values from source observations.",
-            "Confirm whether the question asks for a span, maximum/minimum, difference, ratio, percentage, or projection.",
-            "Do arithmetic only after checking signs, currency/percent markers, and missing-value conventions.",
-            "Return only the requested answer value in predicted_ans.",
-        ],
-        "coordinate_convention": "All table row and column coordinates are zero-based.",
-    }
-    overview = {
-        "example_id": question["example_id"],
-        "source_uid": question["source_uid"],
-        "paragraph_count": len(paragraphs),
-        "table_count": len(parsed_tables),
-        "tables": [
-            {
-                "table_index": table_index,
-                "csv": f"tables/table_{table_index}.csv",
-                "profile": f"meta/table_{table_index}_profile.json",
-                "row_count": len(rows),
-                "max_column_count": max((len(row) for row in rows), default=0),
-            }
-            for table_index, rows in enumerate(parsed_tables)
-        ],
-        "table_description_count": len(table_description),
-    }
-    files = {
-        "source.md": "\n".join(source_lines).rstrip() + "\n",
-        "meta/overview.json": json.dumps(overview, ensure_ascii=False, indent=2) + "\n",
-        "meta/question_locations.json": json.dumps(locations, ensure_ascii=False, indent=2) + "\n",
-        "meta/harness_guide.json": json.dumps(guide, ensure_ascii=False, indent=2) + "\n",
-        "meta/tool_manifest.json": json.dumps(harness_tool_docs(), ensure_ascii=False, indent=2) + "\n",
-        "meta/table_descriptions.json": json.dumps(table_description, ensure_ascii=False, indent=2) + "\n",
-    }
-    for relative_path, content in files.items():
-        path = example_dir / relative_path
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(content, encoding="utf-8")
-
-    model_files = []
-    for relative_path in [
-        "source.md",
-        "meta/overview.json",
-        "meta/question_locations.json",
-        "meta/harness_guide.json",
-        "meta/tool_manifest.json",
-        "meta/table_descriptions.json",
-    ]:
-        model_files.append({"path": relative_path, "content": (example_dir / relative_path).read_text(encoding="utf-8")})
-    for table_index in range(len(parsed_tables)):
-        for relative_path in [f"tables/table_{table_index}.csv", f"meta/table_{table_index}_profile.json"]:
-            model_files.append({"path": relative_path, "content": (example_dir / relative_path).read_text(encoding="utf-8")})
-
-    return {
-        "source_format": "original_plain_file_harness",
-        "bundle_dir": str(example_dir),
-        "files": model_files,
-    }
+    md_csv_dir: Path,
+    questions: list[dict[str, Any]],
+    records_by_example_id: dict[str, dict[str, Any]],
+) -> dict[str, dict[str, Any]]:
+    del records_by_example_id
+    payload = load_raw_md_csv_payload(md_csv_dir)
+    return {question["example_id"]: payload for question in questions}
 
 
 def plain_source_payload(source_record: dict[str, Any]) -> dict[str, Any]:
     return {
-        "source_format": "original_json_without_qa",
-        "record": source_record,
+        "paragraphs": [str(item) for item in source_record.get("paragraphs", [])],
+        "tables": [str(item) for item in source_record.get("tables", [])],
+    }
+
+
+def json_source_payload(source_record: dict[str, Any]) -> dict[str, Any]:
+    raw_source = {
+        "paragraphs": [str(item) for item in source_record.get("paragraphs", [])],
+        "tables": [str(item) for item in source_record.get("tables", [])],
+    }
+    return {
+        "files": [
+            {
+                "path": "source.json",
+                "content": json.dumps(raw_source, ensure_ascii=False, indent=2),
+            }
+        ]
     }
 
 
 def harness_tools_source_note() -> str:
     return (
-        "The model can navigate the neutral harness through explicit JSON tools. Tools are read-only except for "
-        "the calculator, which operates only on numbers supplied in the tool arguments. Tool observations are "
-        "derived from the original source record and generated harness files, never from evaluator answers."
+        "The model can inspect only raw source files through explicit JSON tools. The corpus starts at the full "
+        "main.md plus raw CSV table files. CSV filenames must be discovered from raw text/search results or by "
+        "listing raw files. Tools do not expose source profiles, table inventories, paragraph mappings, question "
+        "locations, evaluator answers, programs, or evidence refs."
     )
 
 
 def harness_tool_docs() -> dict[str, Any]:
     return {
-        "overview": {
-            "args": {},
-            "notes": "Return source counts, table inventory, harness files, and question keyword hints.",
+        "list_files": {
+            "args": {"query": "optional filename substring", "limit": "optional integer"},
+            "notes": "List raw file paths in the corpus. This is a directory listing only, not a source index.",
         },
         "read_file": {
-            "args": {"path": "source.md or a path from the harness file list", "max_chars": "optional integer"},
-            "notes": "Read a generated harness file by relative path.",
+            "args": {
+                "path": "main.md or a CSV filename found in raw text",
+                "max_chars": "optional integer",
+                "offset": "optional character offset",
+                "start_line": "optional 1-based line number",
+                "line_count": "optional integer",
+            },
+            "notes": "Read raw source file text or a line window.",
         },
         "search_text": {
-            "args": {"query": "text", "path": "optional harness file path", "limit": "optional integer"},
-            "notes": "Search generated harness files and return line-level matches.",
-        },
-        "paragraphs": {
-            "args": {"indexes": "optional list of paragraph indexes", "query": "optional text", "limit": "optional integer"},
-            "notes": "Read original paragraphs by index or substring search.",
+            "args": {
+                "query": "text",
+                "path": "optional main.md or discovered CSV filename",
+                "limit": "optional integer",
+                "context_lines": "optional number of nearby lines",
+            },
+            "notes": "Rank-search raw source lines by exact match or overlapping content terms and return file paths plus context.",
         },
         "table": {
-            "args": {"table_index": "integer", "start_row": "optional integer", "limit": "optional integer"},
-            "notes": "Read a row window from a parsed original HTML table. Coordinates are zero-based.",
+            "args": {"path": "CSV filename found in raw text", "start_row": "optional integer", "limit": "optional integer"},
+            "notes": "Read a raw CSV row window. Row coordinates are zero-based.",
         },
         "find_rows": {
-            "args": {"query": "text", "table_index": "optional integer", "limit": "optional integer"},
-            "notes": "Find table rows whose cells contain a substring.",
-        },
-        "cell_descriptions": {
-            "args": {"cell_refs": "optional list like ['0-2-4']", "query": "optional text", "limit": "optional integer"},
-            "notes": "Read original table_description entries by ref or text search.",
+            "args": {"query": "text", "path": "optional discovered CSV filename", "limit": "optional integer"},
+            "notes": "Find raw CSV rows whose cells contain a substring.",
         },
         "calculator": {
             "args": {
@@ -971,59 +862,38 @@ def harness_tool_docs() -> dict[str, Any]:
 def build_harness_tool_record(
     *,
     question: dict[str, Any],
-    source_record: dict[str, Any],
     harness_payload: dict[str, Any],
 ) -> dict[str, Any]:
+    del question
     files = {
         str(item["path"]): str(item["content"])
         for item in harness_payload.get("files", [])
         if isinstance(item, dict) and item.get("path") is not None
     }
     parsed_tables = []
-    for table_index, markup in enumerate(source_record.get("tables", [])):
-        parsed = parse_html_table(str(markup))
+    csv_paths = sorted(
+        [path for path in files if path.endswith(".csv")],
+        key=lambda path: path,
+    )
+    for csv_path in csv_paths:
+        table_index = prebuilt_csv_table_index(Path(csv_path))
+        rows = read_prebuilt_csv_rows(files[csv_path])
         parsed_tables.append(
             {
                 "table_index": table_index,
-                "row_count": len(parsed.rows),
-                "max_column_count": max((len(row) for row in parsed.rows), default=0),
+                "csv": csv_path,
+                "row_count": len(rows),
+                "max_column_count": max((len(row) for row in rows), default=0),
                 "rows": [
                     {"row_index": row_index, "cells": row}
-                    for row_index, row in enumerate(parsed.rows)
+                    for row_index, row in enumerate(rows)
                 ],
             }
         )
     return {
-        "example_id": question["example_id"],
-        "source_uid": question["source_uid"],
-        "question": question["prompt"],
-        "paragraphs": [str(item) for item in source_record.get("paragraphs", [])],
         "tables": parsed_tables,
-        "table_description": dict(source_record.get("table_description", {})),
         "files": files,
         "bundle_dir": harness_payload.get("bundle_dir"),
-        "question_locations": json.loads(files.get("meta/question_locations.json", "{}")),
-    }
-
-
-def harness_tool_overview(record: dict[str, Any]) -> dict[str, Any]:
-    return {
-        "tool": "overview",
-        "example_id": record["example_id"],
-        "source_uid": record["source_uid"],
-        "question": record["question"],
-        "paragraph_count": len(record.get("paragraphs", [])),
-        "tables": [
-            {
-                "table_index": table["table_index"],
-                "row_count": table["row_count"],
-                "max_column_count": table["max_column_count"],
-            }
-            for table in record.get("tables", [])
-        ],
-        "table_description_count": len(record.get("table_description", {})),
-        "harness_files": sorted(record.get("files", {})),
-        "question_locations": record.get("question_locations", {}),
     }
 
 
@@ -1035,126 +905,217 @@ def bounded_limit(value: Any, default: int, maximum: int) -> int:
     return max(1, min(parsed, maximum))
 
 
+def resolve_harness_path(record: dict[str, Any], path: Any) -> str:
+    requested = str(path or "").strip()
+    files = record.get("files", {})
+    if requested in files:
+        return requested
+    lowered = requested.casefold()
+    casefold_matches = [file_path for file_path in files if file_path.casefold() == lowered]
+    if len(casefold_matches) == 1:
+        return str(casefold_matches[0])
+    return requested
+
+
+SEARCH_STOPWORDS = {
+    "a",
+    "an",
+    "and",
+    "answer",
+    "benchmark",
+    "by",
+    "does",
+    "example",
+    "for",
+    "from",
+    "if",
+    "in",
+    "is",
+    "it",
+    "mini",
+    "of",
+    "on",
+    "or",
+    "question",
+    "the",
+    "to",
+    "what",
+    "which",
+    "with",
+}
+
+
+def search_tokens(text: Any) -> set[str]:
+    cleaned_text = re.sub(r"\bmhdev-\d{4}\b", " ", str(text or ""), flags=re.IGNORECASE)
+    tokens = set()
+    for token in re.findall(r"[A-Za-z0-9]+", cleaned_text.casefold()):
+        if len(token) < 3 and not token.isdigit():
+            continue
+        if token in SEARCH_STOPWORDS:
+            continue
+        tokens.add(token)
+        if token.endswith("s") and len(token) > 4:
+            tokens.add(token[:-1])
+    return tokens
+
+
+def line_context(lines: list[str], line_index: int, context_lines: int) -> list[dict[str, Any]]:
+    start = max(0, line_index - context_lines)
+    end = min(len(lines), line_index + context_lines + 1)
+    return [
+        {"line": index + 1, "text": lines[index][:1000]}
+        for index in range(start, end)
+    ]
+
+
+def harness_tool_list_files(record: dict[str, Any], args: dict[str, Any]) -> dict[str, Any]:
+    files = sorted(record.get("files", {}))
+    query = normalize_for_match(args.get("query"))
+    if query:
+        files = [path for path in files if query in normalize_for_match(path)]
+    limit = bounded_limit(args.get("limit"), 100, 1000)
+    selected = files[:limit]
+    return {
+        "tool": "list_files",
+        "query": args.get("query"),
+        "returned": len(selected),
+        "total_matching": len(files),
+        "truncated": len(selected) < len(files),
+        "files": selected,
+    }
+
+
 def harness_tool_read_file(record: dict[str, Any], args: dict[str, Any]) -> dict[str, Any]:
-    path = str(args.get("path") or "")
+    path = resolve_harness_path(record, args.get("path"))
     files = record.get("files", {})
     if path not in files:
         raise ValueError(f"Unknown harness file path: {path}")
     max_chars = bounded_limit(args.get("max_chars"), 12000, 50000)
     content = str(files[path])
+    if args.get("start_line") is not None:
+        lines = content.splitlines()
+        start_line = max(1, int(args.get("start_line") or 1))
+        line_count = bounded_limit(args.get("line_count"), 80, 500)
+        selected_lines = lines[start_line - 1 : start_line - 1 + line_count]
+        text = "\n".join(selected_lines)
+        if len(text) > max_chars:
+            text = text[:max_chars]
+        return {
+            "tool": "read_file",
+            "path": path,
+            "start_line": start_line,
+            "line_count": len(selected_lines),
+            "total_lines": len(lines),
+            "truncated": start_line - 1 + len(selected_lines) < len(lines) or len("\n".join(selected_lines)) > max_chars,
+            "text": text,
+        }
+    offset = max(0, int(args.get("offset") or 0))
+    text = content[offset : offset + max_chars]
     return {
         "tool": "read_file",
         "path": path,
         "chars": len(content),
-        "truncated": len(content) > max_chars,
-        "text": content[:max_chars],
+        "offset": offset,
+        "truncated": offset + len(text) < len(content),
+        "text": text,
     }
 
 
 def harness_tool_search_text(record: dict[str, Any], args: dict[str, Any]) -> dict[str, Any]:
-    query = normalize_for_match(args.get("query"))
-    if not query:
+    raw_query = str(args.get("query") or "")
+    normalized_query = normalize_for_match(raw_query)
+    query_tokens = search_tokens(raw_query)
+    if not normalized_query and not query_tokens:
         raise ValueError("search_text query is required.")
     files = record.get("files", {})
-    paths = [str(args["path"])] if args.get("path") else sorted(files)
+    paths = [resolve_harness_path(record, args["path"])] if args.get("path") else sorted(files)
     limit = bounded_limit(args.get("limit"), 30, 200)
-    matches = []
+    context_lines = max(0, min(int(args.get("context_lines") or 1), 10))
+    matches: list[dict[str, Any]] = []
     for path in paths:
         if path not in files:
             raise ValueError(f"Unknown harness file path: {path}")
-        for line_number, line in enumerate(str(files[path]).splitlines(), start=1):
-            if query in normalize_for_match(line):
-                matches.append({"path": path, "line": line_number, "text": line[:1000]})
-                if len(matches) >= limit:
-                    return {"tool": "search_text", "query": args.get("query"), "returned": len(matches), "matches": matches}
-    return {"tool": "search_text", "query": args.get("query"), "returned": len(matches), "matches": matches}
-
-
-def harness_tool_paragraphs(record: dict[str, Any], args: dict[str, Any]) -> dict[str, Any]:
-    paragraphs = list(record.get("paragraphs", []))
-    indexes = args.get("indexes")
-    query = normalize_for_match(args.get("query"))
-    limit = bounded_limit(args.get("limit"), len(paragraphs) or 1, 200)
-    if isinstance(indexes, list):
-        selected = [
-            {"paragraph_index": int(index), "paragraph_text": paragraphs[int(index)]}
-            for index in indexes
-            if isinstance(index, int) and 0 <= int(index) < len(paragraphs)
-        ]
-    else:
-        selected = []
-        for index, text in enumerate(paragraphs):
-            if not query or query in normalize_for_match(text):
-                selected.append({"paragraph_index": index, "paragraph_text": text})
-            if len(selected) >= limit:
-                break
-    return {"tool": "paragraphs", "returned": len(selected), "total_paragraphs": len(paragraphs), "rows": selected}
+        lines = str(files[path]).splitlines()
+        for line_index, line in enumerate(lines):
+            line_text = normalize_for_match(line)
+            exact = bool(normalized_query and normalized_query in line_text)
+            overlap = sorted(query_tokens.intersection(search_tokens(line)))
+            if not exact and not overlap:
+                continue
+            score = (1000 if exact else 0) + len(overlap)
+            matches.append(
+                {
+                    "path": path,
+                    "line": line_index + 1,
+                    "score": score,
+                    "match_type": "exact" if exact else "token_overlap",
+                    "matched_terms": overlap,
+                    "text": line[:1000],
+                    "context": line_context(lines, line_index, context_lines),
+                }
+            )
+    matches.sort(key=lambda item: (-int(item["score"]), str(item["path"]), int(item["line"])))
+    selected = matches[:limit]
+    return {
+        "tool": "search_text",
+        "query": args.get("query"),
+        "returned": len(selected),
+        "total_matches": len(matches),
+        "matches": selected,
+    }
 
 
 def harness_tool_table(record: dict[str, Any], args: dict[str, Any]) -> dict[str, Any]:
-    table_index = int(args.get("table_index"))
+    path = resolve_harness_path(record, args.get("path"))
+    if not path:
+        raise ValueError("table requires a CSV filename in 'path'.")
     start_row = max(0, int(args.get("start_row") or 0))
     limit = bounded_limit(args.get("limit"), 30, 300)
-    table = next((item for item in record.get("tables", []) if int(item["table_index"]) == table_index), None)
+    table = next((item for item in record.get("tables", []) if str(item.get("csv")) == path), None)
     if table is None:
-        raise ValueError(f"Unknown table_index {table_index}.")
+        raise ValueError(f"Unknown CSV path: {path}")
     rows = table.get("rows", [])
     selected = rows[start_row : start_row + limit]
     return {
         "tool": "table",
-        "table_index": table_index,
-        "row_count": table["row_count"],
-        "max_column_count": table["max_column_count"],
-        "returned": len(selected),
+        "path": path,
+        "start_row": start_row,
         "truncated": start_row + len(selected) < len(rows),
         "rows": selected,
     }
 
 
 def harness_tool_find_rows(record: dict[str, Any], args: dict[str, Any]) -> dict[str, Any]:
-    query = normalize_for_match(args.get("query"))
-    if not query:
+    raw_query = str(args.get("query") or "")
+    normalized_query = normalize_for_match(raw_query)
+    query_tokens = search_tokens(raw_query)
+    if not normalized_query and not query_tokens:
         raise ValueError("find_rows query is required.")
     limit = bounded_limit(args.get("limit"), 30, 200)
-    requested_table = args.get("table_index")
+    requested_path = resolve_harness_path(record, args.get("path")) if args.get("path") else ""
     matches = []
     for table in record.get("tables", []):
-        table_index = int(table["table_index"])
-        if requested_table is not None and int(requested_table) != table_index:
+        csv_path = str(table.get("csv"))
+        if requested_path and requested_path != csv_path:
             continue
         for row in table.get("rows", []):
             row_text = normalize_for_match(" ".join(str(cell) for cell in row.get("cells", [])))
-            if query in row_text:
+            exact = bool(normalized_query and normalized_query in row_text)
+            overlap = sorted(query_tokens.intersection(search_tokens(row_text)))
+            if exact or overlap:
                 matches.append(
                     {
-                        "table_index": table_index,
+                        "path": csv_path,
                         "row_index": row["row_index"],
+                        "score": (1000 if exact else 0) + len(overlap),
+                        "match_type": "exact" if exact else "token_overlap",
+                        "matched_terms": overlap,
                         "cells": row.get("cells", []),
                     }
                 )
-                if len(matches) >= limit:
-                    return {"tool": "find_rows", "query": args.get("query"), "returned": len(matches), "rows": matches}
-    return {"tool": "find_rows", "query": args.get("query"), "returned": len(matches), "rows": matches}
-
-
-def harness_tool_cell_descriptions(record: dict[str, Any], args: dict[str, Any]) -> dict[str, Any]:
-    refs = args.get("cell_refs")
-    query = normalize_for_match(args.get("query"))
-    limit = bounded_limit(args.get("limit"), 50, 300)
-    descriptions = record.get("table_description", {})
-    rows = []
-    if isinstance(refs, list):
-        for ref in refs:
-            ref_text = str(ref)
-            if ref_text in descriptions:
-                rows.append({"cell_ref": ref_text, "description": descriptions[ref_text]})
-    else:
-        for ref, description in descriptions.items():
-            if not query or query in normalize_for_match(ref) or query in normalize_for_match(description):
-                rows.append({"cell_ref": ref, "description": description})
-            if len(rows) >= limit:
-                break
-    return {"tool": "cell_descriptions", "returned": len(rows), "rows": rows}
+    matches.sort(key=lambda item: (-int(item["score"]), str(item["path"]), int(item["row_index"])))
+    selected = matches[:limit]
+    return {"tool": "find_rows", "query": args.get("query"), "returned": len(selected), "total_matches": len(matches), "rows": selected}
 
 
 def parse_decimal_value(value: Any) -> float:
@@ -1252,20 +1213,16 @@ def harness_tool_calculator(args: dict[str, Any]) -> dict[str, Any]:
 
 
 def execute_harness_tool(record: dict[str, Any], tool: str, args: dict[str, Any]) -> dict[str, Any]:
-    if tool == "overview":
-        return harness_tool_overview(record)
+    if tool == "list_files":
+        return harness_tool_list_files(record, args)
     if tool == "read_file":
         return harness_tool_read_file(record, args)
     if tool == "search_text":
         return harness_tool_search_text(record, args)
-    if tool == "paragraphs":
-        return harness_tool_paragraphs(record, args)
     if tool == "table":
         return harness_tool_table(record, args)
     if tool == "find_rows":
         return harness_tool_find_rows(record, args)
-    if tool == "cell_descriptions":
-        return harness_tool_cell_descriptions(record, args)
     if tool == "calculator":
         return harness_tool_calculator(args)
     raise ValueError(f"Unknown harness tool: {tool}")
@@ -1288,21 +1245,57 @@ def extract_json_objects(text: str) -> list[dict[str, Any]]:
     return objects
 
 
-def parse_harness_agent_action(text: str) -> dict[str, Any]:
-    objects = extract_json_objects(text)
-    if not objects:
-        raise ValueError("Agent response did not contain a JSON object.")
-    action = objects[0]
+def parse_harness_action_object(action: dict[str, Any]) -> dict[str, Any]:
     if "predicted_ans" in action:
         return {"answer": str(action["predicted_ans"]), "predicted_program": normalize_predicted_program(action.get("predicted_program", []))}
     if "answer" in action:
         return {"answer": str(action["answer"]), "predicted_program": normalize_predicted_program(action.get("predicted_program", []))}
+    if "tool_calls" in action:
+        calls = action.get("tool_calls")
+        if not isinstance(calls, list):
+            raise ValueError("Tool action 'tool_calls' must be an array.")
+        parsed_calls = []
+        for index, call in enumerate(calls, start=1):
+            if not isinstance(call, dict):
+                raise ValueError(f"Tool call {index} must be an object.")
+            if "tool" not in call:
+                raise ValueError(f"Tool call {index} must include 'tool'.")
+            args = call.get("args", {})
+            if not isinstance(args, dict):
+                raise ValueError(f"Tool call {index} 'args' must be an object.")
+            parsed_calls.append({"tool": str(call["tool"]), "args": args})
+        return {"tool_calls": parsed_calls}
     if "tool" in action:
         args = action.get("args", {})
         if not isinstance(args, dict):
             raise ValueError("Tool action 'args' must be an object.")
         return {"tool": str(action["tool"]), "args": args}
     raise ValueError("Agent response must contain either 'tool', 'answer', or 'predicted_ans'.")
+
+
+def parse_harness_agent_actions(text: str) -> list[dict[str, Any]]:
+    objects = extract_json_objects(text)
+    if not objects:
+        raise ValueError("Agent response did not contain a JSON object.")
+    actions = []
+    for value in objects:
+        if not any(key in value for key in ("tool", "tool_calls", "answer", "predicted_ans")):
+            continue
+        action = parse_harness_action_object(value)
+        if "tool_calls" in action:
+            actions.extend(action["tool_calls"])
+        else:
+            actions.append(action)
+    if not actions:
+        raise ValueError("Agent response did not contain an executable action JSON object.")
+    return actions
+
+
+def parse_harness_agent_action(text: str) -> dict[str, Any]:
+    actions = parse_harness_agent_actions(text)
+    if not actions:
+        raise ValueError("Agent response did not contain an action.")
+    return actions[0]
 
 
 def parse_harness_single_round_action(text: str) -> dict[str, Any]:
@@ -1314,6 +1307,10 @@ def parse_harness_single_round_action(text: str) -> dict[str, Any]:
         return parse_harness_agent_action(text)
 
     tool_calls = action.get("tool_calls")
+    if tool_calls is None and len(objects) > 1:
+        actions = parse_harness_agent_actions(text)
+        if actions and all("tool" in item for item in actions):
+            return {"tool_calls": actions}
     if not isinstance(tool_calls, list) or not tool_calls:
         raise ValueError("Single-round response must contain a non-empty 'tool_calls' array.")
 
@@ -1344,6 +1341,10 @@ def truncate_observation(observation: dict[str, Any], max_chars: int) -> dict[st
 def harness_agent_tool_calls_from_trace(trace: list[dict[str, Any]]) -> int:
     total = 0
     for item in trace:
+        actions = item.get("actions")
+        if isinstance(actions, list):
+            total += sum(1 for action in actions if isinstance(action, dict) and action.get("tool"))
+            continue
         action = item.get("action", {})
         if not isinstance(action, dict):
             continue
@@ -1362,26 +1363,9 @@ def make_harness_agent_prompt(
     observations: list[dict[str, Any]],
 ) -> str:
     payload = {
-        "id": question["id"],
-        "example_id": question["example_id"],
-        "source_uid": question.get("source_uid"),
         "question": question["prompt"],
     }
-    dataset_index = {
-        "example_id": record["example_id"],
-        "source_uid": record["source_uid"],
-        "harness_files": sorted(record.get("files", {})),
-        "paragraph_count": len(record.get("paragraphs", [])),
-        "tables": [
-            {
-                "table_index": table["table_index"],
-                "row_count": table["row_count"],
-                "max_column_count": table["max_column_count"],
-            }
-            for table in record.get("tables", [])
-        ],
-        "question_locations": record.get("question_locations", {}),
-    }
+    del record
     return (
         "You are answering one MultiHierTT mini benchmark question using original plain-source harness tools.\n\n"
         "Task rules:\n"
@@ -1392,11 +1376,12 @@ def make_harness_agent_prompt(
         "Return exactly one JSON object and no prose. If you need source data or arithmetic, return "
         '{"tool":"tool_name","args":{...}}. When you know the answer, return '
         '{"answer":"requested answer value only","predicted_program":[]}. '
-        "Do not return a tool call and an answer in the same response.\n\n"
+        "Do not return a tool call and an answer in the same response. Navigate the corpus by searching for "
+        "distinctive content terms from the question, using short queries and context lines to discover nearby "
+        "CSV links. Do not rely on the benchmark example id to locate a file unless it appears in raw source "
+        "or directory-listing output.\n\n"
         "Available harness tools:\n"
         f"{json.dumps(harness_tool_docs(), ensure_ascii=False, indent=2)}\n\n"
-        "Harness index:\n"
-        f"{json.dumps(dataset_index, ensure_ascii=False, indent=2)}\n\n"
         "Question:\n"
         f"{json.dumps(payload, ensure_ascii=False, indent=2)}\n\n"
         "Previous tool observations:\n"
@@ -1410,26 +1395,9 @@ def make_harness_single_round_tool_prompt(
     question: dict[str, Any],
 ) -> str:
     payload = {
-        "id": question["id"],
-        "example_id": question["example_id"],
-        "source_uid": question.get("source_uid"),
         "question": question["prompt"],
     }
-    dataset_index = {
-        "example_id": record["example_id"],
-        "source_uid": record["source_uid"],
-        "harness_files": sorted(record.get("files", {})),
-        "paragraph_count": len(record.get("paragraphs", [])),
-        "tables": [
-            {
-                "table_index": table["table_index"],
-                "row_count": table["row_count"],
-                "max_column_count": table["max_column_count"],
-            }
-            for table in record.get("tables", [])
-        ],
-        "question_locations": record.get("question_locations", {}),
-    }
+    del record
     return (
         "You are answering one MultiHierTT mini benchmark question using original plain-source harness tools.\n\n"
         "Task rules:\n"
@@ -1440,12 +1408,11 @@ def make_harness_single_round_tool_prompt(
         "Return exactly one JSON object and no prose. Choose every source lookup and arithmetic helper call needed "
         "for the answer now, because there will be no additional tool-request round. Return this shape:\n"
         '{"tool_calls":[{"tool":"tool_name","args":{...}}]}\n'
-        "Use multiple tool calls when needed to inspect source rows, table windows, cell descriptions, and arithmetic. "
-        "Do not include an answer in this tool-request response unless no tool is needed.\n\n"
+        "Use multiple tool calls when needed to inspect markdown text, table windows, CSV rows, and arithmetic. "
+        "Prefer short content-term searches with context lines to discover relevant raw CSV links. Do not include "
+        "an answer in this tool-request response unless no tool is needed.\n\n"
         "Available harness tools:\n"
         f"{json.dumps(harness_tool_docs(), ensure_ascii=False, indent=2)}\n\n"
-        "Harness index:\n"
-        f"{json.dumps(dataset_index, ensure_ascii=False, indent=2)}\n\n"
         "Question:\n"
         f"{json.dumps(payload, ensure_ascii=False, indent=2)}"
     )
@@ -1458,11 +1425,9 @@ def make_harness_single_round_answer_prompt(
     observations: list[dict[str, Any]],
 ) -> str:
     payload = {
-        "id": question["id"],
-        "example_id": question["example_id"],
-        "source_uid": question.get("source_uid"),
         "question": question["prompt"],
     }
+    del record
     return (
         "You are answering one MultiHierTT mini benchmark question from already-executed harness tool observations.\n\n"
         "Task rules:\n"
@@ -1647,7 +1612,10 @@ def run_harness_tools_question(
     total_usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
     call_token_usage: list[dict[str, int]] = []
     metadata: dict[str, Any] = {}
-    for step in range(1, args.max_tool_steps + 1):
+    tool_step = 0
+    model_step = 0
+    while tool_step < args.max_tool_steps:
+        model_step += 1
         prompt = make_harness_agent_prompt(record=record, question=question, observations=observations)
         raw, metadata = plain_eval.call_with_retries(
             config.name,
@@ -1669,37 +1637,59 @@ def run_harness_tools_question(
             "prompt_chars": len(prompt),
         }
         try:
-            action = parse_harness_agent_action(raw)
+            actions = parse_harness_agent_actions(raw)
         except Exception as exc:
-            trace.append({"step": step, "raw": raw, "error": str(exc)})
+            trace.append({"step": model_step, "raw": raw, "error": str(exc)})
             return "", [], metadata, trace, f"Could not parse harness tool action: {exc}"
-        trace_item: dict[str, Any] = {"step": step, "raw": raw, "action": action}
-        response_objects = extract_json_objects(raw)
-        if len(response_objects) > 1:
-            trace_item["ignored_response_objects"] = [
-                {
-                    "object_keys": sorted(str(key) for key in value),
-                    "ignored_because": "Only the first JSON object in a model response is executed.",
-                }
-                for value in response_objects[1:]
-            ]
-        if "answer" in action:
-            trace.append(trace_item)
-            return action["answer"], action.get("predicted_program", []), metadata, trace, None
-        try:
-            observation = execute_harness_tool(record, action["tool"], action["args"])
-        except Exception as exc:
-            observation = {"tool": action["tool"], "error": str(exc)}
-        trace_item["observation"] = observation
-        trace.append(trace_item)
-        observations.append(
-            {
-                "step": step,
+        trace_item: dict[str, Any] = {"step": model_step, "raw": raw, "actions": actions}
+        if actions:
+            trace_item["action"] = actions[0]
+        response_tool_seen = False
+        executed_any_tool = False
+        bundled_answers_after_tool = []
+        step_observations: list[dict[str, Any]] = []
+        for action_index, action in enumerate(actions, start=1):
+            if "answer" in action:
+                if response_tool_seen:
+                    bundled_answers_after_tool.append(
+                        {
+                            "action_index": action_index,
+                            "answer": action["answer"],
+                            "ignored_because": "Answer was bundled after a tool call in the same response.",
+                        }
+                    )
+                    continue
+                trace.append(trace_item)
+                return action["answer"], action.get("predicted_program", []), metadata, trace, None
+            if "tool" not in action:
+                continue
+            response_tool_seen = True
+            if tool_step >= args.max_tool_steps:
+                trace_item["error"] = f"Requested more than --max-tool-steps={args.max_tool_steps} tool calls."
+                trace.append(trace_item)
+                return "", [], metadata, trace, trace_item["error"]
+            tool_step += 1
+            try:
+                observation = execute_harness_tool(record, action["tool"], action["args"])
+            except Exception as exc:
+                observation = {"tool": action["tool"], "error": str(exc)}
+            step_observation = {
+                "step": tool_step,
+                "model_step": model_step,
+                "action_index": action_index,
                 "tool": action["tool"],
                 "args": action["args"],
                 "observation": truncate_observation(observation, int(args.max_observation_chars)),
             }
-        )
+            step_observations.append(step_observation)
+            observations.append(step_observation)
+            executed_any_tool = True
+        if bundled_answers_after_tool:
+            trace_item["ignored_bundled_answers"] = bundled_answers_after_tool
+        trace_item["observations"] = step_observations
+        trace.append(trace_item)
+        if not executed_any_tool:
+            return "", [], metadata, trace, "Harness tools agent did not provide an answer or executable tool call."
     return "", [], metadata, trace, f"Harness tools agent did not answer within {args.max_tool_steps} tool steps."
 
 
@@ -1737,6 +1727,7 @@ def run_mode(
     *,
     mode: str,
     records_by_example_id: dict[str, dict[str, Any]],
+    original_corpus_payload: dict[str, Any],
     harness_payloads_by_example_id: dict[str, dict[str, Any]],
     harness_tool_records_by_example_id: dict[str, dict[str, Any]],
     questions: list[dict[str, Any]],
@@ -1751,7 +1742,7 @@ def run_mode(
         answer = ""
         predicted_program: list[str] = []
         error = None
-        if mode == "harnessed_tools":
+        if mode == "tools_plain_raw":
             tool_runner = (
                 run_harness_tools_single_round_question
                 if args.tools_single_round
@@ -1764,13 +1755,19 @@ def run_mode(
                 args=args,
             )
         else:
-            if mode == "plain_source":
-                payload = plain_source_payload(records_by_example_id[question["example_id"]])
+            if mode == "plain_raw":
+                payload = original_corpus_payload
                 source_note = plain_source_note()
+                question_payload = model_question(question, raw_prompt=True)
+            elif mode == "plain_chunked":
+                payload = json_source_payload(records_by_example_id[question["example_id"]])
+                source_note = json_source_note()
+                question_payload = model_question(question)
             else:
                 payload = harness_payloads_by_example_id[question["example_id"]]
                 source_note = harness_source_note()
-            prompt = make_prompt(model_question(question), payload, source_note)
+                question_payload = model_question(question)
+            prompt = make_prompt(question_payload, payload, source_note)
             if args.dry_run:
                 metadata = {
                     "dry_run": True,
@@ -1820,8 +1817,14 @@ def run_mode(
             "error": error,
             "metadata": metadata,
             "trace": trace,
-            "tool_calls": harness_agent_tool_calls_from_trace(trace) if mode == "harnessed_tools" else 0,
-            "harness_bundle_dir": harness_payloads_by_example_id[question["example_id"]].get("bundle_dir"),
+            "tool_calls": harness_agent_tool_calls_from_trace(trace) if mode == "tools_plain_raw" else 0,
+            "harness_bundle_dir": (
+                harness_tool_records_by_example_id[question["example_id"]].get("bundle_dir")
+                if mode == "tools_plain_raw"
+                else harness_payloads_by_example_id[question["example_id"]].get("bundle_dir")
+                if mode == "harness_plain_raw"
+                else None
+            ),
             "elapsed_seconds": round(time.perf_counter() - started, 3),
         }
         row["score"] = score_or_none(answer, predicted_program, question, error, args.dry_run, args, config)
@@ -1854,6 +1857,7 @@ def mode_summary(rows: list[dict[str, Any]], provider: str, mode: str, model: st
         "failed": scored - passed,
         "errors": sum(1 for row in rows if row.get("error")),
         "pass_rate": passed / scored if scored else 0.0,
+        "overall_pass_rate": passed / len(rows) if rows else 0.0,
         "exact_match": exact_match_total / scored if scored else 0.0,
         "f1": f1_total / scored if scored else 0.0,
         "elapsed_seconds": round(elapsed, 3),
@@ -1879,24 +1883,26 @@ def write_summary(
         f"- Created at: `{created_at}`",
         f"- Original package: `{args.original_dir}`",
         f"- Original JSON: `{args.original_json}`",
+        f"- Prebuilt markdown/CSV source: `{args.original_md_csv_dir}`",
         f"- Questions: `{len(questions)}` from `{args.questions_path}`",
         f"- Evaluator labels: `{args.answers_path}`",
         "- Source rule: this evaluator never opens or requires an MCD package.",
-        "- `plain_source` supplies the sanitized original JSON record only.",
-        "- `harnessed_plain` supplies generated source.md, parsed table CSVs, table profiles, keyword locations, table descriptions, tool manifest, and a guide.",
-        "- `harnessed_tools` exposes those harness files plus targeted paragraph/table/cell-description/calculator tools.",
+        "- `plain_raw` supplies the full original raw JSON corpus after removing each record's `qa` block.",
+        "- `plain_chunked` supplies only a raw source.json file with the selected original record's raw paragraphs and raw HTML tables.",
+        "- `harness_plain_raw` supplies the full raw main.md text and all raw prebuilt table CSVs.",
+        "- `tools_plain_raw` uses the same full raw main.md and CSV corpus, exposed through list/read/search/table/calculator tools without an index.",
         "- Harness excludes `qa` answers, programs, and evidence refs.",
         f"- Modes: `{', '.join(modes)}`",
         f"- Scoring mode: `{args.scoring_mode}`",
         "",
-        "| Provider | Mode | Model | EM | F1 | Passed | Failed | Scored | Total | Pass rate | Errors | Tool calls |",
-        "| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
+        "| Provider | Mode | Model | EM | F1 | Passed | Failed | Scored | Total | Scored pass rate | Overall pass rate | Errors | Tool calls |",
+        "| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
     for item in summaries:
         lines.append(
             f"| {item['provider']} | {item['mode']} | `{item['model']}` | {item['exact_match']:.3f} | "
             f"{item['f1']:.3f} | {item['passed']} | {item['failed']} | {item['scored']} | {item['total']} | "
-            f"{item['pass_rate']:.1%} | {item['errors']} | {item['tool_calls']} |"
+            f"{item['pass_rate']:.1%} | {item['overall_pass_rate']:.1%} | {item['errors']} | {item['tool_calls']} |"
         )
     lines.extend(
         [
@@ -1942,10 +1948,14 @@ def main() -> int:
 
     args.original_dir = args.original_dir.resolve()
     args.original_json = (args.original_json or (args.original_dir / "dev_50.json")).resolve()
+    args.original_md_csv_dir = args.original_md_csv_dir.resolve()
     args.questions_path = args.questions_path.resolve()
     args.answers_path = args.answers_path.resolve()
     args.results_root = args.results_root.resolve()
-    for path in (args.original_dir, args.original_json, args.questions_path, args.answers_path):
+    required_paths = [args.original_dir, args.original_json, args.questions_path, args.answers_path]
+    if "harness_plain_raw" in modes or "tools_plain_raw" in modes:
+        required_paths.append(args.original_md_csv_dir)
+    for path in required_paths:
         if not path.exists():
             raise FileNotFoundError(path)
 
@@ -1955,24 +1965,25 @@ def main() -> int:
             raise ValueError("--questions must be a positive integer.")
         questions = questions[: args.questions]
 
+    original_corpus_payload = load_original_corpus_payload(args.original_dir, args.original_json)
     records_by_example_id = load_original_records(args.original_dir, args.original_json, questions)
     output_dir = make_output_dir(args.results_root)
-    harness_payloads_by_example_id = {
-        question["example_id"]: materialize_harness_bundle(
-            output_dir=output_dir,
-            question=question,
-            source_record=records_by_example_id[question["example_id"]],
+    harness_payloads_by_example_id: dict[str, dict[str, Any]] = {}
+    harness_tool_records_by_example_id: dict[str, dict[str, Any]] = {}
+    if "harness_plain_raw" in modes or "tools_plain_raw" in modes:
+        harness_payloads_by_example_id = load_prebuilt_harness_payloads(
+            md_csv_dir=args.original_md_csv_dir,
+            questions=questions,
+            records_by_example_id=records_by_example_id,
         )
-        for question in questions
-    }
-    harness_tool_records_by_example_id = {
-        question["example_id"]: build_harness_tool_record(
-            question=question,
-            source_record=records_by_example_id[question["example_id"]],
-            harness_payload=harness_payloads_by_example_id[question["example_id"]],
-        )
-        for question in questions
-    }
+    if "tools_plain_raw" in modes:
+        harness_tool_records_by_example_id = {
+            question["example_id"]: build_harness_tool_record(
+                question=question,
+                harness_payload=harness_payloads_by_example_id[question["example_id"]],
+            )
+            for question in questions
+        }
 
     created_at = datetime.now().isoformat(timespec="seconds")
     write_json(
@@ -1983,6 +1994,7 @@ def main() -> int:
             "modes": modes,
             "original_dir": str(args.original_dir),
             "original_json": str(args.original_json),
+            "original_md_csv_dir": str(args.original_md_csv_dir),
             "questions_path": str(args.questions_path),
             "answers_path": str(args.answers_path),
             "question_count": len(questions),
@@ -1995,16 +2007,18 @@ def main() -> int:
             "max_output_tokens": args.max_output_tokens,
             "temperature": args.temperature,
             "dry_run": args.dry_run,
-            "prompt_profile": "multihiertt_original_plain_source_with_neutral_harness",
+            "prompt_profile": "multihiertt_original_plain_raw_with_neutral_harness",
             "mcd_usage": "none",
-            "harness_files_root": str(output_dir / "harness_files"),
+            "harness_plain_files_root": str(args.original_md_csv_dir) if "harness_plain_raw" in modes else None,
+            "harness_tool_files_root": str(args.original_md_csv_dir) if "tools_plain_raw" in modes else None,
             "mode_profiles": {
-                "plain_source": "single model call over sanitized original JSON source",
-                "harnessed_plain": "single model call over generated source.md, parsed table CSVs, and neutral metadata harness",
-                "harnessed_tools": (
+                "plain_raw": "single model call over the full original raw JSON corpus with qa blocks removed and no selected-example prompt wrapper",
+                "plain_chunked": "single model call over a raw source.json file for the selected original record, containing only paragraphs and raw HTML tables",
+                "harness_plain_raw": "single model call over full raw original_md_csv main.md and all raw CSV files, without evaluator metadata",
+                "tools_plain_raw": (
                     "one batched tool-request call plus one final answer call"
                     if args.tools_single_round
-                    else "multi-step JSON tool loop over generated harness files, parsed tables, source paragraphs, cell descriptions, and calculator"
+                    else "multi-step JSON tool loop over full raw original_md_csv main.md, raw CSV rows, ranked search, file listing, and calculator without a source index"
                 ),
             },
             "harness_tool_docs": harness_tool_docs(),
@@ -2027,6 +2041,7 @@ def main() -> int:
             rows = run_mode(
                 mode=mode,
                 records_by_example_id=records_by_example_id,
+                original_corpus_payload=original_corpus_payload,
                 harness_payloads_by_example_id=harness_payloads_by_example_id,
                 harness_tool_records_by_example_id=harness_tool_records_by_example_id,
                 questions=questions,

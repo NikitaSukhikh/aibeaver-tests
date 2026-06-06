@@ -1,0 +1,130 @@
+{
+  "modes": [
+    {
+      "provider": "openai",
+      "mode": "plain_source",
+      "model": "gpt-5.4",
+      "total": 7,
+      "scored": 7,
+      "passed": 6,
+      "failed": 1,
+      "errors": 0,
+      "pass_rate": 0.8571428571428571,
+      "exact_match": 0.8571428571428571,
+      "f1": 0.8571428571428571,
+      "elapsed_seconds": 14.261,
+      "avg_elapsed_seconds": 2.037,
+      "tool_calls": 0,
+      "token_usage": {
+        "input_tokens": 40542,
+        "output_tokens": 735,
+        "total_tokens": 41277
+      }
+    },
+    {
+      "provider": "openai",
+      "mode": "harnessed_plain",
+      "model": "gpt-5.4",
+      "total": 7,
+      "scored": 7,
+      "passed": 4,
+      "failed": 3,
+      "errors": 0,
+      "pass_rate": 0.5714285714285714,
+      "exact_match": 0.5714285714285714,
+      "f1": 0.5714285714285714,
+      "elapsed_seconds": 40.579,
+      "avg_elapsed_seconds": 5.797,
+      "tool_calls": 0,
+      "token_usage": {
+        "input_tokens": 1249835,
+        "output_tokens": 753,
+        "total_tokens": 1250588
+      }
+    },
+    {
+      "provider": "openai",
+      "mode": "harnessed_tools",
+      "model": "gpt-5.4",
+      "total": 7,
+      "scored": 6,
+      "passed": 4,
+      "failed": 2,
+      "errors": 1,
+      "pass_rate": 0.6666666666666666,
+      "exact_match": 0.6666666666666666,
+      "f1": 0.6666666666666666,
+      "elapsed_seconds": 183.7,
+      "avg_elapsed_seconds": 26.243,
+      "tool_calls": 73,
+      "token_usage": {
+        "input_tokens": 650202,
+        "output_tokens": 6780,
+        "total_tokens": 656982
+      }
+    },
+    {
+      "provider": "anthropic",
+      "mode": "plain_source",
+      "model": "claude-opus-4-5",
+      "total": 7,
+      "scored": 7,
+      "passed": 6,
+      "failed": 1,
+      "errors": 0,
+      "pass_rate": 0.8571428571428571,
+      "exact_match": 0.8571428571428571,
+      "f1": 0.8571428571428571,
+      "elapsed_seconds": 47.061,
+      "avg_elapsed_seconds": 6.723,
+      "tool_calls": 0,
+      "token_usage": {
+        "input_tokens": 44751,
+        "output_tokens": 3272,
+        "total_tokens": 48023
+      }
+    },
+    {
+      "provider": "anthropic",
+      "mode": "harnessed_plain",
+      "model": "claude-opus-4-5",
+      "total": 7,
+      "scored": 0,
+      "passed": 0,
+      "failed": 0,
+      "errors": 7,
+      "pass_rate": 0.0,
+      "exact_match": 0.0,
+      "f1": 0.0,
+      "elapsed_seconds": 41.407,
+      "avg_elapsed_seconds": 5.915,
+      "tool_calls": 0,
+      "token_usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "provider": "anthropic",
+      "mode": "harnessed_tools",
+      "model": "claude-opus-4-5",
+      "total": 7,
+      "scored": 7,
+      "passed": 6,
+      "failed": 1,
+      "errors": 0,
+      "pass_rate": 0.8571428571428571,
+      "exact_match": 0.8571428571428571,
+      "f1": 0.8571428571428571,
+      "elapsed_seconds": 147.761,
+      "avg_elapsed_seconds": 21.109,
+      "tool_calls": 68,
+      "token_usage": {
+        "input_tokens": 376639,
+        "output_tokens": 4083,
+        "total_tokens": 380722
+      }
+    }
+  ]
+}

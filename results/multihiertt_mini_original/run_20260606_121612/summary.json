@@ -1,0 +1,26 @@
+{
+  "modes": [
+    {
+      "provider": "openai",
+      "mode": "plain_raw",
+      "model": "gpt-5.4",
+      "total": 7,
+      "scored": 7,
+      "passed": 1,
+      "failed": 6,
+      "errors": 0,
+      "pass_rate": 0.14285714285714285,
+      "overall_pass_rate": 0.14285714285714285,
+      "exact_match": 0.14285714285714285,
+      "f1": 0.14285714285714285,
+      "elapsed_seconds": 85.446,
+      "avg_elapsed_seconds": 12.207,
+      "tool_calls": 0,
+      "token_usage": {
+        "input_tokens": 3069946,
+        "output_tokens": 118,
+        "total_tokens": 3070064
+      }
+    }
+  ]
+}

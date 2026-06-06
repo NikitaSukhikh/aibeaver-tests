@@ -13,9 +13,9 @@ import math
 import os
 import re
 import string
-import subprocess
 import sys
 import time
+import zipfile
 from dataclasses import dataclass
 from datetime import datetime
 from html.parser import HTMLParser
@@ -48,7 +48,6 @@ DEFAULT_JUDGE_MAX_OUTPUT_TOKENS = 2000
 PROVIDERS = ["openai", "anthropic", "xai"]
 MODES = ["mcd_cli_tools", "original_tools"]
 SKIPPED_MODES = {"mcd_tools": "native remote MCP mode is skipped for now; substituting mcd_cli_tools"}
-MCD_MATRIX_COLUMNS = [f"c{index}" for index in range(12)]
 MULTIHIERTT_PROGRAM_OPS = {"add", "subtract", "multiply", "divide", "exp"}
 
 
@@ -379,18 +378,10 @@ def parse_prediction_payload(parsed: dict[str, Any]) -> tuple[str, list[str]]:
 
 def multihiertt_common_reasoning_rules() -> str:
     return (
-        "Use only the supplied MultiHiertt source data. The benchmark question names one example_id; keep that "
-        "example id in the final answer. For financial table arithmetic, identify the relevant table section, "
-        "header row, year columns, row labels, and measure columns before computing. Use source paragraphs when "
-        "the required fact is stated in prose rather than in a table cell. Clean numeric text by removing `$`, "
-        "`%`, commas, spaces, and parentheses before arithmetic; treat dash placeholders such as `-`, `—`, and "
-        "blank cells as missing unless the table context defines them as zero. For projection/current-rate "
-        "questions, compute from the visible source numbers rather than rounding to a nearby whole value. For "
-        "ratio or percentage questions, include the decimal ratio and, when useful, the percent expression, for "
-        "example `0.18136 (18.136%)`, so scale is unambiguous. Preserve enough decimal places for arithmetic "
-        "answers instead of coarse rounding unless the question explicitly asks for rounding. For yes/no questions, "
-        "answer yes or no and include the compared source values. In benchmark JSON, put the example id in "
-        "`example_id` and put only the requested answer value in `predicted_ans`."
+        "Answer from the supplied source text and tables only. Read the relevant rows, headers, paragraphs, "
+        "and units before calculating. For numbers, remove currency signs, commas, percent signs, and parentheses "
+        "as needed; treat blank or dash cells as missing unless the table clearly uses them as zero. Return only "
+        "the requested answer value."
     )
 
 
@@ -419,7 +410,7 @@ def parse_args() -> argparse.Namespace:
         default="all",
         help=(
             "Comma-separated modes: all, mcd_cli_tools, original_tools, or any subset. "
-            "mcd_cli_tools materializes packed .mcd source data with local mcd query-batch. "
+            "mcd_cli_tools answers through targeted local MCD tool calls without preloading source rows. "
             "mcd_tools/native remote MCP is skipped for now."
         ),
     )
@@ -667,19 +658,13 @@ def make_source_prompt(question: dict[str, Any], source_payload: dict[str, Any],
         "source_record": prompt_source_payload,
     }
     return (
-        "You are answering one MultiHiertt mini benchmark question in a one-shot source-tool-pack setting.\n\n"
-        "Shared task rules:\n"
+        "Answer the question using the supplied text and tables.\n\n"
+        "Rules:\n"
         f"{multihiertt_common_reasoning_rules()}\n\n"
-        "Source access:\n"
+        "Source layout:\n"
         f"{source_access_note}\n\n"
-        "Important orchestration rule:\n"
-        "This benchmark permits exactly one model turn for this answer. You cannot actually call tools after this "
-        "message. Treat the tool contracts below as a guide to how the source payload is organized, and treat the "
-        "source payload as the already-materialized output of those tools.\n\n"
         "Return exactly one JSON object with this shape:\n"
         '{"example_id":"the provided example id","predicted_ans":"requested answer value only","predicted_program":[]}\n\n'
-        "`predicted_program` may be a MultiHiertt program token list only if you are certain it exactly represents "
-        "the computation; otherwise return an empty list and put the answer value in `predicted_ans`.\n\n"
         "Source payload:\n"
         f"{json.dumps(payload, ensure_ascii=False, indent=2)}"
     )
@@ -687,15 +672,8 @@ def make_source_prompt(question: dict[str, Any], source_payload: dict[str, Any],
 
 def original_source_note() -> str:
     return (
-        "Original JSON source-tool pack. The model-visible tools are conceptual, but their data is already included "
-        "below:\n"
-        "- overview(): source counts and table inventory.\n"
-        "- paragraphs(indexes|query|limit): paragraph records from `paragraphs`.\n"
-        "- table(table_index,start_row,limit): parsed original HTML table rows from `tables`.\n"
-        "- search(query,scope,limit): search across paragraphs, table cells, and descriptions.\n"
-        "- cell_descriptions(cell_refs|query|limit): entries from `table_description`.\n"
-        "Use only the supplied parsed original JSON source record. Do not use hidden `qa` evaluator labels or "
-        "outside knowledge."
+        "`paragraphs` contains source text. `tables` contains parsed table rows. "
+        "`table_description` contains optional cell descriptions. Use only these fields."
     )
 
 
@@ -734,208 +712,36 @@ def load_original_source_records(
     }
 
 
-def sql_literal(value: str) -> str:
-    return "'" + value.replace("'", "''") + "'"
-
-
-def compact_mcd_row_cells(row: dict[str, Any]) -> list[Any]:
-    cells = [row.get(column) for column in MCD_MATRIX_COLUMNS]
-    while cells and cells[-1] in (None, ""):
-        cells.pop()
-    return cells
-
-
-def run_mcd_cli_query_batch(
-    *,
-    mcd_cli: str,
-    mcd_path: Path,
-    queries: list[str],
-    timeout_seconds: int,
-) -> dict[str, Any]:
-    command = [mcd_cli, "query-batch"]
-    for query in queries:
-        command.extend(["--sql", query])
-    command.append(str(mcd_path))
-    started = time.perf_counter()
-    completed = subprocess.run(
-        command,
-        cwd=str(REPO_ROOT),
-        env={**os.environ, "MCD_PATH": str(mcd_path), "MCD_CLI": mcd_cli, "PYTHONIOENCODING": "utf-8"},
-        text=True,
-        encoding="utf-8",
-        errors="replace",
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        timeout=timeout_seconds,
-        check=False,
-    )
-    elapsed_seconds = round(time.perf_counter() - started, 3)
-    if completed.returncode != 0:
-        raise RuntimeError(
-            f"mcd query-batch failed with exit code {completed.returncode}: {completed.stderr.strip()}"
-        )
+def build_mcd_cli_tools_summary(mcd_path: Path) -> str:
+    manifest: dict[str, Any] = {}
     try:
-        payload = json.loads(completed.stdout)
-    except json.JSONDecodeError as exc:
-        raise RuntimeError(f"mcd query-batch returned non-JSON output: {completed.stdout[:500]}") from exc
-    return {
-        "command": command,
-        "elapsed_seconds": elapsed_seconds,
-        "stdout_bytes": len(completed.stdout),
-        "stderr": completed.stderr,
-        "payload": payload,
-    }
+        with zipfile.ZipFile(mcd_path) as package:
+            if "manifest.json" in package.namelist():
+                manifest = json.loads(package.read("manifest.json").decode("utf-8"))
+    except (OSError, zipfile.BadZipFile, json.JSONDecodeError):
+        manifest = {}
 
-
-def cli_batch_rows(batch_payload: dict[str, Any], index: int) -> list[dict[str, Any]]:
-    queries = batch_payload.get("queries", [])
-    if not isinstance(queries, list) or index >= len(queries):
-        return []
-    result = queries[index].get("result", {}) if isinstance(queries[index], dict) else {}
-    rows = result.get("rows", []) if isinstance(result, dict) else []
-    return [dict(row) for row in rows if isinstance(row, dict)]
-
-
-def build_mcd_cli_source_record(question: dict[str, Any], batch: dict[str, Any]) -> dict[str, Any]:
-    payload = batch["payload"]
-    example_rows = cli_batch_rows(payload, 0)
-    table_inventory_rows = cli_batch_rows(payload, 1)
-    matrix_rows = cli_batch_rows(payload, 2)
-    paragraph_rows = cli_batch_rows(payload, 3)
-    cell_rows = cli_batch_rows(payload, 4)
-    if not example_rows:
-        raise ValueError(f"MCD CLI materialization returned no example row for {question['example_id']}.")
-
-    rows_by_table: dict[int, list[dict[str, Any]]] = {}
-    for row in matrix_rows:
-        table_index = int(row["table_index"])
-        rows_by_table.setdefault(table_index, []).append(
-            {
-                "row_id": row.get("row_id"),
-                "row_index": row.get("row_index"),
-                "cells": compact_mcd_row_cells(row),
-            }
-        )
-
-    tables: list[dict[str, Any]] = []
-    for table in table_inventory_rows:
-        table_index = int(table["table_index"])
-        tables.append(
-            {
-                "source_table_id": table.get("source_table_id"),
-                "table_index": table_index,
-                "row_count": table.get("row_count"),
-                "max_column_count": table.get("max_column_count"),
-                "rows": rows_by_table.get(table_index, []),
-            }
-        )
-
-    cell_descriptions = [
+    tables = [
         {
-            "cell_ref": row.get("cell_ref"),
-            "table_index": row.get("table_index"),
-            "row_index": row.get("row_index"),
-            "col_index": row.get("col_index"),
-            "cell_text": row.get("cell_text"),
-            "cell_description": row.get("cell_description"),
+            "table": str(table.get("id")),
+            "data": table.get("data"),
+            "schema": table.get("schema"),
         }
-        for row in cell_rows
+        for table in manifest.get("tables", [])
+        if isinstance(table, dict) and table.get("id")
     ]
-    return {
-        "source_format": "mcd_cli_query_batch",
-        "example_id": question["example_id"],
-        "source_uid": example_rows[0].get("source_uid") or question.get("source_uid"),
-        "question": question["prompt"],
-        "paragraphs": [
-            {
-                "paragraph_index": row.get("paragraph_index"),
-                "paragraph_text": row.get("paragraph_text"),
-            }
-            for row in paragraph_rows
-        ],
-        "tables": tables,
-        "cell_descriptions": cell_descriptions,
-        "table_description": {
-            str(row["cell_ref"]): row.get("cell_description")
-            for row in cell_descriptions
-            if row.get("cell_ref") and row.get("cell_description")
+    return json.dumps(
+        {
+            "package": str(mcd_path),
+            "tables": tables,
+            "metadata_tables": ["mcd_tables", "mcd_columns", "mcd_primary_keys", "mcd_foreign_keys", "mcd_units"],
+            "note": (
+                "Manifest-only index. It intentionally does not include source rows, paragraphs, "
+                "or cell descriptions; retrieve only targeted evidence through MCD tools."
+            ),
         },
-        "_source_materialization": {
-            "tool_type": "cli",
-            "tool": "mcd query-batch",
-            "elapsed_seconds": batch["elapsed_seconds"],
-            "stdout_bytes": batch["stdout_bytes"],
-            "query_count": len(batch["payload"].get("queries", [])),
-        },
-        "_tool_calls": 1,
-    }
-
-
-def mcd_cli_source_queries(example_id: str) -> list[str]:
-    example = sql_literal(example_id)
-    columns = ", ".join(MCD_MATRIX_COLUMNS)
-    return [
-        (
-            "select example_id, source_uid, source_split, question "
-            "from multihiertt_examples "
-            f"where example_id = {example}"
-        ),
-        (
-            "select source_table_id, table_index, row_count, max_column_count "
-            "from multihiertt_source_tables "
-            f"where example_id = {example} "
-            "order by table_index"
-        ),
-        (
-            f"select row_id, source_table_id, table_index, row_index, {columns} "
-            "from multihiertt_table_rows "
-            f"where example_id = {example} "
-            "order by table_index, row_index"
-        ),
-        (
-            "select paragraph_index, paragraph_text "
-            "from multihiertt_paragraphs "
-            f"where example_id = {example} "
-            "order by paragraph_index"
-        ),
-        (
-            "select cell_ref, table_index, row_index, col_index, cell_text, cell_description "
-            "from multihiertt_cells "
-            f"where example_id = {example} "
-            "and cell_description is not null "
-            "and cell_description <> '' "
-            "order by table_index, row_index, col_index"
-        ),
-    ]
-
-
-def load_mcd_cli_source_records(
-    *,
-    mcd_path: Path,
-    questions: list[dict[str, Any]],
-    args: argparse.Namespace,
-) -> dict[str, dict[str, Any]]:
-    records: dict[str, dict[str, Any]] = {}
-    for question in questions:
-        batch = run_mcd_cli_query_batch(
-            mcd_cli=args.mcd_cli,
-            mcd_path=mcd_path,
-            queries=mcd_cli_source_queries(question["example_id"]),
-            timeout_seconds=args.cli_timeout_seconds,
-        )
-        records[question["example_id"]] = build_mcd_cli_source_record(question, batch)
-    return records
-
-
-def mcd_cli_source_note() -> str:
-    return (
-        "MCD CLI source-tool pack. The model-visible tools are conceptual, but their data is already included "
-        "below as materialized output from local `mcd query-batch`:\n"
-        "- mcd query-batch: source table inventory, table rows, paragraphs, and cell descriptions for this example.\n"
-        "- mcd query: exact SQL over `multihiertt_examples`, `multihiertt_source_tables`, "
-        "`multihiertt_table_rows`, `multihiertt_paragraphs`, and `multihiertt_cells`.\n"
-        "Use only the supplied MCD CLI source record. Reconstruct table headers from nearby rows before arithmetic; "
-        "cell descriptions are hints, not hidden evaluator labels."
+        ensure_ascii=False,
+        indent=2,
     )
 
 
@@ -1207,6 +1013,167 @@ def symbol(row: dict[str, Any] | None) -> str:
     return "PASS" if row["score"].get("passed") else "FAIL"
 
 
+def mcd_agent_table_map() -> str:
+    return (
+        "`multihiertt_source_tables` lists tables for an example. "
+        "`multihiertt_table_rows` has table rows as c0..c11 cells. "
+        "`multihiertt_paragraphs` has source text. "
+        "`multihiertt_cells` has optional cell text/descriptions."
+    )
+
+
+def mcd_agent_tool_protocol() -> str:
+    return (
+        "Return exactly one JSON object. To inspect data, return "
+        '{"mcp_tool":"mcd_query","arguments":{"sql":"SELECT ..."}}. '
+        "When done, return "
+        '{"answer":"requested answer value only"}. Use one read-only SELECT/WITH query at a time.'
+    )
+
+
+def mcd_agent_mode_guide() -> str:
+    return (
+        "Filter every query by the provided `example_id`. Usually inspect the table inventory first, then read "
+        "only the relevant table rows or paragraphs. Reconstruct headers from nearby rows before calculating."
+    )
+
+
+def make_mcd_cli_agent_prompt(
+    *,
+    mcd_summary_text: str,
+    mcp_status: dict[str, Any],
+    question: dict[str, Any],
+    observations: list[dict[str, Any]],
+) -> str:
+    payload = {
+        "id": question["id"],
+        "example_id": question["example_id"],
+        "source_uid": question.get("source_uid"),
+        "question": question["prompt"],
+    }
+    return (
+        "Answer the question using source text and tables in the MCD package.\n\n"
+        "Rules:\n"
+        f"{multihiertt_common_reasoning_rules()}\n\n"
+        "MCD tools:\n"
+        f"{mcd_agent_tool_protocol()}\n"
+        f"{mcd_agent_table_map()}\n\n"
+        "Source access:\n"
+        f"{mcd_agent_mode_guide()}\n\n"
+        "Package index:\n"
+        f"{mcd_summary_text}\n\n"
+        "Question:\n"
+        f"{json.dumps(payload, ensure_ascii=False, indent=2)}\n\n"
+        "Previous observations:\n"
+        f"{json.dumps(observations, ensure_ascii=False, indent=2)}"
+    )
+
+
+def simple_mcd_trace_observations(trace: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    observations: list[dict[str, Any]] = []
+    for item in trace:
+        action = item.get("action", {})
+        if "observation" not in item:
+            continue
+        record: dict[str, Any] = {
+            "step": item.get("step"),
+            "action": action,
+            "observation": item["observation"],
+        }
+        observations.append(record)
+    return observations
+
+
+def make_mcd_cli_agent_compact_prompt(
+    question: dict[str, Any],
+    trace: list[dict[str, Any]],
+    mcd_summary_text: str,
+) -> str:
+    observations = simple_mcd_trace_observations(trace)
+    payload = {
+        "id": question["id"],
+        "example_id": question["example_id"],
+        "source_uid": question.get("source_uid"),
+        "question": question["prompt"],
+    }
+    return (
+        "Continue answering the same question from the MCD source text and tables.\n\n"
+        "Rules:\n"
+        f"{multihiertt_common_reasoning_rules()}\n\n"
+        "MCD tools:\n"
+        f"{mcd_agent_tool_protocol()}\n"
+        f"{mcd_agent_table_map()}\n\n"
+        "Source access:\n"
+        f"{mcd_agent_mode_guide()}\n\n"
+        "Question:\n"
+        f"{json.dumps(payload, ensure_ascii=False, indent=2)}\n\n"
+        "Previous observations:\n"
+        f"{json.dumps(observations, ensure_ascii=False, indent=2)}"
+    )
+
+
+def make_mcd_cli_agent_followup_prompt(observation_record: dict[str, Any]) -> str:
+    return (
+        "Previous tool observation:\n"
+        f"{json.dumps(observation_record, ensure_ascii=False, indent=2)}\n\n"
+        f"{mcd_agent_tool_protocol()} Answer now if you have enough evidence; otherwise query the next needed rows."
+    )
+
+
+def install_mcd_cli_agent_prompt_patch() -> None:
+    mcd_eval.make_mcd_agent_prompt = make_mcd_cli_agent_prompt
+    mcd_eval.make_mcd_agent_compact_prompt = make_mcd_cli_agent_compact_prompt
+    mcd_eval.make_mcd_agent_followup_prompt = make_mcd_cli_agent_followup_prompt
+
+
+def run_mcd_cli_tools_mode(
+    *,
+    mcd_path: Path,
+    mcd_summary_text: str,
+    questions: list[dict[str, Any]],
+    config: ProviderConfig,
+    args: argparse.Namespace,
+) -> list[dict[str, Any]]:
+    rows = []
+    for index, question in enumerate(questions, start=1):
+        started = time.perf_counter()
+        answer, metadata, trace, error = mcd_eval.run_mcd_agent_question(
+            mcd_path=mcd_path,
+            mcd_summary_text=mcd_summary_text,
+            provider=config.name,
+            model=config.model,
+            question=model_question(question),
+            args=args,
+        )
+        row = {
+            "mode": "mcd_cli_tools",
+            "provider": config.name,
+            "model": config.model,
+            "question_index": index,
+            "question_id": question["id"],
+            "example_id": question["example_id"],
+            "family_id": question.get("family_id"),
+            "question": question["prompt"],
+            "expected_contains": question["expected_contains"],
+            "reference_answer": question["reference_answer"],
+            "evaluation_question": question["evaluation_question"],
+            "evaluation_hash": evaluation_hash(question["evaluation_question"]),
+            "answer": answer,
+            "predicted_program": [],
+            "score": None,
+            "error": error,
+            "metadata": metadata,
+            "trace": trace,
+            "tool_calls": mcd_eval.tool_calls_from_trace(trace),
+            "targeted_mcd_tools": True,
+            "elapsed_seconds": round(time.perf_counter() - started, 3),
+        }
+        row["score"] = score_or_none(answer, [], question, error, args.dry_run, args, config)
+        rows.append(row)
+        print(f"{config.name} mcd_cli_tools {index}/{len(questions)} {question['id']}: {status_label(row)}", flush=True)
+    return rows
+
+
 def run_source_mode(
     *,
     mode: str,
@@ -1436,12 +1403,12 @@ def write_summary(
         f"- Questions: `{len(questions)}` from `{args.questions_path}`",
         f"- Evaluator labels: `{args.answers_path}`",
         "- Evaluator: shared per-question payload from `answers.json`; both modes use the same evaluator hash.",
-        "- `mcd_cli_tools` materializes source data from the packed MCD file with local `mcd query-batch`, then gives the model one source-pack call.",
+        "- `mcd_cli_tools` uses targeted local MCD tool calls; it does not preload all table rows, paragraphs, or cell descriptions.",
         "- Native remote MCP mode (`mcd_tools`) is skipped for now.",
         f"- MCD CLI: `{args.mcd_cli}`",
         f"- MCD CLI available: `{mcd_eval.mcd_cli_status(args.mcd_cli)['available_on_path_or_filesystem']}`",
         "- `original_tools` gives the model original JSON/table conceptual tool contracts plus pre-materialized parsed source data.",
-        "- `Tool calls` counts local MCD CLI query-batch materialization calls for `mcd_cli_tools`; `original_tools` is one-shot and should remain zero by design.",
+        "- `Tool calls` counts model-requested targeted MCD tool calls for `mcd_cli_tools`; `original_tools` is one-shot and should remain zero by design.",
         f"- Modes: `{', '.join(modes)}`",
         f"- Scoring mode: `{args.scoring_mode}`",
         "",
@@ -1524,11 +1491,9 @@ def main() -> int:
             raise ValueError("--questions must be a positive integer.")
         questions = questions[: args.questions]
 
-    mcd_cli_source_records_by_example_id = (
-        load_mcd_cli_source_records(mcd_path=args.mcd_path, questions=questions, args=args)
-        if "mcd_cli_tools" in modes
-        else {}
-    )
+    if "mcd_cli_tools" in modes:
+        install_mcd_cli_agent_prompt_patch()
+    mcd_summary_text = build_mcd_cli_tools_summary(args.mcd_path) if "mcd_cli_tools" in modes else ""
     original_records_by_example_id = (
         load_original_records(args.original_dir, args.original_json, questions)
         if "original_tools" in modes
@@ -1573,8 +1538,8 @@ def main() -> int:
             "judge_model": args.judge_model,
             "mode_profiles": {
                 "mcd_cli_tools": (
-                    "single model call with MCD source data pre-materialized by local `mcd query-batch`; "
-                    "native remote MCP mode is skipped"
+                    "targeted local MCD tool loop; no preloaded multihiertt_table_rows, multihiertt_paragraphs, "
+                    "or full multihiertt_cells cell-description dump"
                 ),
                 "original_tools": (
                     "single model call with original JSON conceptual tools and pre-materialized parsed "
@@ -1602,10 +1567,9 @@ def main() -> int:
     for config in configs:
         for mode in modes:
             if mode == "mcd_cli_tools":
-                rows = run_source_mode(
-                    mode="mcd_cli_tools",
-                    source_records_by_example_id=mcd_cli_source_records_by_example_id,
-                    source_access_note=mcd_cli_source_note(),
+                rows = run_mcd_cli_tools_mode(
+                    mcd_path=args.mcd_path,
+                    mcd_summary_text=mcd_summary_text,
                     questions=questions,
                     config=config,
                     args=args,
